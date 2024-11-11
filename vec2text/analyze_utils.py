@@ -190,7 +190,17 @@ def load_experiment_and_trainer_from_pretrained(name: str, use_less_data: int = 
     training_args.mock_embedder = False
     training_args.output_dir = "saves/" + name.replace("/", "__")
     ########################################################################
-
+    
+    print("+++ model_args +++")
+    print(model_args)
+    print()
+    print("+++ data_args +++")
+    print(data_args)
+    print()
+    print("+++ training_args +++")
+    print(training_args)
+    print()
+    
     experiment = experiments.experiment_from_args(model_args, data_args, training_args)
     trainer = experiment.load_trainer()
     trainer.model = trainer.model.__class__.from_pretrained(name)

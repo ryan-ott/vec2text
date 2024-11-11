@@ -41,12 +41,12 @@ def get_corrector(model_name: str) -> vec2text.models.CorrectorEncoderModel:
 def main(args):
     corrector = get_corrector(args.model)
     embeddings = get_embeddings_openai(args.text)
-    text = vec2text.invert_embeddings(
+    output_text = vec2text.invert_embeddings(
         embeddings=embeddings.cuda(),
         corrector=corrector,
     )
-    print(text)
-    print(type(text))
+    print(output_text)
+    print(type(output_text))
 
 
 if __name__ == "__main__":
