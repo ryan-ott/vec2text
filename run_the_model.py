@@ -4,7 +4,7 @@ import torch
 from openai import OpenAI
 import math
 
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = ""  # Set your API key here 
 
 def get_embeddings_openai(text_list, model="text-embedding-ada-002") -> torch.Tensor:
     client = OpenAI()  # Initialize client
