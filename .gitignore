@@ -1,6 +1,6 @@
 __pycache__/
 
-slurm-*.out
+*.out
 *cache/
 *.p
 .ipynb_checkpoints/
@@ -18,3 +18,4 @@ msmarco_msl128_hypotheses/
 saves/
 slurm-scripts/
 wandb/
+datasets/

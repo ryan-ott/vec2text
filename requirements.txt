@@ -13,3 +13,5 @@ tenacity
 tokenizers
 tqdm
 transformers
+halo
+beir
