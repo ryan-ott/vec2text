@@ -15,4 +15,5 @@ module load Anaconda3/2022.05
 source /home/scur2868/IR2/v2t-env/bin/activate
 cd /home/scur2868/IR2/vec2text/
 
-python reproduce.py
+# model options:  jxm/gtr__nq__32__correct  or  jxm/vec2text__openai_ada002__msmarco__msl128__corrector
+python reproduce.py --model jxm/vec2text__openai_ada002__msmarco__msl128__corrector --steps 50 --beam-width 8
