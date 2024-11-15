@@ -1,5 +1,7 @@
 import argparse
 import nltk
+import time
+import tracemalloc
 from vec2text import analyze_utils
 
 def main(args):
@@ -41,10 +43,15 @@ def main(args):
     print("trainer.num_gen_recursive_steps:", trainer.num_gen_recursive_steps)
     print("trainer.sequence_beam_width:", trainer.sequence_beam_width)
     print("Model name:", args.model)
+    tracemalloc.start()
+    start = time.time()
     trainer.evaluate(
-        eval_dataset=train_datasets["validation"]  # TODO: maybe change this to val_datasets?
+        eval_dataset=train_datasets["validation"]
     )
-
+    print("Time taken:", time.time() - start)
+    current, peak = tracemalloc.get_traced_memory()
+    print(f"Current memory usage: {current / 10**6}MB; Peak: {peak / 10**6}MB")
+    tracemalloc.stop()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

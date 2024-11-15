@@ -5,8 +5,8 @@
 #SBATCH --job-name=Reproduce
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
-#SBATCH --time=04:00:00
-#SBATCH --output=/home/scur2868/IR2/vec2text/scripts/outputs/reproduce_%A.out
+#SBATCH --time=07:00:00
+#SBATCH --output=/home/scur2868/IR2/vec2text/scripts/outputs/repro_T1_%A.out
 
 module purge
 module load 2022
@@ -16,4 +16,10 @@ source /home/scur2868/IR2/v2t-env/bin/activate
 cd /home/scur2868/IR2/vec2text/
 
 # model options:  jxm/gtr__nq__32__correct  or  jxm/vec2text__openai_ada002__msmarco__msl128__corrector
-python reproduce.py --model jxm/vec2text__openai_ada002__msmarco__msl128__corrector --steps 50 --beam-width 8
+python reproduce.py --model jxm/gtr__nq__32__correct --steps 0 --beam-width 1 > scripts/outputs/repro_T1_gtr-0steps-1beam.log
+python reproduce.py --model jxm/gtr__nq__32__correct --steps 1 --beam-width 1 > scripts/outputs/repro_T1_gtr-1steps-1beam.log
+python reproduce.py --model jxm/gtr__nq__32__correct --steps 20 --beam-width 1 > scripts/outputs/repro_T1_gtr-20steps-1beam.log
+python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 1 > scripts/outputs/repro_T1_gtr-50steps-1beam.log
+python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 2 > scripts/outputs/repro_T1_gtr-50steps-2beam.log
+python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 4 > scripts/outputs/repro_T1_gtr-50steps-4beam.log
+python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 8 > scripts/outputs/repro_T1_gtr-50steps-8beam.log
