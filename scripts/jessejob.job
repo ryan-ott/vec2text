@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gpus=1
+#SBATCH --job-name=Reproduce
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --time=07:00:00
+#SBATCH --output=/home/scur2868/IR2/vec2text/scripts/outputs/repro_T1_%A.out
+
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source /home/scur2868/IR2/v2t-env/bin/activate
+cd /home/scur2868/IR2/vec2text/
+
+# Navigate to your working directory
+cd $HOME/vec2text
+
+python jesse_test.py
+# python setup.py build
+# python setup.py install
+
