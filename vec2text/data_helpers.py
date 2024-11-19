@@ -1,5 +1,5 @@
 import logging
-import os
+import os, pathlib
 import random
 from typing import Dict, List
 
@@ -151,11 +151,13 @@ def load_beir_corpus(name: str) -> List[str]:
 
     #### Download scifact.zip dataset and unzip the dataset
     beir_datasets_cache_dir = "/home/jxm3/research/retrieval/distractor_exp"
+    
 
     url = "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/{}.zip".format(
         name
     )
-    out_dir = os.path.join(beir_datasets_cache_dir, "datasets")
+    # out_dir = os.path.join(beir_datasets_cache_dir, "datasets")
+    out_dir = os.path.join(pathlib.Path(__file__).parent.absolute(), "datasets")
     data_path = beir_util.download_and_unzip(url, out_dir)
 
     # Limit each corpus to first 100k documents.
