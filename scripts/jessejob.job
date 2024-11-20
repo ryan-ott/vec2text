@@ -5,20 +5,25 @@
 #SBATCH --job-name=Reproduce
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
-#SBATCH --time=07:00:00
-#SBATCH --output=/home/scur2868/IR2/vec2text/scripts/outputs/repro_T1_%A.out
+#SBATCH --time=20:00:00
+#SBATCH --output=/home/scur0989/vec2text/scripts/outputs/repro_T2_2k%A.out
 
 module purge
 module load 2022
 module load Anaconda3/2022.05
 
-source /home/scur2868/IR2/v2t-env/bin/activate
-cd /home/scur2868/IR2/vec2text/
+source /home/scur0989/v2t-env/bin/activate
+cd /home/scur0989/vec2text/
 
-# Navigate to your working directory
-cd $HOME/vec2text
+# python jesse_test.py > scripts/outputs/jessetest.log
 
-python jesse_test.py
-# python setup.py build
-# python setup.py install
+# model options:  jxm/gtr__nq__32__correct  or  jxm/vec2text__openai_ada002__msmarco__msl128__corrector
+# python reproduce.py --model jxm/gtr__nq__32__correct --steps 0 --beam-width 1 > scripts/outputs/repro_T1_gtr-0steps-1beam.log
+# python reproduce.py --model jxm/gtr__nq__32__correct --steps 1 --beam-width 1 > scripts/outputs/repro_T1_gtr-1steps-1beam.log
+# python reproduce.py --model jxm/gtr__nq__32__correct --steps 20 --beam-width 1 > scripts/outputs/repro_T1_gtr-20steps-1beam.log
+# python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 1 > scripts/outputs/repro_T1_gtr-50steps-1beam.log
+# python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 2 > scripts/outputs/repro_T1_gtr-50steps-2beam.log
+# python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 4 > scripts/outputs/repro_T1_gtr-50steps-4beam.log
+# python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 8 > scripts/outputs/repro_T1_gtr-50steps-8beam.log
 
+python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 8 --beir_dataset quora --max_samples 2000 > scripts/outputs/repro_T2_gtr-50steps-8beam_2ksamples.log
