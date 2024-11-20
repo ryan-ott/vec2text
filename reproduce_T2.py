@@ -39,6 +39,7 @@ def main(args):
             max_length=trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
+        print(f"Model tokens max_length: {model_tokens['input_ids'].size(-1)}")
         
         # Tokenize with the embedder's tokenizer
         embedder_tokens = trainer.embedder_tokenizer(
@@ -48,6 +49,7 @@ def main(args):
             max_length=trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
+        print(f"Embedder tokens max_length: {embedder_tokens['input_ids'].size(-1)}")
         
         return {
             "input_ids": model_tokens["input_ids"],
@@ -62,8 +64,8 @@ def main(args):
         batched=True,
         remove_columns=dataset.column_names,
         desc="Tokenizing dataset",
-    )    
-
+    )
+    
     
     # Set evaluation parameters
     trainer.args.per_device_eval_batch_size = args.batch_size
