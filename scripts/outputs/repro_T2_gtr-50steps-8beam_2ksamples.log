@@ -1,0 +1,951 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='quora', beam_width=8, steps=50, batch_size=16, max_samples=2000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: quora
+Original dataset size: 100000
+Selected first 2000 samples from the dataset.
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 2000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] What is the office culture and woking at patanjali office, haridwar    
+[true] What is the office culture and woking at Patanjali office, haridwar?
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] Any way to identify genuine JBL speakers sold in the market is that there are fake JBL speakers     ?
+[true] Is there some way to identify genuine JBL speakers, as fake JBL speakers are also sold in market?
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] Top TV Shows           Are there a must-watch
+[true] Are there any must watch TV shows?
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Are there people in India who are willing to give free lectures or conduct free workshops at       College?
+[true] Are there People who are willing to give free lectures or conduct free workshop in India colleges?
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred]           which are inventions from the Neolithic Age 
+[true] What are some inventions from the Neolithic Age?
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred]             Why do you not answer Quor
+[true] Why nobody answer my questions in Quora?
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred]            What I feel is the purpose of life 
+[true] What do you feel is the purpose of life?
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] food that you should eat in order to gain weight          
+[true] What food should I eat to gain weight?
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] Why do          Facebook Messenger uses long polling over WebSocket
+[true] Why does Facebook Messenger use long polling over WebSockets?
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred]             Can an auto immune disease cause insomnia
+[true] Can an auto immune disease cause insomnia?
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred]          What are the non-invasive blood glucose monitoring systems abroad? 
+[true] What are the non-invasive blood glucose monitoring systems abroad?
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] Movies that every person in the world needs to see at least once in order to complete their life, The Movies Taczer Donuts 
+[true] What are some movies that everyone needs to watch at least once in life?
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred]           At the age of 17 someone should lose their virginity
+[true] At what age should someone lose their virginity?
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred]            Does GTA IV work in Windows 7?
+[true] Does GTA IV work in Windows 7?
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred]           How much is 30 kV in HP? 
+[true] How much is 30 kV in HP?
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred]          What do you need to start your own private equity firm? 
+[true] What do you need to start your own private equity firm?
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred]            How do sports contribute to the society? 
+[true] How do sports contribute to the society?
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred]           What is the best classical piece of all time, music
+[true] What's the best classical music piece of all time?
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred]            What book you start in for GATE preparation
+[true] What book do I start with for GATE preparation?
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] What is the best way to invest $500 legally so that you can get tangible profits in that amount over a relatively short period, like 6 months?
+[true] What is the best way to invest $500 legally so that I can get tangible profits over a relatively short period of time, say 6 months?
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] Am I can withdraw money from branches of bank from any particular bank.I have my Baroda bank card & cheque book with no atm
+[true] Can I withdraw my money from any branch of particular bank .my bank is bank of Baroda I have no Atm card and cheque book
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred]             What is mutual fund all about 
+[true] What is mutual fund all about?
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] why does            (1!) factorial zero equals
+[true] Why does zero factorial (0!) equal one (1)?
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] basic safety precautions to be taken when handling shotguns proposed by the NRA in Alaska      
+[true] What are the safety precautions on handling shotguns proposed by the NRA in Alaska?
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred]          What is an alternative for the word "is"? 
+[true] What is an alternative for the word "is"?
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] how much          What should you feed your 3 months old raven with
+[true] How much and with what should I feed my 3 months old raven?
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] The disadvantages of listing a company in NSE          
+[true] What are the disadvantages of listing a company in NSE?
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] how do you speak English            In Fluentl
+[true] HOw do I speak Fluent English?
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] Why do technical employees despise sales people so much?         
+[true] Why do technical employees despise sales people so much?
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] If Frances Farmer (the actress) was still around today, what would she think about     Donald Trump?
+[true] If Frances Farmer (the actress) was still around today, what would she think about Donald Trump?
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred]             How do you learn to sing from
+[true] How do I learn how to sing?
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred]             What are the types of immunity 
+[true] What are the types of immunity?
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] What it is like to be a private banker          
+[true] What is it like to be a private banker?
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred]           What are the differences between computer science and computer engineering 
+[true] What are the differences between computer science and computer engineering?
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] Does there be any architectural complex/center/forum/hub anywhere in the world?   As a third space.
+[true] Is there any architectural complex/center/forum/hub anywhere in the world? As a third space.
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred]      What is the stall speed and AOA of an f-14 with wings fully swept back?
+[true] What is the stall speed and AOA of an f-14 with wings fully swept back?
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] What will be the effect of the ban of the  1000rs and  500rs notes on the stock market   
+[true] What will be the effect of the ban of the 1000rs and 500rs notes on the stock market?
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] What you think about my short film, 'ColorShift',       
+[true] What do you think about my short film, "ColorShift"?
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] How a new book 'Harry Potter and the Cursed Child' is       
+[true] How is the new Harry Potter book 'Harry Potter and the Cursed Child'?
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred]           Have you ever heard of travel hacking? 
+[true] Have you ever heard of travel hacking?
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred]            What is the fastest production car  
+[true] What is the fastest production car?
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred]       What is a way to design a beautiful user interface?
+[true] What is a way to design a beautiful user interface?
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred]              Why should I live?
+[true] Why should I live?
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] Honest review of           Dangal (2016 movie) is
+[true] What is your honest review of Dangal (2016 movie)?
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred]            How do you become an attractive girl 
+[true] How do I become an attractive girl?
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] What universities does B&G Foods recruit new grads from? What majors are they looking for?    
+[true] What universities does B&G Foods recruit new grads from? What majors are they looking for?
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred]           5 facts are known about the Earth's crust,
+[true] What are 5 facts about the earth's crust?
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] find out that I am a bisexual and I am a bestie from middle school. There are a lot of girls friends. How
+[true] I'm a girl in middle school. My best friends are all girls. I've found out that I'm bisexual. How do
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred]           What are the rights of a prisoner 
+[true] What are the rights of a prisoner?
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] Reviews of "Love in Thoughts (2004 movie)          
+[true] What is your review of Love in Thoughts (2004 movie)?
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred]              Why do people collect things
+[true] Why do people collect things?
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred]             Is Textile Engineering Good 
+[true] Is Textile Engineering Good?
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred]             Should you get the new Macbook
+[true] Should I get the new Macbook Pro?
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred]             Why do we hate our sisters?
+[true] Why do we hate our sisters?
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred]           Can a dog vaccine be used for rabies
+[true] Can rabies vaccine for humans be used for dog?
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred]          What year did the letter J   come?
+[true] What year did the letter J come?
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred]            What is the best fiction novel of 2016 
+[true] Which is the best fiction novel of 2016?
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] Which one is better amongst KMC Manipal and KMC Mangalore       
+[true] Which one is better among KMC Manipal and KMC Mangalore?
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred]            Should learn first about C# or C++
+[true] Which should I learn first: C++ or C#?
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] How do we avoid whey in Yogurt?         
+[true] How do we avoid whey in Yogurt?
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] National Institute of Technology, Kurukshetra: How is the social life at   NITK, Surathkal? 
+[true] National Institute of Technology, Kurukshetra: How is the social life at NITK, Surathkal?
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] Where can you get quality cleaning services for         paint removal in Chatswood and
+[true] Where can I get quality services for cleaning paint and paint removal in Chatswood?
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] what parallel gods we can draw between Hinduism, Greek mythology, Egyptian mythology (    ) and
+[true] What parallelism can we draw between gods of Hindu mythology, Greek mythology, Egyptian mythology, etc.?
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] What universities does Sigma Designs recruit new grads from? What majors they are looking for?      
+[true] What universities does Sigma Designs recruit new grads from? What majors are they looking for?
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] How do you upload movies on YouTube and monetize them? Is there any issue of copyright     
+[true] How do you upload movies on YouTube and monetize them? Is there any issue of copyright
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] How hard it was for Jimmy Wales to immigrate to the UK     ? 
+[true] How hard was it for Jimmy Wales to immigrate to the UK?
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] Flowers:         What is vaiijanti?
+[true] Flowers: What is vaijanti?
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred]         Did you find the ending of the novel "1984" depressing?
+[true] Did you find the ending of the novel "1984" depressing?
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] How does there seem to be a difference between the yearly paychecks you work and the weekly salary that your employer agreed on? If so, 
+[true] There seems to be a difference between my weekly paycheck and the yearly salary my employer agreed upon, how does that work?
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] If Hillary Clinton can no longer serve as the Democratic nominee       how would her successor be chosen? 
+[true] If Hillary Clinton can no longer serve as the Democratic nominee how would her successor be chosen?
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred]              Do you need friends?
+[true] Do you need friends?
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] What behavioral adaptations red pandas have            
+[true] What behavioral adaptations do red pandas have?
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] How did Lucifer and Gabrielle relate to each other          
+[true] How did Lucifer and Gabrielle relate to each other?
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred]             where you can buy clothes in bulk
+[true] Where can I buy cheap clothes in bulk?
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred]   Is there a way to purchase a phone on EMI via Flipkart with only a debit card? How 
+[true] Is there any way to purchase a phone on EMI via Flipkart with only a debit card? How?
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred]          Yes, Donald Trump has a chance at winning presidency
+[true] Does Trump have a chance at winning presidency?
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] How do people die?             
+[true] How do people die?
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred]           How can you become more fluent in Chinese 
+[true] How can I become more fluent in Chinese?
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] When we get the Letter of Intent in Asahi Glass, we will get the Letter of Call letter after India Recruitment Application or
+[true] When will we get the Call Letter after we get the Letter of Intent in Asahi India Glass recruitment?
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] If a single woman was elected President of the United States, she would have a First Lady   or a First Gentleman 
+[true] If a single woman were elected President of the United States, would she have a First Lady or First Gentleman?
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] What is the best way to reduce pollution in india           
+[true] What is the best way to reduce pollution in india?
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] What are the main imports and exports of Venezuela's   , and how does Venezuela's industry compare to Cuba?
+[true] What are the main imports and exports of Venezuela, and how does Venezuela's industry compare to Cuba's?
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred]            Will Donald Trump support Ted Cruz for president?
+[true] Will Donald Trump support Ted Cruz for president?
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] How can I efficiently learn while sleeping?            
+[true] How can I efficiently learn while sleeping?
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred]            Have cavemen been scientifically tested? 
+[true] Have cavemen been scientifically tested?
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred]          Do you see the list of who shares the most ordered mutual friends
+[true] Can I see an ordered list of the people with whom I share the most mutual friends on Facebook?
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] Who is the most powerful character in          Skyrim apart from Aldu
+[true] Who is the most powerful character in Skyrim apart from Alduin?
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred]       Why does Oberon punish Titania in "A Midsummer Night's Dream"
+[true] Why does Oberon punish Titania in "A Midsummer Night's Dream"?
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] each          Describe how you would test a mineral for these properties
+[true] Briefly describe how you would test a mineral for each of these properties?
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred]            which have the best deep bass under 1000 
+[true] Which is the best earphone with deep bass under 1000?
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] how to work on a Yaph or Skype phone that is able to work on Android, you need to install Android 4.2.1 to work on
+[true] How could I get Skype to work on an android 4.1.1 phone?
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred]          What does it mean to hike up your skirt?  
+[true] What does it mean to hike up your skirt?
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] If firing a bullet from an aircraft going backwards, will the bullet go backwards faster than the bullet?   
+[true] If I fire a bullet backward from an aircraft going faster than the bullet; will the bullet be going backwards?
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred]            How do you get deleted Instagram chats?
+[true] How do you get deleted Instagram chats?
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred]            Do girls get crushes on their male
+[true] Do girls get crushes on their male teachers?
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] How the GST affects           and tax officers of cas
+[true] How GST affects the CAs and tax officers?
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred]             How to make friends of other people
+[true] How to make friends ?
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] exam) have given correct answer in 2nd course statement.But taking unc statement is wrong in all CE predilims. In 2016 it
+[true] You have given all statement as correct in UNCCD question in CSE prelim 2016. While many coachings have taken 2nd statement as wrong.?
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] If Israel and Iran went to war, who would win          
+[true] If Israel and Iran went to war, who would win?
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred]             How does an ATM transaction work 
+[true] How does ATM transaction work?
+--------------------------------------------------
+
+
+{'eval_loss': 11.236907005310059, 'eval_model_preparation_time': 0.0197, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 15.125, 'eval_token_set_precision': 0.7527618732589504, 'eval_token_set_recall': 0.8297100264629773, 'eval_token_set_f1': 0.7827429469893055, 'eval_token_set_f1_sem': np.float64(0.004597730252695735), 'eval_n_ngrams_match_1': 9.2395, 'eval_n_ngrams_match_2': 6.729, 'eval_n_ngrams_match_3': 5.2155, 'eval_num_true_words': 12.1955, 'eval_num_pred_words': 11.494, 'eval_bleu_score': np.float64(55.82940134318472), 'eval_bleu_score_sem': np.float64(0.7467777832228063), 'eval_rouge_score': np.float64(0.8417384950524833), 'eval_exact_match': np.float64(0.0135), 'eval_exact_match_sem': np.float64(0.002581124968507245), 'eval_emb_cos_sim': 0.9245386123657227, 'eval_emb_cos_sim_sem': np.float64(0.024323007091879845), 'eval_emb_top1_equal': 0.5625, 'eval_emb_top1_equal_sem': np.float64(0.1280868798494339), 'eval_runtime': 47882.3054, 'eval_samples_per_second': 0.042, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 11.236907005310059
+eval_model_preparation_time: 0.0197
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 15.125
+eval_token_set_precision: 0.7527618732589504
+eval_token_set_recall: 0.8297100264629773
+eval_token_set_f1: 0.7827429469893055
+eval_token_set_f1_sem: 0.004597730252695735
+eval_n_ngrams_match_1: 9.2395
+eval_n_ngrams_match_2: 6.729
+eval_n_ngrams_match_3: 5.2155
+eval_num_true_words: 12.1955
+eval_num_pred_words: 11.494
+eval_bleu_score: 55.82940134318472
+eval_bleu_score_sem: 0.7467777832228063
+eval_rouge_score: 0.8417384950524833
+eval_exact_match: 0.0135
+eval_exact_match_sem: 0.002581124968507245
+eval_emb_cos_sim: 0.9245386123657227
+eval_emb_cos_sim_sem: 0.024323007091879845
+eval_emb_top1_equal: 0.5625
+eval_emb_top1_equal_sem: 0.1280868798494339
+eval_runtime: 47882.3054
+eval_samples_per_second: 0.042
+eval_steps_per_second: 0.003
+Time taken: 47883.170229673386
+Current memory usage: 19.38MB; Peak: 24.09MB

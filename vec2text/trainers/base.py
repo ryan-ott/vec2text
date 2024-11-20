@@ -395,14 +395,14 @@ class BaseTrainer(transformers.Trainer):
 
         if not len(decoded_preds):
             return {}
-        print("[pred]", decoded_preds[0])
-        print("[true]", decoded_labels[0])
-        print("\n\n")
-        print("[pred]", decoded_preds[1])
-        print("[true]", decoded_labels[1])
-        print("\n\n")
-        print("[pred]", decoded_preds[2])
-        print("[true]", decoded_labels[2])
+        print("\n=== Prediction-Label Pairs ===")
+        for i in range(100):
+            print(f"\nPair #{i+1}")
+            print("-" * 50)
+            print(f"[pred] {decoded_preds[i]}")
+            print(f"[true] {decoded_labels[i]}")
+            print("-" * 50)
+        print("\n")
 
         # Compute sims of eval data using embedder.
         preds_sample = torch.tensor(preds_sample_list, device=self.args.device)[:128]
