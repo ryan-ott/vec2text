@@ -270,8 +270,12 @@ class Corrector(BaseTrainer):
 
         num_recursive_steps = num_recursive_steps or self.num_gen_recursive_steps
         sequence_beam_width = sequence_beam_width or self.sequence_beam_width
-        num_recursive_steps_so_far = 0
 
+        # *** Added by Ryan to run base case (steps=0) ***
+        if num_recursive_steps == 0:
+            return hypothesis_input_ids
+
+        num_recursive_steps_so_far = 0
         total_best_scores_seen = None  # Track best scores for early stopping
 
         while num_recursive_steps >= 1:
