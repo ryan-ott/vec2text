@@ -3,6 +3,7 @@ import nltk
 import time
 import tracemalloc
 import os
+import random
 from vec2text import analyze_utils, data_helpers
 import pandas as pd
 
@@ -26,8 +27,17 @@ def main(args):
     # Optionally, limit the dataset size for faster evaluation
     if args.max_samples:
         print(f"Original dataset size: {len(dataset)}")
-        dataset = dataset.select(range(args.max_samples))
-        print(f"Selected first {args.max_samples} samples from the dataset.")
+        
+        # Set random seed for reproducibility
+        random.seed(42) 
+        
+        # Get random indices
+        indices = random.sample(range(len(dataset)), args.max_samples)
+        
+        # Select random samples
+        dataset = dataset.select(indices)
+        
+        print(f"Randomly selected {args.max_samples} samples from the dataset.")
 
     # Tokenize the dataset with both tokenizers (model tokenizer and embedder tokenizer)
     def tokenize_function(examples):
