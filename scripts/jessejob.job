@@ -26,4 +26,4 @@ cd /home/scur0989/vec2text/
 # python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 4 > scripts/outputs/repro_T1_gtr-50steps-4beam.log
 # python reproduce.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 8 > scripts/outputs/repro_T1_gtr-50steps-8beam.log
 
-python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 8 --beir_dataset quora --max_samples 1000 > scripts/outputs/repro_T2_gtr-50steps-8beam_ms_marco_2ksamples.log
+python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 8 --beir_dataset signal1m --max_samples 1000 > scripts/outputs/repro_T2_gtr-50steps-8beam_signal1m_1ksamples.log

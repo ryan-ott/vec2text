@@ -45,9 +45,11 @@ def main(args):
     print("Model name:", args.model)
     tracemalloc.start()
     start = time.time()
+    
     trainer.evaluate(
         eval_dataset=train_datasets["validation"]
     )
+    
     print("Time taken:", time.time() - start)
     current, peak = tracemalloc.get_traced_memory()
     print(f"Current memory usage: {current / 10**6}MB; Peak: {peak / 10**6}MB")
