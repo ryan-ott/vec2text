@@ -200,11 +200,11 @@ def load_beir_dataset(name: str) -> datasets.Dataset:
     dataset_path = os.path.join(cache_path, "emb_inv_beir", name)
     # print(f"loading BEIR dataset: {name}")
     if os.path.exists(dataset_path):
-        logging.info("Loading BEIR dataset %s path %s", dataset_path)
+        logging.info("Loading BEIR dataset %s path %s", dataset_path, dataset_path)
         dataset = datasets.load_from_disk(dataset_path)
     else:
         logging.info(
-            "Loading BEIR dataset %s from JSON (slow) at path %s", dataset_path
+            "Loading BEIR dataset %s from JSON (slow) at path %s", dataset_path, dataset_path
         )
         corpus = load_beir_corpus(name=name)
         dataset = datasets.Dataset.from_list([{"text": t} for t in corpus])

@@ -1,0 +1,952 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='webis-touche2020', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur2868/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur2868/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: webis-touche2020
+Original dataset size: 100000
+Randomly selected 1000 samples from the dataset.
++++ Trainer Args Passed +++
+num_gen_recursive_steps: 50
+sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+Running evaluation...
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred]                
+[true] Yep -____-
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] Forfeiture is inexcusable, so I take some time to announce I will be offline for quite some time now. Voters
+[true] Forfeiture is inexcusable, so I take the time now to announce I will be offline for quite some time. Voters
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] wasn't. You're illustrating my point. Killing life is destruction of a person's life that is done to short
+[true] You really need to work on your reading comprehension, bud. I was illustrating the point that killing IS destruction of life, not 'short
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Communism is good in theory, but bad in practice. There are many variations of communism, but I will be focusing on socialis
+[true] Communism is good in theory, but bad in practice. There are many variations of communism, but I will be focusing on socialis
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] First of all, I'm going to go along with arguing pro Syrian government sides. From the Syrian government's side onward, we in
+[true] I will of course be arguing pro Syrian government. Now first let's get the sides out of the way. On Syria's government side we
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] I cannot extend my arguments any further. My opponent has forfeited and therefore my arguments still stand.     
+[true] I cannot extend my arguments any further. My opponent has forfeited and therefore my arguments still stand.
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] I only congratulate my opponent on posting his argument. Having come so close to losing without actually forfeiting seems to be an accomplishment of seconds.
+[true] I congratulate my opponent on posting his argument with only seconds to spare. To come so close to losing without actually forfeiting is quite an accomplishment.
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] A woman should be forced to give birth if the alternative is a fetus dying. It's better if the woman endure
+[true] A woman should be forced to give birth if the alternative is a fetus dying. It's better if the woman endure
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] Disagree              
+[true] Disagree
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] pro As noted above, I have accepted the positive claim and I am preparing to debate it. I thank vi.spex for having the full
+[true] I accept. I thank vi_spex for this debate. I would like to note that as Pro is making the positive claim, they have full
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] 1, and so on. Let me reiterate that I support Marijuana legalization, as it will dramatically increase drug consumption, and
+[true] Oh, and let it be on the record that I support Marijuana legalization.1. It will dramatically increase drug consumption, and thereby,
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] Also my opponent posted a further set of links correct to the homepage of their respective sites, but would like to see if she reposses them first
+[true] Also, the links my opponent posted lead only to the homepage of their respective sites, I would appreciate it if she would repost the correct ones next
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] And that's not my point, I will not answer this question. I will not answer the question that made defences, that is we cannot fully
+[true] So your point of me making defences is irrelevant. You did not answer my question. This is not a defence, just saying that we cannot fully
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] You guys can't, you guys wouldn't even be fighting against France. Come on brother, don't you? We'll advance beating
+[true] You're goin' to pick this fight with us and expect to advance? Stop dreaming brother, you guys couldn't even beat France If
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] fear that is certain only          if you knew it then you might
+[true] fear only that which is certainif you knew it you wouldnt say maybe
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] I just want to inform my opponent that I am a hairdresser. I don't say I was stupid yet they just cut hair! As
+[true] I would like to inform my opponent that I am a hairdresser and I'm NOT stupid. Hey they just cut hair!? As I
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] You have not supplied me with topics to argue about. You have clearly pointed out that the debate is a VERY special one. It is clear that
+[true] I have clearly pointed out that the debate is a special one. You have NOT supplied me ANY topics to argue about. It is very clear that that
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred] I, however, am not a Christian and don't think you will make a conventional argument that a Christian would make, so it allows
+[true] I however am not a Christian, so I don't think I will make a conventional argument that a Christian would make, and it allows
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] Pro makes an irrelevant comment as to the point that there was no religious discrimination practiced by the Bush Administration at GITMO. Pro conceded that
+[true] Pro seems to concede the point that there was no religious discrimination practiced by the Bush Administration at GITMO. Pro makes the irrelevant comment that there
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] I was expecting to post only one real case, though it will be a waste of time and a vain debate. /po
+[true] I was expecting a real debate, but in vain. I will only post one case as anything else would be a waste of time:C
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] James and Lily just wanted Harry to know that they loved   , and would continue to love him even profoundly after death.
+[true] James and Lily just wanted Harry to know that they loved and would continue to love him profoundly, even after death.
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred] I don't think this will be interesting as it won't be that boring till it gets on the main page. About 5 people will look at
+[true] I don't think this will be interesting. It will be so boring that by the time it gets on the main page maybe 5 people will look at
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] I also look forward to a debate on this topic. The Truth may prevail. pl> pl> Hello
+[true] Hello! I look forward to debating this topic with you. May the Truth prevail.
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] 1. Contrary to what I said and Pro’s claims, there is not a fast, hard, fixed marginal productivity for each worker on the other
+[true] 1. Contrary to Pro’s claims, I never said that there is a fixed, hard and fast marginal productivity for each worker, or that other
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] assuming it to be one of the Nov/Dec 2013 LD topics. "In the United States criminal justice system, truth-seeking 
+[true] I'm going to assume this is the Nov/Dec 2013 LD topic: "In the United States criminal justice system, truth-seeking
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] My opponent concedes that my argument is both valid and sound, and attempts to escape its inevitable conclusion by a series of arguments that are little more than
+[true] My opponent concedes that my argument is both valid and sound, and attempts to escape its inevitable conclusion by a series of arguments that are little more than
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] Argument No. 1 I do agree the State must provide HC To turn his mind against the fact that the United States has a Constitution, however,
+[true] Contention 1- The State must provide HC Turn his argument against him, I do agree with the fact that the United States has a Constitution, however
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] There are a number of reasons why this can cause more problems. Kids with disability will not be able to "help it" and pass their good
+[true] Reasons why this shall cause more problems then good . 1. Some kids can't help it and they can't get passed there disability like others
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] Men invented everything significant in history: http://www.youtube.com        ...
+[true] Men invented everything significant in history: http://www.youtube.com...
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] equations: Note that "Applies to the known universe". If you are looking for an instance where "us" is the only thing that comes up
+[true] A couple things: "Applies to the known universe". Since you want to still consider us as the 1 instance that allows your equations to come up
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] I will be arguing that there are times when major media is unbiased and objective.       
+[true] I will be arguing that there are times when major media is unbiased and objective.
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] and I wasn't doing the same thing as I did. My Answer was false, as I don't have pockets (I'm wearing short
+[true] Well, my answer was in the same vein as yours. Your answer was false, I don't HAVE pockets as I'm wearing shorts
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] I am also thanking my opponent for making this a good debate.        
+[true] I am also thanking my opponent for making this a good debate.
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] Some real life issues can deprive you of the opportunity to discuss this issue. We are respectful of you. However, I do oppose my hobbies
+[true] This is unfortunate, I was looking forward to debating this subject. However, I realize sometimes real life issues interfere with our hobbies and I respect my
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] I address the arguments arising in the RD 2 post. I will thank my opponent for replying. Tags, in order of the final 
+[true] I will address the arguments with tags, in order of the RD 2 posting. I thank my opponent for his response, and look forward to the final
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] You know why throwing gays off buildings and oppressing women like         is OK
+[true] Cause you know throwing gays off buildings and oppressing women is ok.
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] I do agree that the age of maturity has gotten much later and later and that a 14 year old years ago was more maturer then a
+[true] I do agree that the age of maturity has gotten later and later and that a 14 year old years ago was much more maturer then a
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] Utilitarianism defined by Plato is the greatest good for the greatest amount of people for the greatest amount of time. Justify -
+[true] Utilitarianism defined by Plato is the greatest good for the greatest amount of people for the greatest amount of time. Justify -
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] the rules to say that was simple, I successfully argued that when you do place faith in the ipu, it is rational to argue that
+[true] The rules are simple you are to say that i just successfully argued that it was rational to place faith in the ipu, you argue that
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] Devyani Khobragade treated her houseworker as a wage slave and expected to get away with it. That is ridiculous
+[true] Devyani Khobragade treated her houseworker as a wage slave and expected to get away with it. That is ridiculous
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] My opponents keep forfeiting. Why do you think you're just that good?       
+[true] Why do my opponents keep forfeiting? I guess I'm just that good.
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] I did not address these counterpoints for 1st and 2nd. He also pointed out that my opponent already tried to encourage Mac users to vote
+[true] I would like to first point out that my opponent did not address my counterpoints 2, 3, and 4. He also tried to encourage Mac users to vote for
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] As pro points out the main articles I, II, and III establish the duties and powers of each of the three branches of the United States government. This
+[true] As pro points out the main articles I, II, and III establish the duties and powers of each of the three branches of the United States government. This
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] right? But I'm a woman and I'll contribute so much to society through my role in society! /poem
+[true] But you're a women right? Wanna come over later and contribute to your role In society? ;)
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] I disagree with all of your points. 1. Rape, incest, abuse, etc. surrounding the cause doesn't make the abortion non-
+[true] I disagree with all of your points. 1. Rape, incest, abuse, etc. surrounding the cause doesn't make the abortion non-
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] Wow! Fast back to the last round! Okay, jerk, I'm sorry! And I'm sorry to punish myself, if
+[true] Wow, so fast! Final round already! Okay, fine, I apologize for being a jerk, and to punish myself, if I
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred] Despite the staggering increase in the numbers of people who are obese, there is an increasing tendency amongst health professionals to take a "non
+[true] Despite the staggering increase in numbers of people who are obese, there is an increasing tendency on the part of health professionals to take a "non
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] You will have to make me say no or no. You will have 10 rounds in which you must answer three questions, which can only be done by this
+[true] You will have three rounds in which you must make me say no. You can do this by asking 10 questions which I must answer, or by any other
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred] I'd like to point out, first of all while Con has skillfully outlined for us the hypothesis of abiogenesis, he has
+[true] First off, I'd like to point out that while Con has skillfully outlined for us the hypothesis of abiogenesis, he has
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] My opponent has willfully forfited the debate          
+[true] My opponent has willfully forfited the debate
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] I agree with that. I believe practicing in your own home would be fair because you treat others respectfully without interrupting them and I believe that if
+[true] I believe that sounds fair. It sounds fair because practicing in your own home treats other with respect because you are not interrupting them or interfering what
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] I agree no one should have health concerns if they are linked to Daylight Savings, but you have not addressed as to what health issues they are
+[true] I agree no one should have health concerns if they are linked to Daylight Savings, but you have not addressed as to what health issues they are
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] Kindegartners are good at Algebra, all the way up to Precalculus. If you just teach a kinde
+[true] Kindegartners are good at Algebra, all the way up to Precalculus. If you just teach a kinde
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] It would not be in the best interests of pimps to have their own trade association.Pimping is illegal in the UK, and therefore
+[true] It would not be in the best interests of pimps to have their own trade association.Pimping is illegal in the UK (1), and therefore
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] Con since the intervention was unlawful in the first 30 days of the intervention, and since the initial intervention is not legal the Advocates did not resolve it.
+[true] The intervention was not unlawful during the first 30 days of the intervention, and since the rsolution is about the initial intervention, Cons legal arguments fall.
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] While everyone is thinking about, I want to stick to your judgments rather than pass on them to others, and stop reading and using morals if
+[true] While you may want to stick to your morals and pass judgement on others using your morals, I want you and everyone reading to stop and think about
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred] C1-Animal Testing Historically and today, animal testing has allowed humans to advance medicine for both humans and animals. There have been many diseases humans
+[true] C1-Animal TestingHistorically and today, animal testing has allowed humans to advance medicine for both humans and animals. There have been many diseases that humans
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] Con agrees that this is wrong and asks why if we got rid of statutory rape laws, everybody matures at different rates too
+[true] Con says this is wrong because everybody matures at a different rate. By the same logic we should get rid of statutory rape laws,
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred]                
+[true] Great.
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] Con starts the round by listing things that God cannot do (Contention 1): to be unjust, evil, and a liar (
+[true] Contention 1: Con starts off the round by listing things that God cannot do (be evil, unjust, and a liar),
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] I tell you my arguments. But as I as the opposition team oppose the resolution because, if U. S. citizens are allowed to carry guns
+[true] Now, I will tell you my arguments. I as the opposition team oppose to the resolution because if U. S citizens are allowed to carry guns
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] God is proven to be real, there are at least several reasons why God is real. The Kalam Cosmological argument, that everything begins to exist with
+[true] God is proven to be real, there are several reasons why God is real 1. The Kalam Cosmological argument, everything that begins to exist has a
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] not quite doing well in the second round. My opponent has an interesting chink in their armor. Now I am vacationing and trying to prove you
+[true] Interesting second round. My opponent has certainly tried to prove my chink in the armour pretty well. Now I am actually at my vacation right now
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] • REBUTTAL: 1. College students have very little money. • REBUTTAL: "Most college students and/or parents had college
+[true] -- REBUTTAL -- 1. College students have very little money. Pro explains, "Most college students have taken student loans or had their parents
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred]            I look forward to, and will accept debate
+[true] I accept, looking forward to the debate!
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] Hell sis I'm like Superman sis I got no weakness, I even fought to find out if he's k
+[true] Hey sis I'm like superman I put up a heck of fight And just like him I got no weakness, not even kry
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] in any way which you can write and tell me. I do not want to harm any gods and religions I will never go against any particular religion
+[true] let me tell you in detail in written. i dont mean to harm any gods or any religions neither i will never go against any religion
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] Yea, a doo da day!          
+[true] Yups a doo da day. :P
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] I accept that pro must prove there is hell and heaven to win, then if they do not, then understanding that I should win
+[true] I accept understanding that pro must prove there is hell and heaven to win, if they do not do so then I should win
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] I have violated a "Condition of Acceptance" as it does in round 1 where this ad states: /ref
+[true] Where in round 1 does it state a "Condition of Acceptence" I have violated??Rather, I see this as an ad
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] I just didn't mean that. It's just fine. I don't want anyone to vote on this. There's no point running
+[true] No no, it's ok. I'm just saying I don't want anyone to vote on this. There's no point running
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] Ghosts does not offer 4 player split-screen. This feature would be needed again in 2013 when online gaming was not hot because the majority of people (
+[true] Ghosts does not offer 4 player split-screen because this feature is just not as required especially in 2013 when online gaming was hot. The majority of people
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] back as Dr. Albert Wily sits in his chair and stares silently at the ground. Humbly, you know, gazing at
+[true] *gazes back as Dr. Albert Wily sits humbly back in his chair, staring at the ground in silence. The
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] My opponent is Jokerduke. I look forward to this debate with the countless logic that will prevail in this flawless manner. Goodbye,
+[true] Greetings to my opponent, Jokerdude. I look forward to this debate. May the most flawless logic compellingly prevail. I plan on
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] make them illegal now? They should have but now they haven't. Do cigars kill so many? Wouldn't they make their waist
+[true] They should have by now but they haven't. Should they make cigars illegal? It kills many and makes them waist a lot of
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] I agree that it will bring goodness into the community, but the problem with community service is that sometimes you are expected to give your time and your money to
+[true] I agree that it will bring goodness into the community, but the problem with community service is that sometimes you are expected to give your time and your money to
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] Donald Trump's proposals will never get an approval from both houses because those are extreme and will turn America into bankruptcy. Their efforts to repeal and replace Obama
+[true] Donald Trump's proposals will never get an approval from both houses because those are extreme and will turn America into bankruptcy. Their efforts to repeal and replace Obama
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] I accept              
+[true] I accept
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] Creed - My Sacrifice http://www.youtube.com/    ...
+[true] Creed - My Sacrifice http://www.youtube.com...
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] I didn't mention the college application process, which was going to be a separate topic. I was using that as justification for my standardized
+[true] While I did mention the college application process, I was not using that as a separate topic. I was using that as justification for my standardized
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] Just because these terrorist organizations exist doesn't make them right. All These organizations do is plan out ways to destroy our beautiful country and persua
+[true] Just because these terrorist organizations exist doesn't make them right. All These organizations do is plan out ways to destroy our beautiful country and persua
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] you don't hold a challenge then I challenged you to see who you are. In this debate I came to the position that Your God is in
+[true] I saw you didn't figure out how to challenge me so i'm challenging you. In this debate you hold the position that your God is
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] Raisor (Con), I would like to share with you a nice read and a learning experience from both with constructive debate. Thanks for interest
+[true] Raisor (Con), thanks for your interest and may we both enjoy a learning experience from a constructive debate. I came across in interesting read
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] I accept the definition given for group polygamy since it is restricted to polygamy, and having more than one husband. I believe Islamic marriage is
+[true] I accept the definition given for polygamy. Since this is restricted to Islamic polygamy I believe group marriage, and having more than one husband is
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] Sorry, I am not, in any way, stating in my poor post that I am not attempting to deface the health care recipient or trying
+[true] Sorry about the poor post; I am not stating that I in any way, shape or form am trying to deface the health care recipient or trying
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] God, who is not only defined as a creator of life, then society coined that definition. Let's look at the fact that We
+[true] You say God is defined as a creator of life, but you leave out the part that WE as society coined that definition. So who are
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] I thank our CON opponents for participating in this informative and entertaining debate. Closing Statement The reader has come to believe that I have spent most of my
+[true] Closing Statement I thank Con for participating in this debate and hope the reader has found it informative and entertaining.My opponent and I have mostly spent our
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] this is a problem since no one even read comic books no one called a goku a genius then billily says ylis
+[true] this is the problem no one reads comic books even billis called goku a genius so your olny thing you can say is
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] better applications for gaming. For this reason Mac OS is better because Linux is terrible.Programmers create compatible content, videos, animations,
+[true] Why Mac OS is better:1. More compatible applications.Linux is terrible for gamers, artists, and video makers. Most video games aren'
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred] Well, It's unfortunate he never made an argument. I assumed his statements were purely soliloquy regardless. Defining
+[true] Well, It's unfortunate he never made an argument. I assumed his statements were purely soliloquy regardless. Defining
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] are as follows: 1. You have to know how to do policy debate. 2. You do not know what you are talking about. Please do not accept the
+[true] Here are the rules: 1. You MUST know how to do policy debate. If you don't know what I am talking about then do not accept the
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] I hereby accept the challenge             
+[true] I hereby accept the challenge
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] your argument on why gods do exist. What does it speak for you to believe that gods do exist? Until you provide reasons you have no
+[true] My argument that there is no reason to believe that gods exist speaks for itself. Do you have reasons to believe gods exist? Until you provide
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] I mean it's hard to live without it at all. The planet is so messed-up that it rains the stuff almost everyday.
+[true] I don't know its hard to live without it. I mean the planet is so messed up that it practically rains the stuff everyday.
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] time. What we have formulated here is that semantics should be debated during the first round of theological debates. Second: Acceptance only
+[true] Hello everybody. I am putting forth the idea that semantics should be debated during theological debates. First round: Acceptance only. Second
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] Since the fetus is not a person, but merely tissue no moral complaint can be made against people who choose to have abortions
+[true] Since the fetus is not a person, but merely tissue no moral complaint can be made against people who choose to have abortions
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred] "It's natural to see what's happening at the end of the Little Ice Age." Temperatures after an ice 50
+[true] "You know what 1850 was? The end of the Little Ice Age. Its only natural that it is occurring." Temperatures after ice
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] I would like to sincerely disagree with the statement that I would like to know that you should be allowed to be married at the age of fifteen. This
+[true] I would first of all like to state that I hereby completely disagree with the statement that you should be allowed to be married at the age of 15. I
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] The NIV is only another version of the Bible   , which is nothing less than verses missing. Do you prove the point
+[true] The NIV is just another version of the Bible nothing less. If you wish to prove your point then which verses are missing?
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred] 1. Being rich is better than being poor.) Sup, Leethal. Let us proceed. We can't conceptualize the existence of either of
+[true] Sup, Leethal :) 1. Being rich is better than being poor. We can proceed. 2a. Alright, I acknowledge that not
+--------------------------------------------------
+
+
+{'eval_loss': 3.8774468898773193, 'eval_model_preparation_time': 0.02, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 29.0078125, 'eval_token_set_precision': 0.7551925822987294, 'eval_token_set_recall': 0.7783760327292011, 'eval_token_set_f1': 0.7643291525751491, 'eval_token_set_f1_sem': np.float64(0.006938827907990086), 'eval_n_ngrams_match_1': 17.552, 'eval_n_ngrams_match_2': 12.329, 'eval_n_ngrams_match_3': 9.797, 'eval_num_true_words': 23.388, 'eval_num_pred_words': 22.973, 'eval_bleu_score': np.float64(48.30287937832442), 'eval_bleu_score_sem': np.float64(1.1220798760869028), 'eval_rouge_score': np.float64(0.7805214584453893), 'eval_exact_match': np.float64(0.169), 'eval_exact_match_sem': np.float64(0.01185662597789015), 'eval_emb_cos_sim': 0.9011693596839905, 'eval_emb_cos_sim_sem': np.float64(0.045267682522535324), 'eval_emb_top1_equal': 0.5, 'eval_emb_top1_equal_sem': np.float64(0.12909944355487823), 'eval_runtime': 24190.6901, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 3.8774468898773193
+eval_model_preparation_time: 0.02
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 29.0078125
+eval_token_set_precision: 0.7551925822987294
+eval_token_set_recall: 0.7783760327292011
+eval_token_set_f1: 0.7643291525751491
+eval_token_set_f1_sem: 0.006938827907990086
+eval_n_ngrams_match_1: 17.552
+eval_n_ngrams_match_2: 12.329
+eval_n_ngrams_match_3: 9.797
+eval_num_true_words: 23.388
+eval_num_pred_words: 22.973
+eval_bleu_score: 48.30287937832442
+eval_bleu_score_sem: 1.1220798760869028
+eval_rouge_score: 0.7805214584453893
+eval_exact_match: 0.169
+eval_exact_match_sem: 0.01185662597789015
+eval_emb_cos_sim: 0.9011693596839905
+eval_emb_cos_sim_sem: 0.045267682522535324
+eval_emb_top1_equal: 0.5
+eval_emb_top1_equal_sem: 0.12909944355487823
+eval_runtime: 24190.6901
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 24191.129115343094
+Current memory usage: 17.85MB; Peak: 22.43MB

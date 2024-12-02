@@ -2,7 +2,6 @@ import argparse
 import nltk
 import time
 import tracemalloc
-import os
 import random
 from vec2text import analyze_utils, data_helpers
 import pandas as pd
@@ -15,9 +14,7 @@ def main(args):
         nltk.download('punkt_tab')
     
     # Load the pretrained experiment and trainer
-    experiment, trainer = analyze_utils.load_experiment_and_trainer_from_pretrained(
-        args.model,
-    )
+    _, trainer = analyze_utils.load_experiment_and_trainer_from_pretrained(args.model)
     
     # Load the specified BEIR dataset
     beir_dataset_name = args.beir_dataset
@@ -27,16 +24,9 @@ def main(args):
     # Optionally, limit the dataset size for faster evaluation
     if args.max_samples:
         print(f"Original dataset size: {len(dataset)}")
-        
-        # Set random seed for reproducibility
         random.seed(42) 
-        
-        # Get random indices
         indices = random.sample(range(len(dataset)), args.max_samples)
-        
-        # Select random samples
         dataset = dataset.select(indices)
-        
         print(f"Randomly selected {args.max_samples} samples from the dataset.")
 
     # Tokenize the dataset with both tokenizers (model tokenizer and embedder tokenizer)
@@ -49,8 +39,6 @@ def main(args):
             max_length=trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
-        print(f"Model tokens max_length: {model_tokens['input_ids'].size(-1)}")
-        
         # Tokenize with the embedder's tokenizer
         embedder_tokens = trainer.embedder_tokenizer(
             examples["text"],
@@ -59,7 +47,6 @@ def main(args):
             max_length=trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
-        print(f"Embedder tokens max_length: {embedder_tokens['input_ids'].size(-1)}")
         
         return {
             "input_ids": model_tokens["input_ids"],
@@ -68,6 +55,7 @@ def main(args):
             "embedder_attention_mask": embedder_tokens["attention_mask"],
             "labels": model_tokens["input_ids"].clone(),  # For seq2seq tasks, typically input=target
         }
+    
     # Apply tokenization
     tokenized_dataset = dataset.map(
         tokenize_function,
@@ -76,25 +64,24 @@ def main(args):
         desc="Tokenizing dataset",
     )
     
-    
     # Set evaluation parameters
     trainer.args.per_device_eval_batch_size = args.batch_size
     trainer.sequence_beam_width = args.beam_width
     trainer.num_gen_recursive_steps = args.steps
     
     print("+++ Trainer Args Passed +++")
-    print("trainer.num_gen_recursive_steps:", trainer.num_gen_recursive_steps)
-    print("trainer.sequence_beam_width:", trainer.sequence_beam_width)
+    print("num_gen_recursive_steps:", trainer.num_gen_recursive_steps)
+    print("sequence_beam_width:", trainer.sequence_beam_width)
     print("Model name:", args.model)
     
     # Start memory and time tracking
     tracemalloc.start()
     start_time = time.time()
     print(dataset)
+    
     # Run evaluation
-    metrics = trainer.evaluate(
-        eval_dataset=tokenized_dataset
-    )
+    print("Running evaluation...")
+    metrics = trainer.evaluate(eval_dataset=tokenized_dataset)
     
     # End memory and time tracking
     duration = time.time() - start_time
@@ -113,6 +100,7 @@ def main(args):
         df = pd.DataFrame([metrics])
         df.to_csv(args.output_csv, index=False)
         print(f"Metrics saved to {args.output_csv}")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Reproduce Out-of-Domain Experiments on BEIR Datasets")
