@@ -1,0 +1,953 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='fever', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: fever
+Original dataset size: 100000
+Randomly selected 1000 samples from the dataset.
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] The 1981 Monterrey WCT was a men's tennis tournament played on indoor carpet courts in ' Monterrey, Mexico,
+[true] The 1981 Monterrey WCT was a men 's tennis tournament played on indoor carpet courts in Monterrey , Mexico 
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred]         The decade of the 1030s in art involved some significant events .
+[true] The decade of the 1030s in art involved some significant events .
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] The 1930 Ladies Open Championships was held at the Queen's Club in West Kensington, London, from 10 – 12 January 1930. Nancy Cave (19
+[true] The 1930 Ladies Open Championships was held at the Queen 's Club , West Kensington in London from 20 -- 25 January 1930 . Nancy Cave
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred]          1871 in sports describes the year's events in world sport
+[true] 1871 in sports describes the year 's events in world sport .
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] The 1974 - 75 Israel State Cup (Gvia HaMedina: ', ) was the 36th season of Israel ' (
+[true] The 1974 -- 75 Israel State Cup (   , Gvia HaMedina ) was the 36th season of Israel '
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] "12 Stitches" is the third album released by Counties of Los Angeles, California's 1970s punk band The Imaginary
+[true] 12 Imaginary Inches is an album released by the 1970s-style Orange County , California , punk rock band The Stitches
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] The 1979 Pacific Tigers football team represented the University of the Pacific ( UOP ) in the 1979 NCAA Division I college football season as a member
+[true] The 1979 Pacific Tigers football team represented the University of the Pacific ( UOP ) in the 1979 NCAA Division I college football season as a member
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] The 1985 - 86 season was Manchester United's 84th season in the Football League, & their 11th consecutive season in the top
+[true] The 1985 -- 86 season was Manchester United 's 84th season in the Football League , and their 11th consecutive season in the top
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] The 1888 --- 1889 Football League was the first edition of the Football League, which ran from the autumn of 1888 until the spring of 18
+[true] The 1888 -- 1889 Football League was the first edition of the Football League , which ran from the autumn of 1888 until the spring of 18
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] The 1900 Connecticut Aggies football team represented Connecticut Agricultural College , now the University of Connecticut , in the 1900 college football season . This
+[true] The 1900 Connecticut Aggies football team represented Connecticut Agricultural College , now the University of Connecticut , in the 1900 college football season . This
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] The 1972 - 73 CHL season was the tenth season of the Central Hockey League (), a North American minor professional league. Four
+[true] The 1972 -- 73 CHL season was the tenth season of the Central Hockey League , a North American minor professional league . Four
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] The Dutch Eerste Divisie in the 1978/1979 season was contested by 19 teams .  Excelsior won the championship.
+[true] The Dutch Eerste Divisie in the 1978/1979 season was contested by 19 teams . Excelsior won the championship .
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] The 1988 Chatham Cup was the 61st annual nationwide knockout football competition in New Zealand. Up to the last 16 of the competition '
+[true] The 1988 Chatham Cup was the 61st annual nationwide knockout football competition in New Zealand . Up to the last 16 of the competition 
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] The Rome and Vienna airport attacks were two major terrorist attacks carried out on 27 December 1985 . Seven Arab terrorists attacked two airports in Rome, 
+[true] The Rome and Vienna airport attacks were two major terrorist attacks carried out on 27 December 1985 . Seven Arab terrorists attacked two airports in Rome ,
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] Marcelo Râos was the defending champion , but lost in the third round to Todd Martin. Mark Philippoussis won the 
+[true] Marcelo Ros was the defending champion , but lost in the third round to Todd Martin . Mark Philippoussis won the
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] The 1999-00 Icelandic Hockey League season was the ninth season of the Icelandic Hockey League , the top level of ice hockey in Iceland'
+[true] The 1999-00 Icelandic Hockey League season was the ninth season of the Icelandic Hockey League , the top level of ice hockey in Iceland 
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] 108 (one hundred - 111) is the natural number following the preceding 82 (LSB-111) and 109 (LS
+[true] 108 ( one hundred -LSB- and -RSB- eight ) is the natural number following 107 and preceding 109
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] The 1986 - 87 All-Ireland Senior Club Hurling Championship was the 17th staging of the All-Ireland Senior
+[true] The 1986 -- 87 All-Ireland Senior Club Hurling Championship was the 17th staging of the All-Ireland Senior Club
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] Two regiments of the British Army have been numbered the 121st Regiment of Foot : 121st Regiment of Foot
+[true] Two regiments of the British Army have been numbered the 121st Regiment of Foot : 121st Regiment of Foot
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] Huddersfield Town's 1965 : 66 campaign was a fairly successful season for the Town. For a large amount of the 
+[true] Huddersfield Town 's 1965 -- 66 campaign was a fairly successful season for the Town . For a large amount of the
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred]          The decade of the 1390s in art involved some significant events
+[true] The decade of the 1390s in art involved some significant events .
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] The 1933 National League was the second season of the highest tier of motorcycle speedway in Great Britain. Sheffield and Nottingham joined the league but the St 
+[true] The 1933 National League was the second season of the highest tier of motorcycle speedway in Great Britain . Sheffield and Nottingham joined the league but the St
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] The 1980 Dallas Cowboys season was their 21st in the league. The team improved from their previous output of 11 – 5, winning twelve,
+[true] The 1980 Dallas Cowboys season was their 21st in the league . The team improved their previous output of 11 -- 5 , winning twelve
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] The .369 Nitro Express The .369 Nitro Express, also known as the .369 Centerfire, is a pury
+[true] The .369 Nitro Express , also known as the .369 Purdey Nitro Express , is a centerfire ,
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] The 1904 - 05 season was East Stirlingshire Football Club's fourth season in the Scottish Football League and was admitted to the Scottish Football
+[true] The 1904 -- 05 season was East Stirlingshire Football Club 's fourth season in the Scottish Football League , being admitted to the Scottish
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] The 1950 French Championships (now known as the French Open ) was a tennis tournament that took place on the outdoor clay courts at the Sta
+[true] The 1950 French Championships ( now known as the French Open ) was a tennis tournament that took place on the outdoor clay courts at the Sta
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] The women's 200 metre individual medley competition at the 1999 Pan Pacific Swimming Championships took place on August 20 - 25 at the Sydney
+[true] The women 's 200 metre individual medley competition at the 1999 Pan Pacific Swimming Championships took place on August 24 -- 25 at the Sydney
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] The 1993 - 94 IHL season was the 49th season of the International Hockey League (), a North American minor professional league. 13 teams
+[true] The 1993 -- 94 IHL season was the 49th season of the International Hockey League , a North American minor professional league . 13 teams
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] The 1928 Mississippi A&M Aggies football team represented the Mississippi A&M Aggies of Agricultural and Mechanical College of the State of Mississippi
+[true] The 1928 Mississippi A&M Aggies football team represented the Mississippi A&M Aggies of Agricultural and Mechanical College of the State of Mississippi
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] 1751 in philosophy              
+[true] 1751 in philosophy
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] The 1993-94 National Hurling League was the 63rd edition of the National Hurling League , which ran from 17 October 1993 until 8
+[true] The 1993-94 National Hurling League was the 63rd edition of the National Hurling League , which ran from 17 October 1993 until 8
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] Nationality articles link a nation with information as to the words used for poetry or literature (for instance, links to Irish - France -).
+[true] Nationality words link to articles with information on the nation 's poetry or literature ( for instance , Irish or France ) .
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] The 1969 Illinois Fighting Illini football team was an American football team that represented the University of Illinois during the 1969 Big Ten Conference football season . In their
+[true] The 1969 Illinois Fighting Illini football team was an American football team that represented the University of Illinois during the 1969 Big Ten Conference football season . In their
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] The 1939 French Grand Prix was a Grand Prix motor race held at Reims-Gueux on 9 July 1939  .
+[true] The 1939 French Grand Prix was a Grand Prix motor race held at Reims-Gueux on 9 July 1939 .
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] Statistics of the Football Tournament in the 1893/1894 season . The format was slightly unusual in that all games had to have a winner.There
+[true] Statistics of the Football Tournament in the 1893/1894 season . The format was slightly unusual in that all games had to have a winner.There
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] These are the official results of the Women's 100 metres Breaststroke event at the 1993 FINA Worlds Short Course Championships held in Palma de
+[true] These are the official results of the Women 's 100 metres Breaststroke event at the 1993 FINA Short Course World Championships held in Palma de
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] The ABC Champions Cup 1998 was the 9th staging of the ABC Champions Cup , the basketball club tournament of Asian Basketball Confederation . The tournament
+[true] The ABC Champions Cup 1998 was the 9th staging of the ABC Champions Cup , the basketball club tournament of Asian Basketball Confederation . The tournament
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] 1996 Ujjain and Haridwar stampedes refer to two human stampedes which occurred on 15 July 1996 in holy Indian towm
+[true] 1996 Ujjain and Haridwar stampedes refer to two human stampedes which occurred on 15 July 1996 in holy Indian towm
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] The 1935 Holy Cross Crusaders football team represented the College of the Holy Cross during the 1935 college football season . It was the first unde
+[true] The 1935 Holy Cross Crusaders football team represented the College of the Holy Cross during the 1935 college football season . It was the first unde
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] The 1999 Copa Colsanitas was a WTA tennis tournament , played on outdoor clay courts . 
+[true] The 1999 Copa Colsanitas was a WTA tennis tournament , played on outdoor clay courts .
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred]         The following are the Pulitzer Prizes for 1947  .
+[true] The following are the Pulitzer Prizes for 1947 .
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] In enzymology, a carbamethyl ()-arginine beta-lactoxy sym
+[true] In enzymology , a ( carboxyethyl ) arginine beta-lactam-sy
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] The 1997 All-Ireland Intermediate Hurling Championship was the 14th staging of the All-Ireland hurling championship .
+[true] The 1997 All-Ireland Intermediate Hurling Championship was the 14th staging of the All-Ireland hurling championship .
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] The 1984 Rothmans Grand Prix was the first edition of the tournament under the Grand Prix name and had replaced the Professional Players Tournament name , which was
+[true] The 1984 Rothmans Grand Prix was the first edition of the tournament under the Grand Prix name and had replaced the Professional Players Tournament name , which was
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred] The 11th Panchen Lama controversy is a dispute about the current legitimate holder of the Panchen Lama title , a political and
+[true] The 11th Panchen Lama controversy is a dispute about the current legitimate holder of the Panchen Lama title , a political and
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] The 1997 season of 2 . deild karla was the 32nd season of third-tier football in Iceland .
+[true] The 1997 season of 2 . deild karla was the 32nd season of third-tier football in Iceland .
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred]          The following lists events that happened during 1986 in Chile .
+[true] The following lists events that happened during 1986 in Chile .
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] The 1985 Cotton Bowl Classic   was a postseason college football bowl game between the Houston Cougars and the Boston College Eagles.
+[true] The 1985 Cotton Bowl Classic was a postseason college football bowl game between the Houston Cougars and the Boston College Eagles .
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] The 1077th Anti-aircraft Regiment under Colonel Raiynin , was a unit of the Stalingrad Region Corps of Soviet
+[true] The 1077th Anti-aircraft Regiment under Colonel Raiynin , was a unit of the Stalingrad Corps Region of the Soviet
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] MCVIII (year) Year 1108 () was a leap year starting on Wednesday () of the Julian calendar Here is a complete link
+[true] Year 1108 ( MCVIII ) was a leap year starting on Wednesday ( link will display the full calendar ) of the Julian calendar 
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] The 1939 Belgrade City Race was a Grand Prix motor race held on 3 September 1939 at the streets of Belgrade  .
+[true] The 1939 Belgrade City Race was a Grand Prix motor race held on 3 September 1939 at the streets of Belgrade .
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] 1928 Luthera (31 FP; ) is an outer-belt main asteroid discovered on 13 March 1903 by Friedrichs-Th
+[true] 1303 Luthera ( 1928 FP ) is an outer main-belt asteroid discovered on March 16 , 1928 , by Friedrich
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] The 1975 Cincinnati Open , also known as the Western Championships , was a tennis tournament played on outdoor hard courts at the Coney Island in
+[true] The 1975 Cincinnati Open , also known as the Western Championships , was a tennis tournament played on outdoor hard courts at the Coney Island in
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] The 1977 German motorcycle Grand Prix was the third round of the 1977 Grand Prix motorcycle racing season . It took place on 8 May 1977 at the Hocken
+[true] The 1977 German motorcycle Grand Prix was the third round of the 1977 Grand Prix motorcycle racing season . It took place on 8 May 1977 at the Hocken
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred] The 157th Fighter Squadron ( 157 FS ) is a unit of the South Carolina Air National Guard 169th Fighter Wing
+[true] The 157th Fighter Squadron ( 157 FS ) is a unit of the South Carolina Air National Guard 169th Fighter Wing
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] The year 1975 saw a number of significant events in radio broadcasting history .       
+[true] The year 1975 saw a number of significant events in radio broadcasting history .
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] The 1887 Lehigh Engineers football team represented Lehigh University in the 1887 college football season . The team finished with an overall record of 4
+[true] The 1887 Lehigh Engineers football team represented Lehigh University in the 1887 college football season . The team finished with an overall record of 4
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] The 1981 Atlantic Coast Conference Men's Basketball Tournament ' was held in Landover, Maryland, at the Capital Centre from March 5 & 7 (
+[true] The 1981 Atlantic Coast Conference Men 's Basketball Tournament was held in Landover , Maryland , at the Capital Centre from March 5 -- 7 
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] Maureen Connolly (B. USA) defeated Louise Brough Clapp (B. USA) 5 - 6 6 In 
+[true] Maureen Connolly ( USA ) defeated Louise Brough Clapp ( USA ) 6 -- 2 , 7 -- 5 in
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] The 1976 Rhodesian Grand Prix was held at Donnybrook Raceway in Salisbury, Rhodesia on the 31 July 1976 . 
+[true] The 1976 Rhodesian Grand Prix was held at Donnybrook Raceway in Salisbury , Rhodesia on the 31 July 1976 .
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] The 1910 VPI football team represented Virginia Agricultural and Mechanical College and Polytechnic Institute in the 1910 college football season . The team was led by
+[true] The 1910 VPI football team represented Virginia Agricultural and Mechanical College and Polytechnic Institute in the 1910 college football season . The team was led by
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] ! & ! NOTOC 'Allo ' The fourth series of the British sitcom 'Allo' contains six episodes which
+[true] __ NOTOC __ The fourth series of the British sitcom series  Allo  Allo ! contains six episodes which
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred]               _ Not
+[true] __ NOTOC __
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] Statistics of Nemzeti Bajnokság I in the 1984/1985 season.    
+[true] Statistics of Nemzeti Bajnokság I in the 1984/1985 season .
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] The 1974 - 75 season was Manchester United's 73rd season in the Football League (), and at their first as a Second Division
+[true] The 1974 -- 75 season was Manchester United 's 73rd season in the Football League , and their first as a Second Division team
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] The following lists events that happened during 1837 in Chile          .
+[true] The following lists events that happened during 1837 in Chile .
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] The 1995 - 96 Vancouver Canucks season was the Canucks' 26th NHL season in . It marked the year they played their
+[true] The 1995 -- 96 Vancouver Canucks season was the Canucks ' 26th NHL season . It marked the year they played their first
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] 111 First Street was an artist residency and loft building that developed in the 1980s and is now an approved 52-story skyscraper to be
+[true] 111 First Street was an artist residency and loft building that developed in the 1980s and is now an approved 52-story skyscraper to be
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] Aql ' (; Arabic: ', meaning intellect ') is a term used in Islamic philosophy and study (Aramaic
+[true]  Aql (  , meaning  intellect '' ) , is an Arabic language term used in Islamic philosophy or
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] The 1996 - 97 DFB-Pokal was the 54th season of the annual German football cup competition (). Sixty-four
+[true] The 1996 -- 97 DFB-Pokal was the 54th season of the annual German football cup competition . Sixty-four teams
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] The 1979 season of the Venezuelan Primera División , the top category of Venezuelan football , was played by 12 teams,
+[true] The 1979 season of the Venezuelan Primera División , the top category of Venezuelan football , was played by 12 teams 
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] The 1965 San Francisco Giants season ' was the Giants' 83rd year in San Francisco and their eighth year in Major League Baseball since
+[true] The 1965 San Francisco Giants season was the Giants ' 83rd year in Major League Baseball , their eighth year in San Francisco since
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] The 1969 - 70 Los Angeles Kings season was the third ever for the Los Angeles Kings in the National Hockey League (). After qualifying for the playoffs
+[true] The 1969 -- 70 Los Angeles Kings season was the third ever for the Los Angeles Kings in the National Hockey League . After qualifying for the playoffs in
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] In military terms , 107th Division or 107th Infantry Division may refer to : 107th Infantry Division ( German Empire'
+[true] In military terms , 107th Division or 107th Infantry Division may refer to : 107th Infantry Division ( German Empire 
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] The 1960 East Carolina Pirates football team represented East Carolina College - now known as East Carolina University - during the 1960 college football season. -
+[true] The 1960 East Carolina Pirates football team represented East Carolina College -- now known as East Carolina University -- during the 1960 college football season .
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] The 1978 - 79 Inter-City League season was the first season of the Inter-City League, the top level ice hockey league
+[true] The 1978 -- 79 Inter-City League season was the first season of the Inter-City League , the top level ice hockey league
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] 1928 Olympics refer to the following: 1928 Winter Olympics The 1928 Summer Olympics (, ) which were held in St. Moritz, Switzerland, the 1928
+[true] 1928 Olympics may refer to : The 1928 Winter Olympics , which were held in St. Moritz , Switzerland The 1928 Summer Olympics , which
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] Nationality articles link a nation with information as to the words used for poetry or literature (for instance, links to Irish - France -).
+[true] Nationality words link to articles with information on the nation 's poetry or literature ( for instance , Irish or France ) .
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] The 1915 Minnesota Golden Gophers football team represented the University of Minnesota in the 1915 college football season . In their 16th year under head
+[true] The 1915 Minnesota Golden Gophers football team represented the University of Minnesota in the 1915 college football season . In their 16th year under head
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] The 1992 Arizona State Sun Devils football team was an American football team that represented Arizona State University in the Pacific-10 Conference ( Pac-10 ) during the
+[true] The 1992 Arizona State Sun Devils football team was an American football team that represented Arizona State University in the Pacific-10 Conference ( Pac-10 ) during the
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] The 1971 - 72 Buffalo Sabres season was the Buffalo Sabres second season of operation in the National Hockey League (The NHL ).'
+[true] The 1971 -- 72 Buffalo Sabres season was the Buffalo Sabres second season of operation in the National Hockey League ( NHL ) .
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] The 1991 World Wushu Championships are the 1th edition of the World Wushu Championships , and were held in Beijing, China, from October
+[true] The 1991 World Wushu Championships are the 1th edition of the World Wushu Championships , and were held in Beijing , China from October
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] Events from the year 1645 in Spain           .
+[true] Events from the year 1645 in Spain .
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] The 1919 Army Cadets football team represented the United States Military Academy in the 1919 college football season . In their fifth non-consecut
+[true] The 1919 Army Cadets football team represented the United States Military Academy in the 1919 college football season . In their fifth non-consecut
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] The 1937 - 38 Scottish Second Division was won by Raith Rovers who, along with second placed Albion Rovers, were promoted to "
+[true] The 1937 -- 38 Scottish Second Division was won by Raith Rovers who , along with second placed Albion Rovers , were promoted to
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] The 1924 Montana Grizzlies football team represented the University of Montana in the 1924 college football season as a member of the Pacific Coast Conference
+[true] The 1924 Montana Grizzlies football team represented the University of Montana in the 1924 college football season as a member of the Pacific Coast Conference
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred] The 1999 Stanford Cardinal football team represented Stanford University in the 1999 NCAA Division I-A football season . In head coach Tyrone Willingham 's
+[true] The 1999 Stanford Cardinal football team represented Stanford University in the 1999 NCAA Division I-A football season . In head coach Tyrone Willingham 's
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] The men's 4 x 400 metres relay at the 1962 European Athletics Championships was held in Beograd, then s Yugoslav
+[true] The men 's 4 x 400 metres relay at the 1962 European Athletics Championships was held in Beograd , then Yugoslav
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] This article is about the particular significance of the year 1983 to Wales and its people       .
+[true] This article is about the particular significance of the year 1983 to Wales and its people .
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] A series of riots occurred in several locations of downtown Kiev , Ukraine , on 1 December 2013 in response to a violent police crackdown
+[true] A series of riots occurred in several locations of downtown Kiev , Ukraine , on 1 December 2013 in response to a violent police crackdown
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred]       The 1986 Liberty Bowl featured the Minnesota Golden Gophers and the Tennessee Volunteers .
+[true] The 1986 Liberty Bowl featured the Minnesota Golden Gophers and the Tennessee Volunteers .
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] . ', Measles Early Fort & Redoubt (also known as ', Battery Hill Early Camp) is an
+[true]  A '' Fort and Battery Hill Redoubt-Camp Early , also known as Measles Fort , is 
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] The 1901 Connecticut Aggies football team represented Connecticut Agricultural College , now the University of Connecticut , in the 1901 college football season. In this
+[true] The 1901 Connecticut Aggies football team represented Connecticut Agricultural College , now the University of Connecticut , in the 1901 college football season . This
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred]         This is a list of events in Scottish television from 1964 .
+[true] This is a list of events in Scottish television from 1964 .
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] The 1982–83 Scottish Cup was the 37th season of Scotland's second League football knock-out competition (eighteen). The competition was
+[true] The 1982 -- 83 Scottish League Cup was the thirty-seventh season of Scotland 's second football knockout competition . The competition was
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] The 1947 - 48 English National League season was the seventh season of the English National League, the top level ice hockey league in England (). Seven
+[true] The 1947 -- 48 English National League season was the seventh season of the English National League , the top level ice hockey league in England . Seven
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred] The 1997 European Challenge Cup Final was the final match of the 1996 – 1997 European Challenge Cup, Europe's second inaugural season and the 97th
+[true] The 1997 European Challenge Cup Final was the final match of the 1996 -- 97 European Challenge Cup , the inaugural season of Europe 's second 
+--------------------------------------------------
+
+
+{'eval_loss': 4.030860424041748, 'eval_model_preparation_time': 0.0204, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 27.7265625, 'eval_token_set_precision': 0.9230562721834319, 'eval_token_set_recall': 0.9145947126448087, 'eval_token_set_f1': 0.9184051529910167, 'eval_token_set_f1_sem': np.float64(0.0060833823607174126), 'eval_n_ngrams_match_1': 19.129, 'eval_n_ngrams_match_2': 16.931, 'eval_n_ngrams_match_3': 15.29, 'eval_num_true_words': 20.061, 'eval_num_pred_words': 20.414, 'eval_bleu_score': np.float64(80.74376815733281), 'eval_bleu_score_sem': np.float64(0.8640684246506165), 'eval_rouge_score': np.float64(0.9345772812169716), 'eval_exact_match': np.float64(0.261), 'eval_exact_match_sem': np.float64(0.013895037677965185), 'eval_emb_cos_sim': 0.9828833341598511, 'eval_emb_cos_sim_sem': np.float64(0.009414460510015488), 'eval_emb_top1_equal': 0.8125, 'eval_emb_top1_equal_sem': np.float64(0.10077822208404541), 'eval_runtime': 24234.7635, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 4.030860424041748
+eval_model_preparation_time: 0.0204
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 27.7265625
+eval_token_set_precision: 0.9230562721834319
+eval_token_set_recall: 0.9145947126448087
+eval_token_set_f1: 0.9184051529910167
+eval_token_set_f1_sem: 0.0060833823607174126
+eval_n_ngrams_match_1: 19.129
+eval_n_ngrams_match_2: 16.931
+eval_n_ngrams_match_3: 15.29
+eval_num_true_words: 20.061
+eval_num_pred_words: 20.414
+eval_bleu_score: 80.74376815733281
+eval_bleu_score_sem: 0.8640684246506165
+eval_rouge_score: 0.9345772812169716
+eval_exact_match: 0.261
+eval_exact_match_sem: 0.013895037677965185
+eval_emb_cos_sim: 0.9828833341598511
+eval_emb_cos_sim_sem: 0.009414460510015488
+eval_emb_top1_equal: 0.8125
+eval_emb_top1_equal_sem: 0.10077822208404541
+eval_runtime: 24234.7635
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 24235.22775220871
+Current memory usage: 17.92MB; Peak: 22.51MB
