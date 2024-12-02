@@ -1,0 +1,953 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='arguana', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: arguana
+Original dataset size: 8674
+Randomly selected 1000 samples from the dataset.
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] Environmental damage caused by alternative sectors is far worse. Pollution in the industrial sector has become much more evident since the removal of Ben Ali’s regime.
+[true] Environmental damage caused by alternative sectors is far worse. Pollution in the industrial sector has become much more evident since the removal of Ben Ali’s regime.
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] The American Jobs Act is Not Deficit Neutral One of the issues with the American Jobs Act is that while it is claimed that it will be deficit
+[true] The American Jobs Act is Not Deficit Neutral One of the issues with the American Jobs Act is that while it is claimed that it will be deficit
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] It is undemocratic to have the law pass through the board of health. While the City has the right to exercise its abilities within the law to protect
+[true] It is undemocratic to have the law pass through the board of health. While the City has the right to exercise its abilities within the law to protect
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Elections would further complicate Elections There are many elections at all levels so it is often confusing to get voted in on the same day that the
+[true] Would complicate elections Elections can be confusing enough already; there are numerous levels of elections which often all are voted for on the same day so that
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] The incidents that happened in Europe involved native Europeans themselves. Though they may have traveled back and forth to and from Syria, they did have home-grown
+[true] The incidents that occurred in Europe were involving native Europeans themselves, although they did travel to and back from Syria. Just like Europe could have home grown
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] A fence hurts our political relationship with Mexico. The United States needs to demonstrate that it is interested in being a true partner with Mexico in efforts to
+[true] A fence hurts our political relationship with Mexico. The United States needs to demonstrate that it is interested in being a true partner with Mexico in efforts to
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] Not allowing any meetings with the President does not mean no negotiations can take place. Groundwork can be done by diplomats, negotiators
+[true] Not allowing any meetings with the President does not mean no negotiations can take place. Groundwork can be done by diplomats, negotiators
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] When homework does take up class time it does not harm the class, and when it does it is helpful when it is in learning. Homework aid 
+[true] When homework does take up time in class it is helpful for learning. And when it does not then it does not harm the classwork. Homework aid
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] For all of its potential, the idea that the Internet is a worldwide force is something of a Western conceit. That fact is doubly
+[true] For all of its potential, the idea that the Internet is a worldwide force is something of a Western conceit. That fact is doubly
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] In many cases sovereign wealth funds are not even good for the states that own them. Almost all are emerging economies with limited financial expertise available to them,
+[true] In many cases sovereign wealth funds are not even good for the states that own them. Almost all are emerging economies with limited financial expertise available to them,
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] We need to analyze this issue from a couple of different perspectives. The first is this trillion cost per decade. Is this truly a cost to
+[true] We need to analyze this issue from a couple of different perspectives. The first is this trillion per decade cost. Is this truly a cost to
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] This often leads to a scenario where leaders grant themselves immunity, or continue to commit atrocities, in the comfort of knowing that immunity is coming.
+[true] This often leads to a scenario where leaders grant themselves immunity, or continue to commit atrocities, in the comfort of knowing that immunity is coming.
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] all political under one heading, but their song was an appeal to Mary to get rid of Russia and rid Putin of trappings. We have also discussed
+[true] Their song may have gone on to discuss political themes but its basis was an appeal to Mary to rid Russia of Putin. All the rest was trappings
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] The procedural justice of free exchange is important, but is presumes that humans are born with equal talents and in equally enabling environments. This is obviously
+[true] The procedural justice of free exchange is important, but is presumes that humans are born with equal talents and in equally enabling environments. This is obviously
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] But it doesn't make legal sense to make the classes mandatory once the child reaches an age at which point it still has the ability to decide whether
+[true] True, but nor does it make sense to make the classes mandatory once the child reaches an age where it is legally able to decide whether it wants
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] "Kupchan: Russian Opposition to Kosovo Independence ‘Perplexing’". (Charles A. Kupchan, CFR Senior Fellow, Europe
+[true] "Kupchan: Russian Opposition to Kosovo Independence ‘Perplexing’". (Charles A. Kupchan, CFR Senior Fellow for Europe
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] The educational policies of developing states should not be tailored to the needs of businesses in the developing world. Arguably, cross border trade in commodities and products
+[true] The educational policies of developing states should not be tailored to the needs of businesses in the developing world. Arguably, cross border trade in commodities and products
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred] The wishes of a population are often overlooked by governments when deciding upon territorial sovereignty. During the Franco-Prussian War of 1870-1
+[true] The wishes of a population are often overlooked by governments when deciding upon territorial sovereignty. During the Franco-Prussian War of 1870-1
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] Tax cuts go on to offer the least for direct stimulus from consumption by the rich, which means that the wealthiest Americans spend a small percentage income
+[true] As mentioned, tax cuts for the rich offer the least direct stimulus owing to the small percentage of their income that the wealthiest Americans spend on consumption
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] It is possible to establish a hierarchy of rights whereby only the most important are the 'fundamental' human rights. The fulfilment of
+[true] It is possible to establish a hierarchy of rights whereby only the most important are the 'fundamental' human rights. The fulfilment of
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] The bad bits need to be taught so many people can understand what they think of us from the rest of the world Britain is known for its Empire. In
+[true] The bad bits need to be taught so we can understand what others think of us For millions of people around the world Britain is known for its Empire. In
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred] Participatory Democracy Leads to Better Decisions Participatory democracy will produce better decisions because laws will only be passed if it can be justified in the 
+[true] Participatory Democracy Produces Better Decisions Participatory democracy will lead to better decisions because laws will only be passed if they can be justified to the
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] It is simply not true that people are bothered by their personal information getting out, or at least they are unwilling to do anything about it. In in
+[true] It is simply not true that people are bothered by their personal information getting out, or at least they are unwilling to do anything about it. In 
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] It reduces the ability for universities to fund other pursuits like self-sufficient research to be less profitable, Universities often use the potentially profitable revenues they have
+[true] It reduces the ability of universities to be self-sufficient and to fund other less potentially profitable pursuits Universities often use the revenues from their more profitable research
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] The scale of flights in Israel- both domestic and international- is tiny. Compared with the North American and European aviation markets, screening passengers entering and leaving
+[true] The scale of flights in Israel- both domestic and international- is tiny. Compared with the North American and European aviation markets, screening passengers entering and leaving
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] Humans are granted freedom to choose whether or not to have children. People are free to choose whether or not to have offspring. Their choice is so
+[true] People are free to choose whether or not to have children. Human beings are granted freedom of choice. The decision to have offspring is, like many
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] Governments have the power to ban online gambling in their own country. Even if citizens could use foreign websites, most will not choose to break the law
+[true] Governments have the power to ban online gambling in their own country. Even if citizens could use foreign websites, most will not choose to break the law
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] While Africa has huge reserves of natural resources, mining does not add to its economic future. Their resources are valued and employed in small numbers of people. Not
+[true] While Africa has huge reserves of natural resources they are not its economic future. Mining employs few people and provides little value added to the economy. Also not
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] There is sufficient political and judicial control over intelligence service Even if there is not sufficient intelligence service, every citizen can control exactly what the intelligence service does
+[true] There is sufficient political and judicial control over intelligence service Even if not every citizen can control exactly what the intelligence service does, there is sufficient political and
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] Judiciary in the wake of the new Drug War Should Guinea-Bissau become the US front for their judiciary they will be undermined
+[true] Judiciary are undermined Should Guinea-Bissau become the new front of the US drug war then their judiciary will be furthered
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] The Lubanga case took 6 years to reach a verdict owing to problems with the reliability of testimony and the sheer number of witnesses and victims involved
+[true] The Lubanga case took 6 years to reach a verdict owing to problems with the reliability of testimony and the sheer number of witnesses and victims involved
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] To justify the ends doesn’t “enough the means”. We don’t know how much the animals suffer. Rather we can’t argue
+[true] To argue that “the ends justify the means” isn’t enough. We don’t know how much animals suffer, as they can’t
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] Failed to gain control of the Egyptian crisis The official line of argument for the Egyptian army’s intervention was that Morsi’s administration was failing
+[true] Failed to gain control of the Egyptian crisis The official line of argument for the Egyptian army’s intervention was that Morsi’s administration was failing
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] The public already has an effective veto on legislation, and retains the ultimate power over a politician’s career through its vote at general elections
+[true] The public already has an effective veto on legislation, and retains the ultimate power over a politician’s career through its vote at general elections
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] Reality TV forces us to analyse our own behaviour as a society Reality television actually has a lot of value to our society; they are effectively anthropo
+[true] Reality television forces us to analyse our own behaviour as a society Reality TV actually has a lot of value to our society; they are effectively anthropo
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] Having the government only paying for some health care for those who can’t afford private healthcare is still better than the government paying for all. Competition between
+[true] Having the government only paying for some health care for those who can’t afford private healthcare is still better than the government paying for all. Competition between
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] Airport profiling is a violation of individual rights because it targets and harms certain groups more than others. Muslims and ethnic minorities will be especially,
+[true] Airport profiling is a violation of individual rights because it targets and harms certain groups more than others. Muslims and ethnic minorities will be especially 
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] It would still require a large initial outlay of cash in order to equip all stadiums with the technology and train officials in using it. Also,
+[true] It would still require a large initial outlay of cash in order to equip all stadiums with the technology and train officials in using it. Also,
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] The era of battlefield warfare has passed. The war on terror may be a new form of combat, but the results are no less serious. We
+[true] The era of battlefield warfare has passed. The war on terror may be a new form of combat, but the results are no less serious. We
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] It’s going to cost more for the poor who can’t afford to pay a tax A fat tax only hits the poorest people, will
+[true] Costs more to those who can’t afford to pay A fat tax will be a tax on poor people. It will hit the poorest,
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] Monitoring prevents cyberbullying. Social approval is especially craved by teens because they are beginning to shift focus from family to peers. [1] Unfortunately
+[true] Monitoring prevents cyberbullying. Social approval is especially craved by teens because they are beginning to shift focus from family to peers. [1] Unfortunately
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] The money makes no difference India is a booming economy with GDP growth of 7% over most of the last twenty years, and it is likely to
+[true] The money makes no difference India is a booming economy with GDP growth of 7% over most of the last twenty years, and it is likely to
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] Sponsorship also contributes to all aspects of life. This includes drinking water, food, education, medical care, shelter and sanitation - often charitable donations
+[true] Sponsorship also contributes to all aspects of life. This includes drinking water, food, education, medical care, shelter and sanitation - often charitable donations
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] While it is socially desirable that everyone be able to exist and pursue happiness and gain gainful employment, this is not accomplished at all in the notable
+[true] While it is of course socially desirable that everyone be able to find gainful employment and pursue happiness, this is not accomplished even remotely by the existence
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] The free market naturally leads to concentration of power in the hands of corporations Many global markets are dominated by a few big firms: look, for example
+[true] The free market naturally leads to concentration of power in the hands of corporations Many global markets are dominated by a few big firms: look, for example
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] It is obviously true that some UN agencies and organs carry out valuable and useful work. However, there are two ways of looking at this. The first
+[true] It is obviously true that some UN agencies and organs carry out valuable and useful work. However, there are two ways of looking at this. The first
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred] We should remember that the original defence of the NoW was that phone hacking had been carried out by just ‘one rogue reporter’ [i
+[true] We should remember that the original defence of the NoW was that phone hacking had been carried out by just ‘one rogue reporter’ [i
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] Cluster Bombs Cause Unacceptable Harm to Civilians In a modern warfare scenario, the vast majority of combat takes place in civilian areas, such
+[true] Cluster Bombs Cause Unacceptable Harm to Civilians In a modern warfare scenario, the vast majority of combat takes place in civilian areas, such
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred] We need to unshackle the economy The UK needs to unshackle the economy from the restrictions the EU places upon it. EU bureaucracy
+[true] We need to unshackle the economy The UK needs to unshackle the economy from the restrictions the EU places upon it. EU bureaucracy
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] Intolerant schools are a problem because they don’t allow freedom of religious expression. In a free society, pupils should appreciate the different faiths
+[true] Intolerant schools are a problem because they don’t allow freedom of religious expression. In a free society, pupils should appreciate the different faiths
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] European countries have taken in huge numbers of refugees while none have taken in the gulf states There were 164,000 claims for asylum in Europe in 2015 
+[true] European countries have taken in a huge number of refugees while gulf states have taken none There were 1,294,000 claims for asylum in Europe in 2015
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] The quality of education suffers when university education is free: Without university fees, universities become more dependent on the State. This brings in funding for larger class
+[true] The quality of education suffers when university education is free Without university fees, universities become dependent on the state for funding. This leads to larger class­size
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] The ICC generates crippling expenses. Cautious estimates suggest an operating budget of $100 million per year1. The costs of the ICTY and
+[true] The ICC generates crippling expenses. Cautious estimates suggest an operating budget of $100 million per year1. The costs of the ICTY and
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] Increase the number of Minorities College admission processes are impersonal and biased favourably towards affluent white students – therefore, quoting
+[true] Increase the number of Minorities College admission processes are impersonal and favourably biased towards white, affluent students – therefore, quot
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] Resources will be scarcer without aid; resources will need to be shared equally. There would be no need for further fighting if corruption and chaos ensue as
+[true] Resources will only be scarcer without aid; further chaos and corruption will ensue. There would be no need for fighting should resources be shared out equally. If
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] Rape victims have no choice when it comes to getting pregnant, therefore they should have the right to terminate the pregnancy Girls and, in some cases women,
+[true] Rape victims have no choice when it comes to getting pregnant, therefore they should have the right to terminate the pregnancy Women, and in some cases girls,
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred] showing countries flaunting poor human rights records. Hosting a major sporting event easily gives a country a boost in international prestige Some countries re
+[true] Showcasing countries with poor human rights records Allowing a country to host a major sporting event gives them a big boost in international prestige. Re
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] Ultimately there is a clear difference between the medical use of a drug, which is harming patients and the banning of which is both against
+[true] Ultimately there is a clear difference between the medical use of a drug, the banning of which is both harming patients and is against the
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] The US High Speed Train Association has found a significant number of benefits for high speed rail that would mean that it would be beneficial regardless of its success as
+[true] The US High Speed Train Association has found a significant number of benefits for high speed rail that mean that it would be beneficial regardless of its success as 
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] Freedom of choice is not absolute; it does not mean the consumer should be free to buy whatever they want from wherever they want. For example there is no
+[true] Freedom of choice is not absolute; it does not mean the consumer should be free to buy whatever they want from wherever they want. For example there is no
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] When drugs are illegal, this does not stop people from using them. A Canadian report on the matter concluded, "The licit or illicit status of substances
+[true] When drugs are illegal, this does not stop people from using them. A Canadian report on the matter concluded, "The licit or illicit status of substances
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] We have seen variations in opinion regarding political and economic issues (e.g. monetary union) in the EU. In the far more thorn
+[true] We have seen variations in opinion regarding political and economic issues (e.g. monetary union) in the EU. In the far more thorn
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] While there is no bounding question about what happens between remedies that nature takes to chew, there is an obvious example drawn from a Pennicillin writer,
+[true] Absolutely nobody questions that many remedies can be drawn from nature- penicillin provides one example- but there is something of a jump that happens between chewing
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] Expanding NATO expansion can in the long term only will overstretch the resources of its core members NATO will lead to overstretching
+[true] Expanding NATO will overstretch the resources of its core members NATO expansion can in the long term only lead to the overstretching
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] The creation of such a law would strengthen trends toward paternalist law making When couples choose not to get married, perhaps because one party is not
+[true] The creation of such a law would strengthen trends toward paternalist law making When couples choose not to get married, perhaps because one party is not
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] Care can be provided without property rights: as with interdependence, the status quo does not prevent individuals reducing their income to care for others.
+[true] Care can be provided without property rights: as with interdependence, the status quo does not prevent individuals reducing their income to care for others.
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] Amnesties are the only long term solution Amnesty is the only way to deal with the fundamental problem behind immigration; the developed world much rich
+[true] Amnesties are the only long term solution Amnesty is the only way to deal with the fundamental problem behind immigration; the developed world much rich
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] Traditional universities are a rite of passage to independent life For many students leaving for a university is a passage to an independent life, as they
+[true] Traditional universities are a rite of passage to independent life For many students leaving for a university is a passage to an independent life, as they
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] Yes there will be negative consequences of doing such a step as force feeding however there are also negative consequences to this when it is not done and when necessary
+[true] Yes there will be negative consequences to such a step as force feeding however this is only done when it is absolutely necessary and the negative consequences of not doing
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] There is a lack of consensus among developing countries on who should get permanent seats. Egypt, Nigeria and South Africa themselves claim their right to an African 
+[true] There is a lack of consensus among developing countries themselves on who should get permanent seats. Nigeria, Egypt and South Africa all claim their right to an African
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] Governments do not have a monopoly on the knowledge of what is best for their people and even the people may themselves make a mistake when
+[true] Governments do not have a monopoly on the knowledge of what is best for their people and even the people may themselves make a mistake when
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] Rich communities have a disastrous effect on the environment as well. The question of whether development is possible without manipulating nature and the environment is again entirely separate
+[true] Rich communities have a disastrous effect on the environment as well. The question of whether development is possible without manipulating nature and the environment is again entirely separate
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] The prize by focusing on leaders ignores the areas where money is needed; not lining already rich people’s pockets but providing money and advice to
+[true] The prize by focusing on leaders ignores the areas where money is needed; not lining already rich people’s pockets but providing money and advice to
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] There are always other things that any sum of money could be spent on. Even with large economies and high development standards, every nation has other things to do
+[true] There are always other things that any sum of money could be spent on. Every nation, even ones with large economies and high development standards have other things to
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] The scheme would cause inconvenience and public discontent The more information which is incorporated into identity cards, the greater the problems if they are misplaced
+[true] The scheme would cause inconvenience and public discontent The more information which is incorporated into identity cards, the greater the problems if they are misplaced
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] Few artists ever see much profit from their work anyway, many choosing to keep producing art with the life of bohemian squalor rather than
+[true] Few artists ever see much profit from their work anyway, many choosing the life of bohemian squalor in order to keep producing art rather
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] Safety arguments, terrorism will not be effectively prevented by the erection of the border fence, as a red herring. We need an
+[true] Safety arguments are a red herring; terrorism will not be effectively prevented by the erection of the border fence. We need a
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] Risk of two-tier Internet There is a matter of concern that ISPs would charge higher rates for services as full Internet. Thus relatively flat rates
+[true] Risk of a two-tier Internet As things stand there are relatively flat rate services. The concern is that ISP would charge higher rates for full Internet
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] The assumption of automaticity of Spill-over being wrong. The core of Neo-functionalism that is the driving force behind that is more spillover
+[true] The assumption of the automaticity of Spill-over is wrong. The core of Neo-functionalism that spill-over being the main driving force behind
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] Benefits from fast rail The obvious benefit of high speed travel is that journey times between the UK cities will be greatly reduced. Faster rail from Birmingham to
+[true] Faster travel between British cities The most obvious benefit from high speed rail is that journey times will be less. From London the journey to Birmingham will be reduced
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] Sufficient slum upgrades Upgrading the slum involves in-situ investment to improve housing; tackling informal settlement burdens
+[true] Upgrading housing: tackling the disease burden Slum upgrading involves in-situ investment to improve informal settlements; and integrate slum
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] Animals used in research Research animals are well treated. Though they don’t suffer as pain killers, research animals are almost always given pain, 
+[true] Research animals are well treated Animals used in research generally don’t suffer. While they may be in pain, they are generally given pain killers,
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] The scheme does not prevent crime prevention or forgery The entire premise of national security and identity theft falls when biometric identity cards are in fact "
+[true] The scheme does not prevent forgery or identity theft The entire premise of national security and crime prevention falls when biometric identity cards are in fact 
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] government is weak Germany takes something to do, Action is about politics. German politicians have nothing to do about the NSA surveillance of Merkel and the fact that
+[true] Doing nothing makes Merkel and Germany look weak Politics is about action. The German government has to take some action on the issue of NSA surveillance and
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] Through the SIS the Schengen Area has been able to streamline immigration and asylum policy, thus making it easier to manage immigrants in a consistent
+[true] Through the SIS the Schengen Area has been able to streamline immigration and asylum policy, thus making it easier to manage immigrants in a consistent
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] There are two things we need to respond with in this case. One is regarding the current state of labels and the other the strategy of fighting obesity. It
+[true] There are two things we need to respond with in this case. One regarding the current state of labels and the other the strategy of fighting obesity. It is
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] A UN standing army would not be cost-effective. The cost of such an army would be very high, especially if it were to include purchase of
+[true] A UN standing army would not be cost-effective. The cost of such an army would be very high, especially if it were to include purchase of
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] Humanitarian reasons prompted swift intervention The US intervention in Libya was necessary because Gadaffi had shown and has shown before that he is willing
+[true] Humanitarian reasons prompted swift intervention The US intervention in Libya was necessary because Gadaffi had shown and has shown before that he is willing
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] Politicians are not merely elected to enact policies as stated but to act as a surrogate for the views and values of the voters
+[true] Politicians are not merely elected to enact policies as stated but to act as a surrogate for the views and values of the voters
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred] Stability could have been ensured without a military alliance like NATO. The European Union could have managed to create stability on its own, the EU itself
+[true] Stability could have been ensured without a military alliance like NATO. The European Union could have managed to create stability on its own, the EU itself
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] Syria has not lived up to its commitments Syria is falling well behind on handing over its weapons. The deadliest chemicals were supposed to be removed by
+[true] Syria has not lived up to its commitments Syria is falling well behind on handing over its weapons. The deadliest chemicals were supposed to be removed by
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] Instant replay will take its place where the players belong the focus of the game—not the umpires. Umpires are supposed to facilitate
+[true] Instant replay will place the focus of the game where it belongs—on the players, not the umpires Umpires are supposed to facilitate
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] There are relatively few referrals from drug treatment clinics when it comes to needle exchanges. Studies have shown that this may be due to the drug addict
+[true] Some studies have shown that there are relatively few referrals to drug treatment clinics from needle exchanges. This might be due to the fact that drug addict
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] There should be no legally mandated ceiling on weekly working hours as it limits economic growth. The transaction, hiring and human resource costs of forcing businesses to take
+[true] There should be no legally mandated ceiling on weekly working hours as it limits economic growth. The transaction, hiring and human resource costs of forcing businesses to take
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] Turkey is not yet up to European standards of human rights. Turkey is a democracy but it is not yet up to the standards necessary for membership in the
+[true] Turkey is not yet up to European standards of human rights. Turkey is a democracy but it is not yet up to the standards necessary for membership in the
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] Land titles will help end violence against women. One of the main forms of gender-based violence includes violent acts carried out by husbands or partners [1
+[true] Land titles will help end violence against women. One of the main forms of gender-based violence includes violent acts carried out by husbands or partners [1
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred] Yes, perhaps in the short term the excitement of a 3D printer will make people print more than they can make use of. In the long run
+[true] Yes, perhaps in the short term the excitement of a 3D printer will make people print more than they can make use of. In the long run
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] The question then lies mainly in the fact that do we appreciate our democracy? Does voting every 5 years count for our democracy? Does it in fact just
+[true] The question here then essentially lies in do we appreciate our democracy? Does voting every 5 years actually count as a democracy? Does the fact that we
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] The first problem with this argument is that it assumes that illegal immigrants are easily identifiable without a driver’s license. It is not like illegal immigrants
+[true] The first problem with this argument is that it assumes that illegal immigrants are easily identifiable without a driver’s license. It is not like illegal immigrants
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred] Some countries enact Consent Laws, are discriminatory. One age of consent for young females is higher than 16, and the other age is
+[true] Consent Laws are discriminatory. Some countries have one age of consent for young females (say 16) and a different, higher age of
+--------------------------------------------------
+
+
+{'eval_loss': 1.2319035530090332, 'eval_model_preparation_time': 0.0195, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 32.0, 'eval_token_set_precision': 0.9264617801927063, 'eval_token_set_recall': 0.9320937318250289, 'eval_token_set_f1': 0.929011231083309, 'eval_token_set_f1_sem': np.float64(0.003824398008704887), 'eval_n_ngrams_match_1': 24.702, 'eval_n_ngrams_match_2': 20.995, 'eval_n_ngrams_match_3': 18.717, 'eval_num_true_words': 26.8, 'eval_num_pred_words': 26.736, 'eval_bleu_score': np.float64(78.09093216098782), 'eval_bleu_score_sem': np.float64(0.9739916816946982), 'eval_rouge_score': np.float64(0.9318317796597754), 'eval_exact_match': np.float64(0.578), 'eval_exact_match_sem': np.float64(0.015625625112620622), 'eval_emb_cos_sim': 0.9881172180175781, 'eval_emb_cos_sim_sem': np.float64(0.004727274179458618), 'eval_emb_top1_equal': 0.875, 'eval_emb_top1_equal_sem': np.float64(0.08539125323295593), 'eval_runtime': 24138.5819, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 1.2319035530090332
+eval_model_preparation_time: 0.0195
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 32.0
+eval_token_set_precision: 0.9264617801927063
+eval_token_set_recall: 0.9320937318250289
+eval_token_set_f1: 0.929011231083309
+eval_token_set_f1_sem: 0.003824398008704887
+eval_n_ngrams_match_1: 24.702
+eval_n_ngrams_match_2: 20.995
+eval_n_ngrams_match_3: 18.717
+eval_num_true_words: 26.8
+eval_num_pred_words: 26.736
+eval_bleu_score: 78.09093216098782
+eval_bleu_score_sem: 0.9739916816946982
+eval_rouge_score: 0.9318317796597754
+eval_exact_match: 0.578
+eval_exact_match_sem: 0.015625625112620622
+eval_emb_cos_sim: 0.9881172180175781
+eval_emb_cos_sim_sem: 0.004727274179458618
+eval_emb_top1_equal: 0.875
+eval_emb_top1_equal_sem: 0.08539125323295593
+eval_runtime: 24138.5819
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 24139.029786109924
+Current memory usage: 18.11MB; Peak: 22.83MB

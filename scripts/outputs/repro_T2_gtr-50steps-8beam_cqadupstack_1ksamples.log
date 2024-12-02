@@ -1,0 +1,953 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='cqadupstack', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: cqadupstack
+Original dataset size: 100000
+Randomly selected 1000 samples from the dataset.
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] I created a figure in ptygffig with some additional labels added in a plotz-environment and now turns
+[true] I created a figure in pgfplots and added some extra labels in a tikzfigure environment. Now it turns
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] I got a Black Star and I've read that it's supposed to be like an infinite black gem. I would like to use it for
+[true] I got a Black Star and I've read that it's supposed to be like an infinite black gem. I would like to use it for
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] I'm trying to connect dots between statistics and Optimization and that Least Square problems are linear algebra/optimization and linear algebra/
+[true] I am trying to connect the dots between statistics and linear algebra/optimization. As you know, Least Square problems are linear algebra and optimization problems
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] We know that the Reynolds Number is _frac_$(Vedhá-ro/edhá-ro/$
+[true] We know that the Reynolds Number is $R_e=fracrho vdeta$ ($rh
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] Why Do You Use *"the">/poem> When there is duplication of some names but not others add the definite
+[true] > **Possible Duplicate:** > Why there is "the" before some names but not others When do you use definite
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] this was somewhat like what was expected to be seen in some StackOverflow pages. For example, the name-head section of "[meta
+[true] I expected to see something like this in the head> section of stackoverflow.com, for example: meta name="
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] How do I save and restore progress for N.O.V.A. on the iPad? I have tried everything I can figure out but there doesn
+[true] How do I save and restore progress for N.O.V.A. on the iPad? I have tried everything I can figure out but there doesn
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] This title tells everything from what I was saying: I have a .Ms_5 Mouse with Intelli Optical Buttons
+[true] The title tells everything I guess: I have a _MS Intelli Mouse Optical_ with _5 Buttons_ and
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] need to remove the custom menu widget /div>, id="main-container class 'menu-main'ul
+[true] I need to remove the custom menu widget div class="menu-main-container"> ul id="main
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] I'm working on a mVC-ish app. [*] MVC-ish MVC-ish is a rather inexperience
+[true] I'm working on an MVC-ish app _(I'm not very experienced with MVC, hence the "-ish")_
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] some benut.mimfile name="Betzer_1">/mimfile> I input figmainmain metanum
+[true] I have the following files: metaumlfile.mp: input metauml; beginfig(1); Class.Benutzer("Benut
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] I started using bit web.php but since that last update for the server has been a Lightptd server failing to "start" in the
+[true] I was using Bit Web Server for a while but the last update just made the lighttpd as the php servers failing to start with the
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] I'm trying to add Highstock chart in my plugin. It requires input data in json format. But I have some troubles with default so
+[true] I'm trying to add Highstock chart in my plugin. It requires input data in json format. But I have some troubles with default 
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] I'm involved in an embedded software project where we also need to specify the target hardware. I come from a mostly software-only background, and
+[true] I'm involved in an embedded software project where we also need to specify the target hardware. I come from a mostly software-only background, and
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] the same code: When you run a feature creation path set to arcpy data inside an OutFC file at a given geodatabase
+[true] When I run the following code with the outFC creation path set to a feature dataset inside a file geodatabase... arcpy.
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] As a jungler, mid always asks for the second blue, but I need the buff and the experience. Am I wrong to think this;
+[true] As a jungler, mid always asks for the second blue, but I need the experience and the buff. Am I wrong to think this?
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] is there some articulatory reason why we choose to preface consonant sounds along with (a) and vowel-sounds at article
+[true] Is there some articulatory reason behind why we choose to preface consonant sounds with the article _a_ and vowel sounds
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred] I feel I've been innocently causing some offense by using the term "money shot" in its general, normally non-pornographic
+[true] I'm afraid I have been somewhat innocently causing offense by using the term "money shot" in its general, non-pornographic
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] I have a transient set for a custom query. It expires in 30 days. But I also need it to expire once 
+[true] I have a transient set for a custom query. It expires in 30 days. But I also need it to expire once 
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] Pronunciation: /poem> Writing: "An" vs. "A" (possible duplicate
+[true] > **Possible Duplicate:** > "A" vs. "An" in writing vs. pronunciation
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] ! [[description image:https://www.pfcv_entertainment.com/index.php?
+[true] ![enter image description here](http://i.stack.imgur.com/fqcvC.png
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred] This is a matter of much confusion. Let me refer to this paper. If I have $p$ variables x_1, x_2,
+[true] I have a certain confusion. I refer to this paper. Let's say I have $p$ variables $x_1, x_2,
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred]         I know where can you get an ocean shaded relief for the Central American
+[true] Does anyone know where I can get an ocean shaded relief for the Central American coast?
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] I have a MapLayout where the Page user wants to select the printing extent. For the PageControl we can set up a map like
+[true] For printing we have a PageLayoutControl where the user can select the map extent, he wants to print. I like the map to
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] I am trying to use eqref, but it does not seem to get [1] instead of the following in blank parentheses
+[true] I am trying to use eqref as in the following, but instead of (1), I get a set of blank parenthe
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] Suppose I have a quantile regression model with many predictor variables. Subsequently, if I have 10000 response observations and
+[true] I have a question regarding quantile regression. Supposing that I have 10000 observations with one response variable and several predictor variables in 
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] (Problem): For a system with constant mass "V"$,P,T entropy can be considered a function
+[true] **Problem** : For a $P,V,T$ system with constant mass,entropy can be considered a function
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] following example is provided below: Values of investment – What income forms part of which an investment "does not"? Thalt be
+[true] Example: > Value of Investments — income from which does not or shall not form part of > income. To my understanding "does
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] You can make a Web server on your router if you can re-write it firmware including a free DD/Tomato/W
+[true] You can make a Web server on your router providing that you rewrite its firmware with a free DD-WRT, Tomato,
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] duplicate: [[File:Mogtex.x]] Can't find udmcjmik? [[File
+[true] > **Possible Duplicate:** > miktex can't find udmj.cfg I'
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] What would be the best way to go in creating a tag-system similar to the one on Quora.org? If you don't
+[true] What would be the best way to go for creating a tag-system similar to the one on quora.com? If you don't
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] I'm trying to use bmake to build OS161 on Mandriva. When I try to run bmake, I get
+[true] I'm trying to use bmake to build OS161 on Mandriva. When I try to run bmake, I get
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] I've an admin page that provides the theme for my homepage that allows me to set up jQuery sliders easily, but it limits me five
+[true] The theme I'm using provides an admin page that lets me easily setup jQuery sliders on my homepage, but it limits me to five.
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] this program: If I have a program in this shell I say Hello echo $ world="mash" $bin "cat" #fi
+[true] Say I have this file: hello world hello world This program #!/bin/bash for i in $(cat $1); do echo "
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] If we have referral particle in the middle of the river    , will the river's velocity increase with higher level?
+[true] If we have referral particle in the middle of the river, will it's velocity increase with higher river level?
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] I have launched my blog, I am able to attract 40-60 user per day of my internet site which is over 2 months. My blog is so
+[true] I have launched my blog site and I am able to attract 40-60 user per day, it is almost 2 months my blog is on internet. I
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] thought that the canonical link function g$c(dot) comes from the natural parameter of exponential family . Also, we
+[true] I thought that the canonical link function $g(cdot)$ comes from the natural parameter of exponential family. Say, consider
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] Do all WordPress built-in functions validate inputs that pass at the database to protect against vulnerabilities to SQL injection or do we have to validate them before using
+[true] Does WordPress validate inputs made to all built-in functions that access the database to protect against SQL injection vulnerabilities or do we have to validate before passing them
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] I data for some genes from computational and experimental data, the rows are the n matrix and the columns are the matrix values. Now the data has 
+[true] I have experimental and computational data for n genes in data matrix. The rows are the genes and columns are its values. Now, the data is from
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] A single edge diffraction pattern is different than a slit or multiple slit diffraction pattern. The pattern is not
+[true] A single edge diffraction pattern is different than a slit or multiple slit diffraction pattern. The pattern is not
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] I haven't seen any support for allowing custom fields. What syntax highlighting for custom fields? The solution seems to be the same for others
+[true] Does anyone know how to allow syntax highlighting for custom fields. None of the solutions out there seems to have support for custom fields. Thanks!
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] I have tried to find a solution for this. I don't know if I use a document that has a clear report
+[true] I have tried to look through, but I couldn't find a clear solution on this. I have a document that uses report
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] I am reading Leslie Ballentine's Quantum Mechanics, section 7.2, which is all about the explicit form of the
+[true] I am reading Leslie Ballentine's Quantum Mechanics, section 7.2, which is all about the explicit form of the
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] Consequently, there is a function in the "getetc/epwnam" entry that will return an appropriate "pass" at the username
+[true] Apparently there is a function (getpwnam) that given a username, will return the appropriate entry in /etc/pass
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] I was trying to stack a groupplot or was it trying to get something like a stacked plot? [Also:]
+[true] I was trying to stack a groupplot, or was it grouping a stacked plot? However I was trying to get something like:
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] expressed a desire to configure a VPN from Ubuntu S 4.2.3 "My Nexus" to my home desktop. I have already tried to experiment with
+[true] I want to configure a VPN from my Nexus S (2.3.4) to my home Ubuntu desktop. Has anyone tried this yet? I would deeply
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred] how can I perform a command on the selected items? For example calling vim or gimp or so for the 5 text files, image
+[true] How can I perform a command on the selected items ? for example calling vim, or gimp for the 5 text or image files
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] I wish to have the titles of articles (words, sentences, etc.) set in Bibulatex first case (capitalized with over
+[true] I'd like to have the titles of articles in Biblatex in sentence case (first word capitialized, the rest lowercase, over
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred] I have about 10 double chests of rotten flesh (as my zombie pigman farm is working very kindly). While rotten
+[true] I have about 10 double chests of rotten flesh (my zombie pigman farm is working nicely thank you very much). While rotten
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] before the new brackets were introduced: For example: Bronze: between 1350 and 1399 (Vote 1:1, premade 1:1,300
+[true] For example, before the new brackets were introduced: Bronze: Between 1250 and 1399 (3v3: 1249-1409, pre-made
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] what are the main practical applications that a Bose-Einstein condensate can have     
+[true] What are the main practical applications that a Bose-Einstein condensate can have?
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] When PS+ gets my account on PS3, will other accounts of the game be able to access on PS3 as long as you have a 
+[true] When I get PS+, will other accounts on my PS3 be able to access the game as long as my account with PS+ has a
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] can be a request to try to code to maximize the Displaying of Accompany for a list of certain country living on a type
+[true] This is an ongoing request, trying to do maximize some code to display a list of Accomodation by Country, of a certain Type
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] Consider: The data in the result is in[1]:0;[2]:0;[3]:0;[4]:
+[true] Consider the following: data=2,2,2,5,3,3,3,6,1,1,1,0; In[1]:=result
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] I. The description for the mission achievement in "Midnight Launch [at midnight]" is "Get significant air in the warthog (
+[true] The description for the achievement **Midnight Launch** is > In mission 2, get significant air in the warthog at midnight. Is "
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] I've been running two apps (both on Linux) and both communicate with port 42602. We want to check and verify if the
+[true] We have two apps running (on top of linux) and both communicates through port 42605. I wanted to quickly verify if this is the
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred] honestly put this down. It's just the worst thing. I have never had performance issues on my PC or in my Desktop. Driver updates are easy
+[true] Alright this is just baffling me. I have never had performance issues on my Desktop unless its just an easy Driver Update. The worst
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] How can I prove that in spacetime the extrinsic curvature of the static hypersurface $("constant") is zero 
+[true] How can I prove that in the static spacetime, the extrinsic curvature of hypersurface $t=constant$ is zero
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] I've seen that in games where a player has an "arsenal" of several characters and each time he plays with one of
+[true] I've seen that in games where a player has an "arsenal" of several characters and each time he plays with one of
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] For a scene in a SciFi book, I want to know: Is it possible to estimate how much energy per m2 an object
+[true] For a scene in a SciFi book, I want to know: Is it possible to estimate how much energy per m2 an object
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] I would like to change to a font with sans serif (for example Helvetica or computer modern sans serif). The following code does
+[true] I would like to change to a font with sans serif (for example Helvetica or computer modern sans serif). The following code does
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] variable X and put it into a texas plot to see how you can keep the quarters in this variable. Date 1993YQ
+[true] I am new to TEX How can I plot this variable and keep the quarters in the x axis ? date variable 1993Q
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] I background. Often, P-values are reported. Conducting a meta-analysis that includes differences between treatments with previously published data (P
+[true] ## Background I am conducting a meta-analysis that includes previously published data. Often, differences between treatments are reported with P-values,
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] Is there a way to use WordPress Multisite to collaborate all the subsites into the main site? My thought is to have all subsite
+[true] Is there a way to use WordPress Multisite to collaborate all subsites into the main site? My thought is to have all the subsite
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] I think there are lots of answers to this (i.e. both here and elsewhere) and these which deal with subdomains and their impact SEO
+[true] I know there are lots of answers both here (e.g. this and this) and elsewhere which deal with subdomains and their impact on SEO
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] When you use harmonic motion, you can use either sin or cos in the form of the simple form of the motion equation but the question is which one
+[true] In simple harmonic motion, you can use either the sin or cos form of the equation but my question is which one do you use when and why?
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] I've gone into a disagreement with a colleague. My original sentence was "Determine the maximum value of Boys _and__
+[true] I've gotten into a disagreement with a colleague. My original sentence was "Determine the maximum value of Boys _and_
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] I am submitting a paper on a peer review in a journal. The authors are developing a bit of a psychos
+[true] I am doing peer review on a paper submission for a journal, and I am somewhat out of my depth. The authors are developing a psycho
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] I just bought a PS4 and started playing GroundZone. All of the voices in the game sound like muffles or feel in the background
+[true] I just bought a PS4 and started playing Ground Zeroes on it. All voices sound like they are in the background, or feel muffle
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] When I use wp_get_attachment_src_()[image], the medium sized image is returned on 3 out 
+[true] When I use wp_get_attachment_image_src(), the medium sized image is returned on 3 out
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] Which information do you want to see in a job offer for programmers?  In which order? What are the most important points for you?
+[true] Which information do you want to see in a job offer for programmers? In which order? What are the most important points for you?
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] I've tried to compile Linux from scratch through Linux version 7.5 and I can't compile some packages because I'm trying to find
+[true] I've tried to compile Linux through Linux from scratch Version 7.5 and I can't compile some packages because as I realize and googled
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] how I started my blog back in 2006, and I never really realized the size it would grow to. The futures of WP and GoDaddy,
+[true] OK, so I started my blog back in 2006, never realizing the size it would grow to, or what the future of WP and GoDaddy
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] I have a bunch of bivariate correlation tests for which $R$ has already been calculated. Is it possible to figure out the p
+[true] I have a bunch of bivariate correlation tests for which $R$ has already been calculated. Is it possible to figure out the p
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] I have a dataset drawn from a social network that looks Bimodal on logarithmic scales for all attributes (to demonstrate only I'
+[true] I have a dataset drawn from a social network that looks Bimodal on logarithmic scales for all attributes (I'll demonstrate only
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] I can't find a guide for this (they are old and don't seem to work) and I can't manage to install it
+[true] I can't find a guide for this (they are old and don't work) and I can't seem to manage to install it
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] __ (For the purpose of this question, "calculating a collision" means: Given the masses and velocities of two objects in
+[true] _(For the purpose of this question, "calculating a collision" means: given the velocities and masses of two objects in 
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] The size of the algorithm needs to be done to prove the best solution for a given problem: (i) User inputs: (ii)
+[true] The efficient algorithm needs to be done and proved for the best solution for the given problem: **User inputs:** (#) Size of
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] I saw this equation on a coffee mug. I am not yet far enough along in physics to understand what it means, and I am wondering
+[true] I saw this equation on a coffee mug, and I am wondering what it means. I am not far enough along in physics to understand it
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] My main problem with wordpress is image resizing onlyinclude> Too large file size of a website is like a web
+[true] **The main problem here is about too large file size of image not image re- sizing** My wordpress website is like a web
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] I am trying to add a time dependent fraction to a parameter in -NDSolve, i.e., when
+[true] I am trying to add a time dependent fraction to a parameter in NDSolve, i.e. when 
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] I have my computer, a former laptop from which I removed the screen. The graphics card is an ATI Radeon of some kind. It
+[true] My computer is a former laptop from which I removed the screen. The graphics card is an ATI Radeon of some kind. I have it
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] I applied two different classifiers against the same validation set. It turns out that classifier A is better than classifier B in terms of ROC
+[true] I applied two different classifiers against the same validation set. It turns out that classifier A is better than classifier B in terms of ROC
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] that I'm talking about in MCMC's machine learning section. On page 5 the MCMC gives some information on rejection sampling: repeat
+[true] **Context:** I'm reading up on sampling in MCMC for Machine Learning. On page 5, it mentions rejection sampling: repeat sample
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] analyzing the results of a R-experiment using ANOVA. I ran a repeated reaction time measure 2 within factors (subject 
+[true] I am analyzing the results of a reaction time experiment in R. I ran a repeated measures ANOVA (1 within-subject factor with 2
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] Trying to use moderncv for template text (textnames and section titles) appears to be weird. For example, using ssc
+[true] I am trying to use textsc for name and section titles in moderncv template. However, the font seems weird. For example
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] work on Windows, I've recently found MiKTeX that uses the 'minted' package. So you need to call the package of
+[true] I often work on Windows, so need to use MiKTeX. I recently found the minted package, which needs to call the
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] I'm developing a new theme for my newspaper. Fields for reporting and naming, like Top Sub Header, Bottom Sub Header,
+[true] I'm developing a theme for newspaper. For some new fields like: Top Sub Heading, Bottom Sub Heading, Reporter's Name
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] done this with the following model in r ssp: glm[alert(height) + water(sp
+[true] I have ran this model in R: glm(alert  water.height + ssp*ssp
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred] = $("L") + $("G"), we get where [beta] = 0 with orbital angular momentum
+[true] How do we get $[beta , L] = 0$ , where $L$= orbital angular momentum
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] The following is my first widget and I’m following an online tutorial. I expect the widget to do the front-end. [...] [Context:
+[true] **Context:** This is my first widget and I am following along with an online tutorial. I am expecting the front-end of the widget to
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] a [[Posible Duplication|Duplicate]] Including main effects, but not the interaction in an experimental design model
+[true] > **Possible Duplicate:** > Including the interaction but not the main effects in a model I have an experimental design
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] I use a twocolumn option. This method works in the following configurations: classimage(documentcolumn)article
+[true] I use the following option twocolumn documentclass[11pt, twocolumn]article Images and almost everything works
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] I used to live in Italy, and on those pretty sunny days it was as expected that it was hot. Both under the direct light of the sun through
+[true] I used to live in Italy, and when it was sunny, well, as expected it was pretty hot. Both under the direct light of the sun through
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] I'm a student at the University of South Florida who's frustrated with the educational environment in the Computer Science program. Right now, I'
+[true] I'm a student at the University of South Florida who's frustrated with the educational environment in the Computer Science program. Right now, I'
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] I have since moved a link to a different site and done a complete domain overhaul. The old name structure is a very bad one.
+[true] I have moved a site to a different domain name and did a complete overhaul. Link structure has changed because the old one was very bad.
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred] I need to make a table which essentially fits to the 'textwidth', or the width generally available to text on the page 
+[true] I need to make a table which fits to the textwidth, or essentially, the width generally available to text on the page
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] This is a technical problem that must be solved in beginner textbooks if there isn't a solution which will be solved already. 
+[true] This is a technical problem which must have been solved already. It won't be in beginners textbooks but there should be a solution somewhere.
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] I'm using a wordpress theme and I want to load content through AJAX inside a page. I've added this inside my
+[true] I'm using an wordpress theme and I want to load content through AJAX inside a page. I've added this inside my **
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred] I installed PinguyOS on a friends computer. This computer is now displaying the following strange behaviour: 1. Unable to set custom network.
+[true] I installed PinguyOS on a friends computer. This computer is now displaying the following strange behaviour: 1. Unable to set custom network.
+--------------------------------------------------
+
+
+{'eval_loss': 2.0328917503356934, 'eval_model_preparation_time': 0.0184, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 31.6875, 'eval_token_set_precision': 0.7510167259138488, 'eval_token_set_recall': 0.7610244115926657, 'eval_token_set_f1': 0.7543421360864834, 'eval_token_set_f1_sem': np.float64(0.006325486763388473), 'eval_n_ngrams_match_1': 18.189, 'eval_n_ngrams_match_2': 12.373, 'eval_n_ngrams_match_3': 9.665, 'eval_num_true_words': 24.332, 'eval_num_pred_words': 24.088, 'eval_bleu_score': np.float64(45.99630322456657), 'eval_bleu_score_sem': np.float64(1.0707887775211613), 'eval_rouge_score': np.float64(0.7889466194495942), 'eval_exact_match': np.float64(0.169), 'eval_exact_match_sem': np.float64(0.011856625977890152), 'eval_emb_cos_sim': 0.9327603578567505, 'eval_emb_cos_sim_sem': np.float64(0.017764175310730934), 'eval_emb_top1_equal': 0.75, 'eval_emb_top1_equal_sem': np.float64(0.11180339753627777), 'eval_runtime': 24262.6304, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 2.0328917503356934
+eval_model_preparation_time: 0.0184
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 31.6875
+eval_token_set_precision: 0.7510167259138488
+eval_token_set_recall: 0.7610244115926657
+eval_token_set_f1: 0.7543421360864834
+eval_token_set_f1_sem: 0.006325486763388473
+eval_n_ngrams_match_1: 18.189
+eval_n_ngrams_match_2: 12.373
+eval_n_ngrams_match_3: 9.665
+eval_num_true_words: 24.332
+eval_num_pred_words: 24.088
+eval_bleu_score: 45.99630322456657
+eval_bleu_score_sem: 1.0707887775211613
+eval_rouge_score: 0.7889466194495942
+eval_exact_match: 0.169
+eval_exact_match_sem: 0.011856625977890152
+eval_emb_cos_sim: 0.9327603578567505
+eval_emb_cos_sim_sem: 0.017764175310730934
+eval_emb_top1_equal: 0.75
+eval_emb_top1_equal_sem: 0.11180339753627777
+eval_runtime: 24262.6304
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 24263.08249258995
+Current memory usage: 17.91MB; Peak: 22.48MB

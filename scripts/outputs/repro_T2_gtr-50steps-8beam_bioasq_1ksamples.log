@@ -1,5 +1,5 @@
 +++ Arguments Passed +++
-Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='signal1m', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='bioasq', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
 Set num workers to 1
 +++ model_args +++
 ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
@@ -305,4 +305,4 @@ Experiment output_dir = saves/jxm__gtr__nq__32
 Loading datasets with TOKENIZERS_PARALLELISM = False
 loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
 loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
-Loading BEIR dataset: signal1m
+Loading BEIR dataset: bioasq

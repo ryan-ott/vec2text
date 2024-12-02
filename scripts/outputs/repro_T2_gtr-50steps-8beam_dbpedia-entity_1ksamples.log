@@ -1,0 +1,953 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='dbpedia-entity', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: dbpedia-entity
+Original dataset size: 100000
+Randomly selected 1000 samples from the dataset.
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] Hochsauerlandkreis (meaning "Higher Sauerland District" in German) is a Kreis (district) in the east of
+[true] Hochsauerlandkreis (meaning "Higher Sauerland District" in German) is a Kreis (district) in the east of
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] Sterling is a village in Arenac County in the U.S. state of Michigan. The population was 530 at the 2010 census .
+[true] Sterling is a village in Arenac County in the U.S. state of Michigan. The population was 530 at the 2010 census.
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] The 1906 Intercalated Games or 1906 Olympic Games was an international multi-sport event which was celebrated in Athens, Greece. They were at the
+[true] The 1906 Intercalated Games or 1906 Olympic Games was an international multi-sport event which was celebrated in Athens, Greece. They were at the
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Lynx A lynx (plural of lynxes or plural of lêks) is any of the
+[true] A lynx (/lks/; plural lynx or lynxes) is any of the
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] Chino Valley is a town in Yavapai County, Arizona, United States. According to the 2010 census, the population of the town is
+[true] Chino Valley is a town in Yavapai County, Arizona, United States. According to the 2010 census, the population of the town is
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] For reference to the genus "Nothes" of the social fraternity Zetuidae, see moths nickname
+[true] For the genus of noctuid moths, see Zethes (moth). For the social fraternity nickname
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] Jeremy Ashdown John Ashdown of Norton-Hamdon Durham, sub-baron, GCMG, KBE, PC, (Du
+[true] Jeremy John Durham Ashdown, Baron Ashdown of Norton-sub-Hamdon, GCMG, CH, KBE, PC (
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] Kroschel Township is a township in Kanabec County, Minnesota, United States. The population was 218 at the 2000 census.
+[true] Kroschel Township is a township in Kanabec County, Minnesota, United States. The population was 218 at the 2000 census.
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] In mathematics, especially in order theory, a Galois connection is a particular correspondence (typically) between two partially ordered sets (poset
+[true] In mathematics, especially in order theory, a Galois connection is a particular correspondence (typically) between two partially ordered sets (poset
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] Mario Luis Kreutzberger Blumenfeld (born December 28, 1940), better known by his stage name, Don Francisco, is a Chilean television host
+[true] Mario Luis Kreutzberger Blumenfeld (born December 28, 1940), better known by his stage name, Don Francisco, is a Chilean television host
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] Brandonville is a town in Preston County, West Virginia, United States. The population was 101 at the 2010 census.   
+[true] Brandonville is a town in Preston County, West Virginia, United States. The population was 101 at the 2010 census.
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] Lake Lac La Belle is a former census-designated place (CDP) in Jefferson County, Wisconsin, United States. The population was 833
+[true] Lake Lac La Belle is a former census-designated place (CDP) in Jefferson County, Wisconsin, United States. The population was 833
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] Three Forks is a city in Gallatin County, Montana, United States and is located within the watershed valley system of both the Missouri and
+[true] Three Forks is a city in Gallatin County, Montana, United States and is located within the watershed valley system of both the Missouri and
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] Top-down and bottom-up are both strategies of information processing and knowledge ordering, used in a variety of fields including software, scientific and humanistic
+[true] Top-down and bottom-up are both strategies of information processing and knowledge ordering, used in a variety of fields including software, humanistic and scientific
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] A mute is a device fitted to a musical instrument to alter the sound produced: by affecting the timbre, reducing the
+[true] A mute is a device fitted to a musical instrument to alter the sound produced: by affecting the timbre, reducing the
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] The Ascension of Jesus (anglicized from the Vulgate Latin Acts 1:9-11 section title: Ascensi
+[true] The Ascension of Jesus (anglicized from the Vulgate Latin Acts 1:9-11 section title: Ascensi
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] Waelder is a city in Gonzales County, Texas, United States. The population was 1065 at the 2010 census.
+[true] Waelder is a city in Gonzales County, Texas, United States. The population was 1065 at the 2010 census.
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred] For the neighborhood in the city of Miami Beach, see North Beach (Miami Beach).For the separate city, see North Miami.North Miami Beach
+[true] For the neighborhood in the city of Miami Beach, see North Beach (Miami Beach).For the separate city, see North Miami.North Miami Beach
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] Alun Lewis (1 July 1915 – 5 March 1944) was a Welsh poet. He is one of the best-known English-language poet
+[true] Alun Lewis (1 July 1915 – 5 March 1944) was a Welsh poet. He is one of the best-known English-language poet
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] North is a noun, adjective, or adverb indicating direction or geography. North is one of the four cardinal directions (or
+[true] North is a noun, adjective, or adverb indicating direction or geography. North is one of the four cardinal directions or 
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] A passerine is any bird of the order Passeriformes, which includes more than half of all bird species. A notable feature of passer
+[true] A passerine is any bird of the order Passeriformes, which includes more than half of all bird species. A notable feature of passer
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred] Root beer is a dark brown sweet beverage traditionally made using the root or bark of the tree alabaster Sassafras (
+[true] Root beer is a dark brown sweet beverage traditionally made using the root or bark of the tree Sassafras albidum (
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] Punky Brewster is an American sitcom about a girl named Punky Brewster (Soleil Moon Frye) being raised
+[true] Punky Brewster is an American sitcom about a girl named Punky Brewster (Soleil Moon Frye) being raised
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] Nanda is a Chinese given name, and a pinyin. Nanda is a word used in Indian surnames.
+[true] Nanda is an Indian surname, and a given. Nanda is a word used in Chinese pinyin.
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] Sten Sture the Younger (Swedish: Sten Sture ai den Egrekesöke), Lord of 14 
+[true] Sten Sture the Younger (Swedish: Sten Sture den yngre), Lord of Ekesiö (14
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] Summit is a city in Marion County, Arkansas, United States. The population was 586 at the 2000 census.  
+[true] Summit is a city in Marion County, Arkansas, United States. The population was 586 at the 2000 census.
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] Katyusha multiple rocket launchers (Russian: ', IPA: 'атат-kju-uq) are (
+[true] Katyusha multiple rocket launchers (Russian: ата; IPA: [ktju]) are 
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] December 22 is the 356th day of the year (357th in leap years) in the Gregorian calendar. There are nine days remaining
+[true] December 22 is the 356th day of the year (357th in leap years) in the Gregorian calendar. There are nine days remaining
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] Ridge Manor is a census-designated place (CDP) in Hernando County, Florida, United States. The population was 4,
+[true] Ridge Manor is a census-designated place (CDP) in Hernando County, Florida, United States. The population was 4,
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] Ongariy Autar Tokbakulatorov (Kazakh: арска арс
+[true] Toktar Ongarbayuly Aubakirov (Kazakh: отар ара
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] 2600: The Hacker Quarterly is an American publication that specializes in publishing technical information on a variety of subjects including telephone switching systems, Internet
+[true] 2600: The Hacker Quarterly is an American publication that specializes in publishing technical information on a variety of subjects including telephone switching systems, Internet
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] Vision is that which is seen in a dream, trance, or religious ecstasy, especially a supernatural appearance that usually
+[true] Vision is that which is seen in a dream, trance, or religious ecstasy, especially a supernatural appearance that usually
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] Andrei Romanovich Chikatilo (Russian: аратил ндре аратилов
+[true] Andrei Romanovich Chikatilo (Russian: ндре оманови икатило
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] Lokeren (Dutch pronunciation: "lokkèrn"; ) () is a municipality located in the Belgian
+[true] Lokeren (Dutch pronunciation: [lokr(n)]) is a municipality located in the Belgia
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] Abraham (Hebrew: ; "[hu-r-eh-b-eh-m]"), this sound itself
+[true] Abraham (/ebrhm, -hm/ (Hebrew:  , About this sound
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] The Matrix is a 1999 American science fiction action film written and directed by The Wachowskis, starring Keanu Reeves,
+[true] The Matrix is a 1999 American science fiction action film written and directed by The Wachowskis, starring Keanu Reeves,
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] Pope Celestine IV (born Caesclus Gélfotidas IV; died 423), the twelf
+[true] Pope Celestine IV (Latin: Caelestinus IV; died 10 November 1241), born Goffredo da Cast
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] BARK (Bavarian for Bavarian Microintensor Arithmetic Relay System) (Swedish for Kin
+[true] BARK (Binär Aritmetisk Relä-Kalkylator, Swedish for "Binary Arithmetic Relay
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] High-speed rail is a type of rail transport that operates significantly faster than traditional rail traffic, using an integrated system of specialized rolling stock and dedicated
+[true] High-speed rail is a type of rail transport that operates significantly faster than traditional rail traffic, using an integrated system of specialized rolling stock and dedicated
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] A crosier (office, pastoral staff) or crozézier () is the stylized staff (prabas, patiza,
+[true] A crosier (crozier, pastoral staff, paterissa, pósokh) is the stylized staff of office (
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] RISC OS /rósko_s/ is a computer operating system originally designed by Acorn Computers Ltd, in Cambridge England.
+[true] RISC OS /rskos/ is a computer operating system originally designed by Acorn Computers Ltd in Cambridge, England.
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] Kahuku is a census-designated place (CDP) in the Ko'olauloa District on the island of O
+[true] Kahuku is a census-designated place (CDP) in the Koolauloa District on the island of O
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] Fort Stotsenburg, during the World War II era, was the location of the Philippine Department's 26th Cavalry Regiment,
+[true] Fort Stotsenburg, during the World War II era, was the location of the Philippine Department's 26th Cavalry Regiment,
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] In telecommunication engineering, and in particular teletraffic engineering, the quality of voice service is specified by two measures: the grade of service (
+[true] In telecommunication engineering, and in particular teletraffic engineering, the quality of voice service is specified by two measures: the grade of service (
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] The Kyrgyz (also spelled Kyrghyz and Kirghiz), a Turkic people, live primarily
+[true] The Kyrgyz (also spelled Kyrghyz and Kirghiz), a Turkic people, live primarily
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] Donnelly Township is a township in Stevens County, Minnesota, United States. The population was 113 at the 2000 census.Donnelly
+[true] Donnelly Township is a township in Stevens County, Minnesota, United States. The population was 113 at the 2000 census.Donnelly
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred] Churchill Babington (pron. '; ') (11 March 1821 – 7 January 1878) was an English classical 
+[true] Churchill Babington (/bbtn/; 11 March 1821 – 12 January 1889) was an English classical
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] Sir Thomas Wyatt (1503 – 11 October 1542) was a 16th-century English ambassador and lyrical poet. He
+[true] Sir Thomas Wyatt (1503 – 11 October 1542) was a 16th-century English ambassador and lyrical poet. He
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred] Grant is a city and county seat of Perkins County, Nebraska, United States. The population was 1,165 at the 2010 census .
+[true] Grant is a city and county seat of Perkins County, Nebraska, United States. The population was 1,165 at the 2010 census.
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] Dearborn County is a county located in the U.S. state of Indiana. As of 2010, the population was 50,047. The county
+[true] Dearborn County is a county located in the U.S. state of Indiana. As of 2010, the population was 50,047. The county
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] Lake Fremont Township is a township in Martin County, Minnesota, United States. The population was 175 at the 2000 census.Lake Fre
+[true] Lake Fremont Township is a township in Martin County, Minnesota, United States. The population was 175 at the 2000 census.Lake Fre
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] Addison is a borough in Somerset County, Pennsylvania, United States. It is part of the Johnstown, Pennsylvania Metropolitan Statistical Area
+[true] Addison is a borough in Somerset County, Pennsylvania, United States. It is part of the Johnstown, Pennsylvania Metropolitan Statistical Area
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] Simon Says (or Simple Simon Says) is a child's game for 3 or more players where 1 player takes the role of "S
+[true] Simon Says (or Simple Simon Says) is a child's game for 3 or more players where 1 player takes the role of "S
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] Humboldt Township is a civil township of Marquette County in the U.S. state of Michigan. The population was 469 at
+[true] Humboldt Township is a civil township of Marquette County in the U.S. state of Michigan. The population was 469 at
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] Nancy) (pronounced: Nanzig; the German-French syllabi for "city") is a city in north-western
+[true] Nancy (French pronunciation: [n.si]; German: Nanzig) is a city in the north-eastern
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] The Battle of Bennington was a battle of the American Revolutionary War, part of the Saratoga campaign, that took place on August 16,
+[true] The Battle of Bennington was a battle of the American Revolutionary War, part of the Saratoga campaign, that took place on August 16,
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred] Sources for an understanding of dance in Europe in the Middle Ages are limited and fragmentary, being composed of some interesting depictions in paintings and illumination
+[true] Sources for an understanding of dance in Europe in the Middle Ages are limited and fragmentary, being composed of some interesting depictions in paintings and illumination
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] In telecommunication, speed of service is the time for a message to be received:for example,the time between release of a message by
+[true] In telecommunication, speed of service is the time for a message to be received, for example:The time between release of a message by
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] Trade Lake is a town in Burnett County in the U.S. state of Wisconsin. The population was 823 in the 2010 census. The
+[true] Trade Lake is a town in Burnett County in the U.S. state of Wisconsin. The population was 823 in the 2010 census. The
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] Kodiak (Ka'aq: Sun'iyak; Altitudahl: "атат"; Russian:
+[true] Kodiak (Alutiiq: Sun'aq; Russian: адк, tr. Kadyak
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] The Lockheed EC-130 series comprises several slightly different versions of the Lockheed Martin C-130 Hercules that have been and continue to
+[true] The Lockheed Martin EC-130 series comprises several slightly different versions of the Lockheed C-130 Hercules that have been and continue to
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] A suburb is a residential area or a mixed use area, either existing as part of a city or urban area or as a separate residential
+[true] A suburb is a residential area or a mixed use area, either existing as part of a city or urban area or as a separate residential
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] Prevalence in epidemiology is the proportion of a population found to have a condition (typically a disease or a risk factor such
+[true] Prevalence in epidemiology is the proportion of a population found to have a condition (typically a disease or a risk factor such
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] The Acts of Union were two Acts of Parliament: the Union with Scotland Act 1706 passed by the Parliament of England, and the Union with England
+[true] The Acts of Union were two Acts of Parliament: the Union with Scotland Act 1706 passed by the Parliament of England, and the Union with England
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] The Oxley Wild Rivers National Park is a protected national park that is located in the Northern Tablelands region of New South Wales, Australia.
+[true] The Oxley Wild Rivers National Park is a protected national park that is located in the Northern Tablelands region of New South Wales, Australia.
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] nobility, the "Szlachta" (exonym: szlaxt) was a legally privileged noble class
+[true] The szlachta ([laxta], exonym: Nobility) was a legally privileged noble class with
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] The Neckar (German pronunciation: ' (n'ka)) is a 367-kilometre-long (42 mi) river in Germany
+[true] The Neckar (German pronunciation: [nka]) is a 367-kilometre-long (228 mi) river in Germany
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] Ohatchee (inc. 1956) is a town in Calhoun County, Alabama, United States. At the 2010 census the population
+[true] Ohatchee (inc. 1956) is a town in Calhoun County, Alabama, United States. At the 2010 census the population
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] The Brittonic, Brythonic or Celtic languages (Welsh: 'Celtic iekend Bryth
+[true] The Brittonic, Brythonic or British Celtic languages (Welsh: ieithoedd Brython
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] The Book of Psalms, Tehillim in Hebrew ( , meaning "Praises"), commonly referred to
+[true] The Book of Psalms, Tehillim in Hebrew ( or  meaning "Praises"), commonly referred to
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] Cedar Falls is a city in Black Hawk County, Iowa, United States. As of the 2010 census, the city population was 39,260 and has
+[true] Cedar Falls is a city in Black Hawk County, Iowa, United States. As of the 2010 census, the city population was 39,260 and has
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] Route 71 is a 16.4 miles (37 km) state highway in New Jersey, United States, that runs near the town of Monmouth County
+[true] Route 71 is a state highway in New Jersey, United States, running 16.78 miles (27.00 km) near the shore in Monmouth County
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] Francesco Andreini (c. 1548 – 1624) was an Italian actor mainly of commedia dell'arte plays
+[true] Francesco Andreini (c. 1548 – 1624) was an Italian actor mainly of commedia dell'arte plays
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] The Motorola 618080 "(twenty-eight-ooh-eight)", "(sixty-eight
+[true] The Motorola 68020 "sixty-eight-oh-twenty", "sixty-eight-
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] An electrode is an electrical conductor used to make contact with a nonmetallic part of a circuit (e.g. a semiconductor,
+[true] An electrode is an electrical conductor used to make contact with a nonmetallic part of a circuit (e.g. a semiconductor,
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] Multi-User Dungeon A MUD (short for "multi-User"), originally of Multi-Dimension
+[true] A MUD (/md/; originally Multi-User Dungeon, with later variants Multi-User Dimension
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] Camper Vantiquities is a 1993 rarities compilation album by musical group Camper Van Beethoven, released on I.R.S. It
+[true] Camper Vantiquities is a 1993 rarities compilation album by musical group Camper Van Beethoven, released on I.R.S. It
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] Dalmatian / Dalmatic / dlémône/ or dlémône/) was 
+[true] Dalmatian /dlmein/ or Dalmatic /dlmtk/ was
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] Michael Anthony Richards (born July 24, 1949) is an American actor, television writer and producer, widely known for his portrayal of Cosmo Kramer on
+[true] Michael Anthony Richards (born July 24, 1949) is an American actor, writer and television producer, widely known for his portrayal of Cosmo Kramer on
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] In chemistry and molecular biology, an enantiomer, (ni("t")-enr("m")-
+[true] In chemistry, an enantiomer (/nnti.mr/ -NAN-t
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] Verona Island is a town located on an island of the same name in the Penobscot River in Hancock County, Maine,
+[true] Verona Island is a town located on an island of the same name in the Penobscot River in Hancock County, Maine,
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] Pioneer is a village in West Carroll Parish, Louisiana, United States.The population was 171 at the 2000 census. Community Louisiana Em
+[true] Pioneer is a village in West Carroll Parish, Louisiana, United States. The population was 171 at the 2000 census.Former Louisiana Commisson
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] Lumberton is a city in Hardin County, Texas, United States. The population was 11,943 at the 2010 census. Lumberton
+[true] Lumberton is a city in Hardin County, Texas, United States. The population was 11,943 at the 2010 census. Lumberton
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] A jazz band (jazz ensemble or jazz combo) is a musical ensemble that plays jazz music. Jazz bands vary in the quantity of its members and
+[true] A jazz band (jazz ensemble or jazz combo) is a musical ensemble that plays jazz music. Jazz bands vary in the quantity of its members and
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] Kálmán Kalocsay (6 October 1897 in Abazánjóstó – 27 February 1976), in Hung
+[true] Kálmán Kalocsay (6 October 1891 in Abajszántó – 27 February 1976), in Hung
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] Hannibal (247 – c. 145 BC), fully Hannibal Barca, was a Punic Carthaginian
+[true] Hannibal (247 – 183 x 181 BC), fully Hannibal Barca, was a Punic Carthaginian
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] Molotov Mikhail Vyacheslavovich (Vyacheslav Vyacheslavov; fl.[t
+[true] Vyacheslav Mikhailovich Molotov (/mltf-tf, 
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] Hidden Valley is a census-designated place (CDP) in Dearborn County, Indiana, United States. The population was 5,870 at
+[true] Hidden Valley is a census-designated place (CDP) in Dearborn County, Indiana, United States. The population was 5,387 at
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] Monarch Mill is a census-designated place (CDP) in Union County, South Carolina, United States. The population was 1,811
+[true] Monarch Mill is a census-designated place (CDP) in Union County, South Carolina, United States. The population was 1,811
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred] In schools, the science technician is the person who prepares the practical equipment and makes up the solutions used in school science labs. The role also includes
+[true] In schools, the science technician is the person who prepares the practical equipment and makes up the solutions used in school science labs. The role also includes
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] Photoluminescence (abbreviated as PL) is light emission from any form of matter after the absorption of photons (e
+[true] Photoluminescence (abbreviated as PL) is light emission from any form of matter after the absorption of photons (e
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] Lead (element) Lead (from Latin "lüd") is a chemical element in the carbon group with symbol "pb" and is
+[true] Lead (/ld/) is a chemical element in the carbon group with symbol Pb (from Latin: plumbum) and 
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] Gujarat ([g]uda[r]uda[r]uda[r]ut[d]) is 
+[true] Gujarat (/drt/ Gujrt [ud()at]) is
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] Shelby is a village in Oceana County in the U.S. state of Michigan. The population was 2,065 at the 2010 census. The
+[true] Shelby is a village in Oceana County in the U.S. state of Michigan. The population was 2,065 at the 2010 census. The
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] Filmation Associates was a production company that produced animation and live-action programming for television from 1963 to 1989. Located in Reseda, California
+[true] Filmation Associates was a production company that produced animation and live-action programming for television from 1963 to 1989. Located in Reseda, California
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] The Sandinista National Liberation Front (Spanish: Frente Sandinista Nacional de Liberación, FSLN
+[true] The Sandinista National Liberation Front (Spanish: Frente Sandinista de Liberación Nacional, FSLN)
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred] In Greek mythology, the name Hippocoön (Ancient Greek: /pkó/) refers to 
+[true] In Greek mythology, the name Hippocoön (/hpkn/; Ancient Greek: ) refers to
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] Avul Paadul Jain Abdul Kalam "(P. J.)" Abdelkabir "(p. k.
+[true] Avul Pakir Jainulabdeen "A. P. J." Abdul Kalam (/bdl k
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] Mineral Springs is a town in Union County, North Carolina, United States. The population was 2,639 at the 2010 census  .
+[true] Mineral Springs is a town in Union County, North Carolina, United States. The population was 2,639 at the 2010 census.
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred] USS Tennessee (BB-43), the lead ship of her class of battleship, was the third ship of the United States Navy named in honor of
+[true] USS Tennessee (BB-43), the lead ship of her class of battleship, was the third ship of the United States Navy named in honor of
+--------------------------------------------------
+
+
+{'eval_loss': 1.2134764194488525, 'eval_model_preparation_time': 0.0198, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 31.6484375, 'eval_token_set_precision': 0.9345585851409114, 'eval_token_set_recall': 0.9334697332318003, 'eval_token_set_f1': 0.933259348067426, 'eval_token_set_f1_sem': np.float64(0.004174317707405815), 'eval_n_ngrams_match_1': 20.878, 'eval_n_ngrams_match_2': 18.93, 'eval_n_ngrams_match_3': 17.458, 'eval_num_true_words': 21.995, 'eval_num_pred_words': 22.265, 'eval_bleu_score': np.float64(84.25491860486555), 'eval_bleu_score_sem': np.float64(0.8728479734950236), 'eval_rouge_score': np.float64(0.9301535949709205), 'eval_exact_match': np.float64(0.59), 'eval_exact_match_sem': np.float64(0.015560917136921657), 'eval_emb_cos_sim': 0.9852484464645386, 'eval_emb_cos_sim_sem': np.float64(0.009424027986824512), 'eval_emb_top1_equal': 0.8125, 'eval_emb_top1_equal_sem': np.float64(0.10077822208404541), 'eval_runtime': 24287.3714, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 1.2134764194488525
+eval_model_preparation_time: 0.0198
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 31.6484375
+eval_token_set_precision: 0.9345585851409114
+eval_token_set_recall: 0.9334697332318003
+eval_token_set_f1: 0.933259348067426
+eval_token_set_f1_sem: 0.004174317707405815
+eval_n_ngrams_match_1: 20.878
+eval_n_ngrams_match_2: 18.93
+eval_n_ngrams_match_3: 17.458
+eval_num_true_words: 21.995
+eval_num_pred_words: 22.265
+eval_bleu_score: 84.25491860486555
+eval_bleu_score_sem: 0.8728479734950236
+eval_rouge_score: 0.9301535949709205
+eval_exact_match: 0.59
+eval_exact_match_sem: 0.015560917136921657
+eval_emb_cos_sim: 0.9852484464645386
+eval_emb_cos_sim_sem: 0.009424027986824512
+eval_emb_top1_equal: 0.8125
+eval_emb_top1_equal_sem: 0.10077822208404541
+eval_runtime: 24287.3714
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 24287.834379434586
+Current memory usage: 16.21MB; Peak: 22.40MB

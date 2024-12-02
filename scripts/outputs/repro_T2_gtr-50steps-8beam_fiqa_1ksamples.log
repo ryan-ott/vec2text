@@ -1,0 +1,953 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='fiqa', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: fiqa
+Original dataset size: 57638
+Randomly selected 1000 samples from the dataset.
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] to the Scottrade.com link. Click on the 'View Markets - Analyst Views' tab and then log into the company PDF.
+[true] Log in to your Scottrade account, and goto Markets --> Analyst Views --> Click the PDF link for the company. Also
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] do not view this as a legal issue. However, if there is a problem, if the puts in the Roth IRA are not
+[true] I am not a lawyer but I do not see a legal problem here. However, if the puts in the Roth IRA are not purchased
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] You can hedge your house price if you believe that losing value from major stocks is correlated to housing market indices. Talking to a
+[true] You can hedge your house price from losing value if you believe that the housing market is correlated with major stock indices. Speak with 
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Houses are larger, but also more expensive. There are several things that people in 1979 didn't have that are now considered utilities: internet, cable
+[true] Houses are larger, but also more expensive. There are several things that people in 1979 didn't have that now are considered utilities: internet, cable
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] There is another reason why an investor might buy negative yielding bonds: if the investor expects that bond yields will go even further negative, then
+[true] There is another reason why an investor might buy negative yielding bonds: if the investor expects that bond yields will go even further negative, then
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] In the US, the key to understanding retirement accounts is to understand the benefits of capital gains taxes and how they work. Retirement accounts are designed for making investments
+[true] In the US, the key to understanding the benefits of retirement accounts is to understand capital gains taxes and how they work. Retirement accounts are designed for making investments
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] IMO, if you have an established position where your long positions and risks are mutually responsible, the next step when it comes to investing is learning
+[true] If you have your long positions established and are investing responsibly (assuming you know the risks and can accept them), the next step IMO is typically learning 
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] How many terms does Obama need to go before it becomes his problem? Is that happening at his second term, or should we start to drumming
+[true] How many terms in does Obama need to go before it starts being his problem? Does that happen at his second term, or should we start drumming
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] (*)" I jokingly wrote sarcastically. I have a job in engineering too. I didn't really 
+[true] "&gt;JK. I have a job in engineering. I was writing sarcastically as well (I didn't
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] London has done a service of the world. Uber is nothing more than the biggest payday loan scam the world has ever seen. But you borrow the money
+[true] London has done the world a service. Uber is nothing more than the biggest payday loan scam the world has ever seen. BUT, you borrow the money
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] "This is an example from another field, real estate. Suppose you buy a $100,000 house with a 20 percent down payment, or $20,000
+[true] "This is an example from another field, real estate. Suppose you buy a $100,000 house with a 20 percent down payment, or $20,000
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] I've used Quicken; it feels a bit rough with the UI: I have not used GnuCash exclusively, Bala
+[true] I have not used Quicken; I've used GnuCash exclusively. It feels a bit rough with the UI: Bala
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] "There are a lot of different ways to answer, but it mostly depends on the individual's bid/buy. A bid will spread by two
+[true] "It depends on many factors, but generally, the bid/ask spread will give you an idea. There are typically two ways to buy
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] As far as Driving Schools in Roxburgh Park are concerned, we at HOGGS Driving School are one of the best out there, not to mention
+[true] As far as Driving Schools in Roxburgh Park are concerned, we at HOGGS Driving School are one of the best out there, not to mention
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] adds, "[Businesses] should always make the most of ‘new’ international opportunities," Prince Andrew said. “What new international opportunities that
+[true] "&gt;However, businesses should make the most of new international opportunities, Prince Andrew said. What ""new"" international opportunities that
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] "romney's logic is only like, 'Hey I broke it! I'm not sure how I fix it!'" or
+[true] "Not sure if romney's logic is,""Hey! I broke it, only I know how to fix it!"" or
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] I think no. That'll be too much trouble for the internal audit and compliance team. Unless you are moving money from Russia, Iran, any
+[true] I won't think so. Too much trouble for the compliance and internal audit team. Unless you are moving money from Russia, Iran or those non
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred] Facebook is the commonly used social media platform and it is difficult for us to hack Facebook. You need help form Facebook hacker account people who can become 
+[true] Facebook is the commonly used social media platform account and it is difficult to hack Facebook by common people like us. You need help form Facebook hacker who can
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] Obamacare would be the cheapest way to provide healthcare. If you were without insurance, if you were following economic theory, you have a large
+[true] Without Obamacare I would be without insurance. Also, if you follow economic theory, the cheapest way to provide healthcare is to have a large
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] and I'm not going to listen to the official story line as long as you trust the "official sources" or the "ignolence"
+[true] "Well, stay in ignorance then and ""trust"" the official sources and listen to the ""official story line"" all you want --
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] Buy a home. A home is the first and best investment,you can own a home with as little as 3% down & thi
+[true] Buy a home. A home is the first and best investment, u can own a home with as little as 3% down and as 
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred] "In this way, I am thinking about it: 'The longer you wait to exericse, the more knowledge you will have from
+[true] "You are thinking about it this way: ""The longer I wait to exericse, the more knowledge and information I'll have
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] there is no way to have untaxed earnings. Single Member LLC is taxed. Your personal earnings from your Partnership LLC are taxed
+[true] No there is no way to have untaxed earnings. Single Member LLC are taxed on your personal taxes. Partnership LLC is taxed
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] yes. What it means, according to the plan manual, is that each purchase (one time by automatic and one time by bank debit) must cost $0.
+[true] Reading the plan documentation, yes, that is what it means. Each purchase by bank debit, whether one-time or automatic, costs $2 plus $0.06
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] I don't think they would let it collapse:br> Did they get to the point where there's no way to let the imminent
+[true] &gt; there is no way they will let it collapse Do you think they would have let it get to the point of imminent collapse, 
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] "I know that's the thing that people always go out and talk about when people claim that not enough people are going to jail for financial crimes.
+[true] "I know that's always going to be the thing that people are talking about when they claim that not enough people go to jail for financial crimes.
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] depends on the scope and the location of chokesgadopoints. If you are talking about sizable amounts of data being stored 
+[true] depends entirely on the scope and where your chokepoints are. if its a question of ginormeous amounts of data being stored
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] The SWIFT network is federated. The connection routing is to country servers via regional server. All these are maintained by SWIFT. The
+[true] The SWIFT network is federated. The connection routing is via country server to regional servers. All these are maintained by SWIFT. The
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] As an analyst for ad agency, I can assure you that this is correct. Studios are currently relying on ananomized imperfect 
+[true] As an analyst for an ad agency, I can assure you that you are correct. Studios are currently relying on ananomized imperfect
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] I made the mistake of going into business with a friend, I lost the business and a lot of money. But even if you do that
+[true] I made the mistake going into business with a friend. I lost the business, a lot of money and that friend. If you do it anyway
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] I have written a list of all their predictions in the past: 1. Who predicted the crash? By default I mean doo-wop di
+[true] Do we have a list of all of their predictions? Because 1. I predicted the last crash, whoop di doo 2. By default, on
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] put money conservatively into a Roth IRA or invest in an emergency fund at some point in the future. I don't have a short
+[true] Do you have an emergency fund? If so, one idea is to put money into a Roth IRA, and invest it conservatively (short
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] There's no formula for how much is the ideal amount to spend on entertainment and fun. As JoeTaxpayer says, it's
+[true] There's no formula for how much is the ideal amount to spend on entertainment and fun. As JoeTaxpayer says, it's
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] On the basis that radical social change is necessary for models of the economy, I think it falls to economists to start coming up with the premise that
+[true] Just from the premise that radical social change is necessary, I think it falls to economists to start coming up with models for not just the economy as
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] You don't say how long your mortgage has to go until it's paid off, but presumably it's only five or ten years
+[true] You don't say how long your mortgage has to go until it's paid off, but presumably it's only five or ten years
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] Apple does not have a philosophy of marketshare at any cost. They have a goal of making a healthy profit from whatever they do. So
+[true] Apple does not have a philosophy of marketshare at any cost. They have a goal of making a healthy profit from whatever they do. So
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] We are the biggest stockist of all Indian motorcycle spare parts. Geloman's Indian Spares also provide all spare parts online. If you
+[true] We are the biggest stockist of all Indian motorcycle spare parts. Geloman's Indian Spares also provide all spare parts online. If you
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] you can't prove any part of your last two paragraphs. As I'm over the Internet you don't believe anything you say (s
+[true] You can't prove any part of your last two paragraphs. Since this is the internet I'm inclined to not believe what you say (s
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] Knowing the log return is useful - the log return can help you to work out the annual return over the period it was estimated - and this should
+[true] Knowing the log return is useful - the log return can help you to work out the annual return over the period it was estimated - and this should
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] None at all. Moreover, a few attempts have been made to try something similar to that, which would potentially trigger a full audit. 
+[true] None whatsoever, no. Moreover, trying something like that would very likely trigger a full audit.
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] "the profits that the corporation had to pay for you to be able to earn the "eligible" dividend tax credit" dividends were 
+[true] "The profits that the corporation had to earn to be able to pay you ""eligible"" dividends for the dividend tax credit were
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] egg. Personally I've done a lot with it but I can't. I've used Excel itself a few times. When Ku
+[true] Egg. Haven't used it personally. I can do a lot with excel itself, but that is a personal choice. Sometime ago Ku
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] The purchase of a running company gives entrepreneurs an alternative to establish themselves other than from scratch of creating their company. On the other hand, already established entrepreneurs
+[true] The purchase of a running company gives entrepreneurs an alternative to establish themselves other than creating from scratch of their company. On the other hand, already established entrepreneurs
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] the point, noting, "Not all journalists are trying to predict their future. Some just make existing trends and report on what the reader already knows well
+[true] "Not sure what your point is, but not all journalists are trying to predict the future. Some just report existing trends and let the readers make their own
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] I agree with your strategy of using a conservative estimate to overpay taxes and get a refund next year. As a self-employed individual you
+[true] I agree with your strategy of using a conservative estimate to overpay taxes and get a refund next year. As a self-employed individual you
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] Essentially, what you do with the Roth and IRA is to make the so-called "back door deposit" of the non-deductible. No
+[true] To your question. Yes. What you propose is typically called the back door Roth. You make the (non-deductible) IRA deposit, and
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred] At fragua.co.in, you can purchase the top lead management CRM software in India. Our software allows you to centralize sales team,
+[true] At fragua.co.in, you can purchase the top lead management CRM software in India. Our software allows you to centralize sales team 
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] Yea. Let's start out with a fully diluted public company with share debt. If we add up the equity, times market price are
+[true] Sure let's say we're starting with the equity value of a public company. Fully diluted shares times market price. We add debt and
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred] "I'm likely to concede that you're speaking in good faith, I'd genuinely say that 'Your original point was meant 
+[true] "I'll concede that you're probably speaking in good faith- I genuinely believe that you're original statement was one that meant to point
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] "First, this is not a site which is quite global. There are people from the US and Canada, and you state where you are and other
+[true] "First, you don't state where you are and this is a rather global site. There are people from Canada, US, and many other
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] &t ""When one says that '"corporations are people"' in a legal sense, they are saying that they have
+[true] "&gt;When one says that ""corporations are people"", in a legal sense, they are saying that they have the
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] Science and Technology STEM education activities like Engineering or Math mean the fun thing. Kids are working on projects that will "buzz" their way through the hands
+[true] STEM activities which mean Science Technology Engineering and Math are the entire buzz in education. Kids enjoy finding out how things work out through hands-on projects, fun
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] question. "But ETFs and mutual funds have many things in common and essentially the same semantics and provide a service to investors with minimal
+[true] "Your question is one of semantics. ETFs and mutual funds have many things in common and provide essentially the same service to investors with minimal
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] The most normally answer to that question is the following: What might cause an ever-increasing, value-related news about a company
+[true] There is a highly related question which is much easier to answer: what normally value-increasing news about a company would cause that
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] didn't tell Ouch that he didn't still need to pay the difference back if he was on his loans before That's
+[true] &gt;wasn't told he still needed to pay back the difference in the loan once he did Ouch. Even though
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] sure it's accurate. It's just kidding. If Romney is a bigger hypocrite than Obama is, it wouldn't just be
+[true] I was kidding. Of course it's accurate. Just because Romney is a bigger hypocrite doesn't mean Obama isn't one
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred] You can view certain US economic data with FRED Graph or download the data with FRED to play the download. Here is some example tax data:
+[true] You can view certain US economic data with FRED Graph or download the data to play with FRED download. Here is some example tax data:
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] "Yesterday I have received a call from my local bank. They told the money sender had arrived, but the payment failed to specify 
+[true] "Yesterday I have received a call from my local bank. They told the the payment had arrived, but the money sender failed to specify
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] It did help though, as she divorced her abusive husband and raised her seven children by her mother. Her eldest daughter, a maid
+[true] It did help her though, she divorced her abusive husband and raised 7 children as a maid. Her eldest daughter, My mother,
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] Stop trying to make money with your emergency fund. It's purpose is to sit there idly waiting for a bad day. A day
+[true] Stop trying to make money with your emergency fund. It's purpose is to sit there idly waiting for a bad day. A day
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] 'Planned obsolescence' 'Planned obsolescence, or built-in obsolescence in
+[true] "**Planned obsolescence** Planned obsolescence, or built-in obsolescence, in industrial
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] a lot of people who add that to my mind. It's a fuckin' down world when 100k and loans are put
+[true] Man... I feel like this is a messed up world where your comment is downvoted and the guy who added the 100k in loans is
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] They've asked you, and that's your main concern, so I'd really welcome your advice. Also, ask your advice about how much
+[true] They've asked you, so your advice is welcome. That's your main concern, really. I'd also ask them how much, and
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] "Standard federal candidate political donations are limited to $2700 per candidate per election. The primary and general elections are different elections for this purpose.
+[true] "Standard federal candidate political donations are limited to $2700 per candidate per election. The primary and general elections are different elections for this purpose.
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] if you bought gold in late '79, it would have taken 30 years to break even. Of all this time it was two brief periods the
+[true] if you bought gold in late '79, it would have taken 30 years to break even. Of all this time it was two brief periods the
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] Buyer with specific plan Is it an unattractive deal many buyers who would shy away from such offers might have to skim into deals that have
+[true] Is it an unattractive offer many buyers would shy away from? Buyer who have specific plan may skip getting into such deals as this would be
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] Stock Plan Option (ESPP) Essentially, this is a holding period, and since no employee is required to sell right away immediately, if
+[true] Is this an employee stock purchase plan (ESPP)? If so, and there is no required holding period, selling right away is essentially 
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] Let me explain my logic when it comes to investing when I'm new. Let me first say I bought at 38.01, and I don'
+[true] I'm new to investing but let me present you with my logic. Let me first say I bought at 38.01, and while I don'
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] That seems a very bad offer, it borders on fraud. In the current US economy, you should be able to get between 3 and 4 
+[true] That seems a very bad offer, it borders on fraud. In the current US economy, you should be able to get between 3 and 4 
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] || ShadowStatWorks includes long-term discouraged workers in their Unemployment Rates, a number derived by the t
+[true] &gt; ShadowStats includes long-term discouraged workers in their Unemployment Rate, a number derived by including the
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] There are many taxpayers and hackers alleged to be in the target and one is refunding. According to reports of an error in tax calculation which was
+[true] Several taxpayers are in target as per the reports of hackers supposedly, there was an error in the calculating of tax and a refund which
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] Generally, no. A mortgage is a lien against the property, which allows the bank to exercise certain options, primarily Power of Sale (For
+[true] Generally, no. A mortgage is a lien against the property, which allows the bank to exercise certain options, primarily Power of Sale (For
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] /r/economy is the only place I interact and post, although I do a significant amount of reading on a number of business
+[true] /r/economy is the only place I interact and post, although I do a significant amount of reading on a number of business
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] "Shrekli was rightfully caught illegally funneling money from one company to pay back investors in a failing fund. That's separate from
+[true] "Shrekli was rightfully caught illegally funneling money from one company to pay back investors in a failing fund. That's separate from
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] ""China is only rejecting the loads. This is just trade warfare based on the presence of "Vipterra" corn trait which is
+[true] "This is just trade warfare. China is rejecting loads based on the presence of the ""Vipterra"" corn trait which is
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] doesn't think that's cheap either. Looking back on returns in the last few months of 2013, I looked back on the return of my planes
+[true] That's not cheap in my book, either. Haven't flown in awhile and wondered about prices. Going back to Dec 2013, the returns on
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] No, index arbitrage desks typically aimed to profit from arbitrage opportunities between index derivatives (mostly futures) and the underlying.
+[true] No, index arbitrage desks typically aimed to profit from arbitrage opportunities between index derivatives (mostly futures) and the underlying.
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] many more possibilities. One is that if I have a positive balance (Credit card) it may earn interest, because more money is due
+[true] Just to put in one more possibility: my credit card can have a positive balance, in which case I earn interest. If more money is due,
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] "That's true, however, if Charlie and Daniel were to create a bunch of coal. Andy lives on top of a piece of
+[true] "That's true. However, let's say Andy lives on top of a bunch of coal. Charlie and Daniel create a piece of
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] "There is obviously not such a list of companies, because if there were the whole world would immediately invest in them. Their price would rise like
+[true] "There obviously is not such a list of companies, because if there were the whole world would immediately invest in them. Their price would rise like
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] If you're under audit - you should get a proper representation. I.e.: EA or CPA licensed in California and experienced
+[true] If you're under audit - you should get a proper representation. I.e.: EA or CPA licensed in California and experienced
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] It's kind of the way you look at the picture. When you determined which portions of each of us owned and what your initial investments made, you
+[true] I think you're looking at the picture in an odd way. When each of you made your initial investments and determined what portions you owned, that gave
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] You can't help people that don't want help, period. It just won't work, and you also waste your time and energy while
+[true] You can't help people that don't want help, period. It just doesn't work, and you will waste your time and energy while
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] List doesn't specify your ERP system, it'll use your SQL. That's probably Oracle because that's how good the company will be
+[true] You won't be using my SQL. It probably lists Oracle because that's the ERP system the company uses, and it'd be good for
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] :"Truthfully, I don't see a way out of this that doesn't involve economic upheaval on 
+[true] "&gt;Truthfully, I don't see a way out of this that doesn't involve economic upheaval on
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] Trying to know what a difference exists between opening a position on a Forex without regard to leverage, if you do a pair through
+[true] Disregarding leverage and things alike, I would like to know what's the difference between opening a position in Forex on a pair through
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] As an IT contractor I've worked with a lot of people in the UK and advice is to talk to your accountant from home about it. But
+[true] As someone who used to be an IT contractor in the UK and used to work from home, my advice is to talk to your accountant in detail. It
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] that "that's not what he meant beyond 'browing the internet,' he meant, 'You need to know math how
+[true] "That's not what he meant to say. He meant that beyond ""browsing internet"", you need to know math, how
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] how shit that kind of thing happened. When you look at them, you'll think, 'Wow, let's look at
+[true] Funny how quickly that happened, huh? It's when you see shit like that, that you look at them and think wow,
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred] "Is it equity, or debt? Understanding the exact nature of one's investment (equity vs. debt) is critical.
+[true] "Is it equity, or debt? Understanding the exact nature of one's investment (equity vs. debt) is critical.
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] Atm machine and my Credit Union account. Low fees (often zero, if the machine is on any of the same networks) and decent exchange
+[true] Atm machine and my Credit Union account. Low fees (often zero, if the machine is on any of the same networks) and decent exchange
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] So in that case I focus on shooting for the thesis/episode on the timing for the publication. I didn't specifically approach that
+[true] Cool. In that case, shooting for the publication on the thesis might not be the best thing to focus on due to the timing etc. If you do
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] it and should be something that's free for anyone to enjoy. /ref> And Google's vested interest in mapping in
+[true] &gt;Sounds like something that should be free to me. Carry on. Google's vested interest in mapping is
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] trump through either party? I'm equally disgusted at the role they played, as did Somaliland. At the financial crisis I
+[true] Somalia, that's your trump card? I'm equally disgusted at both parties and the role they played during the financial crisis
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] 1. It doesn't matter if they can or don't, if they are trading or not, in the post-link "investing
+[true] "1) link? 2) It doesn't matter if they can or do, what matters is if they are *investing* (not trading
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] "People don't always think, 'Oh little do they think about it, sand, it's cheap and everywhere.' He
+[true] "People don't always think about it. They think ""oh, sand. Thats cheap and everywhere"" Little do they
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred] "given your time frame I'm not sure if investing in a 529 is your best option. If you're investing in I
+[true] "given your time frame I'm not sure if investing in a 529 is your best option. If you're investing in 
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] You should have drafted a contract out of home purchase which stipulated down payments based on his equity stake of the home, as well as the
+[true] You should have drafted a contract of purchase that stipulated out equity stake in the home based of his down payment and yours, along with
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] A lease payment is composed of a monthly portion (borrow money) and a depreciated portion (purchase residual amount). The interest is
+[true] A lease payment is composed of an interest portion (borrowed money) and depreciation amount (purchase - residual). The Monthly payment is
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred] up with a 'Pay Bonus' after managers offered customers deserts and alcos, waiters got to be forced to buy wine for every
+[true] &gt; Managers got paid bonuses if they sold more deserts/alcohol so waiters are forced to offer every customer wine
+--------------------------------------------------
+
+
+{'eval_loss': 1.7949868440628052, 'eval_model_preparation_time': 0.0198, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 31.78125, 'eval_token_set_precision': 0.7747830476675902, 'eval_token_set_recall': 0.7931756678543723, 'eval_token_set_f1': 0.7826640204269232, 'eval_token_set_f1_sem': np.float64(0.00592143011632542), 'eval_n_ngrams_match_1': 20.397, 'eval_n_ngrams_match_2': 14.531, 'eval_n_ngrams_match_3': 11.584, 'eval_num_true_words': 26.423, 'eval_num_pred_words': 26.05, 'eval_bleu_score': np.float64(51.384155341444774), 'eval_bleu_score_sem': np.float64(1.0675975880414235), 'eval_rouge_score': np.float64(0.8006286997406233), 'eval_exact_match': np.float64(0.214), 'eval_exact_match_sem': np.float64(0.012975838021968847), 'eval_emb_cos_sim': 0.9595919847488403, 'eval_emb_cos_sim_sem': np.float64(0.014316960237920284), 'eval_emb_top1_equal': 0.625, 'eval_emb_top1_equal_sem': np.float64(0.125), 'eval_runtime': 24469.0895, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 1.7949868440628052
+eval_model_preparation_time: 0.0198
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 31.78125
+eval_token_set_precision: 0.7747830476675902
+eval_token_set_recall: 0.7931756678543723
+eval_token_set_f1: 0.7826640204269232
+eval_token_set_f1_sem: 0.00592143011632542
+eval_n_ngrams_match_1: 20.397
+eval_n_ngrams_match_2: 14.531
+eval_n_ngrams_match_3: 11.584
+eval_num_true_words: 26.423
+eval_num_pred_words: 26.05
+eval_bleu_score: 51.384155341444774
+eval_bleu_score_sem: 1.0675975880414235
+eval_rouge_score: 0.8006286997406233
+eval_exact_match: 0.214
+eval_exact_match_sem: 0.012975838021968847
+eval_emb_cos_sim: 0.9595919847488403
+eval_emb_cos_sim_sem: 0.014316960237920284
+eval_emb_top1_equal: 0.625
+eval_emb_top1_equal_sem: 0.125
+eval_runtime: 24469.0895
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 24469.54371881485
+Current memory usage: 17.97MB; Peak: 22.57MB
