@@ -1,9 +1,56 @@
 import argparse
+import ijson
+import logging
 import nltk
+import pandas as pd
 import time
 import tracemalloc
-from vec2text import data_helpers, load_pretrained_corrector
-import pandas as pd
+from datasets import Dataset
+from vec2text import data_helpers, load_pretrained_corrector, analyze_utils
+
+def load_bioasq_dataset(file_path, encoding='Windows-1252', max_samples=None):
+    """
+    Loads the BioASQ dataset, extracting the 'text' field by concatenating 'title' and 'abstractText'.
+
+    :param file_path: Path to the JSON file.
+    :param encoding: Encoding of the JSON file.
+    :param max_samples: Maximum number of samples to load.
+    :return: Hugging Face Dataset object with a 'text' column.
+    """
+    texts = []
+    try:
+        with open(file_path, 'r', encoding=encoding, errors='replace') as f:
+            parser = ijson.parse(f)
+            in_articles_array = False
+            for prefix, event, value in parser:
+                if (prefix, event) == ('articles', 'start_array'):
+                    in_articles_array = True
+                    continue
+                if in_articles_array:
+                    if event == 'start_map':
+                        current_article = {}
+                    elif event == 'map_key':
+                        current_key = value
+                    elif event in ('string', 'number', 'start_array'):
+                        current_article[current_key] = value
+                    elif event == 'end_map':
+                        # Extract and concatenate 'title' and 'abstractText'
+                        title = current_article.get('title', '').strip()
+                        abstract = current_article.get('abstractText', '').strip()
+                        text = f"{title}. {abstract}" if title and abstract else title or abstract
+                        if text:
+                            texts.append(text)
+                        else:
+                            logging.warning(f"Sample {len(texts)+1} has empty 'text'. Skipping.")
+                        if max_samples and len(texts) >= max_samples:
+                            break
+        dataset = Dataset.from_dict({'text': texts})
+        return dataset
+
+    except Exception as e:
+        logging.error(f"Failed to load BioASQ dataset: {e}")
+        return Dataset.from_dict({'text': []})  # Return empty dataset on failure
+
 
 def main(args):
     # Ensure necessary NLTK data is available
@@ -13,20 +60,22 @@ def main(args):
         nltk.download('punkt_tab')
     
     # Load the pretrained experiment and trainer
-    corrector = load_pretrained_corrector("text-embedding-ada-002")
+    _, corrector = analyze_utils.load_experiment_and_trainer_from_pretrained(args.model)
     
     # Load the specified BEIR dataset
     print(f"Loading BEIR dataset: {args.beir}")
-    dataset = data_helpers.load_beir_dataset(args.beir)
+    if args.beir == "bioasq":
+        dataset = load_bioasq_dataset(
+            "/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json",
+            encoding='Windows-1252',
+            max_samples=args.max_samples,
+        )
+    else:
+        dataset = data_helpers.load_beir_dataset(args.beir)
+        dataset = dataset.select(range(args.max_samples)) if args.max_samples else dataset
     
-    print("### DATA ###")
+    print("+++ Dataset +++")
     print(dataset)
-    
-    # Optionally, limit the dataset size for faster evaluation
-    if args.max_samples:
-        print(f"Original dataset size: {len(dataset)}")
-        dataset = dataset.select(range(args.max_samples))
-        print(f"Selected first {args.max_samples} samples from the dataset.")
 
     # Tokenize the dataset with both tokenizers (model tokenizer and embedder tokenizer)
     def tokenize_function(examples):
@@ -38,7 +87,7 @@ def main(args):
             max_length=corrector.model.config.max_seq_length if hasattr(corrector.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
-    
+
         # Tokenize with the embedder's tokenizer
         embedder_tokens = corrector.embedder_tokenizer(
             examples["text"],
@@ -47,8 +96,7 @@ def main(args):
             max_length=corrector.model.config.max_seq_length if hasattr(corrector.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
-    
-        # Ensure labels are properly formatted
+
         return {
             "input_ids": model_tokens["input_ids"].squeeze(),
             "attention_mask": model_tokens["attention_mask"].squeeze(),
@@ -56,6 +104,7 @@ def main(args):
             "embedder_attention_mask": embedder_tokens["attention_mask"].squeeze(),
             "labels": model_tokens["input_ids"].squeeze(),  # Squeeze to remove extra dimensions
         }
+    
     # Apply tokenization
     tokenized_dataset = dataset.map(
         tokenize_function,
@@ -107,29 +156,15 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model",
         type=str,
-        required=True,
+        default="jxm/gtr__nq__32__correct",
         help="Pretrained model identifier (alias)",
     )
     parser.add_argument(
         "--beir",
         type=str,
-        required=True,
+        default="bioasq",
         choices=[
-            "arguana",
-            "climate-fever",
-            "cqadupstack",
-            "dbpedia-entity",
-            "fever",
-            "fiqa",
-            "hotpotqa",
-            "msmarco",
-            "nfcorpus",
-            "nq",
-            "quora",
-            "scidocs",
-            "scifact",
-            "trec-covid",
-            "webis-touche2020",
+            "msmarco",  # just for reference of a public dataset
             "signal1m",
             "trec-news",
             "robust04",
@@ -172,3 +207,5 @@ if __name__ == "__main__":
     print("+++ Arguments Passed +++")
     print(args)
     main(args)
+    # detect_file_encoding("/home/scur2868/IR2/datasets/bioasq/sample.json")
+    # inspect_json_structure("/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json")

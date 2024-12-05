@@ -15,4 +15,4 @@ module load Anaconda3/2022.05
 source /home/scur2868/IR2/v2t-env/bin/activate
 cd /home/scur2868/IR2/vec2text
 
-python eval_v2t_beir.py --model jxm/gtr__nq__32__correct
+python reproduce_T2_private.py --max_samples 1000 > scripts/outputs/T2_gtr-50steps-8beam_bioasq_1ksamples.log
