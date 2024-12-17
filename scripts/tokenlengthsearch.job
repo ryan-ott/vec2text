@@ -30,8 +30,8 @@ get_bleu_score() {
 start_len=32
 current_len=$start_len
 step_size=4
-error_threshold=1.0  # Threshold for stopping the search
-dataset="msmarco"   # Dataset to use CHANGE HERE
+error_threshold=5.0  # Threshold for stopping the search
+dataset="dbpedia-entity"   # Dataset to use CHANGE HERE
 
 # Create results file
 echo "max_length,bleu_score,dataset" > experiment_results.csv
