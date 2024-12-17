@@ -46,7 +46,7 @@ run_experiment() {
     sed -i "s|#SBATCH --output=.*|#SBATCH --output=$output_file|" "$0"
 
     # Run the Python script
-    python reproduce_T2.py \
+    python reproduce_T2_fix.py \
         --model jxm/gtr__nq__32__correct \
         --steps 50 \
         --beam-width 4 \
