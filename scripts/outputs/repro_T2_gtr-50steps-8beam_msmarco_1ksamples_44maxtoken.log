@@ -1,0 +1,954 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='msmarco', beam_width=8, steps=50, batch_size=16, max_samples=150, output_csv=None, max_length=16)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: msmarco
+Original dataset size: 100000
+Randomly selected 150 samples from the dataset.
+Model tokens max_length: 16
+Embedder tokens max_length: 16
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 150
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] Secrets from the grave of Brazil's first emperor:         Dom
+[true] Secrets from the grave of Brazil's first emperor: Dom
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] Find listings related to Rocky Mountain Power in Laramie, 1 on        
+[true] Find 1 listings related to Rocky Mountain Power in Laramie on 
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] REPLAGING the -ALOCOHCLS in -OH and replacing the -OH group in -OH
+[true] REPLACING THE-OH GROUP IN ALCOHOLS
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Shoulder pain can come from a number of sources.         The two main
+[true] Shoulder pain can come from a number of sources. The two main
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] If you do not want the individuals at your old address         to have the new
+[true] If you do not want the individuals at the old address to have your new
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred]          1 Ready In: Place ribs in a large pot
+[true] Ready In. 1 Place ribs in a large pot with enough
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] Stop taking melatonin         and seek emergency medical attention if you
+[true] Stop taking melatonin and seek emergency medical attention if you
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] 1 bleeding disorders - hemophilia         is associated with acute he
+[true] 1 bleeding disorders - hemophilia is associated with acute he
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] Video shows what         sporophyte means. A plant (or the
+[true] Video shows what sporophyte means. A plant (or the
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] Decide what purpose your character serves.         Are you creating a main character
+[true] Decide what purpose your character serves. Are you creating a main character
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] 28 Days Later is a 2002 British post-apocalyp        
+[true] 28 Days Later is a 2002 British post-apocalyp
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] In Japan, the Princess's name has always been Peach (       
+[true] In Japan, the Princess's name has always been Peach (
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] From this point, the vine made its way across the country during the         California
+[true] From this point, the vine made its way across the country during the California
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred]       Sinep Corporation:  Company Status:  Company Number: Active: 3190
+[true] Sinep Corporation: Company Status: Active: Company Number: 3190
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] Here are examples of  ionic compounds and  ionic bonds:       Na
+[true] Here are examples of ionic bonds and ionic compounds: Na
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] Symptoms of a UTI include general discomfort, a feeling        
+[true] Symptoms of a UTI include general discomfort, a feeling
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] But I didn't really feel that it was growing       . It has been seemed 
+[true] But I didnt really feel that it was growing. It has been seemed
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred]        The City of Amarillo  operates under a Civil Service System for
+[true] The City of Amarillo operates under a Civil Service System for
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] 1 Partial Dentures:         For those who have lost some teeth, but
+[true] 1 Partial Dentures: For those who have lost some teeth, but
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] Like green papaya, the seeds         contain high levels of proteolytic
+[true] Like green papaya, the seeds contain high levels of proteolytic
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred]           Watch the Basic Super E & G Carb Set
+[true] Watch the Super E & G Carb Basic Setup video. 1
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred]            dyeing: the use of dye to change
+[true] dyeing - the use of dye to change the color of something permanently
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] What to do if You Are in a No-fault Car        
+[true] What to do if You Are in a No-fault Car
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] Know relative sizes of units within one measurement system of units, including         km,
+[true] Know relative sizes of measurement units within one system of units including km, 
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] Such volcanoes are devastating, but very rare. The last one happened        
+[true] Such volcanoes are devastating, but very rare. The last one happened
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] The amplitude of a light wave         can be measured ,
+[true] The amplitude of a light wave can be measured, but 
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] Even the Droughtiest Places on Earth have       . These extremely dry Water
+[true] Even the Driest Place on Earth has Water. These incredibly dry
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] 1        For example, if you sell a product for $25, and 
+[true] 1 For example, if you sell a product for $25, and
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred]             Download your Gamerass
+[true] 1 Download your gamer profile form your xbox or ps
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] Cost of full synthetic oil          Cost of synthetic blend oil change: $3
+[true] Cost of synthetic blend oil change: $36.63. Cost of full synthetic oil
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] Nouns denoting people.          (cent, hyperm
+[true] Nouns denoting people. Hypernyms (cent
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] Server (computing) In computing, a server         is a
+[true] Server (computing) In computing, a server is a
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] Answers:              Deodor
+[true] Making the world better, one answer at a time. Deodorant
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] 2013         (Elf's Christmas Musical: Buddy the Movie) TV per
+[true] 2014 Elf: Buddy's Musical Christmas (TV Movie) (per
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] Concerns about laxer enforcement of drinking age laws have emerged as part        
+[true] Concerns about laxer enforcement of drinking age laws have emerged as part
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] Definition of search engine for English Language Learners         : a computer
+[true] Definition of search engine for English Language Learners : a computer program
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] In 2013, Disability Rights Florida Inc.         reported $5.64M in income,
+[true] In 2013, Disability Rights Florida Inc. reported $5.64M in income,
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred]     . By contrast,    insulin analogs have a more predictable duration of action
+[true] In contrast, insulin analogs have a more predictable duration of action.
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] treatment of urinary tract infections. Apple Cigar Vine Tracid Antitactic Acid Apple Cigar Vine Tracid Antitactic Acid
+[true] Apple cider vinegar Urinary Tract Infection treatment. Apple cider vinegar
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] Aristotle rejects the definition of space         as the void.
+[true] Aristotle rejects the definition of space as the void.
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] New Tonight         9/8c. The FBI chases Liz and Red to Iowa
+[true] New Tonight 9/8c. The FBI chases Liz and Red to Iowa
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred]         The recommended 10,000 steps a day originated in Japan in the early 1960s
+[true] The recommended 10,000 steps a day originated in Japan in the early 1960s
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] While you can get the IUD inserted any time of the month,        
+[true] While you can get the IUD inserted any time of the month,
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] Medically termed         , sinusitis A sinus infection occurs when
+[true] Medically termed sinusitis, a sinus infection occurs when the
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] Something I just thought of         and maybe it has nothing to do with it but
+[true] Something I just thought of and maybe it has nothing to do with it but
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] Among the most notable of these were the        1959 Tibetan uprising against 
+[true] Among the most notable of these were the 1959 Tibetan uprising against
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred]  Veal,  Lamb, Bain and Feen Temperature Chart: Internal 
+[true] Beef, Veal, and Lamb Internal Temperature Chart: Fahren
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred]            Who is the girl on the state farm'
+[true] Who is the girl on the state farm commercial.? the commercial where there
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred] Gold  and black        are my favorite colors but back to gold. Gold is 
+[true] Gold and black are my favorite colors but, back to gold. Gold is
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred]         On 28th August, 1939, the Nazi-Soviet Pac
+[true] On 28th August, 1939, the Nazi-Soviet Pac
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] When you become a receptionist,         you become the warm and welcoming face
+[true] When you become a receptionist, you become the warm and welcoming face
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] It is borne by the following people: 1        Gwyneth Bo
+[true] It is borne by the following people: 1 Gwyneth Bo
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] Elisabeth Anne Betty Broderick         (born November 7,
+[true] Elisabeth Anne Betty Broderick (born November 7,
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] Rabbit and Hare Control Rabbits and hares have        
+[true] Rabbit and Hare Control Rabbits and hares have
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] Media Convert.           Open your browser and locate the YouTube
+[true] Media-Convert. Open your Internet browser and locate the YouTube page with
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] Needlepoint         has work upon specialized types of stiff canvas that is opening
+[true] Needlepoint is worked upon specialized types of stiff canvas that have opening
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred]  1         If the faucet leaks from the spout,
+[true] 1 If the faucet leaks from the spout, either 
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] In May 2005, the first high definition video conferencing systems,         produced by
+[true] In May 2005, the first high definition video conferencing systems, produced by
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] family life, religion, education, and politics. The lower one         
+[true] family life, education, religion, and politics. The lower oneâ
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] Updated        June 17, 2008  11:59 p.m. ET.
+[true] Updated June 17, 2008 11:59 p.m. ET.
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] When meat is ground, the more meat         is exposed to the harmful bacteria 
+[true] When meat is ground, more of the meat is exposed to the harmful bacteria
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] Note that         , as pepper plants begin to grow and yield large amounts
+[true] Note, too, that as pepper plants grow and begin to yield large amounts
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] Today, the House of Representatives votes         on the Pain Capable Unborn
+[true] Today, the House of Representatives votes on the Pain Capable Unborn
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] 04:05            No. 4 (caus
+[true] #3. 02-14-2014, 11:30 AM. Re: caus
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred]         The California Film Commission has an on-site California Highway Patrol (CHP
+[true] The California Film Commission has an on-site California Highway Patrol (CHP
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] Armour Thyroid vs Synthroid        . There are plenty of
+[true] Armour Thyroid vs Synthroid. There are plenty of
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] In some parts of Australia this might even cause         flood risk to decrease because of
+[true] In some parts of Australia this might even cause flood risk to decrease because of
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] Peak levels and half life of         Lortab. The half life for the hydro
+[true] Peak levels and half life of Lortab. The half life for the hydro
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred]         Here are general guidelines for how to file a car insurance claim to make
+[true] Here are general guidelines for how to file a car insurance claim to make
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] Current asset. In accounting, a current asset is any asset which        can
+[true] Current asset. In accounting, a current asset is any asset which can
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] Tutorial how to use regular expressions in Notepad++ (tutorial        
+[true] How to use regular expressions in Notepad++ (tutorial
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] Although there's no certain way to stop hiccups,         
+[true] Although there's no certain way to stop hiccups,
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred]          When combined with the Delphi smartphone or web app, you can:
+[true] When combined with the Delphi. Connect smartphone app or website, you can:
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] Narcolepsy         is a neurological disorder that affects the control of
+[true] Narcolepsy is a neurological disorder that affects the control of
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] New 22 foot 2016 Ranger Details. 2016         Ranger 220 Bah
+[true] New 22 foot 2016 Ranger Details. 2016 Ranger 220 Bah
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] Tricare Standard provides a similar benefit to the original CHAMPUS program        
+[true] Tricare Standard provides a similar benefit to the original CHAMPUS program
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] Italy is not a huge country, but the weather      from the top to 
+[true] Italy is not a huge country, but the weather from the top to
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] Portuguese Water Dog         - a purebred, large dog from Portugal
+[true] Portuguese Water Dog - a purebred, large dog from Portugal
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] Hourly Care Services and Live-in Home Care.          Rates
+[true] Hourly and Live-in Care Services and Rates. Senior Home Care
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] Asked by:          Lockyear. Sonic boom is common name
+[true] Asked by: Lockyear. Sonic boom is a common name for
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred]  Special Rates        . Explore downtown Park City, Utah from our hotel
+[true] Special Rates. Explore downtown Park City, Utah from our hotel. Contemporary
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred]         The bait and switch is a fraudulent sales tactic that is punishable
+[true] The bait and switch is a fraudulent sales tactic that is punishable
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred]         . Rotator cuff surgery Rotator cuff repair
+[true] Rotator cuff repair. Rotator cuff repair is surgery
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] When the oil is melted, add         or hot butter add the mushrooms.
+[true] When the oil or melted butter is hot, add the mushrooms. You
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] A Vehicle Identification Number (VIN) is a set of unique      
+[true] A Vehicle Identification Number (VIN) is a set of unique 
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred]          Travelers must be pre-approved for the Global Entry program.
+[true] Travelers must be pre-approved for the Global Entry program. All applicants
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred]           . However, under the title SPP Inventory
+[true] However, we also cover it under the title SPP Inventory Balancing
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] It's the perfect path for me as it is around 1.5 miles around        
+[true] It's the perfect path for me as it is around 1.5 miles around
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred]        Carnegie Hall is one of the most eminent music venues in the 
+[true] Carnegie Hall is one of the most eminent music venues in the
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred]        Blu-ray is currently the only high-definition disc format, 
+[true] Blu-ray is currently the only high-definition disc format,
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] Play sand/loam mix:         (coir) by
+[true] Play Sand/loam (coir) mix: This is by
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] Ra Ma    Sa Da  is like a rare diamond, which connects you
+[true] Ra Ma Da Sa is like a rare diamond, which connects you
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] Hate #1.         The Eating Times: Portuguese restaurants close their kitchens
+[true] Hate #1. The Eating Times: Portuguese restaurants close their kitchens
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] The ADA Home Page provides access to Americans with Disabilities Act (        
+[true] The ADA Home Page provides access to Americans with Disabilities Act (
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] Louvenia's language of origin is Latin      and it is predominantly used 
+[true] Louvenia's language of origin is Latin and it is predominantly used
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred]         The center of SkyShocker 7000 Hydrojacks' handling improvement
+[true] The center of Skyjacker Hydro 7000 Shocks' handling improvement
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred]         The plant is best known for the edible flower buds (capers), often
+[true] The plant is best known for the edible flower buds (capers), often
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] They mainly dilate to control the amount of light         that enters the
+[true] They mainly dilate to control the amount of light that enters the
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] vitamin d is found in many foods including fish eggs         fortified milk
+[true] vitamin d is found in many foods including fish eggs fortified milk
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred]         In the above schema you can view the properties for the delegate control as
+[true] In the above schema you can view the properties for the delegate control as
+--------------------------------------------------
+
+
+{'eval_loss': 2.6274805068969727, 'eval_model_preparation_time': 0.0192, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 16.0, 'eval_token_set_precision': 0.9068816923816923, 'eval_token_set_recall': 0.9387202427202425, 'eval_token_set_f1': 0.9200209420447565, 'eval_token_set_f1_sem': np.float64(0.015010533903645701), 'eval_n_ngrams_match_1': 10.9, 'eval_n_ngrams_match_2': 9.206666666666667, 'eval_n_ngrams_match_3': 7.906666666666666, 'eval_num_true_words': 11.94, 'eval_num_pred_words': 11.453333333333333, 'eval_bleu_score': np.float64(79.90793614653074), 'eval_bleu_score_sem': np.float64(2.4686927940163947), 'eval_rouge_score': np.float64(0.9297796708297938), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.983352780342102, 'eval_emb_cos_sim_sem': np.float64(0.01196386106312275), 'eval_emb_top1_equal': 0.8125, 'eval_emb_top1_equal_sem': np.float64(0.10077822208404541), 'eval_runtime': 3678.0558, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 2.6274805068969727
+eval_model_preparation_time: 0.0192
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 16.0
+eval_token_set_precision: 0.9068816923816923
+eval_token_set_recall: 0.9387202427202425
+eval_token_set_f1: 0.9200209420447565
+eval_token_set_f1_sem: 0.015010533903645701
+eval_n_ngrams_match_1: 10.9
+eval_n_ngrams_match_2: 9.206666666666667
+eval_n_ngrams_match_3: 7.906666666666666
+eval_num_true_words: 11.94
+eval_num_pred_words: 11.453333333333333
+eval_bleu_score: 79.90793614653074
+eval_bleu_score_sem: 2.4686927940163947
+eval_rouge_score: 0.9297796708297938
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.983352780342102
+eval_emb_cos_sim_sem: 0.01196386106312275
+eval_emb_top1_equal: 0.8125
+eval_emb_top1_equal_sem: 0.10077822208404541
+eval_runtime: 3678.0558
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 3678.1264686584473
+Current memory usage: 3.95MB; Peak: 9.84MB

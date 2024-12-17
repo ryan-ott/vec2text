@@ -1,0 +1,96 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gpus=1
+#SBATCH --job-name=Reproduce
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --time=20:00:00
+
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source /home/scur0989/v2t-env/bin/activate
+cd /home/scur0989/vec2text/
+
+# Function to extract BLEU score from log file
+get_bleu_score() {
+    local log_file=$1
+    # Wait for the log file to be created and populated
+    while [ ! -f "$log_file" ] || [ ! -s "$log_file" ]; do
+        sleep 10
+    done
+    # Extract BLEU score using grep and awk
+    bleu_score=$(grep "eval_bleu_score:" "$log_file" | tail -n 1 | awk '{print $2}')
+    echo "$bleu_score"
+}
+
+# Initialize variables
+start_len=32
+current_len=$start_len
+step_size=4
+error_threshold=10.0  # Adjust this value as needed
+direction="both"  # Can be "up", "down", or "both"
+
+# Function to run the experiment for a given max_length
+run_experiment() {
+    local max_len=$1
+    local output_file="/home/scur0989/vec2text/scripts/outputs/repro_T2_msmarco_${max_len}maxtoken%A.out"
+    local log_file="scripts/outputs/repro_T2_gtr-50steps-8beam_msmarco_1ksamples_${max_len}maxtoken.log"
+
+    # Update SBATCH output directive
+    sed -i "s|#SBATCH --output=.*|#SBATCH --output=$output_file|" "$0"
+
+    # Run the Python script
+    python reproduce_T2.py \
+        --model jxm/gtr__nq__32__correct \
+        --steps 50 \
+        --beam-width 8 \
+        --beir_dataset msmarco \
+        --max_samples 15 \
+        --max_length $max_len > "$log_file"
+
+    # Get BLEU score
+    local bleu_score=$(get_bleu_score "$log_file")
+    echo "$max_len,$bleu_score" >> experiment_results.csv
+    echo "$bleu_score"
+}
+
+# Create results file
+echo "max_length,bleu_score" > experiment_results.csv
+
+# Main loop
+while true; do
+    bleu_score=$(run_experiment $current_len)
+    
+    # Check if we've reached the termination conditions
+    if [ $(echo "$bleu_score >= (100 - $error_threshold)" | bc -l) -eq 1 ]; then
+        echo "Reached 100% threshold at length $current_len"
+        if [ "$direction" == "both" ]; then
+            direction="up"
+            current_len=$start_len
+            continue
+        elif [ "$direction" == "down" ]; then
+            break
+        fi
+    elif [ $(echo "$bleu_score <= (0 + $error_threshold)" | bc -l) -eq 1 ]; then
+        echo "Reached 0% threshold at length $current_len"
+        if [ "$direction" == "both" ]; then
+            direction="down"
+            current_len=$start_len
+            continue
+        elif [ "$direction" == "up" ]; then
+            break
+        fi
+    fi
+
+    # Update length based on direction
+    if [ "$direction" == "both" ] || [ "$direction" == "down" ]; then
+        current_len=$((current_len - step_size))
+    elif [ "$direction" == "up" ]; then
+        current_len=$((current_len + step_size))
+    fi
+done
+
+echo "Experiment complete. Results saved in experiment_results.csv"

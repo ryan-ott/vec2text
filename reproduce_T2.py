@@ -46,7 +46,7 @@ def main(args):
             examples["text"],
             padding="max_length",
             truncation=True,
-            max_length=trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
+            max_length= 48, #trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
         print(f"Model tokens max_length: {model_tokens['input_ids'].size(-1)}")
@@ -56,7 +56,7 @@ def main(args):
             examples["text"],
             padding="max_length",
             truncation=True,
-            max_length=trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
+            max_length= 48, #trainer.model.config.max_seq_length if hasattr(trainer.model.config, 'max_seq_length') else 512,
             return_tensors="pt"
         )
         print(f"Embedder tokens max_length: {embedder_tokens['input_ids'].size(-1)}")
@@ -86,6 +86,7 @@ def main(args):
     print("trainer.num_gen_recursive_steps:", trainer.num_gen_recursive_steps)
     print("trainer.sequence_beam_width:", trainer.sequence_beam_width)
     print("Model name:", args.model)
+    print("max_seq_length:", trainer.embedder_tokenizer.model_max_length)
     
     # Start memory and time tracking
     tracemalloc.start()
