@@ -1,0 +1,954 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir='bioasq', beam_width=1, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur2868/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur2868/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: bioasq
++++ Dataset +++
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
++++ Trainer Args Passed +++
+num_gen_recursive_steps: 50
+sequence_beam_width: 1
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['input_ids', 'attention_mask', 'embedder_input_ids', 'embedder_attention_mask', 'labels'],
+    num_rows: 1000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] Association of Umbilical Cord Milking vs Delayed Intraventricular Umbilical Cord Clamping with Severe Death or He
+[true] Association of Umbilical Cord Milking vs Delayed Umbilical Cord Clamping With Death or Severe Intraventricular He
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] (STUDIUM OBJECT): To investigate the expression of KDM, the expression of histone and the ability of osteogenic differentiation
+[true] [Study on the Expression of KDM. OBJECTIVE: To investigate the ability of osteogenic differentiation and the expression of histone
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] - SPECIAL Symptoms OF ASTHMS RELATED TO FUNCTIONAL DYSPTITIA. PERMPTAMENT
+[true] [PREVALENCE OF FUNCTIONAL DYSPEPSIA SYMPTOMS IN PATIENTS WITH ASTHMA].. 
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] [Aplication of alpha-heptopontin and foetafibroprotein combination for early diagnosis of osteoportal carcinoma of
+[true] [Application of alpha-fetoprotein and osteopontin combination for early diagnosis of hepatocellular carcinoma associated with 
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] [screening of coloretal cancer in Kunming urban residents] from 2014 to 2017. To explore the scenario efficiency of
+[true] [Screening of colorectal cancer in Kunming urban residents from 2014 to 2017].. Objective: To explore the screening efficiency of
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] Energy Consumption, Carbon Emissions and Global Warming Potential of Wolfberry Production in Jingtai Oasis, Gans
+[true] Energy Consumption, Carbon Emissions and Global Warming Potential of Wolfberry Production in Jingtai Oasis, Gans
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] [Expression of myofibroblast in gingival loading after orthodontic.] OBJUDICTION: To examine the expression of myfibro
+[true] [Expression of myofibroblast in gingival after orthodontic loading].. OBJECTIVE: To examine the expression of myofibro
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] Optimal fluoroscopic viewing angles of right-sided heart structures in patients with tricuspid regurgitation based on multislice
+[true] Optimal fluoroscopic viewing angles of right-sided heart structures in patients with tricuspid regurgitation based on multislice
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] (Reference to acupoint distribution and pain sensitization in patients with irritated intestinal diseases)br>Correspondence
+[true] [Correlation between referred pain distribution and acupoint sensitization in patients with intestinal diseases].. OBJECTIVE: To
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] [Current status of neglect among children aged 3-6 years in rural areas of Urumqi, China and risk factors for child neglect..
+[true] [Current status of neglect among children aged 3-6 years in rural areas of Urumqi, China and risk factors for child neglect]..
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] [Mechan of participation of osteoclasts in the formation of osteocytes under hypoxia] OBJECTIVOLY:
+[true] [Mechanism of participation of osteocytes in the formation of osteoclasts under hypoxia].. OBJECTIVE:
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred] [Sclerodermal Lesions of Patients of S-Cleroderma]: Effect of Catenin on Epithelial 
+[true] [Expression of â-catenin in Skin Lesions of Patients with Scleroderma and Its Effect on Epithelial-
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred] (BioScidian's analysis of programming and regulatory headsets of gene co-expression cell death ligand c1 in general
+[true] [Bioinformatics analysis of programmed cell death ligand 1 co-expression genes and their regulatory network in head and neck squa
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] Immunition coverage annual report The Eleventh National Annual Immunization Coverage Report 2017 deals with data derived from this calendar year on
+[true] Annual Immunisation Coverage Report 2017.. This eleventh national annual immunisation coverage report focuses on data for the calendar year 2017 derived from
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred] A new species of Eucrograde (Madifugidae) from New Zealand, adduced from the tardi
+[true] A new species of Eutardigrade (Macrobiotidae) from New Zealand.. After examining the tardi
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] Decipodia spp. Caridina (Crustacea sb.), a new freshwater shrimp of flat
+[true] Caridina biyiga sp. nov., a new freshwater shrimp (Crustacea: Decapoda
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] Risk Factors Associated with Childhood Asthma - A Case Study Control... Background Asthma is one of the most common 
+[true] Risk Factors Associated with Childhood Asthma - A Case Control Study.. Background Asthma is one of the most common
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred] A new genus and species of natricine snake from northeast India.. Based on the first molecular phylogenetic
+[true] A new genus and species of natricine snake from northeast India.. Based on the first molecular phylogenetic
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred] World, reviewing Mackinae, and later of the Hippopotanesia, Monoptera Ardina 1961 (Branchman
+[true] Review of the world Monoctonina Mackauer 1961 (Hymenoptera, Braconidae, Aphidiin
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] Marthae bayae, a new species of stonefly from Algeria, Permealida (Phleboptera -
+[true] Marthamea bayae, a new species of stonefly from Algeria (Plecoptera: Perlidae).. A
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred] Cyclonozoans from Qiao brydost, South China's Yellow Sea.. Twenty-one species of cyclome
+[true] Cyclostome bryozoans from Qingdao, South Yellow Sea, China.. Twenty-one species of cyclost
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred] [effecting acupuncture on Renin 9 on patients with Stryling hypertension with an essential ischemic effect on peripheral pressure].
+[true] [Effect of acupuncture at Renying (ST 9) on blood pressure in patients with ischemic stroke complicated with essential hypertension].
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] description of five new species of Hydropterycoptera (Trople Ross, Homotricus from Japan) with 
+[true] Descriptions of five new species of Homoplectra Ross (Trichoptera, Hydropsychidae) from Japan with 
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] Risk Factors for Vaping Product-As-Lung Injury (Cigarette-Associated Use, EVALI) among Adults
+[true] Risk Factors for E-Cigarette, or Vaping, Product Use-Associated Lung Injury (EVALI) Among Adults
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] Predictors for Proximal Molars in Permanent First Caries. A Multi-Aim Analysis: A Regression from the above-
+[true] Predictors for Proximal Caries in Permanent First Molars: A Multiple Regression Analysis.. AIM: The aim of this
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] Novel Surgical Aid to achieving Optimal Positioning of Adjacently Edentulous Implant Cases at Full Mandibular
+[true] A Novel Surgical Aid to Achieve Optimal Positioning of Adjacent Implants in Fully Edentulous Mandibular Case
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] [Pan-European Registry on Helicobacter pylori. Introduction: The Pan-European Registry on Helicobacter p
+[true] [Pan-European Registry on Helicobacter pylori. Introduction: The Pan-European Registry on Helicobacter p
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] [Construction of hidden curriculum in academic experience]. To discuss the advantages of the inheritance hidden curriculum construction and the necessity of distinguished TCM veteran doctors at
+[true] [Construction of hidden curriculum in the academic experience inheritance of distinguished TCM veteran doctors].. To discuss the advantages and necessity of hidden curriculum construction in
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] Valveular paradigms. Where is the field of heart disease evolving, should it move more closely to clinical guidelines? Guidelines for clinical intervention path changing in
+[true] Evolving paradigms in valvular heart disease: where should guidelines move?. The field of valve intervention is rapidly changing. Clinical practice guidelines
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] NaDi-Ferrinodoxin: Oxy-additor-Translocatingase is a potent Photo+
+[true] Na+-Translocating Ferredoxin:NAD+ Oxidoreductase Is a Component of Photosy
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred] Are arbuscular fungal mycorrhizal species affected by the cotton growth management system in the Brazilian Cerrado community? Conventional cotton 
+[true] Is arbuscular mycorrhizal fungal species community affected by cotton growth management systems in the Brazilian Cerrado?. Conventional cotton
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred] An integrative revision of the taxonomic genus Triphosmetrida Stephens, 1829 by Laegeae (La
+[true] An integrative taxonomic revision of the genus Triphosa Stephens, 1829 (Geometridae: La
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] [[Microbial ratio in patients with advanced neutrophil cancer, effects of lymphocypressin and quality-of-life in grain metabolism].
+[true] [Effect of grain-moxibustion on neutrophil to lymphocyte ratio and quality of life in patients with advanced gastric cancer]..
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] [Tanshinone IIA peroxidates hydrogen endotheliotitan-induced senescence of human umbilical vein
+[true] [Tanshinone IIA attenuates hydrogen peroxide-induced senescence of human umbilical vein endotheli
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] [autoimmune gastritis] – a multidisciplinary management. ... Chronic autoimmune gastritis (CAG) is a
+[true] [Chronic autoimmune gastritis : a multidisciplinary management].. Chronic autoimmune gastritis (CAG) is
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] Cardiac Agglutinin Surgay Case Reports. Cold Agglutinins "Clark Aggluti
+[true] Cold Agglutinins and Cardiac Surgey: a Case Report.. Cold agglutinins (
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] A new Iberian species of Cheprotoptera Jacquelina, Val de Staphylloplati (Coloniane
+[true] A new Iberian species of Chevrolatia Jacquelin du Val (Coleoptera, Staphylinidae,
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] Crystallization and the nucleation kinetics of Mg+2 ions. In order to achieve efficient recovery from simultaneous desulfate
+[true] Crystallization process and nucleation kinetics of Mg2+. In order to achieve efficient recovery of ions from the simultaneous desul
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred] [Mucleus-induced nuclear antigen protein (NASP) gene aggravates autoimmune lupitation of sper
+[true] [Mutation of nuclear autoantigenic sperm protein (NASP) gene aggravates autoimmune response in induced lupus
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] [PsyCoLaus]: [Images and the end of the main CoLaus study of 16 years follow-up]. The messages
+[true] [The CoLaus/PsyCoLaus study : 16 years of follow-up with some key messages end images].. The main
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred] Surveillance Magnetic Resonance Imaging in Detecting the Second Breast Cancer in Women With a Personal History of Breast Cancer. OB 
+[true] Surveillance Magnetic Resonance Imaging in Detecting the Second Breast Cancer in Women With a Personal History of Breast Cancer.. OB
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] Annotagraphical catalogue of type specimens of flatfishes (Osteichthyes: Pleistonecturus ) in the
+[true] Annotated catalogue of type specimens of flatfishes (Osteichthyes: Pleuronectiformes) in the
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] Levels of 6-sulphoxymelatonin and sleep-behavioural impairments in children with autism and their association with urological sleep disorders 
+[true] Urinary levels of 6-sulphatoxymelatonin and their associations with sleep disorders and behavioural impairments in children with autism spectrum disorder
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] A Large Dermoid Cyst in the Floor of the Mouth. . The Dermoid cyst on the floor of the mouth is considered
+[true] A Large Dermoid Cyst in the Floor of the Mouth.. The dermoid cyst in the floor of mouth is considered to be
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] A new skink of the genus Subdoluseps (Hardwicke amp, 1828) from Peninsular; Gray
+[true] A new skink of the genus Subdoluseps (Hardwicke amp; Gray, 1828) from Peninsular
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] Description of Laccobius sp. col. (Streng. shengshanensis) from China (N. 
+[true] Description of Laccobius (s. str.) shengshanensis sp. n. from China (Cole
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred] Patient-derived models of esophageal cancer tumor. Tumor models are powerful therapeutic tools that can not be used to plan preclinical
+[true] Patient-derived tumor models of esophageal cancer.. Tumor models are powerful tools to plan preclinical therapeutic strategies that cannot be
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] Homocysteine as a potential predictive factor for high adverse cardiovascular risk events in female patients with major acute premature coronary syndrome. 
+[true] Homocysteine as a potential predictive factor for high major adverse cardiovascular events risk in female patients with premature acute coronary syndrome..
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred] A novel member of the Hemidactylus brookii (Squamata: Gekkonidae complex) from the
+[true] A novel member of the Hemidactylus brookii complex (Squamata: Gekkonidae) from the
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] Pelagic pseudostoma: Epidelophores of ciliata report no on occlutric 
+[true] Report of epibiont ciliates (Cilliophora: Suctorea) on pelagic ostracod
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] new species, Barbarossacini, from Ecuador, notes the genus Empo-Hepius (flatus sif
+[true] A new genus and species, Barbaropus flatus, from Ecuador with notes on Empoascini (Hemipter
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] (Affects of proliferation and metastasis on lung heme-1 oxygenase knockdown, invasion of adeno
+[true] [Effects of heme oxygenase-1 knockdown on proliferation, invasion and metastasis of lung adeno
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] three new species in the new combination genus Omalephy (Colisopteris, Series JE 1931;  Stal
+[true] Three new species and a new combination in the genus Omaliopsis Jeannel, 1940 (Coleoptera: Staphy
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] The genus Ozineus Bates, 1863 in South America (Colibycidae, Cereoptera Lamiammen
+[true] The genus Ozineus Bates, 1863 in South America (Coleoptera, Cerambycidae, Lamiin
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] [Stent placement-related filter occlusion of the inferior vena cava]. Objective: For the technical assessment of chronic success rate for
+[true] [Stent placement for filter-related chronic occlusion of the inferior vena cava].. Objective: To assess the technical success rate
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] (Importance of Skull X-ray Study in PRODUCTIONS OF HEAD Trauma). The aim of a
+[true] [Importance of Skull X-ray in Head Trauma].. PURPOSE OF THE STUDY The aim of
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred] Floculation/floculation of textile effluent using a natural coagulant extracted from Dillenia inga/
+[true] Coagulation/flocculation of textile effluent using a natural coagulant extracted from Dillenia indica..
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred] A new species of Tenthorips pollinating Diptychlepus subantrobida in Malaysia. Tenthorips
+[true] A new species of Tenothrips pollinating Dipterocarpus sublamellatus in Malaysia.. Tenothrip
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] Price: Mazoeocraides, 1936, including four new species of Monoeae (genus Mazoeocracida
+[true] Four species of Mazocraeoides Price, 1936 (Monogenea: Mazocraeidae), including two new species
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] [Dichloroathane toxic analysis and 23 cases of acute occupational encephalopathy caused by poisoning of 2-toxin.".
+[true] [Analysis of 18 cases of toxic encephalopathy caused by occupational acute 1, 2-dichloroethane poisoning]..
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred] a new species of Nototopterae: Skeetius edilaeto (2011: TriColy
+[true] A new species of Notaepytus Skelley, 2009 (Coleoptera: Erotylidae: Trito
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] Mechanical versus thermal unfolding in a model protein. Force spectroscopy techniques are used to learn much about the free energy landscape in single-
+[true] Thermal versus mechanical unfolding in a model protein.. Force spectroscopy techniques are often used to learn about the free energy landscape of single
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] A new species of Apostlethrips (Thysanoptera, Phlaeothripidae); an Australian gen
+[true] A new species of Apostlethrips (Thysanoptera, Phlaeothripidae); an Australian gen
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] [Effects of cryotherapy-induced peripheral neuropathy on chemotherapy-induced self-controlled clinical trial]. Chemotherapy peripheral
+[true] [Effects of cryotherapy on chemotherapy-induced peripheral neuropathy: self-controlled clinical trial].. Chemotherapy induced peripheral
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] Two new species of deep-sea sponges (Porifera, Demospongiae) from submarine canyons of the Sar
+[true] Two new species of deep-sea sponges (Porifera, Demospongiae) from submarine canyons of the Sar
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred] A new species and first record of the genus Micraptera Edwards (Didaemonogip, Kelati
+[true] A new species and the first record of the genus Micrapemon Edwards (Diptera: Keroplatidae
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] recommended abbreviations for the names of the species Tardigrado phylum. (Note that the G genera found in a
+[true] Recommended abbreviations for the names of genera of the phylum Tardigrada.. When listing the tardigrade species found in a
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] Status of HIV Case-Based Surveillance Implementation, 37 U.S.-FAR-Support Countries - PEPFAR
+[true] Status of HIV Case-Based Surveillance Implementation - 39 U.S. PEPFAR-Supported Countries, May-J
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] A taxonomic reappraisal of the Smooth Snake Slug Asthenadipsis lavifosa (BO
+[true] A taxonomic reappraisal of the Smooth Slug Snake Asthenodipsas laevis (Boi
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] A new species of Cymphenopterae, Ichneurodiae, 1856[Hydrostylia Schi
+[true] A new species of Cylloceria Schi?dte, 1838 (Hymenoptera, Ichneumonidae) from
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] First description of the type species of the male of Needham, paralus Prominoptera ossicopteris 1923–1945
+[true] First description of male of the type species Parosmylus prominens Needham, 1909 (Neuroptera: Osmy
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] [[Amyotrophic lateral sclerosis|lateral neuropathology]]. The basic neuroethology of Amyotrophic
+[true] [Neuropathology of Amyotrophic Lateral Sclerosis].. The basic neuropathology of amyotrophic lateral s
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] Outcome: 12 Years Experience from Center for Surgical Resection of Craniopharyngioma "Single Results" Crani
+[true] Outcome of Surgical Resection of Craniopharyngioma:Single Center 12 Years' Experience.. Background Crani
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred] Value of Dual-Energy Computed Tomography for Diagnosing Cervical Lymph Node Metastasis in Patients
+[true] Value of Dual-Energy Computed Tomography for Diagnosing Cervical Lymph Node Metastasis in Patients
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] Gramicidin inhibits human gastric cancer cell cycle, cell proliferation and induced apoptosis.ref name="10/
+[true] Gramicidin inhibits human gastric cancer cell proliferation, cell cycle and induced apoptosis.. BACKGROUND:
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] Identification of novel CDK2 inhibitors based on a multistage screening method using virtual pharmacology, docking and SVM-model
+[true] Identification of novel CDK2 inhibitors by a multistage virtual screening method based on SVM, pharmacophore and docking model
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred] The squat lobster genus Phyllorhynchus Baba in 1969, and later of New Zealand, Australia and Antarctic
+[true] The squat lobster genus Phylladiorhynchus Baba, 1969 in New Zealand and eastern Australia,
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] In vivo drug screening method of tumor-bearing chick, embryo using tumor radiosensitizers. In radiotherapy,
+[true] In vivo drug screening method of radiosensitizers using tumor-bearing chick embryo.. In radiotherapy, tumor
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] Notes on Paraphyletic genera Casey and Stascyctus Casey (Coleoptera Nearcynmus
+[true] Notes on Nearctic genera Catalinus Casey and Parascydmus Casey (Coleoptera: Staphy
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred] the LeConteornophus status of Pimele (Tricotylida punctatus): Tenebriopter
+[true] The Status of Triorophus punctatus LeConte (Coleoptera: Tenebrionidae: Pimel
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred] [http://www.aampanel.com/ Disease-specific Lateral Sclerosis/Periotrophic Sporadic Selective Defic
+[true] [Perampanel for Sporadic Amyotrophic Lateral Sclerosis].. Disease-specific and site-selective defici
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] EMS workforce shortage: How can we help medical students address this gap by bridge the gap. The authors propose the combination of mutually beneficial partnerships in the
+[true] Addressing the EMS workforce shortage: How medical students can help bridge the gap.. The authors propose that, through innovative and mutually beneficial partnerships between
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] Immediate loading of edentulous implants versus conventional fixed-support mandibular prostheses in patients: 10-year report
+[true] Immediate versus conventional loading of mandibular implant-supported fixed prostheses in edentulous patients: 10-year report
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred] [application of low temperature thermoplastic plate with abdominal flap and of abdominal pedicled band by adding 11 patients for repair of complex abdominal burn with special plate
+[true] [Application of low temperature thermoplastic plate combined with special abdominal band in fixing abdominal pedicled flap for repairing 17 patients with deep electric burn
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] the efficacy of dekproxolen for migraine: A randomized controlled meta-analysis of high-level studies. Argus
+[true] The efficacy of dexketoprofen for migraine attack: A meta-analysis of randomized controlled studies.. BACKGRO
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] American Giglinoptera 1897, re-description: Poitoltoi (Orthodes tegonica
+[true] Redescription of Polichnodes americana Giglio-Tos, 1898 (Orthoptera: Tettigonii
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] [Current Options of Rheumatosurgery and Wrist of the Hand] Rheumatosurger
+[true] [Current Options of Rheumatosurgery of the Hand and Wrist].. Rheumatosurgery
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] (introduction: Recommendation: Pathological examination of the placenta: methodical indications: practical aspects. According 
+[true] [Recommendation for the pathological examination of the placenta: practical aspects and indications. Methodological recommendation. Introduction: According
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] The Significance of ERG and Androgen Receptor Expression in Adenocarcinoma Prostate. Backgrounds of Fusion of
+[true] The Significance of ERG and Androgen Receptor Expression in Adenocarcinoma Prostate.. Background Fusions of
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred] [Relationship between liver attenuation parameters and its distribution]. To explore the relationship between body fat mass and controlled liver attenuation on
+[true] [Relationship between liver controlled attenuation parameters and body fat mass and its distribution].. Objective: To explore the relationship between liver controlled at
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] Environmental Management and Green Chemistry: Relationships, Advantages, Barriers and Synergies in Joint Implementation of Systems at Universities. Environmental Management
+[true] Green Chemistry and Environmental Management Systems: Relationships, Synergies, Advantages and Barriers of Joint Implementation at Universities.. Environmental Management
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] Intra-Seminiferous Injection of Tubular Vascular Endothelial Growth Factor C Sustained Release-
+[true] Intra-Seminiferous Tubular Injection of Vascular Endothelial Growth Factor C Sustained-Release
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred] Prediction of the Comorbidity Score- Polypharmacy of Mortality in the Osteoporotic Hip Fractures. 
+[true] Prediction of the Mortality with Comorbidity - Polypharmacy Score in the Osteoporotic Hip Fractures.
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] problems in the nomenclature article of New Species of the Latrunctoral Group of "Vandrosaurus rat
+[true] Nomenclatural problems in the article 'new species of the Latithorax Species Group of Velarifictorus Rand
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] [APPLICATION of surface electromyography in children with dysphagia]. OBJECT: Application: To study the value of surface 
+[true] [Application of surface electromyography in children with dysphagia].. OBJECTIVE: To study the application value of surface
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred] Riethia (Diptera: Chironomidae) (Kieffer 1917) revised for the Austro-
+[true] Riethia (Kieffer 1917) (Diptera: Chironomidae) revised for the Austro-
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred] [Study lung injury induced by crotonic exposure to subchromaldehyde in male rats]. Objective: i
+[true] [Study on lung injury induced by subchronic exposure to crotonaldehyde in male rats].. Objective: To
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] A new genus, a new species of Apomecini, and two new species of Desmiphorinyi, and
+[true] A new genus and two new species of Apomecynini, a new species of Desmiphorini, and
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] Advances in Oral Mucosal Immunity and the 1st International Conference on Oral Microbiome - The Mucosal
+[true] Advances in Oral Mucosal Immunity and the Microbiome.. The 1st International Conference on Oral Mucosal
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred] Black Corals (Anthozoa): Antipatharia . Black corals from the Southwestern Atlantic (Cnidaria-
+[true] Black Corals (Anthozoa: Antipatharia) from the Southwestern Atlantic.. Black corals (Cnidaria:
+--------------------------------------------------
+
+
+{'eval_loss': 1.7111144065856934, 'eval_model_preparation_time': 0.0193, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 32.0, 'eval_token_set_precision': 0.7059618142329397, 'eval_token_set_recall': 0.7244830946972156, 'eval_token_set_f1': 0.7139509153127408, 'eval_token_set_f1_sem': np.float64(0.006202471545170944), 'eval_n_ngrams_match_1': 12.43, 'eval_n_ngrams_match_2': 7.566, 'eval_n_ngrams_match_3': 5.344, 'eval_num_true_words': 17.318, 'eval_num_pred_words': 17.041, 'eval_bleu_score': np.float64(39.30865875414388), 'eval_bleu_score_sem': np.float64(0.9380754323464778), 'eval_rouge_score': np.float64(0.7587151329825546), 'eval_exact_match': np.float64(0.087), 'eval_exact_match_sem': np.float64(0.008916866630745944), 'eval_emb_cos_sim': 0.9336907863616943, 'eval_emb_cos_sim_sem': np.float64(0.013980628922581673), 'eval_emb_top1_equal': 0.5625, 'eval_emb_top1_equal_sem': np.float64(0.1280868798494339), 'eval_runtime': 2332.5315, 'eval_samples_per_second': 0.429, 'eval_steps_per_second': 0.027}
++++ Evaluation Metrics +++
+eval_loss: 1.7111144065856934
+eval_model_preparation_time: 0.0193
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 32.0
+eval_token_set_precision: 0.7059618142329397
+eval_token_set_recall: 0.7244830946972156
+eval_token_set_f1: 0.7139509153127408
+eval_token_set_f1_sem: 0.006202471545170944
+eval_n_ngrams_match_1: 12.43
+eval_n_ngrams_match_2: 7.566
+eval_n_ngrams_match_3: 5.344
+eval_num_true_words: 17.318
+eval_num_pred_words: 17.041
+eval_bleu_score: 39.30865875414388
+eval_bleu_score_sem: 0.9380754323464778
+eval_rouge_score: 0.7587151329825546
+eval_exact_match: 0.087
+eval_exact_match_sem: 0.008916866630745944
+eval_emb_cos_sim: 0.9336907863616943
+eval_emb_cos_sim_sem: 0.013980628922581673
+eval_emb_top1_equal: 0.5625
+eval_emb_top1_equal_sem: 0.1280868798494339
+eval_runtime: 2332.5315
+eval_samples_per_second: 0.429
+eval_steps_per_second: 0.027
+Time taken: 2332.9891357421875
+Current memory usage: 17.69MB; Peak: 22.23MB

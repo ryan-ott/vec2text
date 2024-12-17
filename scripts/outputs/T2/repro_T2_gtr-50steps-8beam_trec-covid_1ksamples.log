@@ -1,0 +1,952 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='trec-covid', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur2868/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur2868/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: trec-covid
+Original dataset size: 100000
+Randomly selected 1000 samples from the dataset.
++++ Trainer Args Passed +++
+num_gen_recursive_steps: 50
+sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+Running evaluation...
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] full-heavily neutralizing human monoclonal antibodies (HmAbs). Recently, several antibodies have been identified targeting the severe acute respiratory
+[true] BACKGROUND Recently, several potently neutralizing fully human monoclonal antibodies (hmAbs) targeting the severe acute respiratory
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Fecivirus (FCV) E-cat strains isolated from feces were compared with calicivirus (FCV)
+[true] Feline calicivirus (FCV) strains isolated from feces (E-FCV) were compared with FCV strain
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] shown in bold: Early morbidity and mortality are lower after open aortic/endovascular repair than aftermath, due to repair
+[true] BACKGROUND Early morbidity and mortality are generally lower after endovascular aortic repair (EVAR), than after open repair
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] The author presents a technique for performing laparoscopic right hemicolectomy, accompanied by an online video. This method is suitable for "
+[true] The author presents a technique for performing laparoscopic right hemicolectomy, accompanied by an online video. This method is suitable for 
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] OBJECT. To get cDNA clones which cover the whole genome of the PUMC2 SARS cov2 strain.
+[true] OBJECTIVE To get the cDNA clones which cover the whole genome of SARS-CoV PUMC2 strain.
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] OBJECTIVE The outcome for jailing arterial branches that emerge near intracranial aneurysms during flow-diverting-
+[true] OBJECTIVE The outcome for jailing arterial branches that emerge near intracranial aneurysms during flow-diverting 
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] It is difficult to predict if and when the femoral head will collapse and whether the collapse can be minimized. This study examined the final
+[true] It is difficult to predict if and when the femoral head will collapse and whether the collapse can be minimized. This study examined the final
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] STD patients are at increased risk of recurrence of Crohn's disease after surgical treatment. Detection of endoscopic background
+[true] BACKGROUND Patients are at increased risk of disease recurrence after surgical treatment of Crohn's disease. Endoscopic detection of
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+[pred] CFR in Iran is the highest at the early stage of the outbreak and 2. CFRs in Iran and in Italy and the USA are among countries which have similar
+[true] 1. CFR in Iran in the early stage of the outbreak is the highest among all the countries 2. CFRs in the USA and Italy are similar to that in
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+[pred] Aspect mining or extraction is one of the most challenging problems in aspect-level analysis on reviews; it aims to extract terms from customer review
+[true] Aspect mining or extraction is one of the most challenging problems in aspect-level analysis on customer reviews; it aims to extract terms from a review
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+[pred] Recommendations for this study include: Determining whether teaching cadaverocrotomy improves confidence in crotoph
+[true] STUDY OBJECTIVE To determine if teaching cricothyrotomy with fresh cadavers improves confidence with neck
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+[pred] In an effort to mitigate the outbreak of COVID-19, many countries have imposed drastic lockdown, movement control or shelter in place orders on their
+[true] In an effort to mitigate the outbreak of COVID-19, many countries have imposed drastic lockdown, movement control or shelter in place orders on their
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+[pred] In this work, we say that a computation is reversible if one can find a procedure to undo the steps of a
+[true] In this work, we say that a computation is reversible if one can find a procedure to undo the steps of a
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+[pred] OBJECT: This study was designed for the characterization and establishment of antibiotic susceptibility profiles of non-fermentative gram negative 
+[true] OBJECTIVE: This study was designed for the characterization and establishment of antibiotic susceptibility profiles of non-fermentative gram negative
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+[pred] Introduction a sense peptide can be defined as a peptide whose sequence is coded by the nucleote
+[true] INTRODUCTION A sense peptide can be defined as a peptide whose sequence is coded by the nucleot
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+[pred] Here we show that the ubiquitin-proteasome system is required for the efficient replication of rotavirus RRV in MA
+[true] Here we show that the ubiquitin-proteasome system is required for the efficient replication of rotavirus RRV in MA
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+[pred] The search space of neural architecture search (NAS) for convolutional neural network (CNN) is huge. To reduce searching cost, most NAS
+[true] The search space of neural architecture search (NAS) for convolutional neural network (CNN) is huge. To reduce searching cost, most NAS
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+[pred] Background The objective of this study was to investigate a case of a permanently (suprapubic) catheterized woman with neurogenic bladder dysfunction
+[true] Background The objective of this study was to investigate a case of a permanently (suprapubic) catheterized woman with neurogenic bladder dysfunction
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+[pred] Ten and ten homes for the 515 elderly residents of Leicester City Council, with a total of 1160 beds, were studied over a 
+[true] One hundred and seventy residents of 11 Leicester City Council homes for the elderly, with a total of 515 beds, were studied during a
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+[pred] Chloroquine diphosphate (CQ) is a hydrophilic drug with low entrapment efficiency in hydrophobic nano
+[true] Chloroquine diphosphate (CQ) is a hydrophilic drug with low entrapment efficiency in hydrophobic nano
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+[pred] 24. For children with burn injury/splitthickness medical background the optimum donor site skin grafting dressing is in ongoing need of
+[true] BACKGROUND For children requiring split-thickness skin grafting for burn injury, the optimum donor site dressing is an ongoing
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+[pred] IMPlicit result diversification methods exploit the content of documents in the candidate's results, i.e. the initial retrieval of sets that
+[true] Implicit result diversification methods exploit the content of the documents in the candidate set, i.e., the initial retrieval results of a
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+[pred] OBJECT Transforaminal lumbar interbody fusion (TLIF) has become one of the preferred procedures for circumferential-
+[true] OBJECT Transforaminal lumbar interbody fusion (TLIF) has become one of the preferred procedures for circumferential 
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+[pred] SP-A and SP-D contribute to host defense against respiratory viral infection. The most extensive body of evidence relates to influenza A viruses (IAV
+[true] SP-A and SP-D contribute to host defense against respiratory viral infection. The most extensive body of evidence relates to influenza A viruses (IAV
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+[pred] Background: The natural history and consequences of severe H1N1 infection among cancer influenza patients are not yet fully characterized. We describe eight cases of H
+[true] Background: The natural history and consequences of severe H1N1 influenza infection among cancer patients are not yet fully characterized. We describe eight cases of H
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+[pred] Supply chain officers may feel eagerly after Edward Smith. After years of uneventful supply chain management and insistence on more efficient processes and with unexpected
+[true] Supply chain officers may feel with Edward Smith. After years of uneventful supply chain management and after years of striving after more efficient processes, unexpected and
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+[pred] labeled: Early administration of colostrum in preterm infants may provide immune components. Subsequent studies confirm the effects of oral
+[true] BACKGROUND: Early administration of colostrum may provide preterm infants with immune components. Previous studies illustrating the effects of oral
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+[pred] Formalin fixation produces cross-links between the proteins and the fixative that alter the ability of some antibodies to recognize antigens. We
+[true] Formalin fixation produces cross-links between the proteins and the fixative that alter the ability of some antibodies to recognize antigens. We
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+[pred] We conducted a retrospective chart review at a university hospital on a family that exhibited a rare cause of conductive hearing loss. Four male
+[true] We conducted a retrospective chart review at a university hospital on a family that exhibited a rare cause of conductive hearing loss. Four male
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+[pred] A push to reduce the number of ports A laparoscopic appendectomy is now commonly performed. One purpose of this path is to enact 
+[true] PURPOSE A laparoscopic appendectomy is now commonly performed. The push in recent years toward reducing the number of ports required to perform
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+[pred] Murine hepatitis virus (MHV), a coronavirus, initiates infection by binding to its cellular receptor (MH
+[true] Murine hepatitis virus (MHV), a coronavirus, initiates infection by binding to its cellular receptor (MH
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+[pred] The incidence of tissue-transmitted allograft infection is unknown and has not yet been studied – studies can best be inferred from prospective
+[true] The incidence of tissue allograft-transmitted infection is unknown and can best be inferred from prospective studies – that have not yet been
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+[pred] score (OBJECT). HEART prediction of adverse cardiac events has been presented to the Major Emergency Department (MACE). Proposed ED
+[true] OBJECTIVE The HEART score has been proposed for emergency department (ED) prediction of major adverse cardiac events (MACE). We sought
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+[pred] Exposure to infected poultry is a suspected cause of avian influenza (H5N1) virus infections in humans. We detected infectious drop
+[true] Exposure to infected poultry is a suspected cause of avian influenza (H5N1) virus infections in humans. We detected infectious drop
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+[pred] Myelodysplastic haematosis (MADDS) is the most frequent backhematologic malignment upon the my
+[true] BACKGROUND Myelodysplastic syndrome (MDS) is one of the most frequent haematologic malignancies of the
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+[pred] With the advent of laparoscopic surgery, the need of optimal visualization and efficient instrumentation has created a need for better understanding of the characteristics of the
+[true] With the advent of laparoscopic surgery, the need of optimal visualization and efficient instrumentation has created a need for better understanding of the characteristics of the
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+[pred] Purpose The p75NTR is a novel streptococcal target-totin model validated in diabetic mouse
+[true] Purpose The p75NTR is a novel therapeutic target validated in a streptozotocin mouse model of diabetic
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+[pred] in December 2019 and January 2020; within 2018, novel coronavirus (CoV) (infected pneumonia) (NCIP) occurred as 
+[true] In December 2019 and January 2020, novel coronavirus (2019-nCoV) - infected pneumonia (NCIP) occurred in
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+[pred] Autopsy and Mortuary Pathology Services have been at the front line in severe acute respiratory syndrome coronavirus-SARS 2 (S-
+[true] Pathology Autopsy and Mortuary Services have been front and center in the severe acute respiratory syndrome coronavirus 2 (SARS-Co-
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+[pred] INTRONICTION There are a group of patients in which umbilical or epigastric hernias co-exist with a
+[true] INTRODUCTION There are a group of patients in which umbilical or epigastric hernias co-exist with 
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+[pred] Severe acute respiratory syndrome (SARS) is a form of atypical pneumonia that apparently originated in Guangdong Province of the People
+[true] Severe acute respiratory syndrome (SARS) is a form of atypical pneumonia that apparently originated in Guangdong Province of the People
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+[pred] Transcribing structured data into natural language descriptions has emerged as a challenging task, referred to as “data-to-text”. These structures
+[true] Transcribing structured data into natural language descriptions has emerged as a challenging task, referred to as “data-to-text”. These structures
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+[pred] Background: The outbreak of Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-COV-2) has caused more than 2.5 million
+[true] Background: The outbreak of Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-COV-2) has caused more than 2.5 million
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+[pred] The disease spectrum associated with human bocavirus-1 infection remains to be fully defined. We report a case of bocavirus-1-associated
+[true] The disease spectrum associated with human bocavirus-1 infection remains to be fully defined. We report a case of bocavirus-1-associated
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+[pred] BACKG: Infants in the neonatal ICU can acquire respiratory viruses from ill health care personnel (HCP), visitors, or 
+[true] BACKGROUND: Infants in the neonatal ICU can acquire respiratory viruses from ill healthcare personnel (HCP), visitors, or
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+[pred] AIMS During the COVID-19 pandemic, many patients continue to require urgent surgery for hip fractures. However, the impact of CO
+[true] AIMS During the COVID-19 pandemic, many patients continue to require urgent surgery for hip fractures. However, the impact of CO
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+[pred] Vaccines for protection against respiratory infections should optimally induce a mucosal immune response in the respiratory tract in addition to a system
+[true] Vaccines for protection against respiratory infections should optimally induce a mucosal immune response in the respiratory tract in addition to a system
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+[pred] IMPORTANCE Subtotal cholecystectomy (SC) is a procedure that removes portions of the gallblad
+[true] IMPORTANCE Subtotal cholecystectomy (SC) is a procedure that removes portions of the gallblad
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+[pred] HYPOSIS THEEPE Single-access laparoscopic surgery should offer minimal scarring thereby allowing its outcome to be enhanced without compromise
+[true] HYPOTHESIS Single-access laparoscopic surgery should offer minimal scarring without compromising surgical outcome. It is enhanced by both innovative port
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+[pred] Background Aft. The direction and magnitude of intra-aneurysmal jet flow are significant risk factors of subarachnoid hemor
+[true] BACKGROUND The direction and magnitude of intra-aneurysmal flow jet are significant risk factors of subarachnoid hemor
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+[pred] Influenza is a perennial problem affecting millions of people annually with the everpresent threat of devastating pandemics. Active prophylaxis
+[true] Influenza is a perennial problem affecting millions of people annually with the everpresent threat of devastating pandemics. Active prophylaxis
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+[pred] Influenza viruses are highly transmissible, both within and between host species. The severity of the disease they cause is highly variable, from the mild and
+[true] Influenza viruses are highly transmissible, both within and between host species. The severity of the disease they cause is highly variable, from the mild and
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+[pred] Amyotrophic lateral sclerosis (ALS) is a fatal neurodegenerative disease characterized by a progressive upper and lower motor neuro
+[true] Amyotrophic lateral sclerosis (ALS) is a fatal neurodegenerative disease characterized by a progressive upper and lower motor neuro
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+[pred] PAINT Excerpt upper respiratory tract infections are a significant precipitation of the physiognomy of chronic asthma. This can be
+[true] BACKGROUND Upper respiratory tract infections are known to be a significant precipitant of acute asthma exacerbations. The aim of this
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+[pred] Real-time molecular techniques have become the reference methods for direct diagnosis of pathogens. The reduction of steps is a key factor in order
+[true] Real-time molecular techniques have become the reference methods for direct diagnosis of pathogens. The reduction of steps is a key factor in order
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+[pred] BACKG/There is little descriptive data on Stenotrophomonas maltophilia hospital-acquired 
+[true] BACKGROUND: There is little descriptive data on Stenotrophomonas maltophilia hospital-acquired
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+[pred] Four intestinal viruses were compared in piglets, which did not induce an oral immune response due to their antibody ability. Antiinjection was detected with
+[true] Four viruses were compared for their ability to induce an intestinal antibody response in piglets. Antibodies were not detected in response to oral vaccination with
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+[pred] OBJECTIVE To study the levels of SARS-associated coronavirus IgG antibody of SARS patients, people who closely 
+[true] OBJECTIVE To study the levels of SARS-associated coronavirus IgG antibody of SARS patients, people who closely 
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+[pred] Currently, there is no agreed naming system for isolates of infectious bronchitis virus (IBV), whose host is the domestic
+[true] Currently, there is no agreed naming system for isolates of infectious bronchitis virus (IBV), whose host is the domestic
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+[pred] Purpose to evaluate changes in spinal cerebral oxygen saturation (RSO2) after anaesthesia and compare the regional system changes in RSO2 (R
+[true] PURPOSE To evaluate changes in cerebral regional oxygen saturation (rSO2) after spinal anesthesia and compare the changes in rSO2 and system
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+[pred] The number of active cases in the UK Covid-19 epidemic, the case fatality rate, the susceptible proportion of the population, and how well the lock
+[true] The number of active cases in the UK Covid-19 epidemic, the case fatality rate, the susceptible proportion of the population, and how well the lock
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+[pred] The authors in this article explore the experiences of eight South Korean nurses during an outbreak of the Middle East Respiratory Syndrome (MERS), which took place
+[true] The authors in this article explore the experiences of eight South Korean nurses during an outbreak of the Middle East Respiratory Syndrome (MERS), which took place
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+[pred] Postmärchen in der Marken-Bauermann-Graben:Noradrenin 5-Hydroxycholinesteap
+[true] Nachweis von mit 5-Hydroxydopamin markierten Noradrenalin-Bläschen in postganglionären
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+[pred] Coronavirus Disease 2019 (COVID-19) threatens to overwhelm our medical infrastructure at the regional level causing spikes in mortality rates because of shortage
+[true] Coronavirus Disease 2019 (COVID-19) threatens to overwhelm our medical infrastructure at the regional level causing spikes in mortality rates because of shortage
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+[pred] BACKG Total extraperitoneal (TEP) inguinal hernia repair gained popularity in the past two decades for its involvement in
+[true] BACKGROUND Total extraperitoneal (TEP) inguinal hernia repair gained popularity in the past two decades for its
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+[pred] Coronadovirus (COVI) 2019 BACKG COVID-19 is a rapidly spreading global disease pandemic. The clinical characteristics behind
+[true] BACKGROUND Coronavirus disease 2019 (COVID-19) is a rapidly spreading global pandemic. The clinical characteristics of COVI
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+[pred] OBJECT The purpose of this study was to present clinical outcomes of comparing laparoendoscopic surgery and conventional single-site laparoscopic
+[true] OBJECTIVE The purpose of this study was to compare clinical outcomes of conventional laparoscopic surgery and laparoendoscopic single-site surgery
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+[pred] Food Safety relates to One Health. Many, if not all, of the most important zoonoses end up at the center of
+[true] Food Safety is at the center of One Health. Many, if not most, of all important zoonoses relate in some way to
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+[pred] BACKGORAGE Children discharged home with a tracheostomy need a safe home environment and access to health care. We
+[true] BACKGROUND Children discharged home with a tracheostomy need a safe home environment and access to health care. We
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+[pred] Several studies have shown that a high consumption of vegetables and fruits is consistently associated with a low risk of oxidative stress-induced diseases,
+[true] Several studies have shown that a high consumption of vegetables and fruits is consistently associated with a low risk of oxidative stress-induced diseases,
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+[pred] and OBJECT I threatened. Previous studies have supported the possibility that intrauterine and asymmetrical premature labor growth restriction were risk factors respiratory
+[true] OBJECTIVE In our previous studies, we documented that threatened premature labor and asymmetrical intrauterine growth restriction were risk factors for respiratory
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+[pred] The ubiquitin-proteasome system (UPS) is a key player in regulating the intracellular sorting and degradation of
+[true] The ubiquitin-proteasome system (UPS) is a key player in regulating the intracellular sorting and degradation of
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+[pred] BACKGROUND Postoperative liver dysfunction is the major source of morbidity and mortality in patients undergoing partial hepatectomy. This study
+[true] BACKGROUND Postoperative liver dysfunction is the major source of morbidity and mortality in patients undergoing partial hepatectomy. This study
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+[pred]                
+[true] 
+--------------------------------------------------
+
+
+{'eval_loss': 8.018356323242188, 'eval_model_preparation_time': 0.0194, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 23.5234375, 'eval_token_set_precision': 0.662968699278554, 'eval_token_set_recall': 0.6641535240315576, 'eval_token_set_f1': 0.6629864781405418, 'eval_token_set_f1_sem': np.float64(0.013150650104202473), 'eval_n_ngrams_match_1': 14.147, 'eval_n_ngrams_match_2': 12.042, 'eval_n_ngrams_match_3': 10.755, 'eval_num_true_words': 15.684, 'eval_num_pred_words': 15.729, 'eval_bleu_score': np.float64(56.161401621382694), 'eval_bleu_score_sem': np.float64(1.3613732781698256), 'eval_rouge_score': np.float64(0.6737673880469912), 'eval_exact_match': np.float64(0.387), 'eval_exact_match_sem': np.float64(0.015410011955494015), 'eval_emb_cos_sim': 0.9687744975090027, 'eval_emb_cos_sim_sem': np.float64(0.013488397933542728), 'eval_emb_top1_equal': 0.8125, 'eval_emb_top1_equal_sem': np.float64(0.10077822208404541), 'eval_runtime': 24262.0702, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 8.018356323242188
+eval_model_preparation_time: 0.0194
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 23.5234375
+eval_token_set_precision: 0.662968699278554
+eval_token_set_recall: 0.6641535240315576
+eval_token_set_f1: 0.6629864781405418
+eval_token_set_f1_sem: 0.013150650104202473
+eval_n_ngrams_match_1: 14.147
+eval_n_ngrams_match_2: 12.042
+eval_n_ngrams_match_3: 10.755
+eval_num_true_words: 15.684
+eval_num_pred_words: 15.729
+eval_bleu_score: 56.161401621382694
+eval_bleu_score_sem: 1.3613732781698256
+eval_rouge_score: 0.6737673880469912
+eval_exact_match: 0.387
+eval_exact_match_sem: 0.015410011955494015
+eval_emb_cos_sim: 0.9687744975090027
+eval_emb_cos_sim_sem: 0.013488397933542728
+eval_emb_top1_equal: 0.8125
+eval_emb_top1_equal_sem: 0.10077822208404541
+eval_runtime: 24262.0702
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 24262.53321480751
+Current memory usage: 17.56MB; Peak: 22.09MB
