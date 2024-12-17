@@ -1,5 +1,5 @@
 +++ Arguments Passed +++
-Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='msmarco', beam_width=4, steps=50, batch_size=16, max_samples=1000, output_csv=None, max_length=32)
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='msmarco', beam_width=8, steps=50, batch_size=16, max_samples=15, output_csv=None, max_length=36)
 Set num workers to 1
 +++ model_args +++
 ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
@@ -307,15 +307,108 @@ loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd689
 loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
 Loading BEIR dataset: msmarco
 Original dataset size: 100000
-Randomly selected 1000 samples from the dataset.
-Model tokens max_length: 32
-Embedder tokens max_length: 32
+Randomly selected 15 samples from the dataset.
+Model tokens max_length: 36
+Embedder tokens max_length: 36
 +++ Trainer Args Passed +++
 trainer.num_gen_recursive_steps: 50
-trainer.sequence_beam_width: 4
+trainer.sequence_beam_width: 8
 Model name: jxm/gtr__nq__32__correct
 max_seq_length: 512
 Dataset({
     features: ['text'],
-    num_rows: 1000
+    num_rows: 15
 })
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] download the .exe file on your Xbox Psy.Gifu account and then plug in the .exe file on your Gamer profile
+[true] 1 Download your gamer profile form your xbox or ps3 onto your usb flash drive. 2 Open the .exe file in the download and go
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] House of Representatives to vote after 20 weeks for the Pain Unborn Child Protection Act, which today is a bill banning abortions, the expectation
+[true] Today, the House of Representatives votes on the Pain Capable Unborn Child Protection Act, a bill to ban abortions after 20 weeks and the expectation is the bill
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] It's the perfect path for me as it is around 1.5 miles and I live around a mile away, so if I go home and run
+[true] It's the perfect path for me as it is around 1.5 miles around and I live about a mile away, so if I run around it once and go home
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Italy tends not to be a huge country, but the long coastline from the top to the toe will vary throughout the year. So this boot
+[true] Italy is not a huge country, but the weather from the top to the toe of this boot will vary pretty dramatically throughout the year. Plus, with the long coastline
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] Gold back to black: gold and gold are my favorite colors because gold is awesome. But I love it because it is worth a lot of money and
+[true] Gold and black are my favorite colors but, back to gold. Gold is awesome because gold is worth a lot of money and I love, love, love, love,
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] Shoulder pain can come from a variety of sources. The two main causes of shoulder pain include: • Injury to muscles or tendons via prolonged use
+[true] Shoulder pain can come from a number of sources. The two main causes of shoulder pain include: Injury to muscles and/or tendons from prolonged overuse â
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] They mainly dilate to control the amount of light that enters the eye. Pupils become smaller when the light is bright, and dark.
+[true] They mainly dilate to control the amount of light that enters the eye. Pupils become smaller when the light is bright, and larger in the dark. Eye
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] video shows what sporophyte means. A plant (the diploid phase in the life cycle) which produces spores by mei
+[true] Video shows what sporophyte means. A plant (or the diploid phase in its life cycle) which produces spores by meiosis
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] Symptoms of a UTI include general discomfort and pain, feeling over-tired and not being able to rest with blood in the urine
+[true] Symptoms of a UTI include general discomfort, a feeling of being over-tired, blood in the urine and pain even when not urinating
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] Peak levels and half life of Lortab. The half life of hydrocodone in the Lortab for the typical adult is just 4 hours. Hydro
+[true] Peak levels and half life of Lortab. The half life for the hydrocodone in Lortab in the typical adult is just under 4 hours. Hydrocodone
+--------------------------------------------------
+
+
+{'eval_loss': 11.47797679901123, 'eval_model_preparation_time': 0.0187, 'eval_pred_num_tokens': 31.000001907348633, 'eval_true_num_tokens': 36.0, 'eval_token_set_precision': 0.7698216720603762, 'eval_token_set_recall': 0.8107404077404078, 'eval_token_set_f1': 0.7878388222561274, 'eval_token_set_f1_sem': np.float64(0.04674576847579551), 'eval_n_ngrams_match_1': 20.666666666666668, 'eval_n_ngrams_match_2': 14.333333333333334, 'eval_n_ngrams_match_3': 10.533333333333333, 'eval_num_true_words': 28.266666666666666, 'eval_num_pred_words': 25.866666666666667, 'eval_bleu_score': np.float64(44.69472837937173), 'eval_bleu_score_sem': np.float64(5.872230913072355), 'eval_rouge_score': np.float64(0.815786853643059), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.947124719619751, 'eval_emb_cos_sim_sem': np.float64(0.016734214485431446), 'eval_emb_top1_equal': 0.46666666865348816, 'eval_emb_top1_equal_sem': np.float64(0.1333333165815303), 'eval_runtime': 375.6655, 'eval_samples_per_second': 0.04, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 11.47797679901123
+eval_model_preparation_time: 0.0187
+eval_pred_num_tokens: 31.000001907348633
+eval_true_num_tokens: 36.0
+eval_token_set_precision: 0.7698216720603762
+eval_token_set_recall: 0.8107404077404078
+eval_token_set_f1: 0.7878388222561274
+eval_token_set_f1_sem: 0.04674576847579551
+eval_n_ngrams_match_1: 20.666666666666668
+eval_n_ngrams_match_2: 14.333333333333334
+eval_n_ngrams_match_3: 10.533333333333333
+eval_num_true_words: 28.266666666666666
+eval_num_pred_words: 25.866666666666667
+eval_bleu_score: 44.69472837937173
+eval_bleu_score_sem: 5.872230913072355
+eval_rouge_score: 0.815786853643059
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.947124719619751
+eval_emb_cos_sim_sem: 0.016734214485431446
+eval_emb_top1_equal: 0.46666666865348816
+eval_emb_top1_equal_sem: 0.1333333165815303
+eval_runtime: 375.6655
+eval_samples_per_second: 0.04
+eval_steps_per_second: 0.003
+Time taken: 375.6952431201935
+Current memory usage: 4.68MB; Peak: 10.90MB

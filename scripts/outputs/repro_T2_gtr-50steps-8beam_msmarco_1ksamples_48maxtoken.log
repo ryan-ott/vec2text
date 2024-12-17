@@ -1,5 +1,5 @@
 +++ Arguments Passed +++
-Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='msmarco', beam_width=8, steps=50, batch_size=16, max_samples=1000, output_csv=None)
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='msmarco', beam_width=8, steps=50, batch_size=16, max_samples=15, output_csv=None, max_length=48)
 Set num workers to 1
 +++ model_args +++
 ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
@@ -307,7 +307,7 @@ loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd689
 loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
 Loading BEIR dataset: msmarco
 Original dataset size: 100000
-Randomly selected 1000 samples from the dataset.
+Randomly selected 15 samples from the dataset.
 Model tokens max_length: 48
 Embedder tokens max_length: 48
 +++ Trainer Args Passed +++
@@ -317,638 +317,98 @@ Model name: jxm/gtr__nq__32__correct
 max_seq_length: 512
 Dataset({
     features: ['text'],
-    num_rows: 1000
+    num_rows: 15
 })
 
 === Prediction-Label Pairs ===
 
 Pair #1
 --------------------------------------------------
-[pred] Enemy of the State is a 2003 American conspiracy film directed by Tony Schwartzman and co-written by Gene Hackler and stars Will Smith
-[true] Enemy of the State is a 1998 American conspiracy-thriller film directed by Tony Scott, produced by Jerry Bruckheimer, and written by David Marconi. The film stars Will Smith and Gene Hackman
+[pred] using your Ps3 flash drive and open up your Xbox Gamer profile in the .exe file. Then you can download the .us
+[true] 1 Download your gamer profile form your xbox or ps3 onto your usb flash drive. 2 Open the .exe file in the download and go to file. 3 Click on Open usbâ and
 --------------------------------------------------
 
 Pair #2
 --------------------------------------------------
-[pred] Dislocation occurs when the bone at the top of the shoulder is twisted into a socket. In the upper arm, the socket can pop out of
-[true] Dislocation occurs when the ball at the top of the bone in the upper arm pops out of the socket. It can happen if the shoulder is twisted or pulled very hard. To treat a dislocation, a
+[pred] House of Representatives vote today to pass the Painfully Unborn Child Protection Capability Bill, which calls for a bipartisan ban on abortions.
+[true] Today, the House of Representatives votes on the Pain Capable Unborn Child Protection Act, a bill to ban abortions after 20 weeks and the expectation is the bill will pass with a strong bipartisan majority.
 --------------------------------------------------
 
 Pair #3
 --------------------------------------------------
-[pred] Additions in the treatment plan include itroxabanone (1000 mg/kg), clavodactylamine I, and antibiotic
-[true] Additions to the treatment plan included dexamethasone (1 mg/kg IM once), amoxicillin clavulanic acid (125 mg/kg PO q12h), and itracon
+[pred] It's the perfect path for me as it's around 2.5 miles so when I go home, I run around once in a mile and twice
+[true] It's the perfect path for me as it is around 1.5 miles around and I live about a mile away, so if I run around it once and go home it's about a 3.5 mile run, twice
 --------------------------------------------------
 
 Pair #4
 --------------------------------------------------
-[pred] The oesophagus or pipe is part of the digestive system. It is sometimes called the food tube. The gullet is carrying
-[true] What the oesophagus is. The oesophagus or food pipe is part of the digestive system. It is also sometimes called the gullet. It is the tube that carries food
+[pred] Italy might be a relatively large country, but the weather of the boot tends to change throughout the year, so the temperature ranges from to the
+[true] Italy is not a huge country, but the weather from the top to the toe of this boot will vary pretty dramatically throughout the year. Plus, with the long coastlines and mountain ranges, the temperature can change in 
 --------------------------------------------------
 
 Pair #5
 --------------------------------------------------
-[pred] Lamb, Veal and Roast Beef Temperature Chart for Cooking Beef. Internal Temperatures: Celsius, Fahrenheit, and Temperature
-[true] Beef, Veal, and Lamb Internal Temperature Chart: Fahrenheit and Celsius Cooking Temperatures. For roasts of lamb, beef, or veal: place the thermometer midway inside the roast away
+[pred] Gold is everything I love because gold and black are my favorite colors. But now you can buy it back and it's going to be awesome money and
+[true] Gold and black are my favorite colors but, back to gold. Gold is awesome because gold is worth a lot of money and I love, love, love, love, and love money! You can buy what ever you want and
 --------------------------------------------------
 
 Pair #6
 --------------------------------------------------
-[pred] On the basis of the foregoing I believe that predestination means that the pathway that has been mapped is known. In this pathway all the
-[true] On the basis of the foregoing I believe that predestination means that a pathway has been mapped out for all of the foreknown. All of those for whom the pathway exists are called to follow the pathway and
+[pred] Shoulder pain can come from a variety of sources: Two main causes for shoulder pain include: repetitive injury (such as excessive use of prolonged painting on
+[true] Shoulder pain can come from a number of sources. The two main causes of shoulder pain include: Injury to muscles and/or tendons from prolonged overuse â for example, performing a repetitive activity like painting for
 --------------------------------------------------
 
 Pair #7
 --------------------------------------------------
-[pred] The Turkey Town treaty (1818) was the first formal recognition of the Cherokee in Western Tennessee to the United States. They ceded 430 Cherokee
-[true] The Turkey Town treaty (1817) was the first formal recognition of the Western Cherokee by the United States. Under its terms, 4,000 Cherokee ceded their lands in Tennessee in exchange for a reservation with the Western Cherokee
+[pred] the eyes. They mainly dilate to control how much light enters the eye. Pupils dilate when the eye is small or large.
+[true] They mainly dilate to control the amount of light that enters the eye. Pupils become smaller when the light is bright, and larger in the dark. Eye doctors dilate eyes to check for signs of disease. Eye
 --------------------------------------------------
 
 Pair #8
 --------------------------------------------------
-[pred] $15,100 to replacing a transmission in a passenger car, with the third contributing an average cost of $15,100 to replacing a transmission ($
-[true] 1 CostHelper readers report paying $1,200-$4,179 to replace a transmission in a passenger car, at an average cost of $2,324; $1,600-$4,500 to replace a transmission
+[pred] what sporophyte means (plant that produces spores as part of its diploid meiosis cycle). The video game
+[true] Video shows what sporophyte means. A plant (or the diploid phase in its life cycle) which produces spores by meiosis in order to produce gametophytes.. Spor
 --------------------------------------------------
 
 Pair #9
 --------------------------------------------------
-[pred] I decided to build one of Ana's Tilt Cabinets for protection of discarded plies. It cost us ten-and-
-[true] So I decided to build one of Anaâs Tilt-Out Trash Cabinets to protect our waste from prying paws. It only cost me $15, but mostly because I had a lot of stuff
+[pred] Symptoms of a UTI include feeling of urination, discomfort, or even blood over the rectum. In some men,
+[true] Symptoms of a UTI include general discomfort, a feeling of being over-tired, blood in the urine and pain even when not urinating. Men might feel fullness in the rectum.
 --------------------------------------------------
 
 Pair #10
 --------------------------------------------------
-[pred] there may be frichare discoloration, haemorrhagic bleeding, rapid and purplish tissue granulation, wound
-[true] There may be rapid, purplish, haemorrhagic wound discolouration, deepening of the wound, friable or bleeding granulation tissue, eschar separation and tissue necros
+[pred] The peak half life for hydrocodone in Lortab is 60 hours. The peak half life for hydrocodone levels in adults has been revised
+[true] Peak levels and half life of Lortab. The half life for the hydrocodone in Lortab in the typical adult is just under 4 hours. Hydrocodone reaches its peak level in the blood after about 1.3
 --------------------------------------------------
 
-Pair #11
---------------------------------------------------
-[pred] in choosing one to eat because you want to follow a diet that restricts low carbohydrate intake. Changes in diet can also help you
-[true] You might choose to follow a low-carb diet because you: 1 Want a diet that restricts certain carbs to help you lose weight. 2 Want to change your overall eating habits. Enjoy the types and amounts of
---------------------------------------------------
-
-Pair #12
---------------------------------------------------
-[pred] but I didn't feel as though it was growing. It seems like I stopped growing since I was 12. But there has been little worry about that time
-[true] But I didnt really feel that it was growing. It has been seemed to me all the same since 12. Maybe I had stopped growing at 12. I am not really sure about it. The thing is dont worry about the growing time but
---------------------------------------------------
-
-Pair #13
---------------------------------------------------
-[pred] have Platinum members waive the resort fee every time you get it waived. I have had a huge success at both the Westin and the Vene
-[true] Iâve had 100% success at the Westin having them waive the resort fee for Platinum members (8 times in the past 2 years).. also you can get the resort fee waived at the Venetian if you tell
---------------------------------------------------
-
-Pair #14
---------------------------------------------------
-[pred] do so if you have a phishing message. Please contact Progressive@Suspicious e-mails to see if they
-[true] Reporting Suspicious Email Messages. If you ever receive an email from Progressive that you're unsure about, please forward it to phishing@email.progressive.com. We'll
---------------------------------------------------
-
-Pair #15
---------------------------------------------------
-[pred] Advised Anthrax Immunization (AVA) Prioritization for Post-advised Surveillance The CDC 50/20
-[true] CDC Guidance (2013): Anthrax Vaccine Adsorbed (AVA) Post-Exposure Prioritization [PDF â 19 pages] National Notifiable Diseases Surveill
---------------------------------------------------
-
-Pair #16
---------------------------------------------------
-[pred] Hayden Panettiere celebrities list. Aged 16, Panettiere landed on the brink of modeling when a commercial was off the air for
-[true] Hayden Panettiere Celebrity Watchlist. A model from the age of four months, Panettiere literally grew up in front of the camera and was already a veteran of over 50 commercials when she landed 
---------------------------------------------------
-
-Pair #17
---------------------------------------------------
-[pred] viable sperm life span after ejaculation can depend on a variety of circumstances. The sperm remain in some liquid within female
-[true] The life span of sperm after ejaculation depends on the circumstances. Ejaculated sperm remain viable for several days within a woman's reproductive tract or in nutritive liquid (culture medium
---------------------------------------------------
-
-Pair #18
---------------------------------------------------
-[pred] Nashville Brat. 15th Old Music News Hosts include DaDonya Jackson & The Blacks & Levyn Se
-[true] Da Brat Latest News. 1 Nashville Hosts Black Music Honors with The Jacksons, LeToya Luckett, Sevyn & More. 2 Dondria â Old
---------------------------------------------------
-
-Pair #19
---------------------------------------------------
-[pred] if you are a single soldier on duty at a different station with your spouse (requires an enhanced copy of the 5th G
-[true] If you are a Single Soldier in the grade of E-5 (SGT) or below, or a dual military Soldier, with a spouse assigned to a different duty station (you will need to provide a copy
---------------------------------------------------
-
-Pair #20
---------------------------------------------------
-[pred] defendants had acted in the trial and the judges argued that "following orders" was not a legitimate criminal defence. Between May 1961 and
-[true] Many of the defendants had argued that they had been following orders. The judges at the trial ruled that âfollowing ordersâ was not a legitimate defence for criminal acts. Between December 1946 and April 1949
---------------------------------------------------
-
-Pair #21
---------------------------------------------------
-[pred] and roughness. Bulk-forming laxatives (also known as bulk-forming agents) are food products that combine hydrochloric fiber
-[true] Bulk-forming agents. Bulk-forming laxatives, also known as roughage, are substances, such as fiber in food and hydrophilic agents in over-the-counter drugs, that add bulk and water
---------------------------------------------------
-
-Pair #22
---------------------------------------------------
-[pred] comprehensive business profiles by your business and industry. Our B2Birdies directory enables you to quickly find and accelerate the most verified contacts –
-[true] Accelerate your business with the industry's most comprehensive profiles on business people and companies. Find business contacts by city, industry and title. Our B2B directory has just-verified and in-depth profiles, plus the
---------------------------------------------------
-
-Pair #23
---------------------------------------------------
-[pred] As a flea growth regulator, lufeneron is not appropriate if it is the only flea control product in households
-[true] 1 As with all insect growth regulators, lufeneron is NOT appropriate as the only flea control product if fleas are present in a household. 2 IF lufenur
---------------------------------------------------
-
-Pair #24
---------------------------------------------------
-[pred] Arnold returned to active duty in June 1940 and found himself working with H.A.P. Doolittle, the US Army air general that would be
-[true] Doolittle returned to active duty in July 1940 and was working as a troubleshooter on the staff of Henry âHapâ Arnold, commanding general of the US Army Air Corps (which would
---------------------------------------------------
-
-Pair #25
---------------------------------------------------
-[pred] In its overseas box office, Despicable Me 2 finished the weekend having played in 13 countries worldwide, and grossed $154.4 million internationally. As of
-[true] Internationally, Despicable Me 2 topped the box office in 36 of the 38 countries it played in this weekend and has earned $151.1 million overseas, which brings its very early worldwide total to $293.2 million.
---------------------------------------------------
-
-Pair #26
---------------------------------------------------
-[pred] recruit, U.S. Coast Guard training is held at the Coast Guard Training Center in Cape May, New Jersey. It lasts four weeks at Cape
-[true] Recruit training for the U.S. Coast Guard is held at Coast Guard Training Center Cape May in Cape May, New Jersey. The training lasts eight weeks. The U.S. Coast Guard is unique in that it fire
---------------------------------------------------
-
-Pair #27
---------------------------------------------------
-[pred] The 5th Wave is the first book in a trilogy. The second book in the series, "The Infinite Last Star", released September
-[true] The 5th Wave is the first book in a trilogy. The second book in the series, The Infinite Sea, was released on September 16, 2014. The third book in the series, The Last Star, was released on
---------------------------------------------------
-
-Pair #28
---------------------------------------------------
-[pred] Northern cardinals are found throughout Central and Eastern North America. They live in this range as far north as Nova Scotia and as far east as southern Maine
-[true] Northern cardinals are found throughout eastern and central North America from southern Canada into parts of Mexico and Central America. These birds live as far north as Maine or Nova Scotia, Canada down south through Florida and the Gulf Coast. They range
---------------------------------------------------
-
-Pair #29
---------------------------------------------------
-[pred] Dr. Gary Petty MD is a specialist in Healthcare. He has 28 years of experience. Dr. Petty is located in Marietta, Ohio
-[true] Dr. Gary Petty, MD is a Doctor primarily located in Marietta, OH. He has 23 years of experience. His specialties include Family Medicine. Dr. Petty is affiliated with Marietta Memorial Hospital and
---------------------------------------------------
-
-Pair #30
---------------------------------------------------
-[pred] "Heats". Portuguese restaurants close at 5:00 p.m. every day, which keeps them from entering the kitchen until Sardino Pre
-[true] Hate #1. The Eating Times: Portuguese restaurants close their kitchens from 3PM until 7 or 8PM each day. That means if you get peckish for Porco Preto or salivating for Sardines
---------------------------------------------------
-
-Pair #31
---------------------------------------------------
-[pred] for you. It’s a force to bring out the best music we’ve ever had. With over one million songs to this day, just
-[true] Itâs a force thatâs driven and inspired us from day one. So weâve set out to make it better. To bring you more music than ever with access to over 30 million songs for just
---------------------------------------------------
-
-Pair #32
---------------------------------------------------
-[pred] FDA approved armodafinibol in June 2007: armodafinibol is prescribed for improving wakefulness (hyperpris
-[true] The FDA approved armodafinil in June 2007. PRESCRIBED FOR: Armodafinil is prescribed for improving wakefulness associated with obstructive sleep apnea/hypo
---------------------------------------------------
-
-Pair #33
---------------------------------------------------
-[pred] A justice of the peace is a type of local or state court judge with limited legal jurisdiction. They may perform similar duties in certain criminal cases, however
-[true] A justice of the peace is a local or state court judge with limited jurisdiction over certain types of legal proceedings, generally not including felony criminal cases. They are similar to municipal court judges, and they perform many of the same duties
---------------------------------------------------
-
-Pair #34
---------------------------------------------------
-[pred] Medtronic was founded in southeast Minneapolis in 1972 as a medical repair shop by Earl Bakken and his brother-in-law, Herman Bak
-[true] Medtronic was founded in 1949 in northeastern Minneapolis by Earl Bakken and his brother-in-law, Palmer Hermundslie, as a medical equipment repair shop. Through his repair business, Bakken came
---------------------------------------------------
-
-Pair #35
---------------------------------------------------
-[pred] annually. Pathology salaries and program expectations range from $200-300,000. This is a major factor in the growth of new graduate assistants in pathology
-[true] Salary Range and Outlook. New program graduate salaries range from $75,000 to $90,000 with experienced pathologistsâ assistants earning $100,000 or more annually. Factors that influence a pathologistsâ assistantâ
---------------------------------------------------
-
-Pair #36
---------------------------------------------------
-[pred] health law stops insurance companies from limiting the dollar coverage for yearly or lifetime essential care benefits. Insurance companies can't limit the amount that they spend
-[true] The health care law stops insurance companies from limiting yearly or lifetime coverage expenses for essential health benefits. Insurance companies canât set a dollar limit on what they spend on essential health benefits for your care during the entire time
---------------------------------------------------
-
-Pair #37
---------------------------------------------------
-[pred] Sterilisation is a contraception procedure that a woman may choose in the future. The two main methods of sterilisation are permanent
-[true] Sterilisation is a permanent method of contraception that a woman can choose if she is sure that she does not want children in the future. The two main sterilisation procedures are tubal ligation
---------------------------------------------------
-
-Pair #38
---------------------------------------------------
-[pred] In the US, scarlet fever is found throughout the US. It is most commonly caused by group A streptococcus. Children between 5
-[true] Throughout the US: Scarlet fever is found throughout the US. It is caused by group A streptococcus, found on the noses and throat of people. It is most commonly found in children ages 5
---------------------------------------------------
-
-Pair #39
---------------------------------------------------
-[pred] African American Boy Names. The 2nd thing you like when viewing Lennie’s child is to make sure it’s the plethora
-[true] What Is Lennieâs Last Name See Also: African American Boy Names When selecting a reputation to your toddler it is not ample to just be enchanted via the audio of it.
---------------------------------------------------
-
-Pair #40
---------------------------------------------------
-[pred] setting a particular. Particulars in the philosophical tradition are items on the stage of universality. For a "one" one is a numerical
-[true] On particulars and universals Setting the stage. Particulars in the philosophical tradition are items that are numerically one. âA particularâ is âone thingâ, like a dog, a
---------------------------------------------------
-
-Pair #41
---------------------------------------------------
-[pred] For more information, visit the weather forecast section below for a breakdown of average weather data over the next 10 days. Bergen, Norway (0 KM
-[true] For more information, see the weather forecast and our average climate infomation (by month in graphs) below. * Data from nearest weather station: Bergen, Norway (0.0 KM). 10 Day Weather Forecast â
---------------------------------------------------
-
-Pair #42
---------------------------------------------------
-[pred] 1. Gutierrez: Something that the Pacers thinks is too low, but they can't beat the Houston Heat on offense. Stephen West of
-[true] 2. Gutierrez: Too low. Similar to the Heat's explanation, the difference with the Pacers being the confidence that they can beat a West offensive powerhouse like the Spurs, Thunder or Clippers. When the
---------------------------------------------------
-
-Pair #43
---------------------------------------------------
-[pred] Definition and synonyms of fatal from the online English dictionary       from Macmillan Publishers Limited.
-[true] Definition and synonyms of fatal from the online English dictionary from Macmillan Publishers Limited.
---------------------------------------------------
-
-Pair #44
---------------------------------------------------
-[pred] Donald Trump's statement that Muslims should be banned from entering the United States disqualifies him, the White House spokesman said. "This fact
-[true] Washington (CNN)Donald Trump's statement that Muslims should be banned from entering the United States disqualifies him from being president, the White House spokesman said Tuesday. The fact is what Donald Trump said yesterday
---------------------------------------------------
-
-Pair #45
---------------------------------------------------
-[pred] Reagan won 53 electoral votes to 13 states en route to one of the biggest mondale landslides in U.S. history. Notable
-[true] Reagan won 49 states en route to amassing 525 electoral votes to Mondaleâs 13âone of the biggest landslides in U.S. election history. The election was also notable
---------------------------------------------------
-
-Pair #46
---------------------------------------------------
-[pred] Primary complications associated with diabetes mellitus. Diabetes mellitus is associated with causing blindness. Damage to the visual reticulocyte
-[true] Complications associated with diabetes mellitus. 1 Diabetic retinopathy is a leading cause of blindness and visual disability. 2 Diabetes mellitus is associated with damage to the small blood vessels in
---------------------------------------------------
-
-Pair #47
---------------------------------------------------
-[pred] Use the right combination of sizes of tables in restaurants can decrease the number of people in a restaurant. Avoiding long waits and dedicated seating can ensure
-[true] Having the right combination of sizes of tables in a restaurant can decrease wait time for customers and can maximize seating capacity and profit. Avoid using large dedicated tables (eight-person or larger) in small restaurants to save space and
---------------------------------------------------
-
-Pair #48
---------------------------------------------------
-[pred] treatment of UTI infections. Apple Citric Acid vinegar contains enzymes that increase its action against bacteria and cysts. Centers for Disease Control and Prevention
-[true] Apple cider vinegar Urinary Tract Infection treatment. Apple cider vinegar contains important enzymes, rich minerals, and nutrients such as potassium that prevent the bacteria that cause UTIs from multiplying or growing. Acetic acid in
---------------------------------------------------
-
-Pair #49
---------------------------------------------------
-[pred] fundamentally, the trade dress must be distinctive (both functional and non-functional) to the source of the product, thus omitting the "
-[true] Substantively, the trade dress must be both distinctive (i.e., recognizable to consumers as identifying the source of the product or service) and nonfunctional (i.e., not be essential to the
---------------------------------------------------
-
-Pair #50
---------------------------------------------------
-[pred] Totem poles were built by about 30 Native American tribes living along the Pacific Northwest coast of North America.These wooden towers included monuments to
-[true] Totem poles were built by about 30 Native American tribes living along the Northwest Pacific coast of North America.These wooden towers, carved with images of animals and symbols, were monuments expressing a familyâ
---------------------------------------------------
-
-Pair #51
---------------------------------------------------
-[pred] The first step in running shoe manufacturing involves die cutting the upper parts. These upper parts are then sewn together in a cookie-like fashion.
-[true] The first step in running shoe manufacture involves die cutting the shoe parts in cookie cutter fashion. Next, the pieces that will form the upper part of the shoe are stitched or cemented together. At this point, the upper looks
---------------------------------------------------
-
-Pair #52
---------------------------------------------------
-[pred] Server (computing) In computing, a server is a computer program or device that provides functionality for clients. Other architectures include a
-[true] Server (computing) In computing, a server is a computer program or a device that provides functionality for other programs or devices, called clients. This architecture is called the clientâserver model, and a
---------------------------------------------------
-
-Pair #53
---------------------------------------------------
-[pred] 2 link to the trade. The trade, demographic patterns and habitat changes were important in the new environment. Changes in humans, slavery,
-[true] 1 The slave trade was an important link in the. 2 trade. 3 Demographic and environmental changes-The new trade patterns greatly altered habitats for plants and animals and resulted in changes in human diet and activities as well.
---------------------------------------------------
-
-Pair #54
---------------------------------------------------
-[pred] lasagna are long, flat, broad noodle that is often paired with various baking ingredients in order to make a savoury pie
-[true] Lasagne are long, flat, broad noodles which are ideally suited to layering in a baking dish to make a sort of noodle pie with an assortment of ingredients which may include meats, cheeses,
---------------------------------------------------
-
-Pair #55
---------------------------------------------------
-[pred] What is the difference between short period and long period comets? Long period comets have a period of less than 200 years. Long period
-[true] What is the difference between a short and long period comet? Short period comets have a period of less than 200 years Long period comets have a period of more than 200 years.
---------------------------------------------------
-
-Pair #56
---------------------------------------------------
-[pred] A deficit in the level of consciousness indicates that both hemispheres of the cerebral system have been morbid. Sickness correlates with injury
-[true] A deficit in the level of consciousness suggests that both of the cerebral hemispheres or the reticular activating system have been injured. A decreased level of consciousness correlates to increased morbidity (sickness)
---------------------------------------------------
-
-Pair #57
---------------------------------------------------
-[pred] Serena Williams has won her 7th Australian Open title and 23 overall, taking second behind Margaret Williams in her career. So far she has the top
-[true] Serena Williams has just won her 7th Australian Open title and 23rd overall taking her only second behind Margaret Court who has 24 overall in her career. Serena Williams is far clear at the top in terms of most
---------------------------------------------------
-
-Pair #58
---------------------------------------------------
-[pred] YP and all other logos associated with the YP logo are trademark marks of AT&T and related companies. AT&T LLC AT
-[true] YP, the YP logo and all other YP marks contained herein are trademarks of YP LLC and/or YP affiliated companies. AT&T, the AT&T Logo and all
---------------------------------------------------
-
-Pair #59
---------------------------------------------------
-[pred] If you want to buy 100 shares of one or more of these companies, you might have a chance at a $1 jackpot offered to you. Si
-[true] If you happen to have $1,000 that youâre willing to gamble, you could buy 100 shares of any of these companies, or buy a few shares of all seven, for a chance at a jackpot. Share prices
---------------------------------------------------
-
-Pair #60
---------------------------------------------------
-[pred] formula for Chromium(II) phosphide The formula for Chromium(II) phosphide is Cr
-[true] What is the formula for Chromium (II) phosphide? The formula for Chromium (II) phosphide is Cr3(PO4)2 Cr3(PO4)2. What
---------------------------------------------------
-
-Pair #61
---------------------------------------------------
-[pred] it may take up to 90 days to get rid of it, or it could take up to 90 days for a free user. If you are marijuana
-[true] If you are an occasional user, you may be free of it in 10 to 30 days. If you are a chronic user, it could take 60 to 90 days. Drinking water does not affect the metabolism of marijuana..
---------------------------------------------------
-
-Pair #62
---------------------------------------------------
-[pred] rated 40 PVC. Conduit 3/4 is scheduled to sneak in weekly at 6' X 6' X 6' X 10'
-[true] 3/4 in. x 10 ft. PVC Schedule 40 Conduit is rated 5.0 out of 5 by 8. Rated 5 out of 5 by LosRubios from Great for hiding security camera video cables We just
---------------------------------------------------
-
-Pair #63
---------------------------------------------------
-[pred] Name: Allows you to turn the audio file on or off. Comments: Config: Configuration of the audio file. Features: Optional:
-[true] 1 Name: Allows you to configure the audio file's name. 2 Description: A summary of the audio file. 3 Turn comments on/off: Choose whether or not this item is open for comments. 4 Genre:
---------------------------------------------------
-
-Pair #64
---------------------------------------------------
-[pred] Too much calcium is not always better. Dietary calcium supplementation can be risk-free, but it is safer if one is eating more calcium
-[true] More isn't always better: Too much calcium has risks. Dietary calcium is generally safe, but more isn't necessarily better, and excessive calcium doesn't provide extra bone protection. If you take calcium supplements
---------------------------------------------------
-
-Pair #65
---------------------------------------------------
-[pred] Ohio may be charged further state sales tax by certain cities and mass transit districts in the state. Counties recently raised their local sales tax to 5.5%
-[true] Ohio recently raised the state sales tax by 0.25% from 5.5% to 5.75%. Counties and cities as well as mass transit districts in Ohio are allowed to charge an additional local sales tax on top of the Ohio state
---------------------------------------------------
-
-Pair #66
---------------------------------------------------
-[pred] concept of Hospice. A hospice concept is derived from medieval and contemporary sources where travelers are comforted in caring for the sick and suffering, highlighting
-[true] The Hospice Concept. Hospice is a concept of caring derived from medieval times, symbolizing a place where travelers, pilgrims and the sick, wounded or dying could find rest and comfort. The contemporary hospice offers a comprehensive
---------------------------------------------------
-
-Pair #67
---------------------------------------------------
-[pred] humans have three different kinds of muscles: Skeletal muscles are attached mostly in the chest, neck, and face. One muscle is called striated
-[true] Humans have three different kinds of muscle: 1 Skeletal muscle is attached to bone, mostly in the legs, arms, abdomen, chest, neck, and face. Skeletal muscles are called striated (pronounced:
---------------------------------------------------
-
-Pair #68
---------------------------------------------------
-[pred] 28 Days Later is a 2002 British post-apocalyptic horror film directed by Danny Boyle and stars Gaillian Murphy, Naomi Watt
-[true] 28 Days Later is a 2002 British post-apocalyptic horror film directed by Danny Boyle, written by Alex Garland, and stars Cillian Murphy, Naomie Harris, Brendan Gleeson,
---------------------------------------------------
-
-Pair #69
---------------------------------------------------
-[pred] A flail chest occurs as a segment of the thoracic cage when the rib is free from at least two separate fractures. Per
-[true] A flail chest occurs when a segment of the thoracic cage is separated from the rest of the chest wall. This is usually defined as at least two fractures per rib (producing a free segment), in
---------------------------------------------------
-
-Pair #70
---------------------------------------------------
-[pred] as Shrek Heinz's first color, "Blastin" was created as part of a contest to support Squirt
-[true] Heinz EZ Squirtâs first color entry was âBlastinâ Greenâ and was created as a promotional ketchup in support of the first Shrek movie
---------------------------------------------------
-
-Pair #71
---------------------------------------------------
-[pred] the Apennine Mountains (Greek: ', Appenninus: ', Latin: ', both used in
-[true] The Apennine Mountains (Greek: ÎÎÎ12Î12Î1Î12Î; Latin: Appenninus--in both cases used in
---------------------------------------------------
-
-Pair #72
---------------------------------------------------
-[pred] In areas where good pasture is plentiful, horses will begin to avoid the forage of poison plants, especially during droughts. If the animal is overgra
-[true] If good quality forage is plentiful in the pasture, horses will avoid most poisonous plants. In the absence of good quality forage, such as during periods of drought or when pastures are overgrazed, animals may begin
---------------------------------------------------
-
-Pair #73
---------------------------------------------------
-[pred] Delivers virtual data centers in Minutes. The vCloud Director compiles fully configured virtual data centers (SDDC) services to be consumed within
-[true] Delivers Virtual Data Centers in Minutes. vCloud Director orchestrates the provisioning of software-defined data center (SDDC) services as complete virtual data centers that are ready for consumption in minutes.
---------------------------------------------------
-
-Pair #74
---------------------------------------------------
-[pred] Because most tags have cartilage within the stalk, it is preferable to make a small transcision a few inches to the base of the stalk
-[true] Because most tags have cartilage within the stalk, it is preferable to make a small incision around the base of the tag, and transect the cartilage stalk a couple of millimeters below the
---------------------------------------------------
-
-Pair #75
---------------------------------------------------
-[pred] A Vehicle Identification Number (VIN) is a set of unique digits that relate to specific information about your vehicle (1981 or newer).
-[true] A Vehicle Identification Number (VIN) is a set of unique digits that relate to specific information about your vehicle (1981 or newer).
---------------------------------------------------
-
-Pair #76
---------------------------------------------------
-[pred] NBC 24/7. Liz and the Cabal run to Iowa to hunt down the Big Red, one of the world's most lucrative enterprises. Premiere
-[true] New Tonight 9/8c. The FBI chases Liz and Red to Iowa, where the world's largest agribusiness launders money for the Cabal. Watch full episodes free, only on NBC.com.
---------------------------------------------------
-
-Pair #77
---------------------------------------------------
-[pred] The distance from Nashville to Bloomington is 2000 kilometres in straight line. Driving this distance can be found on the highway website: http://www.
-[true] The distance between Nashville and Bloomington in a straight line is 209 miles or 336.28 Kilometers. 1 Driving Directions & Drive Times from Nashville to Bloomington can be found further down the page. Driving distance
---------------------------------------------------
-
-Pair #78
---------------------------------------------------
-[pred] when things died at that time. This would lead to a rise in atmospheric dating as older atomic bombs were tested in the 1950s at "
-[true] This would make things which died at that time appear older in terms of carbon dating. Then there was a rise in 14CO2 with the advent of atmospheric testing of atomic bombs in the 1950s.[3]
---------------------------------------------------
-
-Pair #79
---------------------------------------------------
-[pred] the Rapid EXpansion of Queried Spectroindicated Radiance in UV reiterating studies. This 3-CM
-[true] Fig.1 3D Spectra of Rapid Scan Measurement Generated in Curing Reaction in UV-Irradiated Resin. Also, the expanded spectra of the peaks near 1635 cm
---------------------------------------------------
-
-Pair #80
---------------------------------------------------
-[pred] Surgery is offered when the risk of rupture is greater than the repair. The procedure is sometimes called open thoracic aneurysm or A
-[true] Surgery is offered when the risk of rupture is greater than the risk of the operation. The procedure is called open thoracic aortic aneurysm repair or TAA. Sometimes misnamed a 
---------------------------------------------------
-
-Pair #81
---------------------------------------------------
-[pred] annual cropicide application may be necessary to resuscitate the smothering of herb alfalfa. Before and after
-[true] Herbicide application is often necessary after last. harvest of the annual smother crop and before. planting alfalfa to suppress any regrowth of the. annual forage, as well as any other weed
---------------------------------------------------
-
-Pair #82
---------------------------------------------------
-[pred] method used in calculating surface area for head to body burn based on the following rules: Rule of nines indicates that 13.3% of the adult in
-[true] Rule of nines. rule of nines method used in calculating body surface area involved in burns, whereby values of 9% or 18% of surface area are assigned to specific regions in the adult as follows: Head and
---------------------------------------------------
-
-Pair #83
---------------------------------------------------
-[pred] The bait and switch is a commonly used fraudulent advertising tactic, and sales can be punished by the US law if the tactic is not included
-[true] The bait and switch is a fraudulent sales tactic that is punishable by US law as false advertising. Though the law forbids this practice, it is commonly used, and people can find examples of it in virtually any advertising
---------------------------------------------------
-
-Pair #84
---------------------------------------------------
-[pred] A number of notable demonstrations were the 1959 Tibetan Uprising against communist forces, which was dismissed by the party and the 1963 Tuanmen Square
-[true] Among the most notable of these were the 1959 Tibetan uprising against Communist Party rule, the 1989 Tiananmen Square protests, which was put down with military force, and the 25 April 1999 demonstration by 10,000 Falun
---------------------------------------------------
-
-Pair #85
---------------------------------------------------
-[pred] life in a day. Imagine an infinite pool next to Manuel Esteban Antonio’s luxurious 4 bedroom kitchen rental home in Costa Rica. Welcome to the
-[true] A Life in the Day... Imagine yourself stretched out beside the infinity pool of your 4-bedroom ocean-view luxury vacation rental home in Manuel Antonio, Costa Rica. In the full kitchen, your private chef Esteban labors at some
---------------------------------------------------
-
-Pair #86
---------------------------------------------------
-[pred] blood sugar levels range from 130 to 480 mg/dl. In a normal healthy adult, this is the cause of metabolic hypo. After eating
-[true] In a healthy adult, normal blood sugar levels range from 70 mg/dl to 130 mg/dl, and up to 180 mg/dl after eating a meal. Causes. At the metabolic level, hypo
---------------------------------------------------
-
-Pair #87
---------------------------------------------------
-[pred] be one word: fangs. As a wild animal, the gorilla will give up 100 percent of that resource into the fight. Even professional
-[true] One word: fangs. Being a wild animal, the gorilla will throw 100 percent of his available resources into the fight from the word go. Humansâeven professional fighters or soldiersânever do
---------------------------------------------------
-
-Pair #88
---------------------------------------------------
-[pred] In some parts of Australia this could even cause flood risk to increase which will take into account the expected severity of future droughts. However, a study
-[true] In some parts of Australia this might even cause flood risk to decrease because of an expected increase in the number or severity of future droughts. Despite all these caveats, our recent study contributes to the debate on how climate
---------------------------------------------------
-
-Pair #89
---------------------------------------------------
-[pred] Genital herpes is only a few weeks after the first. Another outbreak can appear longer and longer, depending on the severity of outbreak. Sexual
-[true] Genital Herpes. Typically, another outbreak can appear weeks or months after the first, but it almost always is less severe and shorter than the first outbreak. Back to top. Genital herpes is a sexual
---------------------------------------------------
-
-Pair #90
---------------------------------------------------
-[pred] Acidosis is an increased blood acidity (either in the blood plasma or the hydrogen ion concentration) of the body tissue. This
-[true] Acidosis is an increased acidity in the blood and other body tissue (i.e. an increased hydrogen ion concentration). If not further qualified, it usually refers to acidity of the blood plasma.
---------------------------------------------------
-
-Pair #91
---------------------------------------------------
-[pred] An ARNG individual is presented with this award by the Army Director of State, in recognition of his/her positive impact in the field of "Safe Civil
-[true] This award is presented from the Director, Army National Guard, to an ARNG individual (Soldier, Department of the Army Civilian) that exhibits excellence in support of the state safety program providing. substantially positive input impact
---------------------------------------------------
-
-Pair #92
---------------------------------------------------
-[pred] Ronnie Radke vs. Escape The Fate, and the scene is about to find its biggest feud after playing their first show in 2008
-[true] Ronnie Radke vs. Escape The Fate: the sceneâs biggest feud and what we learned from it. Itâs 2008, and Escape The Fate are about to play their first show after
---------------------------------------------------
-
-Pair #93
---------------------------------------------------
-[pred] Amnesty (from the Greek ', ', ', ') is defined as 'a pardon' (ignoring
-[true] Amnesty (from the Greek á14Î14Î12ÎÎ Î amnestia, forgetfulness, passing over) is defined as: A pardon
---------------------------------------------------
-
-Pair #94
---------------------------------------------------
-[pred] Eventually, Lady Macbeth starts to sleepwalk and shows her weakness of mind (Act 5, scene 1). This has been explored further as Macbe
-[true] As just mentioned, Lady Macbeth eventually shows weakness and starts sleepwalking (Act 5, scene 1). Here we get a view into Lady Macbethâs unconscious mind and thereby her true feelings. Lady Mac
---------------------------------------------------
-
-Pair #95
---------------------------------------------------
-[pred] Over millions of years, the forces of plate movement can change the flat plain into landforms like faultlines, mountains, and synclines. 
-[true] Over millions of years, the forces of plate movement can change a flat plain into landforms such as anticlines and synclines, folded mountains, fault-block mountains, and plateaus.
---------------------------------------------------
-
-Pair #96
---------------------------------------------------
-[pred] defined; also known as Alexander the Great by 334 BCE representing "significant Egyptian history; invade Syria; controlled Mesopotamia;
-[true] definition: also known as Alexander the Great, by 331 BCE, controlled Syria, Egypt, Mesopotamia; invaded Persian homeland and burned Persepolis; crossed the Indus by 327 significance: Create
---------------------------------------------------
-
-Pair #97
---------------------------------------------------
-[pred] Because marijuana contains plant chemicals that can help treat many illnesses, many people have suggested that it should be legal for a number of medical purposes. Increasing
-[true] Because the marijuana plant contains chemicals that may help treat a range of illnesses and symptoms, many people argue that it should be legal for medical purposes. In fact, a growing number of states have legalized marijuana for medical use.
---------------------------------------------------
-
-Pair #98
---------------------------------------------------
-[pred] The first phase of longer Aegean civilization, which ended around 1500 BC, is called Minoan, after the Cretan king Min
-[true] The first and longer phase of Aegean civilization, which ended about 1450 B.C., is called Minoan after the legendary Cretan King Minos. Crete was the center of Minoan
---------------------------------------------------
-
-Pair #99
---------------------------------------------------
-[pred] List of State Trees Hawai'i I is the list of all the state trees. This list provides beautiful species found throughout the state. Leon
-[true] State Tree List: List of all of the state state trees. Hawai i s Beautiful Trees: by Leland Miyano. This informative guide covers all species found in Hawai i,
---------------------------------------------------
-
-Pair #100
---------------------------------------------------
-[pred] If you feed an older kitten you may have to have a diet that results in more food intake for his adult puberty. (Ossie
-[true] Siouxsie: If you feed your older kitten a diet of adult cat food, heâll need to eat more to get the nutrients he needs. This could result in obesity or other medical conditions.
---------------------------------------------------
-
 
-{'eval_loss': 10.52822494506836, 'eval_model_preparation_time': 0.0198, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 47.1640625, 'eval_token_set_precision': 0.524777548807248, 'eval_token_set_recall': 0.7069263027756526, 'eval_token_set_f1': 0.6002333649879281, 'eval_token_set_f1_sem': np.float64(0.004453562525042867), 'eval_n_ngrams_match_1': 17.686, 'eval_n_ngrams_match_2': 8.803, 'eval_n_ngrams_match_3': 5.241, 'eval_num_true_words': 36.632, 'eval_num_pred_words': 25.049, 'eval_bleu_score': np.float64(18.86154455213142), 'eval_bleu_score_sem': np.float64(0.4719476012531065), 'eval_rouge_score': np.float64(0.6108671385619215), 'eval_exact_match': np.float64(0.001), 'eval_exact_match_sem': np.float64(0.001), 'eval_emb_cos_sim': 0.9132509231567383, 'eval_emb_cos_sim_sem': np.float64(0.012332302518188953), 'eval_emb_top1_equal': 0.3125, 'eval_emb_top1_equal_sem': np.float64(0.11967839300632477), 'eval_runtime': 25293.4023, 'eval_samples_per_second': 0.04, 'eval_steps_per_second': 0.002}
+{'eval_loss': 10.564545631408691, 'eval_model_preparation_time': 0.0189, 'eval_pred_num_tokens': 31.000001907348633, 'eval_true_num_tokens': 47.866668701171875, 'eval_token_set_precision': 0.5045817911994024, 'eval_token_set_recall': 0.6736057074447167, 'eval_token_set_f1': 0.5745611427387616, 'eval_token_set_f1_sem': np.float64(0.04034375165853879), 'eval_n_ngrams_match_1': 17.2, 'eval_n_ngrams_match_2': 8.2, 'eval_n_ngrams_match_3': 4.666666666666667, 'eval_num_true_words': 37.333333333333336, 'eval_num_pred_words': 25.133333333333333, 'eval_bleu_score': np.float64(16.411781228712236), 'eval_bleu_score_sem': np.float64(2.7346456467693834), 'eval_rouge_score': np.float64(0.6036077113205153), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.8996155261993408, 'eval_emb_cos_sim_sem': np.float64(0.018325779229041904), 'eval_emb_top1_equal': 0.6000000238418579, 'eval_emb_top1_equal_sem': np.float64(0.13093074505393074), 'eval_runtime': 374.6379, 'eval_samples_per_second': 0.04, 'eval_steps_per_second': 0.003}
 +++ Evaluation Metrics +++
-eval_loss: 10.52822494506836
-eval_model_preparation_time: 0.0198
-eval_pred_num_tokens: 31.0
-eval_true_num_tokens: 47.1640625
-eval_token_set_precision: 0.524777548807248
-eval_token_set_recall: 0.7069263027756526
-eval_token_set_f1: 0.6002333649879281
-eval_token_set_f1_sem: 0.004453562525042867
-eval_n_ngrams_match_1: 17.686
-eval_n_ngrams_match_2: 8.803
-eval_n_ngrams_match_3: 5.241
-eval_num_true_words: 36.632
-eval_num_pred_words: 25.049
-eval_bleu_score: 18.86154455213142
-eval_bleu_score_sem: 0.4719476012531065
-eval_rouge_score: 0.6108671385619215
-eval_exact_match: 0.001
-eval_exact_match_sem: 0.001
-eval_emb_cos_sim: 0.9132509231567383
-eval_emb_cos_sim_sem: 0.012332302518188953
-eval_emb_top1_equal: 0.3125
-eval_emb_top1_equal_sem: 0.11967839300632477
-eval_runtime: 25293.4023
+eval_loss: 10.564545631408691
+eval_model_preparation_time: 0.0189
+eval_pred_num_tokens: 31.000001907348633
+eval_true_num_tokens: 47.866668701171875
+eval_token_set_precision: 0.5045817911994024
+eval_token_set_recall: 0.6736057074447167
+eval_token_set_f1: 0.5745611427387616
+eval_token_set_f1_sem: 0.04034375165853879
+eval_n_ngrams_match_1: 17.2
+eval_n_ngrams_match_2: 8.2
+eval_n_ngrams_match_3: 4.666666666666667
+eval_num_true_words: 37.333333333333336
+eval_num_pred_words: 25.133333333333333
+eval_bleu_score: 16.411781228712236
+eval_bleu_score_sem: 2.7346456467693834
+eval_rouge_score: 0.6036077113205153
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.8996155261993408
+eval_emb_cos_sim_sem: 0.018325779229041904
+eval_emb_top1_equal: 0.6000000238418579
+eval_emb_top1_equal_sem: 0.13093074505393074
+eval_runtime: 374.6379
 eval_samples_per_second: 0.04
-eval_steps_per_second: 0.002
-Time taken: 25293.99662733078
-Current memory usage: 17.39MB; Peak: 23.68MB
+eval_steps_per_second: 0.003
+Time taken: 374.66972517967224
+Current memory usage: 2.66MB; Peak: 8.84MB

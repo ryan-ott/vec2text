@@ -1,5 +1,5 @@
 +++ Arguments Passed +++
-Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='msmarco', beam_width=4, steps=50, batch_size=16, max_samples=1000, output_csv=None, max_length=32)
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='msmarco', beam_width=8, steps=50, batch_size=16, max_samples=15, output_csv=None, max_length=40)
 Set num workers to 1
 +++ model_args +++
 ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
@@ -307,15 +307,108 @@ loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd689
 loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
 Loading BEIR dataset: msmarco
 Original dataset size: 100000
-Randomly selected 1000 samples from the dataset.
-Model tokens max_length: 32
-Embedder tokens max_length: 32
+Randomly selected 15 samples from the dataset.
+Model tokens max_length: 40
+Embedder tokens max_length: 40
 +++ Trainer Args Passed +++
 trainer.num_gen_recursive_steps: 50
-trainer.sequence_beam_width: 4
+trainer.sequence_beam_width: 8
 Model name: jxm/gtr__nq__32__correct
 max_seq_length: 512
 Dataset({
     features: ['text'],
-    num_rows: 1000
+    num_rows: 15
 })
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+[pred] via the .exe file on your Xbox 360 flash drive and download your gamer profile to either the .exe file or the .ps
+[true] 1 Download your gamer profile form your xbox or ps3 onto your usb flash drive. 2 Open the .exe file in the download and go to file. 3
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+[pred] Pains Today voted in the House of Representatives to pass the Unborn Child Protection Capability Act, which will ban abortion after 20 weeks, according
+[true] Today, the House of Representatives votes on the Pain Capable Unborn Child Protection Act, a bill to ban abortions after 20 weeks and the expectation is the bill will pass with 
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+[pred] It's the perfect path for me since it is around 1.5 miles when I live around and it's about away so if I run home I
+[true] It's the perfect path for me as it is around 1.5 miles around and I live about a mile away, so if I run around it once and go home it's about
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+[pred] Italy is not a huge country to boot, but the weather throughout the year will vary considerably. Therefore, considering the long coastlines and the mountain range
+[true] Italy is not a huge country, but the weather from the top to the toe of this boot will vary pretty dramatically throughout the year. Plus, with the long coastlines and mountain range
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+[pred] Gold is my favorite colors but gold and black are awesome to me because gold is worth lots of money! And we're going back to gold and money
+[true] Gold and black are my favorite colors but, back to gold. Gold is awesome because gold is worth a lot of money and I love, love, love, love, and love money!
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+[pred] Shoulder pain can come from a number of sources. The two main causes of shoulder pain include: Injury to muscles or prolonged overuse (for example
+[true] Shoulder pain can come from a number of sources. The two main causes of shoulder pain include: Injury to muscles and/or tendons from prolonged overuse â for example,
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+[pred] They mainly dilate to control the amount of light that enters the eye. Pupils become smaller when the eye is dark. Eye doctors di
+[true] They mainly dilate to control the amount of light that enters the eye. Pupils become smaller when the light is bright, and larger in the dark. Eye doctors dilate eyes
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+[pred] video. What sporophyte means is a plant which produces spores in the diploid phase (meiosis cycle
+[true] Video shows what sporophyte means. A plant (or the diploid phase in its life cycle) which produces spores by meiosis in order to produce
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+[pred] Symptoms of UTI include general discomfort, a feeling of over-tiredness and blood in the urine. Men may not feel a
+[true] Symptoms of a UTI include general discomfort, a feeling of being over-tired, blood in the urine and pain even when not urinating. Men might feel
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+[pred] Peak levels for the half life of Lortab. The peak half life of hydrocodone in Lortab can reach its peak in the adult at 4
+[true] Peak levels and half life of Lortab. The half life for the hydrocodone in Lortab in the typical adult is just under 4 hours. Hydrocodone reaches its peak
+--------------------------------------------------
+
+
+{'eval_loss': 11.211366653442383, 'eval_model_preparation_time': 0.0189, 'eval_pred_num_tokens': 31.000001907348633, 'eval_true_num_tokens': 40.000003814697266, 'eval_token_set_precision': 0.6833802359469658, 'eval_token_set_recall': 0.8200121175967857, 'eval_token_set_f1': 0.7409772442737192, 'eval_token_set_f1_sem': np.float64(0.03602628768519791), 'eval_n_ngrams_match_1': 20.333333333333332, 'eval_n_ngrams_match_2': 12.666666666666666, 'eval_n_ngrams_match_3': 8.6, 'eval_num_true_words': 31.333333333333332, 'eval_num_pred_words': 25.0, 'eval_bleu_score': np.float64(34.479322886280244), 'eval_bleu_score_sem': np.float64(5.395320326778659), 'eval_rouge_score': np.float64(0.7466546912123595), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.9244161248207092, 'eval_emb_cos_sim_sem': np.float64(0.027453645385359653), 'eval_emb_top1_equal': 0.5333333611488342, 'eval_emb_top1_equal_sem': np.float64(0.13333333197138342), 'eval_runtime': 376.5498, 'eval_samples_per_second': 0.04, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 11.211366653442383
+eval_model_preparation_time: 0.0189
+eval_pred_num_tokens: 31.000001907348633
+eval_true_num_tokens: 40.000003814697266
+eval_token_set_precision: 0.6833802359469658
+eval_token_set_recall: 0.8200121175967857
+eval_token_set_f1: 0.7409772442737192
+eval_token_set_f1_sem: 0.03602628768519791
+eval_n_ngrams_match_1: 20.333333333333332
+eval_n_ngrams_match_2: 12.666666666666666
+eval_n_ngrams_match_3: 8.6
+eval_num_true_words: 31.333333333333332
+eval_num_pred_words: 25.0
+eval_bleu_score: 34.479322886280244
+eval_bleu_score_sem: 5.395320326778659
+eval_rouge_score: 0.7466546912123595
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.9244161248207092
+eval_emb_cos_sim_sem: 0.027453645385359653
+eval_emb_top1_equal: 0.5333333611488342
+eval_emb_top1_equal_sem: 0.13333333197138342
+eval_runtime: 376.5498
+eval_samples_per_second: 0.04
+eval_steps_per_second: 0.003
+Time taken: 376.58130955696106
+Current memory usage: 4.04MB; Peak: 10.22MB

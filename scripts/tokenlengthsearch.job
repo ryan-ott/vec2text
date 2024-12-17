@@ -30,14 +30,17 @@ get_bleu_score() {
 start_len=32
 current_len=$start_len
 step_size=4
-error_threshold=10.0  # Adjust this value as needed
-direction="both"  # Can be "up", "down", or "both"
+error_threshold=1.0  # Threshold for stopping the search
+dataset="msmarco"  
+
+# Create results file
+echo "max_length,bleu_score,dataset" > experiment_results.csv
 
 # Function to run the experiment for a given max_length
 run_experiment() {
     local max_len=$1
-    local output_file="/home/scur0989/vec2text/scripts/outputs/repro_T2_msmarco_${max_len}maxtoken%A.out"
-    local log_file="scripts/outputs/repro_T2_gtr-50steps-8beam_msmarco_1ksamples_${max_len}maxtoken.log"
+    local output_file="/home/scur0989/vec2text/scripts/outputs/repro_T2_${dataset}_${max_len}maxtoken%A.out"
+    local log_file="scripts/outputs/repro_T2_gtr-50steps-8beam_${dataset}_1ksamples_${max_len}maxtoken.log"
 
     # Update SBATCH output directive
     sed -i "s|#SBATCH --output=.*|#SBATCH --output=$output_file|" "$0"
@@ -46,49 +49,59 @@ run_experiment() {
     python reproduce_T2.py \
         --model jxm/gtr__nq__32__correct \
         --steps 50 \
-        --beam-width 8 \
-        --beir_dataset msmarco \
-        --max_samples 15 \
+        --beam-width 4 \
+        --beir_dataset $dataset \
+        --max_samples 1000 \
         --max_length $max_len > "$log_file"
 
     # Get BLEU score
     local bleu_score=$(get_bleu_score "$log_file")
-    echo "$max_len,$bleu_score" >> experiment_results.csv
+    echo "$max_len,$bleu_score,$dataset" >> experiment_results.csv
     echo "$bleu_score"
 }
 
-# Create results file
-echo "max_length,bleu_score" > experiment_results.csv
+# Run initial experiment at start_len
+initial_bleu=$(run_experiment $start_len)
+echo "Initial BLEU score at $start_len tokens: $initial_bleu"
+
+# Determine which direction(s) to search based on initial score
+if [ $(echo "$initial_bleu >= (100 - $error_threshold)" | bc -l) -eq 1 ]; then
+    # If initial score is close to 100%, only search downward
+    direction="down"
+    current_len=$((start_len - step_size))
+elif [ $(echo "$initial_bleu <= (0 + $error_threshold)" | bc -l) -eq 1 ]; then
+    # If initial score is close to 0%, only search upward
+    direction="up"
+    current_len=$((start_len + step_size))
+else
+    # If initial score is between 0% and 100%, search in both directions
+    # First search downward
+    direction="down"
+    current_len=$((start_len - step_size))
+fi
 
 # Main loop
 while true; do
-    bleu_score=$(run_experiment $current_len)
-    
-    # Check if we've reached the termination conditions
-    if [ $(echo "$bleu_score >= (100 - $error_threshold)" | bc -l) -eq 1 ]; then
-        echo "Reached 100% threshold at length $current_len"
-        if [ "$direction" == "both" ]; then
+    if [ $direction == "down" ]; then
+        bleu_score=$(run_experiment $current_len)
+        
+        if [ $(echo "$bleu_score >= (100 - $error_threshold)" | bc -l) -eq 1 ]; then
+            echo "Reached 100% threshold at length $current_len"
+            # Switch to upward search from start_len + step_size
             direction="up"
-            current_len=$start_len
+            current_len=$((start_len + step_size))
             continue
-        elif [ "$direction" == "down" ]; then
-            break
         fi
-    elif [ $(echo "$bleu_score <= (0 + $error_threshold)" | bc -l) -eq 1 ]; then
-        echo "Reached 0% threshold at length $current_len"
-        if [ "$direction" == "both" ]; then
-            direction="down"
-            current_len=$start_len
-            continue
-        elif [ "$direction" == "up" ]; then
-            break
-        fi
-    fi
-
-    # Update length based on direction
-    if [ "$direction" == "both" ] || [ "$direction" == "down" ]; then
+        
         current_len=$((current_len - step_size))
-    elif [ "$direction" == "up" ]; then
+    else  # direction is "up"
+        bleu_score=$(run_experiment $current_len)
+        
+        if [ $(echo "$bleu_score <= (0 + $error_threshold)" | bc -l) -eq 1 ]; then
+            echo "Reached 0% threshold at length $current_len"
+            break
+        fi
+        
         current_len=$((current_len + step_size))
     fi
 done
