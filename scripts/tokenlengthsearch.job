@@ -2,7 +2,7 @@
 
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
-#SBATCH --job-name=Reproduce
+#SBATCH --job-name=Reproduce token length space 
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
 #SBATCH --time=20:00:00
@@ -31,7 +31,7 @@ start_len=32
 current_len=$start_len
 step_size=4
 error_threshold=1.0  # Threshold for stopping the search
-dataset="msmarco"  
+dataset="msmarco"   # Dataset to use CHANGE HERE
 
 # Create results file
 echo "max_length,bleu_score,dataset" > experiment_results.csv
