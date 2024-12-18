@@ -1,5 +1,5 @@
 +++ Arguments Passed +++
-Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='trec-covid', beam_width=4, steps=50, batch_size=16, max_samples=120, output_csv=None, max_length=32)
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='trec-covid', beam_width=8, steps=50, batch_size=16, max_samples=5, output_csv=None, max_length=32)
 Set num workers to 1
 +++ model_args +++
 ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
@@ -307,17 +307,69 @@ loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd689
 loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
 Loading BEIR dataset: trec-covid
 Original dataset size: 100000
-Randomly selected 120 samples from the dataset.
+Randomly selected 5 samples from the dataset.
 Model tokens max_length: 32
 Embedder tokens max_length: 32
 +++ Trainer Args Passed +++
 trainer.num_gen_recursive_steps: 50
-trainer.sequence_beam_width: 4
+trainer.sequence_beam_width: 8
 Model name: jxm/gtr__nq__32__correct
 max_seq_length: 512
 Dataset({
     features: ['text'],
-    num_rows: 120
+    num_rows: 5
 })
 
 === Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+ index: 1
+[pred]            Cirometz babotium plant habit 
+[true] Cibotium barometz plant habit
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 4
+[pred] been shown that the contents of sigma-C avian virus cell reattachment protein (sigmaoC) is a multi
+[true] Previous work has shown that the avian reovirus cell-attachment sigma C (sigmaC) protein is a multi
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 0
+[pred]                
+[true] 
+--------------------------------------------------
+
+
+{'eval_loss': 9.226040840148926, 'eval_model_preparation_time': 0.0187, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 21.200000762939453, 'eval_token_set_precision': 0.5211111111111111, 'eval_token_set_recall': 0.5111111111111111, 'eval_token_set_f1': 0.5159498207885305, 'eval_token_set_f1_sem': np.float64(0.13955223713976467), 'eval_n_ngrams_match_1': 7.4, 'eval_n_ngrams_match_2': 5.0, 'eval_n_ngrams_match_3': 3.8, 'eval_num_true_words': 11.0, 'eval_num_pred_words': 11.2, 'eval_bleu_score': np.float64(33.58068818842429), 'eval_bleu_score_sem': np.float64(12.202661563652269), 'eval_rouge_score': np.float64(0.5261663286004057), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.9345938563346863, 'eval_emb_cos_sim_sem': np.float64(0.01950944858812888), 'eval_emb_top1_equal': 0.4000000059604645, 'eval_emb_top1_equal_sem': np.float64(0.24494898346566815), 'eval_runtime': 144.1726, 'eval_samples_per_second': 0.035, 'eval_steps_per_second': 0.007}
++++ Evaluation Metrics +++
+eval_loss: 9.226040840148926
+eval_model_preparation_time: 0.0187
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 21.200000762939453
+eval_token_set_precision: 0.5211111111111111
+eval_token_set_recall: 0.5111111111111111
+eval_token_set_f1: 0.5159498207885305
+eval_token_set_f1_sem: 0.13955223713976467
+eval_n_ngrams_match_1: 7.4
+eval_n_ngrams_match_2: 5.0
+eval_n_ngrams_match_3: 3.8
+eval_num_true_words: 11.0
+eval_num_pred_words: 11.2
+eval_bleu_score: 33.58068818842429
+eval_bleu_score_sem: 12.202661563652269
+eval_rouge_score: 0.5261663286004057
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.9345938563346863
+eval_emb_cos_sim_sem: 0.01950944858812888
+eval_emb_top1_equal: 0.4000000059604645
+eval_emb_top1_equal_sem: 0.24494898346566815
+eval_runtime: 144.1726
+eval_samples_per_second: 0.035
+eval_steps_per_second: 0.007
+Time taken: 144.1985273361206
+Current memory usage: 3.40MB; Peak: 9.67MB
