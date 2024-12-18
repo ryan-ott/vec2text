@@ -1,0 +1,1754 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='dbpedia-entity', beam_width=4, steps=50, batch_size=16, max_samples=1000, output_csv=None, max_length=32)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: dbpedia-entity
+Original dataset size: 100000
+Randomly selected 1000 samples from the dataset.
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 4
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 1000
+})
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+ index: 116
+[pred] Lewis Township is a township in Union County, Pennsylvania, United States. The population was 1,405 at the 2000 census. Sand Bridge State Park
+[true] Lewis Township is a township in Union County, Pennsylvania, United States. The population was 1,405 at the 2000 census. Sand Bridge State Park
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 841
+[pred] Sir Arthur Stanley Eddington, OM, FRS (28 December 1882 – 22 November 1944) was a British astronomer,-
+[true] Sir Arthur Stanley Eddington, OM, FRS (28 December 1882 – 22 November 1944) was a British astronomer, 
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 66
+[pred] The Neckar (German pronunciation: "nök", ) is a 335-kilometre-long (96-mile) river in Germany
+[true] The Neckar (German pronunciation: [nka]) is a 367-kilometre-long (228 mi) river in Germany
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 410
+[pred] Terry Township is a township in Bradford County, Pennsylvania, United States. The population was 992 at the 2010 census.   
+[true] Terry Township is a township in Bradford County, Pennsylvania, United States. The population was 992 at the 2010 census.
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 503
+[pred] The railway from Conakry to Kankan ceased operating in the mid-1980s. Domestic air services are intermittent. Most vehicles in Guinea are 20
+[true] The railway from Conakry to Kankan ceased operating in the mid-1980s. Domestic air services are intermittent. Most vehicles in Guinea are 20
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+ index: 75
+[pred] A MUD (stylized as /mu/d), originally Multi-User Dungeon, Multi-Di
+[true] A MUD (/md/; originally Multi-User Dungeon, with later variants Multi-User Dimension
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+ index: 590
+[pred] In metaphysical philosophy, particulars are concrete entities existing in space and time as opposed to abstractions. There are, however, theories of abstract particulars
+[true] In metaphysical philosophy, particulars are concrete entities existing in space and time as opposed to abstractions. There are, however, theories of abstract particulars
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+ index: 644
+[pred] Dennis Coles (born May 9, 1970), better known by his stage name Ghostface Killah, is an American rapper and prominent member of the Wu
+[true] Dennis Coles (born May 9, 1970), better known by his stage name Ghostface Killah, is an American rapper and prominent member of the Wu
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+ index: 702
+[pred] Addison is a village in Lenawee County of the U.S. state of Michigan. The population was 605 at the
+[true] Addison is a village in Lenawee County of the U.S. state of Michigan. The population was 605 at the
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+ index: 54
+[pred] Nancy (French pronunciation; syllabi: Nanzig; German: nsi) is a city in the north-
+[true] Nancy (French pronunciation: [n.si]; German: Nanzig) is a city in the north-eastern
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+ index: 155
+[pred] In mathematics, function composition is the pointwise application of functions to one function and to another to produce the result of a third function. For instance,
+[true] In mathematics, function composition is the pointwise application of one function to the result of another to produce a third function. For instance, the functions 
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+ index: 152
+[pred] Madrid (Madrid) (Latin: "mádraé"; Spanish: ) is a census-designated place
+[true] Madrid (/mdrd/, Spanish: [mai]) is a census-designated place (
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+ index: 830
+[pred] Colebrook Township is a township in Clinton County, Pennsylvania, United States. The population was 199 at the 2010 census.  
+[true] Colebrook Township is a township in Clinton County, Pennsylvania, United States. The population was 199 at the 2010 census.
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+ index: 576
+[pred] Forest City, formerly known as "Burnt Chimney," is a town in Rutherford County, North Carolina, United States
+[true] Forest City, formerly known as "Burnt Chimney," is a town in Rutherford County, North Carolina, United States
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+ index: 971
+[pred] North Penobscot is an unorganized territory in Penobscot County, Maine, United States. The population was 463 at the
+[true] North Penobscot is an unorganized territory in Penobscot County, Maine, United States. The population was 463 at the
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+ index: 311
+[pred] A perovskite is any material with the same type of crystal structure as calcium titanium oxide (Caitio3), known as the
+[true] A perovskite is any material with the same type of crystal structure as calcium titanium oxide (CaTiO3), known as the
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+ index: 87
+[pred] Hidden Valley is a census-designated place (CDP) in Dearborn County, Indiana, United States. The population was 5,387 at
+[true] Hidden Valley is a census-designated place (CDP) in Dearborn County, Indiana, United States. The population was 5,387 at
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+ index: 254
+[pred] John Aylmer (or Elmer) Aylmer (1311 - 5 June 1594) was an English bishop, constitutionalist
+[true] John Aylmer (lmer or Elmer; 1521 - 5 June 1594) was an English bishop, constitutionalist and 
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+ index: 121
+[pred] Chaim Potok (February 17, 1929 – July 23, 2002) was an American Jewish author and rabbi. Potok is most famous for
+[true] Chaim Potok (February 17, 1929 – July 23, 2002) was an American Jewish author and rabbi. Potok is most famous for
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+ index: 571
+[pred] The Tornado is a double handed multihull class recognised as an International Class by the International Sailing Federation. It was used for the Olympic Cata
+[true] The Tornado is a double handed multihull class recognised as an International Class by the International Sailing Federation. It was used for the Olympic Cata
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+ index: 782
+[pred] Leesville is the parish seat of Vernon Parish, Louisiana, United States. The population was 6,612 at the 2010 United States Census. It is part
+[true] Leesville is the parish seat of Vernon Parish, Louisiana, United States. The population was 6,612 at the 2010 United States Census. It is part
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+ index: 426
+[pred] thelberht thelberht (also Aethelbert, Aethelbert, or E.
+[true] thelberht (also thelbert, Aethelberht, Aethelbert, or E
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+ index: 620
+[pred] Menioetius, or Menioetios (Greek: //, meaning "do
+[true] Menoetius (/mniis/; Greek:  Menoitios) meaning do
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+ index: 610
+[pred] year by events of the 60s: 64 BC (Contents) 69 BC 68 BC 69 BC 69 BC 69 BC 
+[true] == 60s BC: events by year ==Contents: 69 BC 68 BC 67 BC 66 BC 65 BC 64 BC
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+ index: 809
+[pred] Psychopomps (from the Greek word for "pokpompos" - literally meaning 'the guide of souls') are creatures
+[true] Psychopomps (from the Greek word  - psuchopompos, literally meaning the "guide of souls") are creatures
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+ index: 633
+[pred] Port-Taznani ' Townsend' () is a city in Jefferson County, Washington, United States. The population was
+[true] Port Townsend /tanzn/ is a city in Jefferson County, Washington, United States. The population was
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+ index: 231
+[pred] Carefree is a town in Maricopa County, Arizona, United States. As of the 2010 United States Census, the population of the town is
+[true] Carefree is a town in Maricopa County, Arizona, United States. As of the 2010 United States Census, the population of the town is
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+ index: 794
+[pred] to the "moth" genus, see Cilix. Cilix (Greek: ciôxéth s
+[true] For the moth genus, see Cilix (moth).Cilix (/slks/; Greek:
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+ index: 535
+[pred] Coda (Constant Data Availability) is a distributed file system developed as a research project at Carnegie Mellon University since 1987 under
+[true] Coda (Constant Data Availability) is a distributed file system developed as a research project at Carnegie Mellon University since 1987 under
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+ index: 389
+[pred] The Civil Rights Cases, 109 U.S. 3 (1883), were a group of five similar cases consolidated into one issue for the
+[true] The Civil Rights Cases, 109 U.S. 3 (1883), were a group of five similar cases consolidated into one issue for the
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+ index: 461
+[pred] The Town of Frederick is a Statutory Town in Weld County, Colorado, United States. The population was 886 at the 2010 high
+[true] The Town of Frederick is a Statutory Town in Weld County, Colorado, United States. The population was 8679 at the 2010
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+ index: 930
+[pred] Melisende (1105 – 11 September 1111) was Queen of Jerusalem from 1131 to 1153 (for her son), the fourth regent
+[true] Melisende (1105 – 11 September 1161) was Queen of Jerusalem from 1131 to 1153, and regent for her son between 11
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+ index: 453
+[pred] Freight transport is the physical process of transporting commodities and merchandise goods and cargo. The term shipping originally referred to transport by sea, but is extended
+[true] Freight transport is the physical process of transporting commodities and merchandise goods and cargo. The term shipping originally referred to transport by sea, but is extended
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+ index: 304
+[pred] In various East Asian languages, the phrase "ten thousand years" is used to translate to English as "long live," and wished long life, expressed
+[true] In various East Asian languages, the phrase "ten thousand years" is used to wish long life, and is typically translated as "long live" in English
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+ index: 880
+[pred] A skyscraper is a tall, continuously habitable building of over 40 floors, mostly designed for office, residential and commercial uses. A sky
+[true] A skyscraper is a tall, continuously habitable building of over 40 floors, mostly designed for office, commercial and residential uses. A sky
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+ index: 602
+[pred] Holt is a city in Marshall County, Minnesota, United States. The population was 88 at the 2010 census   .
+[true] Holt is a city in Marshall County, Minnesota, United States. The population was 88 at the 2010 census.
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+ index: 439
+[pred] Aurskog-Höland is a municipality in Akershus county, Norway. It is part of the traditional region in Romerik
+[true] Aurskog-Hland is a municipality in Akershus county, Norway. It is part of the Romerike traditional region
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+ index: 312
+[pred] This article is about the demographic features of the population of Puerto Rico, including population density, ethnicity of the populace, education level, health, economic
+[true] This article is about the demographic features of the population of Puerto Rico, including population density, ethnicity, education level, health of the populace, economic
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+ index: 582
+[pred] Oak Harbor is a village in Ottawa County, Ohio, United States. Oak Harbor is 30 miles east of Toledo. The population was 2,759 at
+[true] Oak Harbor is a village in Ottawa County, Ohio, United States. Oak Harbor is 30 miles east of Toledo. The population was 2,759 at
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+ index: 635
+[pred] Hérault (French pronunciation: [e-o]; Occitan: Erau) is a department in the south
+[true] Hérault (French pronunciation: [eo]; Occitan: Erau) is a department in the south
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+ index: 61
+[pred] A suburb is a residential area or a mixed use area, either existing as part of a city or urban area or as a separate residential
+[true] A suburb is a residential area or a mixed use area, either existing as part of a city or urban area or as a separate residential
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+ index: 624
+[pred] Clarksburg is a town in Berkshire County, Massachusetts, United States. It is part of the Pittsfield, Massachusetts Metropolitan Statistical Area
+[true] Clarksburg is a town in Berkshire County, Massachusetts, United States. It is part of the Pittsfield, Massachusetts Metropolitan Statistical Area
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+ index: 757
+[pred] Shambaugh   is a city in Page County, Iowa, United States. The population was 191 at the 2010 census. 
+[true] Shambaugh is a city in Page County, Iowa, United States. The population was 191 at the 2010 census.
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+ index: 101
+[pred] The Celtic Football Club (/sf/slk/) are a professional football club based in Glasgow, Scotland who play in the
+[true] The Celtic Football Club (/sltk/) are a professional football club based in Glasgow, Scotland who play in the
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+ index: 781
+[pred] (fl. 990) of Northampton (gifu – after 1016) was the first wife of King Cnut of
+[true] lfgifu of Northampton (c. 990 – after 1036) was the first wife of King Cnut of
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+ index: 212
+[pred] A Charlie Brown Christmas is a musical animated television special based on the comic strip Peanuts, by Charles M. Schulz. Produced by
+[true] A Charlie Brown Christmas is a musical animated television special based on the comic strip Peanuts, by Charles M. Schulz. Produced by
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+ index: 640
+[pred] Ballet (French: "baltè" or "ba-le-") is a type of performance dance that originated in the Italian
+[true] Ballet /ble/ (French: [bal]) is a type of performance dance that originated in the Italian
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+ index: 216
+[pred] Tanfield is a former mining village in County Durham, England, near Stanley and is the location of Tanfield Railway and the Causey Arch. It
+[true] Tanfield is a former mining village in County Durham, England, near Stanley and is the location of Tanfield Railway and the Causey Arch. It
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+ index: 270
+[pred] Garvin County is in south-central Oklahoma. As of the 2010 census, its population was 23,776. The county seat is Pauls Valley 
+[true] Garvin County is in south-central Oklahoma. As of the 2010 census, the population was 27,576. Its county seat is Pauls Valley
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+ index: 676
+[pred] Many Farms (Navajo: Dákââné Halán) is a census-designated place (CDP
+[true] Many Farms (Navajo: Dáákeh Halán) is a census-designated place (CDP
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+ index: 83
+[pred] A jazz band (jazz ensemble or jazz combo) is a musical ensemble that plays jazz music. Jazz bands vary in the quantity of its members and
+[true] A jazz band (jazz ensemble or jazz combo) is a musical ensemble that plays jazz music. Jazz bands vary in the quantity of its members and
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+ index: 160
+[pred] Stupid White Men ...and Other Sorry Excuses for the State of the Nation! is a book by Michael Moore published in 2001.
+[true] Stupid White Men ...and Other Sorry Excuses for the State of the Nation! is a book by Michael Moore published in 2001.
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+ index: 245
+[pred] the Battle of Mohács (Hungarian: Mohácsâti) (pronounced 'Mohác
+[true] The Battle of Mohács (pronounced [mohat]; Hungarian: Mohácsi 
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+ index: 177
+[pred] Styrene, also known as ethylbenzene, vinylbenzene, and phenylethene, 
+[true] Styrene, also known as ethenylbenzene, vinylbenzene, and phenylethene,
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+ index: 565
+[pred] The Battle of Hastings was fought on 14 October 1066 between the Norman-French army of Duke William II of Normandy and
+[true] The Battle of Hastings was fought on 14 October 1066 between the Norman-French army of Duke William II of Normandy and
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+ index: 76
+[pred] Camper Vantiquities is a 1993 rarities compilation album by musical group Camper Van Beethoven, released on I.R.S. It
+[true] Camper Vantiquities is a 1993 rarities compilation album by musical group Camper Van Beethoven, released on I.R.S. It
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+ index: 948
+[pred] John II (German: Johann II; 2 August 1486 – 9 January 1499 ) was Elector of Brandenburg from 1455 until
+[true] John II (German: Johann II.; 2 August 1455 – 9 January 1499) was Elector of Brandenburg from 1486 until
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+ index: 2
+[pred] The 1906 Intercalated Games or 1906 Olympic Games was an international multi-sport event which was celebrated in Athens, Greece. They were at the
+[true] The 1906 Intercalated Games or 1906 Olympic Games was an international multi-sport event which was celebrated in Athens, Greece. They were at the
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+ index: 418
+[pred] Alice is a fictional character, the protagonist of Lewis Carroll's children's novel Alice's Adventures in Wonderland (1865) and
+[true] Alice is a fictional character, the protagonist of Lewis Carroll's children's novel Alice's Adventures in Wonderland (1865) and
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+ index: 969
+[pred] Augusta is a census-designated place (CDP) in Lewis and Clark County, Montana, United States. The population was 284 at
+[true] Augusta is a census-designated place (CDP) in Lewis and Clark County, Montana, United States. The population was 284 at
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+ index: 705
+[pred] There are two biblical characters named Abihud; one of the sons of Bela, the son of Benjamin (1 Chr. 8:3)
+[true] There are two biblical characters named Abihud; one of the sons of Bela, the son of Benjamin (1 Chr. 8:3)
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+ index: 608
+[pred] The Grapes of Wrath is an American realist novel written by John Steinbeck and published in 1939. The book won the National Book Award
+[true] The Grapes of Wrath is an American realist novel written by John Steinbeck and published in 1939. The book won the National Book Award
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+ index: 481
+[pred] Reform of the date of Easter has been proposed several times because the current system for determining the date of Easter is seen as presenting two significant problems:
+[true] Reform of the date of Easter has been proposed several times because the current system for determining the date of Easter is seen as presenting two significant problems:
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+ index: 298
+[pred] Humpty Doo is a small town in Australia's Northern Territory, situated just south of the Arnhem Highway, approximately 40 km
+[true] Humpty Doo is a small town in Australia's Northern Territory, situated just south of the Arnhem Highway, approximately 40 km
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+ index: 33
+[pred] Lokeren (Dutch: ) (pronounced [lok[en]]) is a municipality located in the Belgian 
+[true] Lokeren (Dutch pronunciation: [lokr(n)]) is a municipality located in the Belgia
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+ index: 237
+[pred] An audio codec is a device or software program capable of decoding an audio stream or digital audio data.In a computer program a device
+[true] An audio codec is a device or computer program capable of coding or decoding a digital data stream of audio.In software, an audio
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+ index: 295
+[pred] Annona is a town in Red River County, Texas, United States. The population was 282 at the 2000 census .
+[true] Annona is a town in Red River County, Texas, United States. The population was 282 at the 2000 census.
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+ index: 723
+[pred] In philosophy of mind, dualism is the position that mental phenomena are, in some respects, non-physical, or that the mind and body are
+[true] In philosophy of mind, dualism is the position that mental phenomena are, in some respects, non-physical, or that the mind and body are
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+ index: 289
+[pred] Swann v. Charlotte-Mecklenburg Board of Education, 402 U.S. 1 (1970) was a landmark United States
+[true] Swann v. Charlotte-Mecklenburg Board of Education, 402 U.S. 1 (1970) was a landmark United States
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+ index: 719
+[pred] Act Without Words I is a short play by Samuel Beckett. It is a mime, Beckett's first
+[true] Act Without Words I is a short play by Samuel Beckett. It is a mime, Beckett's first
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+ index: 965
+[pred] Georgetown is a city in and the county seat of suburban Williamson County, Texas, United States, with a population of 47,400 at the
+[true] Georgetown is a city in and the county seat of suburban Williamson County, Texas, United States, with a population of 47,400 at the
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+ index: 464
+[pred] Swan River Township is a township in Morrison County, Minnesota, United States. The population was 755 at the 2000 census.Swan River
+[true] Swan River Township is a township in Morrison County, Minnesota, United States. The population was 755 at the 2000 census.Swan River
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+ index: 72
+[pred] Francesco Andreini (c. 1548 – 1624) was an Italian actor mainly of commedia dell'arte plays
+[true] Francesco Andreini (c. 1548 – 1624) was an Italian actor mainly of commedia dell'arte plays
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+ index: 703
+[pred] Seelyville is a town in Lost Creek Township, Vigo County, Indiana, United States. The population was 1,029 at the 2010 census
+[true] Seelyville is a town in Lost Creek Township, Vigo County, Indiana, United States. The population was 1,029 at the 2010 census
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+ index: 239
+[pred] An alarm device or system of alarm devices gives an audible, visual or other form of alarm signal about a problem or condition. Alarm devices are
+[true] An alarm device or system of alarm devices gives an audible, visual or other form of alarm signal about a problem or condition. Alarm devices are
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+ index: 951
+[pred] Van Dyke Parks (born January 3, 1943) is an American composer, arranger, record producer, instrumentalist, singer-songwriter, author,
+[true] Van Dyke Parks (born January 3, 1943) is an American composer, arranger, record producer, instrumentalist, singer-songwriter, author,
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+ index: 806
+[pred] Michael Joseph Piazza (Pi'ts) A. (born September 4, 1968) is an American former professional baseball player. He played in
+[true] Michael Joseph Piazza /pits/ (born September 4, 1968) is an American former professional baseball player. He played in
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+ index: 810
+[pred] Dickinson is a town in Broome County, New York, United States. The population was 5,278 at the 2010 census. The town
+[true] Dickinson is a town in Broome County, New York, United States. The population was 5,278 at the 2010 census. The town
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+ index: 953
+[pred] Matchmaking is the process of matching two or more people together, usually for the purpose of marriage, but the word is also used in the context of sporting
+[true] Matchmaking is the process of matching two or more people together, usually for the purpose of marriage, but the word is also used in the context of sporting
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+ index: 603
+[pred] Ivan "Ivo" Andrián (Serbian Cyrillic: "аведи вава
+[true] Ivan "Ivo" Andri (Serbian Cyrillic: ван "во" нд
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+ index: 677
+[pred] Wiseman is a census-designated place (CDP) in Yukon-Koyukuk Census Area, Alaska, United
+[true] Wiseman is a census-designated place (CDP) in Yukon-Koyukuk Census Area, Alaska, United
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+ index: 823
+[pred] Clarion is a six-week workshop for aspiring science fiction and fantasy writers. Originally an outgrowth of Kate Wilhelm and Damon Knight'
+[true] Clarion is a six-week workshop for aspiring science fiction and fantasy writers. Originally an outgrowth of Damon Knight and Kate Wilhelm'
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+ index: 202
+[pred] This article is about calamine in mineralogy. For calamine used in calamine lotion, see calamine, for other
+[true] This article is about calamine in mineralogy. For calamine used in calamine lotion, see calamine, for other
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+ index: 435
+[pred] System Shock is a 1994 first-person action role-playing video game developed by Looking Glass Technologies and published by Origin Systems. It was directed
+[true] System Shock is a 1994 first-person action role-playing video game developed by Looking Glass Technologies and published by Origin Systems. It was directed
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+ index: 117
+[pred] A science museum is a museum devoted primarily to science. Older science museums tended to concentrate on static displays of objects related to natural history
+[true] A science museum is a museum devoted primarily to science. Older science museums tended to concentrate on static displays of objects related to natural history
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+ index: 557
+[pred] 1981 (Gregorian calendar) MMCXXXI-D was a common year starting on Wednesday denoted by the letter t
+[true] 1981 (MCMLXXXI)was a common year starting on Thursday of the Gregorian calendar (dominical letter D),
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+ index: 230
+[pred] Ingleside is a town in Nueces and San Patricio counties in the U.S. state of Texas. The population was
+[true] Ingleside is a town in Nueces and San Patricio counties in the U.S. state of Texas. The population was
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+ index: 663
+[pred] Strafford is a city in eastern Greene County, Missouri, United States. It is part of the Springfield, Missouri Metropolitan Statistical Area. Straf
+[true] Strafford is a city in eastern Greene County, Missouri, United States. It is part of the Springfield, Missouri Metropolitan Statistical Area. Straf
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+ index: 988
+[pred] This is a list of the events occurring in the year 810 - listed by place - ordered by year.br> 8s
+[true] This is a list of events occurring in the 810s, ordered by year.=== 810 ====== By place
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+ index: 272
+[pred] Hawes Township is a civil township of Alcona County in the U.S. state of Michigan. At the 2010 census, the
+[true] Hawes Township is a civil township of Alcona County in the U.S. state of Michigan. At the 2010 census, the
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+ index: 846
+[pred] Gavin MacLeod (born February 28, 1931) is an American character actor notable for playing Joseph "Happy" Haines on McHa
+[true] Gavin MacLeod (born February 28, 1931) is an American character actor notable for playing Joseph "Happy" Haines on McHa
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+ index: 145
+[pred] Carlton County is a county located in the State of Minnesota. As of the 2010 census, the population was 35,386. Its county
+[true] Carlton County is a county located in the State of Minnesota. As of the 2010 census, the population was 35,386. Its county
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+ index: 73
+[pred] The Motorola 68020 O/O "sixty-eight, sixty-eighth, sixty-eight
+[true] The Motorola 68020 "sixty-eight-oh-twenty", "sixty-eight-
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+ index: 959
+[pred] The Degar, also known as the Montagnard, are the indigenous peoples of the Central Highlands of Vietnam. The term Montagnard means
+[true] The Degar, also known as the Montagnard, are the indigenous peoples of the Central Highlands of Vietnam. The term Montagnard means
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+ index: 169
+[pred] A googolplex is the number 10(10100), equivalently, googol. In ordinary decimal notation, googol written
+[true] A googolplex is the number 10googol, or equivalently, 10(10100). Written out in ordinary decimal notation,
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+ index: 811
+[pred] Lucius Tarquinius Priscus, or Tarquin the Elder, was the legendary fifth king of Rome from 616 to 579 BC.
+[true] Lucius Tarquinius Priscus, or Tarquin the Elder, was the legendary fifth king of Rome from 616 to 579 BC.
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+ index: 314
+[pred] A digital elevation model (DEM) is a digital model or 3D representation of a terrain's surface — commonly for a planet
+[true] A digital elevation model (DEM) is a digital model or 3D representation of a terrain's surface — commonly for a planet
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+ index: 609
+[pred] The City of Fort Morgan is the Home Rule Municipality that is the county seat and the most populous municipality of Morgan County, Colorado, United States.
+[true] The City of Fort Morgan is the Home Rule Municipality that is the county seat and the most populous municipality of Morgan County, Colorado, United States.
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+ index: 766
+[pred] Franconia-St.-Francis-Ses-Francis County is a county located in the Lead
+[true] St. Francois County /sent frnss/ is a county located in the Lead
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+ index: 844
+[pred] Foreign and international relations of the Philippines Foreign relations of the Philippines are administered by the Department of Philippine Affairs. The President of the Philippines is influenced by Southeast
+[true] Foreign relations of the Philippines are administered by the President of the Philippines and the Department of Foreign Affairs. Philippine international affairs are influenced by ties to Southeast
+--------------------------------------------------
+
+Pair #101
+--------------------------------------------------
+ index: 961
+[pred] Leaf River Township is a township in Wadena County, Minnesota, United States. The population was 515 at the 2000 census.Lea
+[true] Leaf River Township is a township in Wadena County, Minnesota, United States. The population was 515 at the 2000 census.Lea
+--------------------------------------------------
+
+Pair #102
+--------------------------------------------------
+ index: 933
+[pred] Richmond Hill is a city in Bryan County, Georgia, United States. James Oglethorpe, only a year after the founding of the Georgia
+[true] Richmond Hill is a city in Bryan County, Georgia, United States. James Oglethorpe, only a year after the founding of the Georgia
+--------------------------------------------------
+
+Pair #103
+--------------------------------------------------
+ index: 449
+[pred] Kate ngel del Trio Castillo ngel del Trio Negrete is a Mexican actress. 
+[true] Kate del Castillo Negrete Trillo is a Mexican actress.
+--------------------------------------------------
+
+Pair #104
+--------------------------------------------------
+ index: 127
+[pred] Garrett Park is a town in Montgomery County, Maryland. It was named for a former president of the Baltimore and Ohio Railroad, Robert W. Garrett
+[true] Garrett Park is a town in Montgomery County, Maryland. It was named for a former president of the Baltimore and Ohio Railroad, Robert W. Garrett
+--------------------------------------------------
+
+Pair #105
+--------------------------------------------------
+ index: 479
+[pred] A dinghy (or dingey) is a type of small boat, often carried or towed for use as
+[true] A dinghy (or dingey) is a type of small boat, often carried or towed for use as a
+--------------------------------------------------
+
+Pair #106
+--------------------------------------------------
+ index: 939
+[pred] Harmon is a village in Lee County, Illinois, United States. The population at the 2010 census was 120, down from a population of 154
+[true] Harmon is a village in Lee County, Illinois, United States. The population was 120 at the 2010 census, down from 149 at the 2000 census
+--------------------------------------------------
+
+Pair #107
+--------------------------------------------------
+ index: 984
+[pred] See Hampton, Hunterdon County, New JerseyHampton Township is a township and borough in Sussex County, New Jersey in the United States
+[true] See Hampton, New Jersey for the borough in Hunterdon CountyHampton Township is a township in Sussex County, New Jersey, United States
+--------------------------------------------------
+
+Pair #108
+--------------------------------------------------
+ index: 716
+[pred] A growth spiral, or logarithmic spiral or equilibric spiral is a self-similar spiral seen in nature. The
+[true] A logarithmic spiral, equiangular spiral or growth spiral is a self-similar spiral curve which often appears in nature. The
+--------------------------------------------------
+
+Pair #109
+--------------------------------------------------
+ index: 412
+[pred] Middle Village is a census-designated place (CDP), in the towns of Menominee and Red Springs, in Menominee
+[true] Middle Village is a census-designated place (CDP), in the towns of Menominee and Red Springs, in Menominee
+--------------------------------------------------
+
+Pair #110
+--------------------------------------------------
+ index: 278
+[pred] Westmont is a census designated place (CDP) in Los Angeles County, California, United States. The population was 31,853 at the 2010
+[true] Westmont is a census designated place (CDP) in Los Angeles County, California, United States. The population was 31,853 at the 2010
+--------------------------------------------------
+
+Pair #111
+--------------------------------------------------
+ index: 512
+[pred] In telecommunications, net gain is the overall gain of a transmission circuit. Net gain is measured by applying a test signal at an appropriate
+[true] In telecommunications, net gain is the overall gain of a transmission circuit. Net gain is measured by applying a test signal at an appropriate
+--------------------------------------------------
+
+Pair #112
+--------------------------------------------------
+ index: 552
+[pred] Avesta Municipality (Avesta kommun) is one of 290 municipalities of Sweden. It is in Dalarna County, in central
+[true] Avesta Municipality (Avesta kommun) is one of 290 municipalities of Sweden. It is in Dalarna County, in central
+--------------------------------------------------
+
+Pair #113
+--------------------------------------------------
+ index: 505
+[pred] MIX is a hypothetical computer used in Donald Knuth's monograph, The Art of Computer Programming (TAOCP). MIX
+[true] MIX is a hypothetical computer used in Donald Knuth's monograph, The Art of Computer Programming (TAOCP). MIX
+--------------------------------------------------
+
+Pair #114
+--------------------------------------------------
+ index: 448
+[pred] A photoplotter is an electro-optical-mechanical machine that exposes a latent image on a media, usually high-con
+[true] A photoplotter is an electro-mechanical-optical machine that exposes a latent image on a media, usually high-con
+--------------------------------------------------
+
+Pair #115
+--------------------------------------------------
+ index: 82
+[pred] Lumberton is a city in Hardin County, Texas, United States. The population was 11,943 at the 2010 census. Lumberton
+[true] Lumberton is a city in Hardin County, Texas, United States. The population was 11,943 at the 2010 census. Lumberton
+--------------------------------------------------
+
+Pair #116
+--------------------------------------------------
+ index: 612
+[pred] Boyne Valley Township is a civil township of Charlevoix County in the U.S. state of Michigan. As of the 2010
+[true] Boyne Valley Township is a civil township of Charlevoix County in the U.S. state of Michigan. As of the 2010
+--------------------------------------------------
+
+Pair #117
+--------------------------------------------------
+ index: 40
+[pred] RISC OS '/rsko/OS', is a computer operating system originally designed by Acorn Computers Ltd in Cambridge.
+[true] RISC OS /rskos/ is a computer operating system originally designed by Acorn Computers Ltd in Cambridge, England.
+--------------------------------------------------
+
+Pair #118
+--------------------------------------------------
+ index: 442
+[pred] Developing is a 1994 short film directed by Marya Cohn, about the relationship between a girl and her single mother, who has breast cancer
+[true] Developing is a 1994 short film directed by Marya Cohn, about the relationship between a girl and her single mother, who has breast cancer
+--------------------------------------------------
+
+Pair #119
+--------------------------------------------------
+ index: 752
+[pred] Pine County is a county located in the U.S. state of Minnesota. As of the 2010 census, the population was 29,750. Its
+[true] Pine County is a county located in the U.S. state of Minnesota. As of the 2010 census, the population was 29,750. Its
+--------------------------------------------------
+
+Pair #120
+--------------------------------------------------
+ index: 330
+[pred] Bellevue (U.S.) ' (pronounced /blvvdjuy/) is a
+[true] Bellevue (/blvju/ US dict: bl′vy) is a
+--------------------------------------------------
+
+Pair #121
+--------------------------------------------------
+ index: 618
+[pred] Odonata is an order of carnivorous insects, encompassing dragonflies (Anisoptera/Epipro
+[true] Odonata is an order of carnivorous insects, encompassing dragonflies (Anisoptera/Epipro
+--------------------------------------------------
+
+Pair #122
+--------------------------------------------------
+ index: 256
+[pred] Buffy the Vampire Slayer is a 1992 American comedy horror film about a Valley cheerleader girl named Buffy who learns that it
+[true] Buffy the Vampire Slayer is a 1992 American comedy horror film about a Valley girl cheerleader named Buffy who learns that it
+--------------------------------------------------
+
+Pair #123
+--------------------------------------------------
+ index: 26
+[pred] Katyusha multiple rocket launchers (Russian: атат; IPA: асат; ) are s
+[true] Katyusha multiple rocket launchers (Russian: ата; IPA: [ktju]) are 
+--------------------------------------------------
+
+Pair #124
+--------------------------------------------------
+ index: 93
+[pred] Shelby is a village in Oceana County in the U.S. state of Michigan. The population was 2,065 at the 2010 census. The
+[true] Shelby is a village in Oceana County in the U.S. state of Michigan. The population was 2,065 at the 2010 census. The
+--------------------------------------------------
+
+Pair #125
+--------------------------------------------------
+ index: 234
+[pred] Olpe is a Kreis (district) in the south-east of North Rhine-Westphalia, Germany. Neighbor
+[true] Olpe is a Kreis (district) in the south-east of North Rhine-Westphalia, Germany. Neighbor
+--------------------------------------------------
+
+Pair #126
+--------------------------------------------------
+ index: 690
+[pred] Mount Etna, Mungadna Etna (Italian: ; Sicilian: or Muntagdu,
+[true] Mount Etna (Italian: Etna, Sicilian: Mungibeddu or â Muntagna,
+--------------------------------------------------
+
+Pair #127
+--------------------------------------------------
+ index: 856
+[pred] Latina Larisa Semyonovna (Ukrainian: "Ryazhnyo s
+[true] Larisa Semyonovna Latynina (Ukrainian: ариса емен
+--------------------------------------------------
+
+Pair #128
+--------------------------------------------------
+ index: 589
+[pred] Lakemore is a village in Summit County, Ohio, United States. The population was 3,068 at the 2010 census. It is part of the
+[true] Lakemore is a village in Summit County, Ohio, United States. The population was 3,068 at the 2010 census. It is part of the
+--------------------------------------------------
+
+Pair #129
+--------------------------------------------------
+ index: 601
+[pred] Bridgewater is a town in Aroostook County, Maine, United States. Carrie Bradbury is the mayor of the town. The
+[true] Bridgewater is a town in Aroostook County, Maine, United States. Carrie Bradbury is the mayor of the town. The
+--------------------------------------------------
+
+Pair #130
+--------------------------------------------------
+ index: 21
+[pred] Root beer is a dark brown sweet beverage traditionally made using the bark of the tree root or alubarium root Sassafas
+[true] Root beer is a dark brown sweet beverage traditionally made using the root or bark of the tree Sassafras albidum (
+--------------------------------------------------
+
+Pair #131
+--------------------------------------------------
+ index: 783
+[pred] Magnus Olafsson (Old Norse: Magn, Oláfsson) (Latin: Norwegian Magn
+[true] Magnus Olafsson (Old Norse: Magns láfsson, Norwegian and Danish: Magn
+--------------------------------------------------
+
+Pair #132
+--------------------------------------------------
+ index: 688
+[pred] Toul (French pronunciation: [moul]) is a commune in the Tules-et-Miselle department in
+[true] Toul (French pronunciation: [tul]) is a commune in the Meurthe-et-Moselle department in
+--------------------------------------------------
+
+Pair #133
+--------------------------------------------------
+ index: 998
+[pred] A counterculture (also written counter-culture) is a subculture whose values and norms of behavior differ substantially from those of mainstream society,
+[true] A counterculture (also written counter-culture) is a subculture whose values and norms of behavior differ substantially from those of mainstream society,
+--------------------------------------------------
+
+Pair #134
+--------------------------------------------------
+ index: 275
+[pred]        Lugus was a deity of the Celtic pantheon. 
+[true] Lugus was a deity of the Celtic pantheon.
+--------------------------------------------------
+
+Pair #135
+--------------------------------------------------
+ index: 993
+[pred] Caramel (or ' (kûl)-mel or ' (krm)-mel)) is a beige
+[true] Caramel (/krml/ or /krml/) is a beige
+--------------------------------------------------
+
+Pair #136
+--------------------------------------------------
+ index: 41
+[pred] Kahuku is a census-designated place (CDP) in the Koaolulua District on the island of O
+[true] Kahuku is a census-designated place (CDP) in the Koolauloa District on the island of O
+--------------------------------------------------
+
+Pair #137
+--------------------------------------------------
+ index: 955
+[pred] Center is a city in Ralls County, Missouri, United States. The population was 508 at the 2010 census. It is part of the
+[true] Center is a city in Ralls County, Missouri, United States. The population was 508 at the 2010 census. It is part of the
+--------------------------------------------------
+
+Pair #138
+--------------------------------------------------
+ index: 774
+[pred] Kingsbury Plantation is a plantation in Piscataquis County, Maine, United States. The plantation was named for Judge San
+[true] Kingsbury Plantation is a plantation in Piscataquis County, Maine, United States. The plantation was named for Judge San
+--------------------------------------------------
+
+Pair #139
+--------------------------------------------------
+ index: 179
+[pred] Morrison is a town in Warren County, Tennessee, United States. The population was 684 at the 2000 census and 694 at the 2010 census
+[true] Morrison is a town in Warren County, Tennessee, United States. The population was 684 at the 2000 census and 694 at the 2010 census
+--------------------------------------------------
+
+Pair #140
+--------------------------------------------------
+ index: 937
+[pred] Interior (Lakota: mahókóia otuáá; , "Badlands village") is an
+[true] Interior (Lakota: makóia otwahe; "Badlands village") is a
+--------------------------------------------------
+
+Pair #141
+--------------------------------------------------
+ index: 531
+[pred] Travelers Rest, often abbreviated to T.R. is a city in Greenville County, South Carolina, United States. The population
+[true] Travelers Rest, often abbreviated to T.R. is a city in Greenville County, South Carolina, United States. The population
+--------------------------------------------------
+
+Pair #142
+--------------------------------------------------
+ index: 667
+[pred] The Ink Spots were an African American vocal group who gained international fame in the 1930s and 1940s. Their unique musical style led to the
+[true] The Ink Spots were an African American vocal group who gained international fame in the 1930s and 1940s. Their unique musical style led to the
+--------------------------------------------------
+
+Pair #143
+--------------------------------------------------
+ index: 452
+[pred] Aarschot (Dutch pronunciation: [aârs-xt]) is a city and municipality in the province
+[true] Aarschot (Dutch pronunciation: [arsxt]) is a city and municipality in the province
+--------------------------------------------------
+
+Pair #144
+--------------------------------------------------
+ index: 284
+[pred] The term speculative fiction refers to any fiction story that includes elements, settings and characters whose features are created out of human imagination and speculation
+[true] The term speculative fiction refers to any fiction story that includes elements, settings and characters whose features are created out of human imagination and speculation
+--------------------------------------------------
+
+Pair #145
+--------------------------------------------------
+ index: 185
+[pred] Montgomery College (MC) is a public, open access community college located in Montgomery County, Maryland, just outside Washington, D.C.. The
+[true] Montgomery College (MC) is a public, open access community college located in Montgomery County, Maryland, just outside Washington, D.C.. The
+--------------------------------------------------
+
+Pair #146
+--------------------------------------------------
+ index: 599
+[pred] Hope Township is a township in Warren County, New Jersey, United States. As of the 2010 United States Census, the township's population
+[true] Hope Township is a township in Warren County, New Jersey, United States. As of the 2010 United States Census, the township's population
+--------------------------------------------------
+
+Pair #147
+--------------------------------------------------
+ index: 446
+[pred] Postage stamp may also refer to a formatting artifact in the display of film or video: Windowbox.A postage stamp is a
+[true] Postage stamp may also refer to a formatting artifact in the display of film or video: Windowbox.A postage stamp is a
+--------------------------------------------------
+
+Pair #148
+--------------------------------------------------
+ index: 650
+[pred] Electronic data interchange (EDI) is an electronic communication method that provides standards for exchanging data via any electronic means. By adhering to the same
+[true] Electronic data interchange (EDI) is an electronic communication method that provides standards for exchanging data via any electronic means. By adhering to the same
+--------------------------------------------------
+
+Pair #149
+--------------------------------------------------
+ index: 833
+[pred] The modes of transport in Iceland are governed by the country’s rugged terrain and sparse population. The principal mode of personal transport is the car
+[true] The modes of transport in Iceland are governed by the country’s rugged terrain and sparse population. The principal mode of personal transport is the car
+--------------------------------------------------
+
+Pair #150
+--------------------------------------------------
+ index: 995
+[pred] Springlee is a neighborhood of St. Matthews, Kentucky, an area of Louisville, KY. The population was 426 at the 2000 census
+[true] Springlee is a neighborhood of St. Matthews, Kentucky, an area of Louisville, KY. The population was 426 at the 2000 census
+--------------------------------------------------
+
+Pair #151
+--------------------------------------------------
+ index: 876
+[pred] 52 Europa is the 6th-largest asteroid in the asteroid belt, having an average diameter of around 315 km. It
+[true] 52 Europa is the 6th-largest asteroid in the asteroid belt, having an average diameter of around 315 km. It
+--------------------------------------------------
+
+Pair #152
+--------------------------------------------------
+ index: 860
+[pred] Since 1993, Malta has been subdivided into 68 local councils, Maltese: kunsilli lokali,
+[true] Since 1993, Malta has been subdivided into 68 local councils, Maltese: kunsilli lokali,
+--------------------------------------------------
+
+Pair #153
+--------------------------------------------------
+ index: 356
+[pred] A pub /p/ (formally 'public house', pronounced 'house open to the public', ) is a 
+[true] A pub /pb/, formally public house (a house "open to the public", as opposed to a private house), is
+--------------------------------------------------
+
+Pair #154
+--------------------------------------------------
+ index: 941
+[pred] Nellieburg is a census-designated place (CDP) in Lauderdale County, Mississippi. The population was 1,354 at the 2000
+[true] Nellieburg is a census-designated place (CDP) in Lauderdale County, Mississippi. The population was 1,354 at the 2000
+--------------------------------------------------
+
+Pair #155
+--------------------------------------------------
+ index: 341
+[pred] Year 388 (CCLCLXXIII) was a leap year that started on Saturday (CCLCLXIV calendar link 1) The Julian
+[true] Year 388 (CCCLXXXVIII) was a leap year starting on Saturday (link will display the full calendar) of the Julian
+--------------------------------------------------
+
+Pair #156
+--------------------------------------------------
+ index: 328
+[pred] The New World vulture or condor family Cathartidae contains seven species in five genera, all but one of which are monotyp
+[true] The New World vulture or condor family Cathartidae contains seven species in five genera, all but one of which are monotyp
+--------------------------------------------------
+
+Pair #157
+--------------------------------------------------
+ index: 686
+[pred] Anatomy is the branch of biology concerned with the study of the structure of organisms and their parts. In some of its facets, anatomy is
+[true] Anatomy is the branch of biology concerned with the study of the structure of organisms and their parts. In some of its facets, anatomy is
+--------------------------------------------------
+
+Pair #158
+--------------------------------------------------
+ index: 107
+[pred] Mira Furlan (born 7 September 1955) is a Croatian actress and singer. She is best known for her roles as the Minbari
+[true] Mira Furlan (born 7 September 1955) is a Croatian actress and singer. She is best known for her roles as the Minbari
+--------------------------------------------------
+
+Pair #159
+--------------------------------------------------
+ index: 164
+[pred] Hamilton Township is a township in Mercer County, New Jersey, United States. The township is defined within the New York metropolitan area within
+[true] Hamilton Township is a township in Mercer County, New Jersey, United States. The township is within the New York metropolitan area as defined
+--------------------------------------------------
+
+Pair #160
+--------------------------------------------------
+ index: 337
+[pred] Ndárager is a former Danish town and municipality, with a population of 1,045 (as of January 2014) and
+[true] Nrager is a town with a population of 1,040 (1 January 2014) and a former municipality (Danish, 
+--------------------------------------------------
+
+Pair #161
+--------------------------------------------------
+ index: 421
+[pred] Calvin Johnson (born November 1, 1962) is an American guitarist, vocalist, songwriter, music producer, and disc jockey born in Olympia, Washington
+[true] Calvin Johnson (born November 1, 1962) is an American guitarist, vocalist, songwriter, music producer, and disc jockey born in Olympia, Washington
+--------------------------------------------------
+
+Pair #162
+--------------------------------------------------
+ index: 710
+[pred] A cluster munition is a form of air-dropped or ground-launched explosive weapon that releases or ejects smaller submuni
+[true] A cluster munition is a form of air-dropped or ground-launched explosive weapon that releases or ejects smaller submuni
+--------------------------------------------------
+
+Pair #163
+--------------------------------------------------
+ index: 507
+[pred] Onekama Township is a civil township of Manistee County in the U.S. state of Michigan. The population was 1,514
+[true] Onekama Township is a civil township of Manistee County in the U.S. state of Michigan. The population was 1,514
+--------------------------------------------------
+
+Pair #164
+--------------------------------------------------
+ index: 898
+[pred] Jean-Baptiste Colbert (French: [l']br>[t]ain a., 29
+[true] Jean-Baptiste Colbert (French: [.ba.tist kl.b]; 29
+--------------------------------------------------
+
+Pair #165
+--------------------------------------------------
+ index: 678
+[pred] Stirling (Scottish) Stirling (Greek: "Srláin", "Stighle", or Stl
+[true] Stirling (/strl/; Scots: Stirlin; Scottish Gaelic: Sruighle
+--------------------------------------------------
+
+Pair #166
+--------------------------------------------------
+ index: 996
+[pred] Westphalia is a city in Anderson County, Kansas, United States. As of the 2010 census, its population was 163. 
+[true] Westphalia is a city in Anderson County, Kansas, United States. As of the 2010 census, its population was 163.
+--------------------------------------------------
+
+Pair #167
+--------------------------------------------------
+ index: 851
+[pred] In organic chemistry, an alkene is an unsaturated hydrocarbon that contains at least one carbon–carbon double bond. Alkene,
+[true] In organic chemistry, an alkene is an unsaturated hydrocarbon that contains at least one carbon–carbon double bond. Alkene,
+--------------------------------------------------
+
+Pair #168
+--------------------------------------------------
+ index: 778
+[pred] Taylor Township is a township in Fulton County, Pennsylvania, United States. The population was 1,118 at the 2010 census.  
+[true] Taylor Township is a township in Fulton County, Pennsylvania, United States. The population was 1,118 at the 2010 census.
+--------------------------------------------------
+
+Pair #169
+--------------------------------------------------
+ index: 563
+[pred] Hidden Hills is a city and gated community in Los Angeles County, California. It is located next to the city of Calabasas and
+[true] Hidden Hills is a city and gated community in Los Angeles County, California. It is located next to the city of Calabasas and
+--------------------------------------------------
+
+Pair #170
+--------------------------------------------------
+ index: 37
+[pred] BARK (Bär-Kinnalinisten Arithmodikator, Swedish for "Binnometal Relay Sy
+[true] BARK (Binär Aritmetisk Relä-Kalkylator, Swedish for "Binary Arithmetic Relay
+--------------------------------------------------
+
+Pair #171
+--------------------------------------------------
+ index: 465
+[pred] The Trinity Broads are part of the Broads National Park in Norfolk, England, comprising 5 broads in total. The three largest are Rolles
+[true] The Trinity Broads are part of the Broads National Park in Norfolk, England, comprising 5 broads in total. The three largest are Rolles
+--------------------------------------------------
+
+Pair #172
+--------------------------------------------------
+ index: 90
+[pred] Photoluminescence (abbreviated as PL) is light emission from any form of matter after the absorption of photons (e
+[true] Photoluminescence (abbreviated as PL) is light emission from any form of matter after the absorption of photons (e
+--------------------------------------------------
+
+Pair #173
+--------------------------------------------------
+ index: 322
+[pred] Parramatta ( / 'pârmât/) is a suburb and major business district in the metropolitan area of Sydney,
+[true] Parramatta (/prmt/) is a suburb and major business district in the metropolitan area of Sydney,
+--------------------------------------------------
+
+Pair #174
+--------------------------------------------------
+ index: 258
+[pred] USS Abraham Lincoln (CVN-72), is the fifth Nimitz-class aircraft carrier in the United States Navy. It is the second Navy
+[true] USS Abraham Lincoln (CVN-72), is the fifth Nimitz-class aircraft carrier in the United States Navy. It is the second Navy
+--------------------------------------------------
+
+Pair #175
+--------------------------------------------------
+ index: 331
+[pred] Freeman is a city in Cass County, Missouri, United States. The population was 482 at the 2010 census. 
+[true] Freeman is a city in Cass County, Missouri, United States. The population was 482 at the 2010 census.
+--------------------------------------------------
+
+Pair #176
+--------------------------------------------------
+ index: 118
+[pred] Walnut Lake Township is a township in Faribault County, Minnesota, United States. The population was 251 at the 2000 census.W
+[true] Walnut Lake Township is a township in Faribault County, Minnesota, United States. The population was 251 at the 2000 census.W
+--------------------------------------------------
+
+Pair #177
+--------------------------------------------------
+ index: 791
+[pred] There are a number of systems of communication in Uganda, including a system of telephony, radio and television broadcasts, internet, mail
+[true] There are a number of systems of communication in Uganda, including a system of telephony, radio and television broadcasts, internet, mail
+--------------------------------------------------
+
+Pair #178
+--------------------------------------------------
+ index: 413
+[pred] code 570.br> CCDCL CCDCL was the site of a Common Year-Starting Week of 850, which
+[true] For codepage, see CP850.Year 850 (DCCCL) was a common year starting on Wednesday (link will display the
+--------------------------------------------------
+
+Pair #179
+--------------------------------------------------
+ index: 526
+[pred] New Market is a town in Frederick County, Maryland, United States. The population was 656 at the 2010 census. The town bills itself as the
+[true] New Market is a town in Frederick County, Maryland, United States. The population was 656 at the 2010 census. The town bills itself as the
+--------------------------------------------------
+
+Pair #180
+--------------------------------------------------
+ index: 1
+[pred] Sterling is a village in Arenac County in the U.S. state of Michigan. The population was 530 at the 2010 census .
+[true] Sterling is a village in Arenac County in the U.S. state of Michigan. The population was 530 at the 2010 census.
+--------------------------------------------------
+
+Pair #181
+--------------------------------------------------
+ index: 673
+[pred] Emmetsburg is a city in Palo Alto County, Iowa, United States. The population was 3,904 at the 2010 census. It
+[true] Emmetsburg is a city in Palo Alto County, Iowa, United States. The population was 3,904 at the 2010 census. It
+--------------------------------------------------
+
+Pair #182
+--------------------------------------------------
+ index: 555
+[pred]         This is a list of German military aircraft organised alphabetically by manufacturer.
+[true] This is a list of German military aircraft organised alphabetically by manufacturer.
+--------------------------------------------------
+
+Pair #183
+--------------------------------------------------
+ index: 473
+[pred] Leonid Ilyich Brezhnev (Russian/Bosnia: "ван ван";
+[true] Leonid Ilyich Brezhnev (/brnf/; Russian: еонид 
+--------------------------------------------------
+
+Pair #184
+--------------------------------------------------
+ index: 423
+[pred] A pole weapon or polearm is a close combat weapon in which the main fighting part of the weapon is fitted to the end of a long shaft
+[true] A pole weapon or polearm is a close combat weapon in which the main fighting part of the weapon is fitted to the end of a long shaft
+--------------------------------------------------
+
+Pair #185
+--------------------------------------------------
+ index: 55
+[pred] The Battle of Bennington was a battle of the American Revolutionary War, part of the Saratoga campaign, that took place on August 16,
+[true] The Battle of Bennington was a battle of the American Revolutionary War, part of the Saratoga campaign, that took place on August 16,
+--------------------------------------------------
+
+Pair #186
+--------------------------------------------------
+ index: 192
+[pred] Saints Felicity () and Perpetua () are Christian martyrs believed to have died in the 3rd century. Perpetu
+[true] Saints Perpetua and Felicity (believed to have died 203) are Christian martyrs of the 3rd century. Perpetu
+--------------------------------------------------
+
+Pair #187
+--------------------------------------------------
+ index: 530
+[pred] Deer Park is a city in the U.S. state of Texas within the Houston–Sugar Land–Baytown metropolitan area
+[true] Deer Park is a city in the U.S. state of Texas within the Houston–Sugar Land–Baytown metropolitan area
+--------------------------------------------------
+
+Pair #188
+--------------------------------------------------
+ index: 370
+[pred] Adam de Lamborghinius Mulrawaes, also called Adam Putheyieri, was a Paris Master who studied under Petrus Villa
+[true] Adam Pulchrae Mulieris, also called Adam de Puteorumvilla, was a Paris master who studied under Peter of Lamb
+--------------------------------------------------
+
+Pair #189
+--------------------------------------------------
+ index: 637
+[pred] Austin Township is a civil township of Sanilac County of the U.S. state of Michigan. As of the 2000 census, the town
+[true] Austin Township is a civil township of Sanilac County of the U.S. state of Michigan. As of the 2000 census, the town
+--------------------------------------------------
+
+Pair #190
+--------------------------------------------------
+ index: 862
+[pred] Earl Eugene Scruggs (January 6, 1924 – March 28, 2012) was an American musician noted for perfecting and popularizing a
+[true] Earl Eugene Scruggs (January 6, 1924 – March 28, 2012) was an American musician noted for perfecting and popularizing a
+--------------------------------------------------
+
+Pair #191
+--------------------------------------------------
+ index: 510
+[pred] The Dual Alliance was a defensive alliance between Germany and Austria-Hungary, which was created by treaty on 7 October 1879 as part of
+[true] The Dual Alliance was a defensive alliance between Germany and Austria-Hungary, which was created by treaty on 7 October 1879 as part of
+--------------------------------------------------
+
+Pair #192
+--------------------------------------------------
+ index: 921
+[pred] Iambe (Greek: ') in Greek mythology was a Thracian woman, daughter of Pan and Echo, granddaughter
+[true] Iambe (Greek: ) in Greek mythology was a Thracian woman, daughter of Pan and Echo, granddaughter
+--------------------------------------------------
+
+Pair #193
+--------------------------------------------------
+ index: 857
+[pred] Keep the Aspidistra Flying, first published in 1936, is a socially critical novel by George Orwell. It is set in 1930
+[true] Keep the Aspidistra Flying, first published in 1936, is a socially critical novel by George Orwell. It is set in 1930
+--------------------------------------------------
+
+Pair #194
+--------------------------------------------------
+ index: 832
+[pred] Uehling is a village in Dodge County, Nebraska, United States. The population was 230 at the 2010 census . 
+[true] Uehling is a village in Dodge County, Nebraska, United States. The population was 230 at the 2010 census.
+--------------------------------------------------
+
+Pair #195
+--------------------------------------------------
+ index: 52
+[pred] Simon Says 'Simon Says' is a children's game for 3 or more players in which one player takes the role of
+[true] Simon Says (or Simple Simon Says) is a child's game for 3 or more players where 1 player takes the role of "S
+--------------------------------------------------
+
+Pair #196
+--------------------------------------------------
+ index: 208
+[pred] Lady for a Day is a 1933 American Pre-Code comedy-drama film directed by Frank Capra. The screenplay by Robert Riskin
+[true] Lady for a Day is a 1933 American Pre-Code comedy-drama film directed by Frank Capra. The screenplay by Robert Riskin
+--------------------------------------------------
+
+Pair #197
+--------------------------------------------------
+ index: 273
+[pred] In the early Vedic religion, Vritra (, "vrtra", "the serpent") is a dragon, the
+[true] In the early Vedic religion, Vritra (Vtra  "the enveloper"), is a serpent or dragon, the
+--------------------------------------------------
+
+Pair #198
+--------------------------------------------------
+ index: 562
+[pred] Silver Creek Township is a civil township of Cass County in the U.S. state of Michigan. The population was 3,218 at
+[true] Silver Creek Township is a civil township of Cass County in the U.S. state of Michigan. The population was 3,218 at
+--------------------------------------------------
+
+Pair #199
+--------------------------------------------------
+ index: 134
+[pred] Handley is a town in Kanawha County, West Virginia, USA. The population was 349 at the 2010 census. Handley was
+[true] Handley is a town in Kanawha County, West Virginia, USA. The population was 349 at the 2010 census. Handley was
+--------------------------------------------------
+
+Pair #200
+--------------------------------------------------
+ index: 294
+[pred] Waco, Georgia is a city in Haralson County, United States. It is near the Alabama state line. The population was 669 at
+[true] Waco is a city in Haralson County, Georgia, United States. It is near the Alabama state line. The population was 469 at
+--------------------------------------------------
+
+
+{'eval_loss': 1.2134764194488525, 'eval_model_preparation_time': 0.0208, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 31.6484375, 'eval_token_set_precision': 0.9333014527888476, 'eval_token_set_recall': 0.932131974233048, 'eval_token_set_f1': 0.9319984703859996, 'eval_token_set_f1_sem': np.float64(0.004122264187956197), 'eval_n_ngrams_match_1': 20.813, 'eval_n_ngrams_match_2': 18.679, 'eval_n_ngrams_match_3': 17.116, 'eval_num_true_words': 21.995, 'eval_num_pred_words': 22.233, 'eval_bleu_score': np.float64(82.86590522506181), 'eval_bleu_score_sem': np.float64(0.8881668154614267), 'eval_rouge_score': np.float64(0.9281283164751428), 'eval_exact_match': np.float64(0.56), 'eval_exact_match_sem': np.float64(0.015704987954361718), 'eval_emb_cos_sim': 0.9848997592926025, 'eval_emb_cos_sim_sem': np.float64(0.009169979952275753), 'eval_emb_top1_equal': 0.8125, 'eval_emb_top1_equal_sem': np.float64(0.10077822208404541), 'eval_runtime': 8075.1435, 'eval_samples_per_second': 0.124, 'eval_steps_per_second': 0.008}
++++ Evaluation Metrics +++
+eval_loss: 1.2134764194488525
+eval_model_preparation_time: 0.0208
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 31.6484375
+eval_token_set_precision: 0.9333014527888476
+eval_token_set_recall: 0.932131974233048
+eval_token_set_f1: 0.9319984703859996
+eval_token_set_f1_sem: 0.004122264187956197
+eval_n_ngrams_match_1: 20.813
+eval_n_ngrams_match_2: 18.679
+eval_n_ngrams_match_3: 17.116
+eval_num_true_words: 21.995
+eval_num_pred_words: 22.233
+eval_bleu_score: 82.86590522506181
+eval_bleu_score_sem: 0.8881668154614267
+eval_rouge_score: 0.9281283164751428
+eval_exact_match: 0.56
+eval_exact_match_sem: 0.015704987954361718
+eval_emb_cos_sim: 0.9848997592926025
+eval_emb_cos_sim_sem: 0.009169979952275753
+eval_emb_top1_equal: 0.8125
+eval_emb_top1_equal_sem: 0.10077822208404541
+eval_runtime: 8075.1435
+eval_samples_per_second: 0.124
+eval_steps_per_second: 0.008
+Time taken: 8075.59725189209
+Current memory usage: 17.70MB; Peak: 22.33MB

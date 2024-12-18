@@ -1,1 +1,5 @@
 max_length,bleu_score,dataset
+32,53.5393905776896,trec-covid
+32,82.86590522506181,dbpedia-entity
+28,81.94094012882425,dbpedia-entity
+28,52.560428637713414,trec-covid
