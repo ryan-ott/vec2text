@@ -15,7 +15,7 @@ source /home/scur0989/v2t-env/bin/activate
 cd /home/scur0989/vec2text/
 
 # --- Configuration ---
-dataset= "trec-covid" #"dbpedia-entity"  # CHANGE HERE: Dataset to use
+dataset="trec-covid" #"dbpedia-entity"  # CHANGE HERE: Dataset to use
 start_len=32
 step_size=4
 error_threshold=5.0  # Threshold for stopping the search

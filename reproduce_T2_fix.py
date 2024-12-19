@@ -32,12 +32,12 @@ def main(args):
         random.seed(42) 
         
         # Get random indices
-        indices = random.sample(range(len(dataset)), args.max_samples)
+            new_length = min(len(beir_dataset_name), args.max_samples)
+            beir_dataset_name = beir_dataset_name.select(range(new_length))
         
         # Select random samples
-        dataset = dataset.select(indices)
         
-        print(f"Randomly selected {args.max_samples} samples from the dataset.")
+        print(f"cut dataset at {args.max_samples} samples.")
 
     # Tokenize the dataset with both tokenizers (model tokenizer and embedder tokenizer)
     def tokenize_function(examples):

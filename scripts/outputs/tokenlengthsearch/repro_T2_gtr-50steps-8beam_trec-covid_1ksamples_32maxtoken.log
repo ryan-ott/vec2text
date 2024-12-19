@@ -1,0 +1,1300 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='trec-covid', beam_width=8, steps=50, batch_size=16, max_samples=120, output_csv=None, max_length=32)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: trec-covid
+Original dataset size: 100000
+Randomly selected 120 samples from the dataset.
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 120
+})
+
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 120
+Length of decoded_labels: 120
+
+Contents of decoded_preds:
+Index 0: Sentiment lexicon plays a vital role in lexicon-based sentiment analysis. The lexicon-based method is often preferred
+Index 1: __BACK With the non-medical use of prescription opioids increasingly becoming a method of abuse in Canada, the number of patients 
+Index 2: Background and objectives: SARS-CoV-2 is a new type of coronavirus that can cause respiratory disease and affect people, COVI
+Index 3: As the oldest, but least understood sensory system in evolution, the olfactory system represents one of the most challenging research targets in sensory neurobio
+Index 4: Optical biosensor technology continues to be the method of choice for label-free, real-time interaction analysis. But when it comes to improving the
+Index 5:                
+Index 6:                
+Index 7: Although the degree of dispersion in Poincaré plots of electroencephalograms (EEG), termed the Poincaré
+Index 8: OBJECT Complete sellar floor reconstruction is critical to avoid postoperative cerebrospinal fluid (CSF) leakage during transgluta
+Index 9: Infrascorial mediastectomy or single-incision surgery is a minimally invasive surgical option for patients with small anterior
+Index 10: The avian infectious bronchitis virus is classified into serotypes or genotypes (or both) in different poultry-producing
+Index 11: We present a high aspect ratio microfluidic device for culturing cells inside an array of microchambers with continuous perfusion of
+Index 12: Arthritis and other rheumatic conditions are among the most common chronic diseases, affecting 70 million U.S. adults in 2001
+Index 13: Norovirus is the most common cause of non-bacterial gastroenteritis and is a burden worldwide. The increasing norovirus diversity is currently
+Index 14:                
+Index 15:                
+Index 16: We report a case of an Italian wolf (Italian wolf coronavirus) in canis pantropic lupus
+Index 17:                
+Index 18: BACROUND Mitral repair is recommended for patients with significant organic mitral regurgitation (MR). The nondissectional dynamic mitral
+Index 19:                
+Index 20: Objective: To investigate the clinical characteristics of medical staff with novel coronavirus pneumonia(NCP). Methods: 30 patients infected with novel
+Index 21: Introduction The mechanical properties of the mesh "materials" used in a hernia contribute greatly to the repair behavior of the material.An
+Index 22: Site (SSI) FOUNDATION: Effectiveness and efficacy of antibiotic tension for the prevention of surgical prophylaxis after open infection
+Index 23:                
+Index 24: To analyze the prevention plan of traditional Chinese medicine (TCM) issued by different regions after the spread of coronavirus disease 2019 (COVID
+Index 25: The number of active cases in the UK Covid-19 epidemic, the case fatality rate, the susceptible proportion of the population, and how well the lock
+Index 26: Enterovirus D68 (EV-D68) is a member of the species Enterovirus D in the genus Enterovirus of
+Index 27: In recent decades epidemic disease modelling has been attempting to address transitions from a study area to a more generalized approach to dealing with entire commun
+Index 28: following technologies: Previously unknown techniques have led to safer operation of patients with robot-assisted zero partial ischemia neovati
+Index 29:                
+Index 30: High-frequency oscillatory ventilation (HFOV) is now a mainstay of respiratory care for the neonatal patient. In this chapter,
+Index 31:                
+Index 32: Four intestinal viruses were compared in piglets, which did not induce an oral immune response due to their antibody ability. Antiinjection was detected with
+Index 33: The ongoing novel coronavirus (nCoV-2019) pandemic is expected to develop into an unprecedented stress test for health care systems worldwide
+Index 34: Study objective: To determine the relationship between delirium in the intensive care unit (ICU) and outcomes including length of stay in the hospital. Design
+Index 35: On March 30, 2020, the AACR Board of Directors provided a letter to the U.S. Congressional leadership on behalf of its members in
+Index 36: The world has recently undergone the most ambitious mitigation effort in a century, consisting of wide-spread quarantines aimed at preventing
+Index 37:                
+Index 38: The relevance of right atrial pressure (RAP) as systemic filling pressure mean for venous return (QVR) and the backpressure
+Index 39:                
+Index 40: Cygalobacterium mettavirus (CMV): CMV is common in immunocompetent patients in intensive care units and over
+Index 41: shown in bold: Early morbidity and mortality are lower after open aortic/endovascular repair than aftermath, due to repair
+Index 42: This report aims to review current data on single-incision (single-port) laparoscopic surgery (SILS) for bari
+Index 43:                
+Index 44: [Image]]: Nucleoside analogues are among the most common medications given for the treatment of viral infections and cancers. 
+Index 45: in December 2019 and January 2020; within 2018, novel coronavirus (CoV) (infected pneumonia) (NCIP) occurred as 
+Index 46: present The goal of this research was to study TARGET patients who underwent total laparoscopic extraperitoneal repair by the use of s
+Index 47: Tetraspanins are suggested to regulate the composition of cell membrane components and control intracellular transport, which leaves them vulnerable to utilization by pathogen
+Index 48: Fusiform perforating aneurysms of posterior or circumferential arterial branches involving the intracranial circulation vessels are 
+Index 49:                
+Index 50: purpose of gaining high-obesity, ASA patients undergoing Laparoscopic Colectomy (American Society of Anesthesiologists
+Index 51: Together with various hosts and environments, ubiquitous microbes interact closely with each other forming an intertwined system or community. Of interest,
+Index 52:                
+Index 53: been shown that the contents of sigma-C avian virus cell reattachment protein (sigmaoC) is a multi
+Index 54:            Cirometz babotium plant habit 
+Index 55: The COVID-19 pandemic is a global contagion of unprecedented proportions, health, and economic and social consequences. As with many
+Index 56: RNA pseudoknots are structural elements found in almost all classes of RNA. Pseudoknots form when a single
+Index 57:                
+Index 58: Hepatitis C virus (HCV) has been identified as the main causative agent of post-transfusion non-A, non-
+Index 59: Increasing the price of cigarettes can reduce smoking substantially by discouraging initiation among youths and young adults, prompting quit attempts, and reducing
+Index 60: BARD OBJECT The aim of this study was to determine the outcomes concerning the use of the stent (Valeo Peripides
+Index 61: Beginning in 2002, a small number of pig farms in western Canada began reporting 4-7-week-old pigs with bilateral hind-
+Index 62: This study is anchored on the use of an eco-friendly effective plasma technique and cationization treatment to improve the hydrophobic nature of polyester
+Index 63:                
+Index 64: The basic reproduction number is a key parameter determining whether an infectious disease will persist. Its counterpart over time, the effective reproduction number, is of
+Index 65:                
+Index 66: The purpose of this meeting was to provide a forum for expert presentations and discussion about the threats of bioterrorism and emerging infectious diseases, and to address the
+Index 67:                
+Index 68: Mathematical models of transmission have become invaluable management tools in planning for the control of emerging infectious diseases. A key variable in such models is the reproductive
+Index 69:                
+Index 70: BACs and backgrounds It is not clear whether digital single-operator agiosmo cholerascopy (D-S
+Index 71: Background Aft. The direction and magnitude of intra-aneurysmal jet flow are significant risk factors of subarachnoid hemor
+Index 72: Contributions The combined comparative effectiveness of percutaneous closure of patent foramen ovale (PFO) vs. medical therapy plus patent therapy
+Index 73: The pneumonia caused by the novel coronavirus (nCoV–2019), which began in December 2019, has become the most serious public health problem,
+Index 74: A novel coronavirus (nCoV) spillover event, with its epicenter in Wuhan, People's Republic of China, has
+Index 75: Myelodysplastic haematosis (MADDS) is the most frequent backhematologic malignment upon the my
+Index 76: The outbreak of 2019 novel coronavirus (COVID-19) infection emerged in Wuhan, China, in December 2019. Since then the novel cor
+Index 77: BACKG/There is little descriptive data on Stenotrophomonas maltophilia hospital-acquired 
+Index 78:                
+Index 79:                
+Index 80: and has been shown to rescue human B lymphocytes when viewed in vitro, type I Interferon (INVAN)
+Index 81: high-profile antibody memory. The basis of the immunological responses recovered from vaccination is the current longitudinal background of acute respiratory syndrome (Arthropo
+Index 82: To date real-time quantitative PCR and gene expression microarrays are the methods of choice for quantification of nucleic acids. Herein
+Index 83: PUSH REVIEW Most studies on the history of natural upper respiratory tract infections and their viral complications provide the purposes of ascertainment-to-self
+Index 84: we had seen—at the request of Randy Cron and his collaborators the letter linked to the cytokine storm syndrome (CSS) seen
+Index 85: The British Columbia Ministry of Health's Framework for Core Functions in Public Health was the catalyst that inspired this review of best practices in health emergency management.
+Index 86: Background Basal insulin analogues aim for protracted glycemic control with minimal adverse effects. Purpose To assess the comparative
+Index 87:                
+Index 88:                
+Index 89: Although several clinical trials are now underway to test possible therapies, the worldwide response to the COVID-19 outbreak has been largely limited to monitoring/con
+Index 90: Social distancing has been proven to be an effective measure against the spread of the COVIRonad Virus Disease (COVI2017
+Index 91: TO REPORT THE OBJECTIVE REPORT OF THE novel. Peroperative outcomes for 300 patients who had undergone gynec
+Index 92: Brain oscillatory activity from the midline prefrontal region has been shown to reflect brain dysfunction in subjects with Major Depressive Disorder (MDD).
+Index 93: Simultaneous extraction and separation of liquidritic, glycyrrhizin acid, and
+Index 94:                
+Index 95: To manage the spread of coronavirus, health entities have urged the public to take preventative measures such as social distancing and hand
+Index 96: IT (OBJICTIVE) to analyze how governments, hospitals and information technology companies use Internet technology to provide online health services during an early stage 
+Index 97: To investigate the effect of balneotherapy on body mass index, adipokine levels, sleep disturbances, and quality of life in
+Index 98:                
+Index 99: revisit the parameter estimation framework for population epidemiology, we apply it empirically to various biological dynamical systems to calibrate and model with time series, particularly
+Index 100: Prostate cancer is one of the most common cancers in men in the United States. Comprehensive understanding of the biology contributing to prostate cancer will have important clinical
+Index 101: Teaching the public health core competency of policy development to baccalaureate student nurses was the purpose of this project. This project was implemented through the
+Index 102: This review gives an overview of the development of machine learning in geoscience. A thorough analysis of the co-developments of machine learning applications throughout the last
+Index 103: IN vitro background: Hydroxychloroquine and chloroxychloroquine have antiviral effects against acute respiratory syndrome,
+Index 104: The acute respiratory coronavirus 2 severe respiratory coronavirus 2 (SARS-CoV-2) outbreak resulted 11,555 confirmed cases
+Index 105: The combination of increased referral for genetic testing and the current shortage of genetic counselors has necessitated the development and implementation of alternative models of
+Index 106: BACKGROUND The objective of this study was to evaluate the safety and efficacy of a novel 5-mm linear laparoscopic stapler
+Index 107:                
+Index 108: tragen als Führungskräfte ihre Arbeit, ihrer Aufstandung und ihrer Sorgen, ihrer Aufstandung und ihrer Verantwortung. Für
+Index 109: As the world fights to contain and control the spread of the Novel Coronavirus, countries are imposing severe measures from restrictions on travel and social gatherings
+Index 110: In the last decade, we faced a large number of emerging pathogens. As a consequence we had to adapt our medical practice as well as
+Index 111: Agile methods are designed for handling uncertainty as well as reducing risks in product development through transparency, inspection, and adaptation. Applying an effective risk management is
+Index 112: Standard cuff sutures used in vaginal reproximation from laparoscopic haemostomyostomies and
+Index 113: It was acknowledged long ago that viruses may cause cancer in animals. In 1911, Peyton Rous described viruses as causing sarcomas
+Index 114: PURPOSE Seroma is a frequent postoperative complication after laparoscopic direct inguinal hernia repair (both
+Index 115: The pipeline embolization diversion device (PED) has become the widely used method to treat OBJECTIVE Flow from 
+Index 116: Viruses are smaller and simpler in construction than unicellular microorganisms, and they contain only one type of nucleic acid
+Index 117: Non-suicidal self-injury (NSSI) among adolescents is a major health concern globally. The epidemiology and
+Index 118:                
+Index 119: Patients undergoing hemodialysis are at risk for bloodstream infections (BSIs), and preventing these infections in this high-risk population
+
+Contents of decoded_labels:
+Index 0: Sentiment lexicon plays a vital role in lexicon-based sentiment analysis. The lexicon-based method is often preferred because
+Index 1: BACKGROUND With the non-medical use of prescription opioids increasingly becoming a method of abuse in Canada, the number of patients 
+Index 2: Background and objectives: SARS-CoV-2 is a new type of coronavirus that can affect people and causes respiratory disease, COVI
+Index 3: As the oldest, but least understood sensory system in evolution, the olfactory system represents one of the most challenging research targets in sensory neurobio
+Index 4: Optical biosensor technology continues to be the method of choice for label-free, real-time interaction analysis. But when it comes to improving the
+Index 5: 
+Index 6: 
+Index 7: Although the degree of dispersion in Poincaré plots of electroencephalograms (EEG), termed the Poincaré
+Index 8: OBJECTIVE Complete sellar floor reconstruction is critical to avoid postoperative cerebrospinal fluid (CSF) leakage during transs
+Index 9: Infrasternal mediastinoscopic single-incision surgery is a minimally invasive surgical option for patients with anterior medias
+Index 10: The avian infectious bronchitis virus is classified into serotypes or genotypes (or both) in different poultry-producing
+Index 11: We present a high aspect ratio microfluidic device for culturing cells inside an array of microchambers with continuous perfusion of
+Index 12: Arthritis and other rheumatic conditions are among the most common chronic diseases, affecting 70 million U.S. adults in 2001
+Index 13: Norovirus is the most common cause of non-bacterial gastroenteritis and is a burden worldwide. The increasing norovirus diversity is currently
+Index 14: 
+Index 15: 
+Index 16: We report a case in an Italian wolf ( Canis lupus italicus) of pantropic canine coronavirus
+Index 17: 
+Index 18: BACKGROUND Mitral repair is recommended for patients with significant organic mitral regurgitation (MR). The nonresectional dynamic mitral
+Index 19: 
+Index 20: Objective: To investigate the clinical characteristics of medical staff with novel coronavirus pneumonia(NCP). Methods: 30 patients infected with novel
+Index 21: INTRODUCTION The material properties of meshes used in hernia repair contribute to the overall mechanical behavior of the repair. The ani
+Index 22: BACKGROUND The efficacy of antibiotic prophylaxis for the prevention of surgical-site infection (SSI) after open tension
+Index 23: 
+Index 24: To analyze the prevention plan of traditional Chinese medicine (TCM) issued by different regions after the spread of coronavirus disease 2019 (COVID
+Index 25: The number of active cases in the UK Covid-19 epidemic, the case fatality rate, the susceptible proportion of the population, and how well the lock
+Index 26: Enterovirus D68 (EV-D68) is a member of the species Enterovirus D in the genus Enterovirus of
+Index 27: In the past several decades, epidemic modelling for communicable diseases has experienced transitions from treating the entire study area as a whole to addressing spatial
+Index 28: BACKGROUND Recent innovations in technology and operative techniques have enabled safe performance of robot-assisted zero-ischaemia partial n
+Index 29: 
+Index 30: High-frequency oscillatory ventilation (HFOV) is now a mainstay of respiratory care for the neonatal patient. In this chapter,
+Index 31: 
+Index 32: Four viruses were compared for their ability to induce an intestinal antibody response in piglets. Antibodies were not detected in response to oral vaccination with
+Index 33: The ongoing novel coronavirus (2019-nCoV) pandemic is expected to develop into an unprecedented stress test for health care systems worldwide
+Index 34: Study objective: To determine the relationship between delirium in the intensive care unit (ICU) and outcomes including length of stay in the hospital. Design
+Index 35: On March 30, 2020, the AACR Board of Directors provided a letter to the U.S. Congressional leadership on behalf of its members in
+Index 36: The world has recently undergone the most ambitious mitigation effort in a century, consisting of wide-spread quarantines aimed at preventing
+Index 37: 
+Index 38: The relevance of right atrial pressure (RAP) as the backpressure for venous return (QVR) and mean systemic filling pressure
+Index 39: 
+Index 40: BACKGROUND: Cytomegalovirus (CMV) infection is common in immunocompetent patients in intensive care units (I
+Index 41: BACKGROUND Early morbidity and mortality are generally lower after endovascular aortic repair (EVAR), than after open repair
+Index 42: This report aims to review current data on single-incision (single-port) laparoscopic surgery (SILS) for bari
+Index 43: 
+Index 44: [Image: see text] Nucleoside analogues are among the most common medications given for the treatment of viral infections and cancers.
+Index 45: In December 2019 and January 2020, novel coronavirus (2019-nCoV) - infected pneumonia (NCIP) occurred in
+Index 46: BACKGROUND The goal of the present research was to study patients who underwent laparoscopic total extraperitoneal repair using slit
+Index 47: Tetraspanins are suggested to regulate the composition of cell membrane components and control intracellular transport, which leaves them vulnerable to utilization by pathogen
+Index 48: Intracranial circumferential fusiform aneurysms of the posterior circulation involving arterial branches or perforating vessels are
+Index 49: 
+Index 50: PURPOSE Patients undergoing laparoscopic-assisted colectomy with obesity, high American Society of Anesthesiologists (ASA
+Index 51: Together with various hosts and environments, ubiquitous microbes interact closely with each other forming an intertwined system or community. Of interest,
+Index 52: 
+Index 53: Previous work has shown that the avian reovirus cell-attachment sigma C (sigmaC) protein is a multi
+Index 54: Cibotium barometz plant habit
+Index 55: The COVID-19 pandemic is a global contagion of unprecedented proportions and health, economic, and social consequences. As with many
+Index 56: RNA pseudoknots are structural elements found in almost all classes of RNA. Pseudoknots form when a single
+Index 57: 
+Index 58: Hepatitis C virus (HCV) has been identified as the main causative agent of post-transfusion non-A, non-
+Index 59: Increasing the price of cigarettes can reduce smoking substantially by discouraging initiation among youths and young adults, prompting quit attempts, and reducing
+Index 60: OBJECTIVES The aim of the present study was to determine the outcomes of using the Valeo stent (Bard Perip
+Index 61: Beginning in 2002, a small number of pig farms in western Canada began reporting 4-7-week-old pigs with bilateral hind-
+Index 62: This study is anchored on the use of an eco-friendly effective plasma technique and cationization treatment to improve the hydrophobic nature of polyester
+Index 63: 
+Index 64: The basic reproduction number is a key parameter determining whether an infectious disease will persist. Its counterpart over time, the effective reproduction number, is of
+Index 65: 
+Index 66: The purpose of this meeting was to provide a forum for expert presentations and discussion about the threats of bioterrorism and emerging infectious diseases, and to address the
+Index 67: 
+Index 68: Mathematical models of transmission have become invaluable management tools in planning for the control of emerging infectious diseases. A key variable in such models is the reproductive
+Index 69: 
+Index 70: BACKGROUND & AIMS It is not clear whether digital single-operator cholangioscopy (D-SOC
+Index 71: BACKGROUND The direction and magnitude of intra-aneurysmal flow jet are significant risk factors of subarachnoid hemor
+Index 72: BACKGROUND The comparative effectiveness of percutaneous closure of patent foramen ovale (PFO) plus medical therapy versus medical therapy
+Index 73: The pneumonia caused by the novel coronavirus (2019-nCoV), which began in December 2019, has become the most serious public health problem,
+Index 74: A novel coronavirus (nCoV) spillover event, with its epicenter in Wuhan, People's Republic of China, has
+Index 75: BACKGROUND Myelodysplastic syndrome (MDS) is one of the most frequent haematologic malignancies of the
+Index 76: The outbreak of 2019 novel coronavirus (COVID-19) infection emerged in Wuhan, China, in December 2019. Since then the novel cor
+Index 77: BACKGROUND: There is little descriptive data on Stenotrophomonas maltophilia hospital-acquired
+Index 78: 
+Index 79: 
+Index 80: BACKGROUND We recently demonstrated that type I Interferon (IFN) rescues in vitro, human B-lymphocytes
+Index 81: BACKGROUND Immunological memory is the basis for vaccination. Currently, the longitudinal profiles of antibody responses in recovered severe acute respiratory syndrome (S
+Index 82: To date real-time quantitative PCR and gene expression microarrays are the methods of choice for quantification of nucleic acids. Herein
+Index 83: PURPOSE OF REVIEW Most studies on the natural history of viral upper respiratory tract infections and their complications rely for ascertainment on self-
+Index 84: It was with great interest that we read the letter from Randy Cron and collaborators (1) linking the cytokine storm syndrome (CSS) seen
+Index 85: The British Columbia Ministry of Health's Framework for Core Functions in Public Health was the catalyst that inspired this review of best practices in health emergency management.
+Index 86: Background Basal insulin analogues aim for protracted glycemic control with minimal adverse effects. Purpose To assess the comparative
+Index 87: 
+Index 88: 
+Index 89: Although several clinical trials are now underway to test possible therapies, the worldwide response to the COVID-19 outbreak has been largely limited to monitoring/con
+Index 90: Social distancing has been proven as an effective measure against the spread of the infectious COronaVIrus Disease 2019 (COVID-19
+Index 91: OBJECTIVE To report the perioperative outcomes of 200 patients with gynecologic cancer who underwent surgery during the Novel
+Index 92: Brain oscillatory activity from the midline prefrontal region has been shown to reflect brain dysfunction in subjects with Major Depressive Disorder (MDD).
+Index 93: Simultaneous extraction and separation of liquiritin, glycyrrhizic acid, and 
+Index 94: 
+Index 95: To manage the spread of coronavirus, health entities have urged the public to take preventative measures such as social distancing and hand
+Index 96: OBJECTIVE: To analyze how governments, hospitals and information technology(IT) companies use Internet technology to provide online health services during the early stage
+Index 97: To investigate the effect of balneotherapy on body mass index, adipokine levels, sleep disturbances, and quality of life in
+Index 98: 
+Index 99: We revisit the parameter estimation framework for population biological dynamical systems, and apply it to calibrate various models in epidemiology with empirical time series, namely
+Index 100: Prostate cancer is one of the most common cancers in men in the United States. Comprehensive understanding of the biology contributing to prostate cancer will have important clinical
+Index 101: Teaching the public health core competency of policy development to baccalaureate student nurses was the purpose of this project. This project was implemented through 
+Index 102: This review gives an overview of the development of machine learning in geoscience. A thorough analysis of the co-developments of machine learning applications throughout the last
+Index 103: BACKGROUND Hydroxychloroquine and chloroquine have antiviral effects in vitro against severe acute respiratory syndrome-
+Index 104: The severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) outbreak resulted in 5,993,317 confirmed cases worldwide
+Index 105: The combination of increased referral for genetic testing and the current shortage of genetic counselors has necessitated the development and implementation of alternative models of
+Index 106: BACKGROUND The objective of this study was to evaluate the safety and efficacy of a novel 5-mm laparoscopic linear stapler
+Index 107: 
+Index 108: Führungskräfte stehen in der Verantwortung, für den Erfolg ihrer Mitarbeiter*innen Sorge zu tragen, diese zu fördern und zu fordern. Dies geschie
+Index 109: As the world fights to contain and control the spread of the Novel Coronavirus, countries are imposing severe measures from restrictions on travel and social gatherings
+Index 110: In the last decade, we faced a large number of emerging pathogens. As a consequence we had to adapt our medical practice as well as
+Index 111: Agile methods are designed for handling uncertainty as well as reducing risks in product development through transparency, inspection, and adaptation. Applying an effective risk management is
+Index 112: Standard sutures used in vaginal cuff reapproximation in total laparoscopic hysterectomies and h
+Index 113: It was acknowledged long ago that viruses may cause cancer in animals. In 1911, Peyton Rous described viruses as causing sarcomas
+Index 114: PURPOSE Seroma is a frequent postoperative complication after laparoscopic direct inguinal hernia repair (both
+Index 115: OBJECTIVE Flow diversion using the Pipeline embolization device (PED) has become a widely used treatment method for
+Index 116: Viruses are smaller and simpler in construction than unicellular microorganisms, and they contain only one type of nucleic acid
+Index 117: Non-suicidal self-injury (NSSI) among adolescents is a major health concern globally. The epidemiology and
+Index 118: 
+Index 119: Patients undergoing hemodialysis are at risk for bloodstream infections (BSIs), and preventing these infections in this high-risk population is
+
+Pair #1
+--------------------------------------------------
+ index: 63
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 50
+[pred] purpose of gaining high-obesity, ASA patients undergoing Laparoscopic Colectomy (American Society of Anesthesiologists
+[true] PURPOSE Patients undergoing laparoscopic-assisted colectomy with obesity, high American Society of Anesthesiologists (ASA
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 113
+[pred] It was acknowledged long ago that viruses may cause cancer in animals. In 1911, Peyton Rous described viruses as causing sarcomas
+[true] It was acknowledged long ago that viruses may cause cancer in animals. In 1911, Peyton Rous described viruses as causing sarcomas
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 82
+[pred] To date real-time quantitative PCR and gene expression microarrays are the methods of choice for quantification of nucleic acids. Herein
+[true] To date real-time quantitative PCR and gene expression microarrays are the methods of choice for quantification of nucleic acids. Herein
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 58
+[pred] Hepatitis C virus (HCV) has been identified as the main causative agent of post-transfusion non-A, non-
+[true] Hepatitis C virus (HCV) has been identified as the main causative agent of post-transfusion non-A, non-
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+ index: 18
+[pred] BACROUND Mitral repair is recommended for patients with significant organic mitral regurgitation (MR). The nondissectional dynamic mitral
+[true] BACKGROUND Mitral repair is recommended for patients with significant organic mitral regurgitation (MR). The nonresectional dynamic mitral
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+ index: 33
+[pred] The ongoing novel coronavirus (nCoV-2019) pandemic is expected to develop into an unprecedented stress test for health care systems worldwide
+[true] The ongoing novel coronavirus (2019-nCoV) pandemic is expected to develop into an unprecedented stress test for health care systems worldwide
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+ index: 17
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+ index: 31
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+ index: 95
+[pred] To manage the spread of coronavirus, health entities have urged the public to take preventative measures such as social distancing and hand
+[true] To manage the spread of coronavirus, health entities have urged the public to take preventative measures such as social distancing and hand
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+ index: 71
+[pred] Background Aft. The direction and magnitude of intra-aneurysmal jet flow are significant risk factors of subarachnoid hemor
+[true] BACKGROUND The direction and magnitude of intra-aneurysmal flow jet are significant risk factors of subarachnoid hemor
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+ index: 68
+[pred] Mathematical models of transmission have become invaluable management tools in planning for the control of emerging infectious diseases. A key variable in such models is the reproductive
+[true] Mathematical models of transmission have become invaluable management tools in planning for the control of emerging infectious diseases. A key variable in such models is the reproductive
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+ index: 117
+[pred] Non-suicidal self-injury (NSSI) among adolescents is a major health concern globally. The epidemiology and
+[true] Non-suicidal self-injury (NSSI) among adolescents is a major health concern globally. The epidemiology and
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+ index: 110
+[pred] In the last decade, we faced a large number of emerging pathogens. As a consequence we had to adapt our medical practice as well as
+[true] In the last decade, we faced a large number of emerging pathogens. As a consequence we had to adapt our medical practice as well as
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+ index: 74
+[pred] A novel coronavirus (nCoV) spillover event, with its epicenter in Wuhan, People's Republic of China, has
+[true] A novel coronavirus (nCoV) spillover event, with its epicenter in Wuhan, People's Republic of China, has
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+ index: 54
+[pred]            Cirometz babotium plant habit 
+[true] Cibotium barometz plant habit
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+ index: 105
+[pred] The combination of increased referral for genetic testing and the current shortage of genetic counselors has necessitated the development and implementation of alternative models of
+[true] The combination of increased referral for genetic testing and the current shortage of genetic counselors has necessitated the development and implementation of alternative models of
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+ index: 51
+[pred] Together with various hosts and environments, ubiquitous microbes interact closely with each other forming an intertwined system or community. Of interest,
+[true] Together with various hosts and environments, ubiquitous microbes interact closely with each other forming an intertwined system or community. Of interest,
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+ index: 46
+[pred] present The goal of this research was to study TARGET patients who underwent total laparoscopic extraperitoneal repair by the use of s
+[true] BACKGROUND The goal of the present research was to study patients who underwent laparoscopic total extraperitoneal repair using slit
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+ index: 28
+[pred] following technologies: Previously unknown techniques have led to safer operation of patients with robot-assisted zero partial ischemia neovati
+[true] BACKGROUND Recent innovations in technology and operative techniques have enabled safe performance of robot-assisted zero-ischaemia partial n
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+ index: 112
+[pred] Standard cuff sutures used in vaginal reproximation from laparoscopic haemostomyostomies and
+[true] Standard sutures used in vaginal cuff reapproximation in total laparoscopic hysterectomies and h
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+ index: 65
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+ index: 119
+[pred] Patients undergoing hemodialysis are at risk for bloodstream infections (BSIs), and preventing these infections in this high-risk population
+[true] Patients undergoing hemodialysis are at risk for bloodstream infections (BSIs), and preventing these infections in this high-risk population is
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+ index: 11
+[pred] We present a high aspect ratio microfluidic device for culturing cells inside an array of microchambers with continuous perfusion of
+[true] We present a high aspect ratio microfluidic device for culturing cells inside an array of microchambers with continuous perfusion of
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+ index: 6
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+ index: 14
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+ index: 19
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+ index: 80
+[pred] and has been shown to rescue human B lymphocytes when viewed in vitro, type I Interferon (INVAN)
+[true] BACKGROUND We recently demonstrated that type I Interferon (IFN) rescues in vitro, human B-lymphocytes
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+ index: 20
+[pred] Objective: To investigate the clinical characteristics of medical staff with novel coronavirus pneumonia(NCP). Methods: 30 patients infected with novel
+[true] Objective: To investigate the clinical characteristics of medical staff with novel coronavirus pneumonia(NCP). Methods: 30 patients infected with novel
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+ index: 87
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+ index: 104
+[pred] The acute respiratory coronavirus 2 severe respiratory coronavirus 2 (SARS-CoV-2) outbreak resulted 11,555 confirmed cases
+[true] The severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) outbreak resulted in 5,993,317 confirmed cases worldwide
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+ index: 76
+[pred] The outbreak of 2019 novel coronavirus (COVID-19) infection emerged in Wuhan, China, in December 2019. Since then the novel cor
+[true] The outbreak of 2019 novel coronavirus (COVID-19) infection emerged in Wuhan, China, in December 2019. Since then the novel cor
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+ index: 8
+[pred] OBJECT Complete sellar floor reconstruction is critical to avoid postoperative cerebrospinal fluid (CSF) leakage during transgluta
+[true] OBJECTIVE Complete sellar floor reconstruction is critical to avoid postoperative cerebrospinal fluid (CSF) leakage during transs
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+ index: 49
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+ index: 48
+[pred] Fusiform perforating aneurysms of posterior or circumferential arterial branches involving the intracranial circulation vessels are 
+[true] Intracranial circumferential fusiform aneurysms of the posterior circulation involving arterial branches or perforating vessels are
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+ index: 88
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+ index: 59
+[pred] Increasing the price of cigarettes can reduce smoking substantially by discouraging initiation among youths and young adults, prompting quit attempts, and reducing
+[true] Increasing the price of cigarettes can reduce smoking substantially by discouraging initiation among youths and young adults, prompting quit attempts, and reducing
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+ index: 67
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+ index: 32
+[pred] Four intestinal viruses were compared in piglets, which did not induce an oral immune response due to their antibody ability. Antiinjection was detected with
+[true] Four viruses were compared for their ability to induce an intestinal antibody response in piglets. Antibodies were not detected in response to oral vaccination with
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+ index: 70
+[pred] BACs and backgrounds It is not clear whether digital single-operator agiosmo cholerascopy (D-S
+[true] BACKGROUND & AIMS It is not clear whether digital single-operator cholangioscopy (D-SOC
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+ index: 1
+[pred] __BACK With the non-medical use of prescription opioids increasingly becoming a method of abuse in Canada, the number of patients 
+[true] BACKGROUND With the non-medical use of prescription opioids increasingly becoming a method of abuse in Canada, the number of patients 
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+ index: 94
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+ index: 108
+[pred] tragen als Führungskräfte ihre Arbeit, ihrer Aufstandung und ihrer Sorgen, ihrer Aufstandung und ihrer Verantwortung. Für
+[true] Führungskräfte stehen in der Verantwortung, für den Erfolg ihrer Mitarbeiter*innen Sorge zu tragen, diese zu fördern und zu fordern. Dies geschie
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+ index: 34
+[pred] Study objective: To determine the relationship between delirium in the intensive care unit (ICU) and outcomes including length of stay in the hospital. Design
+[true] Study objective: To determine the relationship between delirium in the intensive care unit (ICU) and outcomes including length of stay in the hospital. Design
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+ index: 43
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+ index: 78
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+ index: 37
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+ index: 55
+[pred] The COVID-19 pandemic is a global contagion of unprecedented proportions, health, and economic and social consequences. As with many
+[true] The COVID-19 pandemic is a global contagion of unprecedented proportions and health, economic, and social consequences. As with many
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+ index: 91
+[pred] TO REPORT THE OBJECTIVE REPORT OF THE novel. Peroperative outcomes for 300 patients who had undergone gynec
+[true] OBJECTIVE To report the perioperative outcomes of 200 patients with gynecologic cancer who underwent surgery during the Novel
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+ index: 115
+[pred] The pipeline embolization diversion device (PED) has become the widely used method to treat OBJECTIVE Flow from 
+[true] OBJECTIVE Flow diversion using the Pipeline embolization device (PED) has become a widely used treatment method for
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+ index: 0
+[pred] Sentiment lexicon plays a vital role in lexicon-based sentiment analysis. The lexicon-based method is often preferred
+[true] Sentiment lexicon plays a vital role in lexicon-based sentiment analysis. The lexicon-based method is often preferred because
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+ index: 107
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+ index: 64
+[pred] The basic reproduction number is a key parameter determining whether an infectious disease will persist. Its counterpart over time, the effective reproduction number, is of
+[true] The basic reproduction number is a key parameter determining whether an infectious disease will persist. Its counterpart over time, the effective reproduction number, is of
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+ index: 22
+[pred] Site (SSI) FOUNDATION: Effectiveness and efficacy of antibiotic tension for the prevention of surgical prophylaxis after open infection
+[true] BACKGROUND The efficacy of antibiotic prophylaxis for the prevention of surgical-site infection (SSI) after open tension
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+ index: 116
+[pred] Viruses are smaller and simpler in construction than unicellular microorganisms, and they contain only one type of nucleic acid
+[true] Viruses are smaller and simpler in construction than unicellular microorganisms, and they contain only one type of nucleic acid
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+ index: 13
+[pred] Norovirus is the most common cause of non-bacterial gastroenteritis and is a burden worldwide. The increasing norovirus diversity is currently
+[true] Norovirus is the most common cause of non-bacterial gastroenteritis and is a burden worldwide. The increasing norovirus diversity is currently
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+ index: 38
+[pred] The relevance of right atrial pressure (RAP) as systemic filling pressure mean for venous return (QVR) and the backpressure
+[true] The relevance of right atrial pressure (RAP) as the backpressure for venous return (QVR) and mean systemic filling pressure
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+ index: 53
+[pred] been shown that the contents of sigma-C avian virus cell reattachment protein (sigmaoC) is a multi
+[true] Previous work has shown that the avian reovirus cell-attachment sigma C (sigmaC) protein is a multi
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+ index: 40
+[pred] Cygalobacterium mettavirus (CMV): CMV is common in immunocompetent patients in intensive care units and over
+[true] BACKGROUND: Cytomegalovirus (CMV) infection is common in immunocompetent patients in intensive care units (I
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+ index: 81
+[pred] high-profile antibody memory. The basis of the immunological responses recovered from vaccination is the current longitudinal background of acute respiratory syndrome (Arthropo
+[true] BACKGROUND Immunological memory is the basis for vaccination. Currently, the longitudinal profiles of antibody responses in recovered severe acute respiratory syndrome (S
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+ index: 97
+[pred] To investigate the effect of balneotherapy on body mass index, adipokine levels, sleep disturbances, and quality of life in
+[true] To investigate the effect of balneotherapy on body mass index, adipokine levels, sleep disturbances, and quality of life in
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+ index: 12
+[pred] Arthritis and other rheumatic conditions are among the most common chronic diseases, affecting 70 million U.S. adults in 2001
+[true] Arthritis and other rheumatic conditions are among the most common chronic diseases, affecting 70 million U.S. adults in 2001
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+ index: 9
+[pred] Infrascorial mediastectomy or single-incision surgery is a minimally invasive surgical option for patients with small anterior
+[true] Infrasternal mediastinoscopic single-incision surgery is a minimally invasive surgical option for patients with anterior medias
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+ index: 23
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+ index: 85
+[pred] The British Columbia Ministry of Health's Framework for Core Functions in Public Health was the catalyst that inspired this review of best practices in health emergency management.
+[true] The British Columbia Ministry of Health's Framework for Core Functions in Public Health was the catalyst that inspired this review of best practices in health emergency management.
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+ index: 10
+[pred] The avian infectious bronchitis virus is classified into serotypes or genotypes (or both) in different poultry-producing
+[true] The avian infectious bronchitis virus is classified into serotypes or genotypes (or both) in different poultry-producing
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+ index: 84
+[pred] we had seen—at the request of Randy Cron and his collaborators the letter linked to the cytokine storm syndrome (CSS) seen
+[true] It was with great interest that we read the letter from Randy Cron and collaborators (1) linking the cytokine storm syndrome (CSS) seen
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+ index: 86
+[pred] Background Basal insulin analogues aim for protracted glycemic control with minimal adverse effects. Purpose To assess the comparative
+[true] Background Basal insulin analogues aim for protracted glycemic control with minimal adverse effects. Purpose To assess the comparative
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+ index: 77
+[pred] BACKG/There is little descriptive data on Stenotrophomonas maltophilia hospital-acquired 
+[true] BACKGROUND: There is little descriptive data on Stenotrophomonas maltophilia hospital-acquired
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+ index: 69
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+ index: 83
+[pred] PUSH REVIEW Most studies on the history of natural upper respiratory tract infections and their viral complications provide the purposes of ascertainment-to-self
+[true] PURPOSE OF REVIEW Most studies on the natural history of viral upper respiratory tract infections and their complications rely for ascertainment on self-
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+ index: 109
+[pred] As the world fights to contain and control the spread of the Novel Coronavirus, countries are imposing severe measures from restrictions on travel and social gatherings
+[true] As the world fights to contain and control the spread of the Novel Coronavirus, countries are imposing severe measures from restrictions on travel and social gatherings
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+ index: 111
+[pred] Agile methods are designed for handling uncertainty as well as reducing risks in product development through transparency, inspection, and adaptation. Applying an effective risk management is
+[true] Agile methods are designed for handling uncertainty as well as reducing risks in product development through transparency, inspection, and adaptation. Applying an effective risk management is
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+ index: 79
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+ index: 7
+[pred] Although the degree of dispersion in Poincaré plots of electroencephalograms (EEG), termed the Poincaré
+[true] Although the degree of dispersion in Poincaré plots of electroencephalograms (EEG), termed the Poincaré
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+ index: 56
+[pred] RNA pseudoknots are structural elements found in almost all classes of RNA. Pseudoknots form when a single
+[true] RNA pseudoknots are structural elements found in almost all classes of RNA. Pseudoknots form when a single
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+ index: 93
+[pred] Simultaneous extraction and separation of liquidritic, glycyrrhizin acid, and
+[true] Simultaneous extraction and separation of liquiritin, glycyrrhizic acid, and 
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+ index: 15
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+ index: 3
+[pred] As the oldest, but least understood sensory system in evolution, the olfactory system represents one of the most challenging research targets in sensory neurobio
+[true] As the oldest, but least understood sensory system in evolution, the olfactory system represents one of the most challenging research targets in sensory neurobio
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+ index: 42
+[pred] This report aims to review current data on single-incision (single-port) laparoscopic surgery (SILS) for bari
+[true] This report aims to review current data on single-incision (single-port) laparoscopic surgery (SILS) for bari
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+ index: 36
+[pred] The world has recently undergone the most ambitious mitigation effort in a century, consisting of wide-spread quarantines aimed at preventing
+[true] The world has recently undergone the most ambitious mitigation effort in a century, consisting of wide-spread quarantines aimed at preventing
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+ index: 5
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+ index: 52
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+ index: 47
+[pred] Tetraspanins are suggested to regulate the composition of cell membrane components and control intracellular transport, which leaves them vulnerable to utilization by pathogen
+[true] Tetraspanins are suggested to regulate the composition of cell membrane components and control intracellular transport, which leaves them vulnerable to utilization by pathogen
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+ index: 4
+[pred] Optical biosensor technology continues to be the method of choice for label-free, real-time interaction analysis. But when it comes to improving the
+[true] Optical biosensor technology continues to be the method of choice for label-free, real-time interaction analysis. But when it comes to improving the
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+ index: 62
+[pred] This study is anchored on the use of an eco-friendly effective plasma technique and cationization treatment to improve the hydrophobic nature of polyester
+[true] This study is anchored on the use of an eco-friendly effective plasma technique and cationization treatment to improve the hydrophobic nature of polyester
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+ index: 90
+[pred] Social distancing has been proven to be an effective measure against the spread of the COVIRonad Virus Disease (COVI2017
+[true] Social distancing has been proven as an effective measure against the spread of the infectious COronaVIrus Disease 2019 (COVID-19
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+ index: 102
+[pred] This review gives an overview of the development of machine learning in geoscience. A thorough analysis of the co-developments of machine learning applications throughout the last
+[true] This review gives an overview of the development of machine learning in geoscience. A thorough analysis of the co-developments of machine learning applications throughout the last
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+ index: 30
+[pred] High-frequency oscillatory ventilation (HFOV) is now a mainstay of respiratory care for the neonatal patient. In this chapter,
+[true] High-frequency oscillatory ventilation (HFOV) is now a mainstay of respiratory care for the neonatal patient. In this chapter,
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+ index: 39
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+ index: 99
+[pred] revisit the parameter estimation framework for population epidemiology, we apply it empirically to various biological dynamical systems to calibrate and model with time series, particularly
+[true] We revisit the parameter estimation framework for population biological dynamical systems, and apply it to calibrate various models in epidemiology with empirical time series, namely
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+ index: 73
+[pred] The pneumonia caused by the novel coronavirus (nCoV–2019), which began in December 2019, has become the most serious public health problem,
+[true] The pneumonia caused by the novel coronavirus (2019-nCoV), which began in December 2019, has become the most serious public health problem,
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+ index: 60
+[pred] BARD OBJECT The aim of this study was to determine the outcomes concerning the use of the stent (Valeo Peripides
+[true] OBJECTIVES The aim of the present study was to determine the outcomes of using the Valeo stent (Bard Perip
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+ index: 16
+[pred] We report a case of an Italian wolf (Italian wolf coronavirus) in canis pantropic lupus
+[true] We report a case in an Italian wolf ( Canis lupus italicus) of pantropic canine coronavirus
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+ index: 75
+[pred] Myelodysplastic haematosis (MADDS) is the most frequent backhematologic malignment upon the my
+[true] BACKGROUND Myelodysplastic syndrome (MDS) is one of the most frequent haematologic malignancies of the
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+ index: 98
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+ index: 106
+[pred] BACKGROUND The objective of this study was to evaluate the safety and efficacy of a novel 5-mm linear laparoscopic stapler
+[true] BACKGROUND The objective of this study was to evaluate the safety and efficacy of a novel 5-mm laparoscopic linear stapler
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+ index: 29
+[pred]                
+[true] 
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+ index: 44
+[pred] [Image]]: Nucleoside analogues are among the most common medications given for the treatment of viral infections and cancers. 
+[true] [Image: see text] Nucleoside analogues are among the most common medications given for the treatment of viral infections and cancers.
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+ index: 57
+[pred]                
+[true] 
+--------------------------------------------------
+
+
+{'eval_loss': 7.273555278778076, 'eval_model_preparation_time': 0.019, 'eval_pred_num_tokens': 31.000001907348633, 'eval_true_num_tokens': 24.83333396911621, 'eval_token_set_precision': 0.6748978883964583, 'eval_token_set_recall': 0.6782988957555857, 'eval_token_set_f1': 0.6758090796740126, 'eval_token_set_f1_sem': np.float64(0.03655179230648258), 'eval_n_ngrams_match_1': 14.566666666666666, 'eval_n_ngrams_match_2': 12.191666666666666, 'eval_n_ngrams_match_3': 10.916666666666666, 'eval_num_true_words': 16.466666666666665, 'eval_num_pred_words': 16.475, 'eval_bleu_score': np.float64(55.655457799464024), 'eval_bleu_score_sem': np.float64(3.9079435988214617), 'eval_rouge_score': np.float64(0.6929091676405675), 'eval_exact_match': np.float64(0.375), 'eval_exact_match_sem': np.float64(0.04437947515604539), 'eval_emb_cos_sim': 0.9888088703155518, 'eval_emb_cos_sim_sem': np.float64(0.005802387371659279), 'eval_emb_top1_equal': 0.875, 'eval_emb_top1_equal_sem': np.float64(0.08539125323295593), 'eval_runtime': 2945.0868, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 7.273555278778076
+eval_model_preparation_time: 0.019
+eval_pred_num_tokens: 31.000001907348633
+eval_true_num_tokens: 24.83333396911621
+eval_token_set_precision: 0.6748978883964583
+eval_token_set_recall: 0.6782988957555857
+eval_token_set_f1: 0.6758090796740126
+eval_token_set_f1_sem: 0.03655179230648258
+eval_n_ngrams_match_1: 14.566666666666666
+eval_n_ngrams_match_2: 12.191666666666666
+eval_n_ngrams_match_3: 10.916666666666666
+eval_num_true_words: 16.466666666666665
+eval_num_pred_words: 16.475
+eval_bleu_score: 55.655457799464024
+eval_bleu_score_sem: 3.9079435988214617
+eval_rouge_score: 0.6929091676405675
+eval_exact_match: 0.375
+eval_exact_match_sem: 0.04437947515604539
+eval_emb_cos_sim: 0.9888088703155518
+eval_emb_cos_sim_sem: 0.005802387371659279
+eval_emb_top1_equal: 0.875
+eval_emb_top1_equal_sem: 0.08539125323295593
+eval_runtime: 2945.0868
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 2945.16268324852
+Current memory usage: 4.10MB; Peak: 10.08MB

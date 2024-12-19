@@ -1,0 +1,621 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='dbpedia-entity', beam_width=8, steps=50, batch_size=16, max_samples=120, output_csv=None, max_length=8)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: dbpedia-entity
+Original dataset size: 100000
+Randomly selected 120 samples from the dataset.
+Model tokens max_length: 8
+Embedder tokens max_length: 8
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 120
+})
+
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 120
+Length of decoded_labels: 120
+
+Contents of decoded_preds:
+Index 0: The Battle of Mohác           
+Index 1: Avondale Estates             
+Index 2: Avon             is a city in
+Index 3: The 77s            (altern
+Index 4: Judith Mavis Durham             AO
+Index 5: A jazz band             (jazz ensemble
+Index 6: System Shock            is a 1994 
+Index 7: bras bras (bras) is a town in , a
+Index 8:             The Maltese Falcon is 
+Index 9: Artur Gavazzi             (October
+Index 10:            Forrest City is a city 
+Index 11: Aarschot            (Du
+Index 12: This is a list of notable            
+Index 13: Politics of El Salvador takes place            
+Index 14: Military branches:            No regular military
+Index 15: Richmond Hill             is a city in
+Index 16: Forest City, formerly known as            
+Index 17: Barton            is a town 
+Index 18: New Hartford             is a town in
+Index 19: Caramel (            /k
+Index 20: Lê Du-Dn           (7 April
+Index 21: West Union             is a city in
+Index 22: Hidden Hills is a city             and
+Index 23: An            arc lamp or arc
+Index 24: Lanesboro is a             
+Index 25: Lumberton             is a city
+Index 26: Card games, particularly poker games,            
+Index 27:             Pymatuning South is
+Index 28:             In Egyptian mythology, Sek
+Index 29:            A convoy is a group 
+Index 30: Year 210 (CCX)            
+Index 31:           The Nashville sound originated during the late  
+Index 32: A MUD (            /m
+Index 33: Udo Jürgens            
+Index 34:              (Hong Kong),
+Index 35: This article presents a list of            
+Index 36:            Lasara is a census- 
+Index 37: Anne Baxter (May 7,            
+Index 38: Holt           is a city in 
+Index 39:            Cheboygan County is a 
+Index 40: The Democratic Republic of the Congo is            
+Index 41: Chino Valley             is a
+Index 42: Montville             is a town in
+Index 43: Alma             is a town in Jackson
+Index 44:              thelber
+Index 45: Addison             is a 
+Index 46:              Sacred Heart Township is
+Index 47:            In optics, particularly as it 
+Index 48:             Murder in the Cathedral is 
+Index 49:            Hans Schaffner (16 December  19
+Index 50: All This,            and Heaven Too is 
+Index 51: Full Throttle             is a
+Index 52:           The national anthem of Thailand  
+Index 53:           The term  speculative fiction 
+Index 54: In various branches of mathematics,             
+Index 55:             Earl Eugene Scruggs
+Index 56:           The American chestnut,   Castan
+Index 57: Raymond Merrill            Smullyan 
+Index 58:            This article is about the demographic features 
+Index 59: Frank J. Gaffney,            
+Index 60: James Walter Carter             (December 15, 19
+Index 61: Blanche of Castile             (Span
+Index 62:             Kate del Castillo Neg
+Index 63:              Maharashtra (m
+Index 64:            Bridgewater is a town in 
+Index 65: Brier          is a city in 
+Index 66:            Yosemite Falls is 
+Index 67:            The term Groovebox was 
+Index 68: Postal cards             are postal stationery
+Index 69: Styrene           , also known
+Index 70:             Belvidere Township is
+Index 71: Ohatchee            (inc
+Index 72:             "Logic of Empire" is 
+Index 73: Stupid White Men ...            
+Index 74:               Guinever
+Index 75: Sir Thomas Wyatt (1503            
+Index 76: Dinah Washington             (born Ruth Lee
+Index 77:           An electrode is an electrical conductor  
+Index 78: William Gary Busey             (born
+Index 79: Earth and Sun            and Moon  is an
+Index 80: Creature from the Black La            
+Index 81:             Montgomery College (MC) is 
+Index 82: The San Francisco Peninsula             is a
+Index 83:  Dona  Foxglove  Dona  Foxglove (Californ
+Index 84: akasel Suet akasel Suet 
+Index 85: Troy           is a town in St
+Index 86:            In marketing terminology, a killer 
+Index 87: Aurskog-H          
+Index 88: Washington Township             is a township
+Index 89:             Duckman: Private Dick/F
+Index 90: The year 1991 in film             involved some
+Index 91: Denison            is a city 
+Index 92:             Lotus Symphony was an integrated software package
+Index 93: Salma Hayek piin Salma Hay
+Index 94: Sir Arthur Stanley Eddington,             
+Index 95:            Morrison is a town in 
+Index 96: USS Abraham Lincoln (CVN            
+Index 97: Procyon (             
+Index 98: Calhoun            is a city 
+Index 99: Kin/           , Keno
+Index 100: A cluster munition             is a
+Index 101: Esbjerg Municipality (            
+Index 102: The year 1906 in film             involved some
+Index 103: Magnus Olafsson            
+Index 104: Steinfurt           is a town 
+Index 105: Jérôme Napolé            
+Index 106: Pope Felix III             (died 1
+Index 107: Meconium aspiration syndrome         
+Index 108:           In mathematics,  Clifford algebra 
+Index 109: Anthracite is             
+Index 110:             A skyscraper is 
+Index 111: Lieutenant Commander Data (            /de
+Index 112: The Gallic Empire             (Lat
+Index 113: 2002             (MMII)was
+Index 114: Imperial Beach             is a residential beach
+Index 115: Nikephoros Kallistos           
+Index 116: Stage lighting is the craft of lighting            
+Index 117: Stirling (             [st
+Index 118:           Sergio Aragonés   Dom
+Index 119:             Bear Creek is a town in
+
+Contents of decoded_labels:
+Index 0: The Battle of Mohác
+Index 1: Avondale Estates is 
+Index 2: Avon is a city in
+Index 3: The 77s (altern
+Index 4: Judith Mavis Durham AO
+Index 5: A jazz band (jazz ensemble
+Index 6: System Shock is a 1994
+Index 7: Brooks is a town in
+Index 8: The Maltese Falcon is 
+Index 9: Artur Gavazzi (October
+Index 10: Forrest City is a city
+Index 11: Aarschot (Du
+Index 12: This is a list of notable
+Index 13: Politics of El Salvador takes place
+Index 14: Military branches:No regular military force
+Index 15: Richmond Hill is a city in
+Index 16: Forest City, formerly known as
+Index 17: Barton is a town
+Index 18: New Hartford is a town in
+Index 19: Caramel (/k
+Index 20: Lê Dun (7 April
+Index 21: West Union is a city in
+Index 22: Hidden Hills is a city and
+Index 23: An arc lamp or arc
+Index 24: Lanesboro is a 
+Index 25: Lumberton is a city
+Index 26: Card games, particularly poker games,
+Index 27: Pymatuning South is 
+Index 28: In Egyptian mythology, Sek
+Index 29: A convoy is a group
+Index 30: Year 210 (CCX)
+Index 31: The Nashville sound originated during the late
+Index 32: A MUD (/m
+Index 33: Udo Jürgens
+Index 34: Hong Kong (; "F
+Index 35: This article presents a list of
+Index 36: Lasara is a census-
+Index 37: Anne Baxter (May 7,
+Index 38: Holt is a city in
+Index 39: Cheboygan County is a
+Index 40: The Democratic Republic of the Congo is
+Index 41: Chino Valley is a
+Index 42: Montville is a town in
+Index 43: Alma is a town in Jackson
+Index 44: thelberht
+Index 45: Addison is a 
+Index 46: Sacred Heart Township is a
+Index 47: In optics, particularly as it
+Index 48: Murder in the Cathedral is 
+Index 49: Hans Schaffner (16 December 19
+Index 50: All This, and Heaven Too is
+Index 51: Full Throttle is a
+Index 52: The national anthem of Thailand
+Index 53: The term speculative fiction
+Index 54: In various branches of mathematics, 
+Index 55: Earl Eugene Scruggs
+Index 56: The American chestnut, Castan
+Index 57: Raymond Merrill Smullyan
+Index 58: This article is about the demographic features
+Index 59: Frank J. Gaffney,
+Index 60: James Walter Carter (December 15, 19
+Index 61: Blanche of Castile (Span
+Index 62: Kate del Castillo Neg
+Index 63: Maharashtra (/m
+Index 64: Bridgewater is a town in
+Index 65: Brier is a city in
+Index 66: Yosemite Falls is
+Index 67: The term Groovebox was
+Index 68: Postal cards are postal stationery
+Index 69: Styrene, also known
+Index 70: Belvidere Township is 
+Index 71: Ohatchee (inc
+Index 72: "Logic of Empire" is 
+Index 73: Stupid White Men ...
+Index 74: Guinevere /
+Index 75: Sir Thomas Wyatt (1503
+Index 76: Dinah Washington (born Ruth Lee
+Index 77: An electrode is an electrical conductor
+Index 78: William Gary Busey (born
+Index 79: Earth and Sun and Moon is an
+Index 80: Creature from the Black La
+Index 81: Montgomery College (MC) is 
+Index 82: The San Francisco Peninsula is a
+Index 83: Foxglove (Donna Ca
+Index 84: Aksel Schit
+Index 85: Troy is a town in St
+Index 86: In marketing terminology, a killer
+Index 87: Aurskog-H
+Index 88: Washington Township is a township
+Index 89: Duckman: Private Dick/F
+Index 90: The year 1991 in film involved some
+Index 91: Denison is a city
+Index 92: Lotus Symphony was an integrated software package
+Index 93: Salma Hayek Pin
+Index 94: Sir Arthur Stanley Eddington, 
+Index 95: Morrison is a town in
+Index 96: USS Abraham Lincoln (CVN
+Index 97: Procyon ( 
+Index 98: Calhoun is a city
+Index 99: Keno /kin
+Index 100: A cluster munition is a
+Index 101: Esbjerg Municipality (
+Index 102: The year 1906 in film involved some
+Index 103: Magnus Olafsson
+Index 104: Steinfurt is a town
+Index 105: Jérôme Napolé
+Index 106: Pope Felix III (died 1
+Index 107: Meconium aspiration syndrome
+Index 108: In mathematics, Clifford algebra
+Index 109: Anthracite is 
+Index 110: A skyscraper is 
+Index 111: Lieutenant Commander Data (/de
+Index 112: The Gallic Empire (Lat
+Index 113: 2002 (MMII)was
+Index 114: Imperial Beach is a residential beach
+Index 115: Nikephoros Kallistos
+Index 116: Stage lighting is the craft of lighting
+Index 117: Stirling (/st
+Index 118: Sergio Aragonés Dom
+Index 119: Bear Creek is a town in
+
+Pair #1
+--------------------------------------------------
+ index: 63
+[pred]              Maharashtra (m
+[true] Maharashtra (/m
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 50
+[pred] All This,            and Heaven Too is 
+[true] All This, and Heaven Too is
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 113
+[pred] 2002             (MMII)was
+[true] 2002 (MMII)was
+--------------------------------------------------
+
+
+{'eval_loss': 3.868769645690918, 'eval_model_preparation_time': 0.0187, 'eval_pred_num_tokens': 31.000001907348633, 'eval_true_num_tokens': 8.0, 'eval_token_set_precision': 0.9451984126984126, 'eval_token_set_recall': 0.945, 'eval_token_set_f1': 0.9440194065194066, 'eval_token_set_f1_sem': np.float64(0.017078665888494764), 'eval_n_ngrams_match_1': 4.475, 'eval_n_ngrams_match_2': 3.4833333333333334, 'eval_n_ngrams_match_3': 2.525, 'eval_num_true_words': 4.633333333333334, 'eval_num_pred_words': 4.708333333333333, 'eval_bleu_score': np.float64(74.5002164378704), 'eval_bleu_score_sem': np.float64(3.8555727098190564), 'eval_rouge_score': np.float64(0.9547010165760165), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.9644762873649597, 'eval_emb_cos_sim_sem': np.float64(0.027075091376900673), 'eval_emb_top1_equal': 0.9375, 'eval_emb_top1_equal_sem': np.float64(0.0625), 'eval_runtime': 2912.6024, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 3.868769645690918
+eval_model_preparation_time: 0.0187
+eval_pred_num_tokens: 31.000001907348633
+eval_true_num_tokens: 8.0
+eval_token_set_precision: 0.9451984126984126
+eval_token_set_recall: 0.945
+eval_token_set_f1: 0.9440194065194066
+eval_token_set_f1_sem: 0.017078665888494764
+eval_n_ngrams_match_1: 4.475
+eval_n_ngrams_match_2: 3.4833333333333334
+eval_n_ngrams_match_3: 2.525
+eval_num_true_words: 4.633333333333334
+eval_num_pred_words: 4.708333333333333
+eval_bleu_score: 74.5002164378704
+eval_bleu_score_sem: 3.8555727098190564
+eval_rouge_score: 0.9547010165760165
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.9644762873649597
+eval_emb_cos_sim_sem: 0.027075091376900673
+eval_emb_top1_equal: 0.9375
+eval_emb_top1_equal_sem: 0.0625
+eval_runtime: 2912.6024
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 2912.655435562134
+Current memory usage: 4.07MB; Peak: 10.06MB
