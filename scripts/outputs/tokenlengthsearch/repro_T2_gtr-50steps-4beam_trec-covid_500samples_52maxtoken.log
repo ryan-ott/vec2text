@@ -1,5 +1,5 @@
 +++ Arguments Passed +++
-Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='trec-covid', beam_width=8, steps=50, batch_size=16, max_samples=120, output_csv=None, max_length=16)
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='trec-covid', beam_width=4, steps=50, batch_size=16, max_samples=500, output_csv=None, max_length=52)
 Set num workers to 1
 +++ model_args +++
 ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
@@ -307,15 +307,15 @@ loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd689
 loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
 Loading BEIR dataset: trec-covid
 Original dataset size: 100000
-Randomly selected 120 samples from the dataset.
-Model tokens max_length: 16
-Embedder tokens max_length: 16
+cut dataset at 500 samples.
+Model tokens max_length: 52
+Embedder tokens max_length: 52
 +++ Trainer Args Passed +++
 trainer.num_gen_recursive_steps: 50
-trainer.sequence_beam_width: 8
+trainer.sequence_beam_width: 4
 Model name: jxm/gtr__nq__32__correct
 max_seq_length: 512
 Dataset({
     features: ['text'],
-    num_rows: 120
+    num_rows: 500
 })

@@ -1,0 +1,1395 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='trec-covid', beam_width=4, steps=50, batch_size=16, max_samples=500, output_csv=None, max_length=44)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: trec-covid
+Original dataset size: 100000
+cut dataset at 500 samples.
+Model tokens max_length: 44
+Embedder tokens max_length: 44
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 4
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 500
+})
+
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 500
+Length of decoded_labels: 500
+
+Contents of decoded_preds:
+Index 0: Rotaviruses are the leading cause of severe dehydrating diarrhea in children worldwide. T- and B-induced immune responses have been described extensively
+Index 1: In the 1980s and 1990s HIV/AIDS was the emerging infectious disease. In 2000 a man-made virus manifested like SARS,
+Index 2: framework for planning the next influenza pandemic. Global SARS outbreaks underway in hospitals around the world have taught us about ethical decision-making. In
+Index 3: Studies have reported human bocavirus (HBoV) in children with respiratory tract infections, but occasionally in adults. DNA was searched for RT
+Index 4: are outdoor air pathogens in health or will pathogens become an issue in the future? Working with a group called “Human Health Present
+Index 5: poultry exposure to H5N1 avian influenza infections are associated with a high risk among villagers. Therefore, we conducted hands-on handling
+Index 6: many attempts to apply CAS management to complex adaptive systems have failed. Finally, we must learn from various principles of bioinfection. See CAS control
+Index 7: In the wake of the SARS and H1N1 influenza pandemic, the journal editors question the PLoS efficient approach to medicine publishing
+Index 8: Accuracy in translation-correction of mRNA proteins depends on recognition of the tribosome genetic code. In the human context
+Index 9: a medical rhinovirus, and global genotype dating and surveillance describes its association with respiratory disease communities in Asia, Africa, Europe, and Australia. Researchers
+Index 10: of ICDs by releasing intracellular protease-type domains (ICHAS) trigger signaling cascades by substrate secret
+Index 11: history. Eight medicinal plants were tested for their antimicrobial and antioxidant activities. Different extraction methods were also tested on their bioactivities. Subse
+Index 12: Efficiently delivering siRNA to specific cell populations of siRNA in ‘vivo’ has become a formidable therapeutic approach. The synthetic link
+Index 13: The model repository (MREP) is a relational database management system (RDMS) for the purpose of identifying infectious diseases. Developed by
+Index 14: Polymorphism of converting ischemic angiotensin (ACE) gene is reported to be associated with hypertrophic cardiomyopathy
+Index 15: to serodiagnosis: Production of native antigens for helminthic batch infections is labored upon due to a complicated
+Index 16: Eosinophil granulocytes reside in respiratory mucosa, in lymphatic organs including the lungs, the gastromus
+Index 17: Although the ribosome of RNA is primarily comprised by ribosomal domains, many important functions occur including protein switching interactions
+Index 18: Using putative PCR, a differential gene identified from adult testis, named Hb-Lse, which displayed a 5300
+Index 19: (below). Today it is a commonly accepted belief that cancer cells modify their transcriptional state during the progression of the disease. This malignant progression
+Index 20: late March–April 2009, a novel influenza A1 (H1N1) has been referred to as a “spread around the
+Index 21: Immunoassays are important tools for the detection of pathogens and the potential for rapid clinical research in the laboratory. An influenza detection was
+Index 22: currently encompassed. Japanese encephalitis (JE), caused by a mosquito flavivirus, is endemic to south-east Asian
+Index 23: mechanism of ornithine decarboxylase in vertebrates requires a negative feedback regulation of the antizyme. In the pro
+Index 24: (HSES) and hemorrhagic shock encephalopathy is a devastating disease that affects young children. The outcomes are shown
+Index 25: Horizontal DNA transfers is an important part of evolutionary diversity. The location and length of horizontal transfers (HTs) can be complicated by several factors: O
+Index 26: indicate that information sources may influence health protective behaviour during emerging influenza pandemic epidemics. However, there is currently no gracological data to be
+Index 27: Acinetobacter species are well-known causes of nosocomial infections. Evidence for this pathogen continues to be accumulating in communities
+Index 28: background: Little is known about immunopathogenesis of Chikungunya virus. Circulating immune levels and growth mediators were analyzed
+Index 29: Although complementary to oligonucleotide substitution in single nucleotides, these are commonly used for microarray screen genetic variation
+Index 30: Rfam is a collection of RNA sequence families which represent multiple covariances and new alignment models. One major aim of Rfam
+Index 31: Australia, had investigated internal border control capacity to limit the spread of influenza in the context of a pandemic in a low-population country
+Index 32: Purpose: Systemic idiopathic juvenile arthritis is a chronic pediatric disease. This presentation can delay the initial diagnosis due to adverse factors
+Index 33: syncytial viruses (RSV) and pneumonia virus (PVM) are mice of the virus family Paraphylemidiidae
+Index 34: possibility of antihypertensive clotidine receptors. Imidazorine was first proposed by the team of Bouvier et
+Index 35: Lactis model bacterium lactococcus (LAB), is a fine grade gram positive lactic acid. It is characterized
+Index 36: Individual social insects are able to mount defences against pathogens on both a group-level and a genome-wide level: In social
+Index 37: The 'global public good' (GPG) concept seems to find its way into wide attention in recent months as a vital resource for currency
+Index 38: Treatment of chronic forms of hepatitis B with nucleo-tetraions is insufficient to recommend an "inferior
+Index 39: There is limited understanding of key spatial determinants of spread of influenza. The 1918 pandemic provides an opportunity for elaborating on the spatial
+Index 40: Robustness describes the capacity for genetic robustness to continue regardless of the role of the system being perturbed. Mutational canalization emphasize
+Index 41: the precise role of cytomegal virus (CMV) infection in contributing to critically infected patients has not been fully defined. Immunocompete
+Index 42: To date, more than 900 different microRNA molecules have been discovered that originate in the human genome. These fold into short, single-strand RNA
+Index 43: Nidovirus-derived mRNA bodies contain a leader sequence derived from the 5’ end of the fused subgene to different
+Index 44: In order to escape infection, viruses need to establish defense against or even suppress host immune systems. This particular innate immunity pattern has been recognized in immunology
+Index 45: A influenza vaccine A nucleoprotein (NP) is an attractive target for the evolutionary development of avian influenza. Because of this remarkable clustering
+Index 46: Highly pathogenic Avian influenza (HPAI)5 viruses have a grave threat to the Asian poultry industry. Since its re-emergence in 2003
+Index 47: points. Toxoplasmosis causes loss of vision, motor function, and life. A vaccine is needed in order to combat this "studie
+Index 48: Organisms exposed to and/or damaged by reactive oxygen species, undergo oxidative stress. The environmental response can be programmed during the cell death
+Index 49: in: The Picornaviridae family contains a number of important pathogenic viruses including the recently reclassified "Human Paras
+Index 50: Rhinoviruses and picorneviruses are leading causes of respiratory infections. An evolutionary analysis is needed to identify enterovirus individuals
+Index 51: Background: Contact tracing plays a crucial role in the control of emerging infectious diseases, but little information has been discovered about its effectiveness. This mathematical
+Index 52: introduced. The cane toad, Bufo ("Chanus vertus") is one of the most notorious marine pests in Australia
+Index 53: Information (PHE): Hospital preparedness is an early priority in detecting current public health emergency planning. The development of PHE preparedness is critical
+Index 54: The authors discuss humoral immune responses to HIV and other viral antibodies  and proposed approaches to designing vaccines that potentially induce protective and immune neutralizing.
+Index 55: The thiodoxin di-oxidoreductase-1 (Trx1) is known to be secreted by leocyte
+Index 56: The earliest infection responses activated in acute human immunodeficiency virus type 1 (AHI) exert a major influence upon spread. Moment
+Index 57: Recognition: Epitopes can be defined as the molecular structures bound by receptors during specific immune responses. The Immunoglobulin Database
+Index 58: It is worth remarking that in 2005 H5N1 HPAI occurred in Russia; the whole territory becoming endemic for H5N
+Index 59: to describe detailed clinical features of the radioactive 2009 influenza H1N1 pandemic in healthy, young males. Opinion within this institutional closed
+Index 60: of Pregnancy malaria (PAM) is caused by chondroitin-associated erythrocytes that bind to faldium
+Index 61: II. AlkB-like proteins are part of the oxygen-dependent 2-oxoglutarate (Fe-III) superfamily.
+Index 62: RNA54 (prog) polyglutase of HIV serves as a primate for virion assembly in the virion-pro
+Index 63: In humans, pregnancy PSGs (glycoprotein betas) play several immunomodulatory functions during pregnancy. However, a recent study suggests
+Index 64: Traditionally seen as being important in the regulation of blood pressure, the renin-converting enzyme (ACE)-angiotensin system specifically
+Index 65: acid-dependent endotoxin uptake by Hela occurs early in clavons through viral infection (Mondra et al.
+Index 66: RNA interference (RNAi) is a powerful method for silencing specific small RNAs and may be implicated in novel therapeutic strategies (
+Index 67: The widespread use of Affyprox microarray in biological research has made it an important issue in standard annotation. The Affyprox microarra
+Index 68: as: Legionella pneumonia syndrome can appear in different cases and can present complications such as the level of acute respiratory distress. This is how we report a
+Index 69: Governments are preparing facemasks for a potential influenza pandemic; therefore, interventions could have an impact on the general population. Data
+Index 70: decades before the discovery of drug-resistant malarial parasites, cellular alteration in the pfcrt gene was well documented hemo
+Index 71: hyophagocytic syndrome (HFS) is a potentially lethal disorder through an immune-triggering response. Our mission is
+Index 72: The European Influenza Surveillance Scheme (EISS) has collected virological and clinical data on influenza in significant quantities since 1996. The dataset
+Index 73: mice (PVM) of the family Paraneumoviruses ("Rhabdomyces vulgariana") is an invasive respiratory pathogen
+Index 74: management of emerging infectious disease such as the 2010 influenza Pandemic (H1N1) pose great mathematical modeling challenges for the transmission of information in the background
+Index 75: Rift Valley fever virus (RFVF) (family Phlebovirus genus) is a negative cyclopae
+Index 76: Control of norovirus outbreaks relies upon separate hygiene measures, such as washing and using disposable toilets and paper towels. This has been shown improving
+Index 77: Functions: Human CEACAM1 is a molecule in cellular adhesion clearance and insulin generation in the liver, endotheli
+Index 78: Seasonal variation in smallpox transmission is one of the most pressing ecological questions in relation to preparedness for bioterrorism deaths. The data was recorded
+Index 79: Background foot-and-mouth disease (FMD) is a highly contagious disease of livestock that may cause severe cloven loss. However,
+Index 80: retrospective review of this data chart describes 33 patients with clinically proven infection with mycoplasma pneumonia culture at King Abdulaziz University Hospital, Je
+Index 81: G-protein precursor glycolytic processing of the Lassosa virus protease according to the host site envelope convertor Nr1 (GP
+Index 82: The first scientific meeting for the newly established European SYSTEMNET network took place at the HEZI Research Center in Braunschweig April
+Index 83: Influenza A viruses have a particularly wide range of host species. In the past, cross transmission of human influenza to waterfowl avia
+Index 84: listed as follows: Current national preparedness plans require local health departments to play an integral role in response to the influenza pandemic, a major World
+Index 85: || RNA pseudoknots have thermodynamic stability, an important function for understanding RNA pseudoknots and predicting sequences. This
+Index 86: – Enteric and transmitted (CC) outbreaks in child care centres have historically been associated with significant documented sources. In a 2015 review of Canadian
+Index 87: an efficient, sequence-stimulating RNA signal requires a downstream pseudo-slipper (PRF) and an extracellular hairshift
+Index 88: continued reading of chest radiography in chest radiography of the critically ill. Conventional chest radiography is often supplement to the day-to-day
+Index 89: Primary biliary cirrhosis (PBC) is an autoimmune disease characterized by intraductal destruction of hepatit
+Index 90: The virus envelope of HSV-1 contains a number of glycoproteins, four of which are essential for entry. Gligors lacking NH
+Index 91:                
+Index 92: Efforts to develop a highly protective generalized vaccine against the pathogen H5AI avian influenza virus have been sought. Genetic
+Index 93: High pathogenic Avian influenza PH5 can infect multiple human organs of the human body and cause only organ damage to the lungs (such
+Index 94: Symptoms of drug-associated interstitial lung disease vary widely and it can be difficult to distinguish from those that occur with non-small-cell
+Index 95: structure, Standard epidemiological theory claims that in a reproduction process competition between multiple pathogen populations is mediated by a deterministic number: "
+Index 96: influenza pneumonia has a high mortality rate during pandemics, not only in immunocompromised patients but also in healthy young adults. Primary clinician
+Index 97: Inflammation in the middle ear mucosa, which can be provoked by different allergic reactions, reflux and local infection, is crucial factor
+Index 98: In spite of protective ventilator options, Acute Lung Injury (ALI) remains associated with high mortality and morbidity. One reason for a
+Index 99: Groundnut necrosis virus (GBNV), a member of the family Tosporidae, infects some genera of leg bud
+Index 100: As a key factor in epidemics, the geographical distribution of viruses has often been interpreted in terms of their historical genetic and migration patterns. Ultimately
+Index 101: pro133min, a 5-transmembrane glycoprotein-like (CD1), has been identified as an important marker for cancer populations.
+Index 102:                
+Index 103:                
+Index 104: Community-acquired methicillin-resistant Staphylococcus aureus (CA MRSA) is considered underreported among
+Index 105: There are many emerging fatal viral infections which affect various human organs and cause serious diseases worldwide. Early diagnosis is essential to treating viral infections. These viruses currently
+Index 106: begins: Macrophage activating syndrome (stills) is a severe and life-threatening disease that is characterized by thromboe
+Index 107: Management of flu pandemic is a perpetual challenge for this fraternity since the last century. Animal and human transmission have been observed on average every
+Index 108:                
+Index 109: based on clinical representation Multiple sclerosis (MSLC) symptoms may now be divided into two major disease subtypes; remitting,
+Index 110: introduction Acute respiratory distress syndrome (ARDS) has heterogeneous etiologies leading to rapid mortality and progressive change. In an
+Index 111: Human bocavirus (HBoV) virus is a widespread respiratory virus. We were proposing diagnostic immunoassays (EM)
+Index 112: The type I interferon (IFN) system has developed a line of defense against various viral infections. The virus is probably the first to counter
+Index 113: Anti-inflammatory therapy (ART) or HIV retroviral therapy (RIS) initiates the restoration of immune (unincidence) conferred by
+Index 114: National public health institutes will play a key role in implementation of the revised International Health Regulations.     
+Index 115: The proteosome inhibitor bortezomab represents an important advance in the treatment of multiple myeloma. Bort
+Index 116: Extracorporeal oxygenation (ECMO) and Extracorporeal Life Support (ECLS) have been indicated for treatment of acute cardiac failure.
+Index 117: Malignant mesothelioma is a fatal asbestos-associated peritone originating from the lining cells of the ple
+Index 118: tandem peptide–nucleotide conjugate molecular mass isomers (P–NTNA) have been described for use
+Index 119: study include: Several methodological approaches have been used in healthcare service research to estimate catheterization distance. These focus on Manhattan, Euclid, and
+Index 120: Since the inception of gene profiling platforms in the mid-1990s, publications have included an increase in the process of differentially expressed epigenesis.
+Index 121: yeast L5 and L11 shared a fully conserved protein called ribosomal loop 11b which has a high-static internal charge
+Index 122: The innate immune system responds to unique immune pathways that are not conserved among host microbes. Compounds that stimulate certain molecular
+Index 123: Yersinia pestis is the etiological agent of plague that has killed numerous million people throughout recorded history. Antibiotics
+Index 124: response. Although the impact of pathogens on the evolution of the mammalian immune system is debated, proteins which both serve to regulate receptor
+Index 125: As research continues, the spatial and temporal evolution of the 2001 foot in mouth disease (FMD) epidemic in Great Britain is still unexplaine
+Index 126:                
+Index 127: the distribution of multi-host pathogens over their host population ranges may also allow them to evolve in various pathogen environments. Important consequences of infection
+Index 128:                
+Index 129: Begomoviruses are single stranded DNA viruses and cause severe diseases in crop plants worldwide. Recently, systematic analysis has suggested cod
+Index 130: The filoviruses, Marburg and Ebola, are non-segmented negative RNA viruses causing severe mortality in humans
+Index 131: Reservoirs: Mammalian reoviruses naturally infect hosts through the enteric and respiratory tract. During proteo
+Index 132: A series of studies, three specific genes in the foot-and-mouth (FMDV) virus sequence were analysed to be effective targets for RNA
+Index 133: Influenza A viruses now belong to the best developing viruses, preventing escape of influenza epidemics worldwide. Numerous influenzae variants have not been studied
+Index 134: One aim of a vaccine for HIV is to ebb selective neutral antibodies that can limit replication, thus identifying strengths and/or enabling
+Index 135: Avian influenza has emerged as one of the primary public health concern of the 21st century. Influenza strain H5 is capable of infecting
+Index 136: The presence of overlapping reading frames in viral genomes complicates the problem of how gene selection may be expressed in studies of genome (1): This bias
+Index 137: Records: Streptococcus pneumoniaemia is a common cause of community acquired pneumonia which has led to a high mortality during wintertime due
+Index 138: birds share the capacity for fast movements over large distances. During migratory, humans carry pathogens that can be transmitted between wild species
+Index 139: Zoonoses, diseases that jump from animals to humans are becoming a topic of growing health problems worldwide. Their causes are therefore important to the human understanding
+Index 140: proposal to measure the genomic complexity of living organisms: "To date, this method has become difficult to construct the minimum amount of phenotypic
+Index 141: coping with the burden of infection has prompted an effort to improve sepsis outcomes in many industrialized countries. Through the Campaign for Sep
+Index 142: biological uptake of intracellular trafficking oligonucleotides constitute the major technical hurdle for the potential therapeutic effectiveness of these drugs. According
+Index 143: been expressed during the first H1N1 virus outbreak in Mexico, has indicated a need for intensive care (respiratory and membrane oxygenation
+Index 144: The proteomes that make up the collection of proteins in contemporary organisms evolved through duplication or recombination of limited domains. These
+Index 145: Noveoviruses (NoVs) are one of the leading causes of acute gastroenteritis worldwide. Protein 4A1 was expressed
+Index 146: following: Since 1999, expansion of the West Nile virus (WNV) epizoy has led public health authorities to build surveillance systems. In
+Index 147: in epidemic disease and migration models to study the patch coupled effect of multistrains between populations. However, the stability oscillates between the Hopf
+Index 148: Although efficient methods to assemble synthetic oligonucleotides into genes exist, these introduce random errors (1–3 kb). This
+Index 149: RNA recombination is an important evolutionary pathway towards viruses promoting RNA recombination. However, various factors have occurred throughout
+Index 150: The ratio of Cocksfoot virus replication to p23 is regulated via a ribosomal mumbostide (RMVF
+Index 151: Response is Quantifying. Well-informed methods for responding to infectious disease outbreaks require a sparse background in analyzing, estimating and
+Index 152: measles virus is a single negative-monosense RNA virus that includes several pathogens, in the order of humanega
+Index 153: fusogenic viral envelope proteins are important targets for the entry of virus into the viral envelope. These inhibitors will contribute to the development of Dengue 2
+Index 154: 2009, the influenza A (H1N1) pandemic has alerted many governments to plan preparation to control the infection of H1N1
+Index 155: Since its detection in April 2007, the human AH1N1M influenza has spread rapidly, with over 1500 deaths. Little information on the evolutionary dynamics surrounding
+Index 156: Archives a major outbreak of human enterovirus in Sarawak, 1993 marked the beginning of a series of hand and foot disease in the Asia Pacific
+Index 157: A new species of human bocovirus most frequently named parvovirus 4 (HBV4) was genetically characterized. A sample of adults,
+Index 158: – Autoimmune hemolytic anemia in young children aged 2 years and older is characterized by a severe mortality rate of 10%. Beginning
+Index 159: The ability of pathogens to escape persistent infections is crucial for the establishment of the host's immune response. Recombination has been observed to
+Index 160: the isolation of human monoclosal antibodies (MAbs) that neutralize a broad spectrum of HIV-1 primary antibodies and has been characterization
+Index 161: Human Addenavirus Adv5 vectors are robust anti-abdominal platforms due to potential antibody neutralization or re-s
+Index 162: The use of animals as senders of diseases forms a part of the ecological concept of "nidality". Since mankind occupies a niche
+Index 163: development of a practical point-of-care gene detection device (G-POCT) eliminates the need for advanced testing methods to recapture history
+Index 164: In contrast, the hormonal control of ovulation and the molecular mechanisms of nuclear maturation have been studied in fish. Subsequent
+Index 165: June 1, 2011, the World Health Organization declared the outbreak of antiH1 influenza a pandemic. With limited supplies of vaccines and novela seeking
+Index 166: phosphorylating RNase H in the hybrid splice machinery, but incompetent analogs such as oligonucleo
+Index 167:                
+Index 168: Acute lung injury in humans is characterized histopathologically because of alveolitis, neutrophilic epithelium, endo
+Index 169: rapid adaptation from viral diseases has been a major development challenge in this domain of research. Consequently, there are several implications for the emergence of viruses
+Index 170: This article is one of ten in a series of Critical Care Reviews (Springer Verlag) published in the 2010 International Yearbook of Emergency and
+Index 171: The basic reproduction number, R(0), a measure of the epidemic growth potential of infectious diseases, has been summarized in various ways, which are estimates
+Index 172: worldwide demographic changes combined with the looming threat of emerging infectious diseases on human land has made it important to secure fast alerts. Currently H5
+Index 173: Chinese medicine, epidemiology and prevention in international health that are of interest to the Chinese public. However, this journal does not contain many articles that have developed
+Index 174: RNA pseudoknots are functional structure elements in a proposed cellular structure. This role will require minimum viral free-energy optimization. Multiple algorithms
+Index 175: Acanthipoea maniapidea (APM), a free living amebavirus has caused human respiratory disease. Re
+Index 176: introduces optimization in the production of pastora flasculature of stable human collagen type II Pichi cultures. "Example of WS
+Index 177: Prophylaxis with high doses of neutralizing antibody offers protection against infections with the ability to neutralize human monoclonal viruses. Study
+Index 178: DNA microarrays may offer the possibility of testing for hundreds of thousands of microorganisms. However, the lack of a single tool
+Index 179: One of the main problems with nucleic acid detection techniques, may be in DNA sequence variation of infectious agents (such as influenza). A 30-long probe
+Index 180: There is a high impact of MELD score in model of end-stage liver disease and postoperative morbidity has yet to be established. This
+Index 181: families as follows: Numerous strategic interventions are needed to control avian influenza (AI) for effective public health prevention and communication plans to ensure a
+Index 182: Today, the most common method of GMO detection is based on the amplification of GMOs via the polymerase chain reaction (PCR
+Index 183: relation to the emergence of alternative medicines for AIDS in Asia and Africa, and an alternative and traditional symposium was discussed at an annual meeting at Marseille in
+Index 184: Profile: Controlling the spread of pandemic disease among newly emerging nations requires limited, rapid allocation of targeted resources. Thus, critical steps may be taken
+Index 185: it is certain that RNA recombination is a major factor responsible for the generation of new RNA viruses. Numerous experimental systems have
+Index 186: While foreign pathogens have long served to activate the innate immune system, recent recognition of the existence of a similar group of endogenous molecules
+Index 187: Emerging methods for effective influenza virus surveillance require genomic analysis to address long-distance evolution of newly bred species, which has been rapidly evolving
+Index 188: network: Cytotoxic cell (CTL) cross-reactivity is believed to play a pivotal role in generating immune responses but CTL
+Index 189: history: The threat of influenza pandemics caused by recurring viral escape mutants necessitate the search for new therapeutic targets. This
+Index 190: in describing a novel endonucleotase IV (Av IV) based assay which mimics substrate that occurs
+Index 191: The incidence and frequency of epidemic transmission of zoonotic diseases has increased dramatically in the past 30 years. Since it is this known emergence as
+Index 192: Gabriel Nicoll and Leung Hing provide some reflections on the international response to the 2009 Angus influenza pandemic and what needs to be
+Index 193: 1962, Lacrosse virus family Bunyarios ("LACV") was first identified as a human pathogen after studying a 16-year
+Index 194: The key to control influenza pandemics is the introduction of surveillance systems that raise alarm when sensitive to the prevailing flu. During the regular season
+Index 195: Human metapneumoniovirus (hMPV) can cause lower acute respiratory tract illness in the infant, elderly, and immunosuppressed.
+Index 196: Introduction: Exogenous surfactant is used to treat the acute respiratory failure in children where harm has not been recognised in the literature. The objective is
+Index 197: Neutralization of West Nile virus E (WNV) in vivo correlates with the development of viral antibody response to yeast and mut
+Index 198: The common human genetic contributions to genetic disorders often emphasize that mouse genetic models of common diseases are overlapping and complex. Compared to Mendelian genetic disorders
+Index 199: Enveloped viruses use specialized protein machinery to fuse the viral membrane with that of the host cell. In influenza virus invasion, numerous haemag
+Index 200: The 2009 H1N1 influenza pandemic demonstrated the global health threat of pandemic strains. A careful analysis of replasmoblast
+Index 201:                
+Index 202: Bundles: Rift Valley fever virus (RVFV), a member of the genus Phleboidsae, is
+Index 203: GIDEON (Global Infectious Disease and Epidemiology Network) is a web-based computer program designed to support information sciences. For
+Index 204: Surfactant protein-D (SP-D) participates in the innate response to inhaled micro-organisms and promotes
+Index 205: C-related hepatic liver disease (HCV) progresses more rapidly in individuals infected with Human Immunodeficiency
+Index 206: Tick-borne encephalitis virus (TBEV) causes human epidemics across Eurasia. Although clinical manifestations range from fatal fevers
+Index 207: Times (U.S.): Avian influenza threatens public health worldwide because it is most often associated with severe illness or death. During 2007,
+Index 208: the CVT server (http://www.ctreefree.com/) present a new implementation of an all-based genome alignment
+Index 209: Leptospirosis is a widespread zoonotic infection that affects tropical regions but also causes infections of humans and animals. The
+Index 210: Fatal human respiratory disease associated with the 1918 influenza pandemic virus, is characterized by severe H5N1 pathology including lung edem
+Index 211: Cognitive dysfunction is particularly common in critically ill patients at the time of acute illness. Many pathophysiologic mechanisms have been linked to the cognitive dysfunction resolution
+Index 212: Therefore, while pulsed electromagnetic fields (PEMFs) are used to treat delayed unions and other non-union groups, their action is limited:
+Index 213: growing recognition that detailed nucleic acid sequence information will be useful and even required in the diagnosis and surveillance of pathogens. One way towards providing detailed
+Index 214: The rapid spread and subsequent emergence of the virus H1N1 has prompted the World Health Organization to declare the first pandemic of the 2009
+Index 215: Current computational methods for determining the structure of pairs are based on thermodynamic folding or compensatory secondary substitutions of RNA alignment. However, this
+Index 216: In some Candida species, the universal CUG serine is translated as leucine. However, since the tRNAs responsible for this codon
+Index 217: explored how different social/ethnic groups might vie for vulnerabilities in an influenza pandemic in the United States on the basis of influenza ra
+Index 218: increasing number of reported cases associated exclusively with vivoxamodium infections. It has been suggested that it may be associated with severe Plasqu
+Index 219: causes of mucosal inflammation, represent important diseases of morbidity and mortality breakdowns. It has been accepted that further research has led to advances
+Index 220: Background human rhinoviruses (HRVs) are the most frequently detected pathogens in acute respiratory infections (ARTIs); however, little
+Index 221: Adenoviruses replicate primarily in the host cell nuclei and it is also well established that adenovirus affects structure
+Index 222: Polyomaviruses (KI)(WUPYV) were identified in two recent specimens. Among respiratory patients, children'
+Index 223: Viruses adapt to their hosts by evading cellular metabolism in response to various defense mechanisms. Also receiving side effects from antiviral
+Index 224: While intact RNA constitutes the best accepted representation of transcription quality, there is no gold standard to define the steady-state of gene analysis. This report
+Index 225: Myeloprotease oxidase (MPO), an important enzyme in the activity of microorganisms, produces hypochlor
+Index 226: Interstitial and chronic respiratory disease (ILD) in infants are characterized by these rare disorders that constitute a large spectrum of mortality. It
+Index 227: knowledge of the complete influenza A virus genome from different countries is valuable for learning about the evolution and migration of these viruses. Background constellations of seasonal influenza A
+Index 228: At present, it is very limited that we have the ability to compare public health activity with what might be identified as public health activity across different jurisdictions.
+Index 229: Predicting RNA secondary structure is often the first step towards the prediction of RNA structure. Nowadays, however, the approach has been complicated by synthetic
+Index 230: present: Sepsis represents one of the leading causes of death in critically ill patients. The primary organs affected are the acute lung
+Index 231: sequencing pathogen genomes can be prohibitively costly. We formed a Sequence Analysis Pipeline (SAP) to help ensure consistent and frequent computational
+Index 232: Reproduction numbers, defined as the average of people infected, play a central role in tracking infectious disease cases. The aim of this popular paper
+Index 233: DNA sequences seen in the normal character-based representation appear to have formidable mixing of the four nucleotides. The distribution of these frequencies order
+Index 234: concern over the availability of National Institutes of Health and Safety (NIOSH) certified "FFR" respirator ospieces during influenza
+Index 235: had been demonstrated that antigens chemically coupled to fatty acids cross-presented on the surface of unsaturated cells (APLCs
+Index 236: hypotheses. As of 1 January 2009 the State of Victoria in Australia reported highest notification of H1N1 influenza pandemic in the world-
+Index 237: control of transcription factor mediated (TF) expression may be one of the computational challenges of current gene site biology. Experiments also help to understand
+Index 238: Antiviral agents have maintained great promise in the prevention and treatment of emerging viral diseases such as influenza SARS-5. However, antiviral drugs not
+Index 239: Pre-existing vaccine immunity toward AD5 may be common in the entire human population. Bypassing pre-existing adenovirus ser
+Index 240: observes that the HIV epidemic poses significant challenges to the health care workforce in low income countries (e.g. Sub Saharan Africa), attri
+Index 241: Viruses are replication competent viruses that encode relatively low reading frames. Except for the largest genomes (approximately 400) are her
+Index 242: in PubMed preparedness strategies may not reduce the impact of individual preparedness strategies on the influenza pandemic. Subsequent research, however,
+Index 243: Candida albican in the human host is a benign member of the immunocompetent microbiotas. However, when disrupted
+Index 244: 2-D-Phosphatase 6-Emanuel-Nature (GNA), kine is multifunctional enzyme
+Index 245: (MCD), Multicentric Castleman’s Disease, a lymphoproliferative infection associated with HERV-8, is an un
+Index 246: Aberrant expression of Pol polymerase, the major enzyme implicated in base excision repair and DNA carcinogenesis. This instability results in "
+Index 247: (Classified as an endoparasitic) female ichneumonid wasps inject virus-like particles into their caterpillar hosts
+Index 248: Basis. In cats, Feline Immunodeficiency Virus (FIV) is transmitted through bites among natural populations, density of individuals
+Index 249: BioSense is a US national system which uses data collected from automated health information algorithms to enhance detection for disease surveillance. Recent research has been complemented by
+Index 250: Many diseases in humans appear as sporadic, temporal or spatially restricted outbreaks with novel zoonotic adaptations. Influenza
+Index 251: Recent studies indicate clinical usefulness of reverse transcription polymerase chain reaction (RT-PCR) detection of thyroglobulin mRNA
+Index 252: worst-case scenarios for pandemic influenza occupancy in the US are estimated to require 1000 patients requiring mechanical ventilation. Level 3 intensive care planning in UK
+Index 253: in multiple sclerosis, remyelination typically fails with repeated episodes of chronic demyelinating lesions. Acute models
+Index 254: Sepsis remains the most common cause of death in intensive care units in the USA, with estimates of up to 50,000 deaths every year. Recent
+Index 255: Ca(2+) plays a universal role in the biochemistry of mammalian and prokaryotic organisms. Viruses
+Index 256: Refolding of fusion proteins from hairpin trimins to a local Virus-1 class structure promotes entry of new cells. This is
+Index 257: a major histocompatibility complex (MHC) class I gene repertoire was admixed in allelic maceloques
+Index 258: Background: Herpes virus family viruses can cause central nervous system inflammatory changes that are indistinguishable from schizophrenia. Recent studies have provided insight
+Index 259: Blood is, in the pipeline of the immune system genome, an invaluable insight into the effects of changes in the abundance of all immune system transcripts. This
+Index 260: Human respiratory tract virus (HRSV) is the major cause of lower syncytial vascular disease. Although no therapeutic vaccine for initiation of
+Index 261: genome-wide scans of positively selected genes (PSGs) in mammals have provided insight into the evolution and function of genetic differences. However, this
+Index 262: Resource Allocation during an Influenza           Pandemic
+Index 263: The leaves of the Southeast Asian tree known as Banaba ("Losteigma clavifera"), which is traditionally consumed as a palind
+Index 264: Heteronuclear nuclear protein (HRN1) is involved in translational pre-mRNA splicing via riboregulation in
+Index 265: relevant in the context of influenza pandemic preparation in other countries. The time delay between the start and subsequent availability is discretely analyzed in "
+Index 266: evidence has shown that critically ill patients will be able to tolerate lower levels of haemoglobin than previously suggested. The goal of 100
+Index 267: While influenza vaccination is the best means of detecting and preventing viral spread, implementation of movement sequences are difficult to achieve due to strain analysis. In
+Index 268: The antiviral production of interferon (IFN) is considered an essential component of the early host defense system, owing to genetic side effects
+Index 269: This paper proposes that control and regulation could be a special case for zoonotic governance in dealing with global public health agencies. First presented
+Index 270: and degradation by the "Proteosomes ubiquitination" protein system has been recognized as a critical aspect in regulation of numerous up
+Index 271: virus (a strain nihonine virus or 2008 Mexican influenza virus). A series of revisions are used to study the consequences of drug se
+Index 272: increased concern for a flu pandemic. In order to better understand the 1918 influenza pandemic, the most devastating epidemic of the previous century,
+Index 273: Background: The nature and consequences of severe H1N1 infection in natural cancer patients have not yet been fully characterized. Eight cases of H1N
+Index 274: In the past decade, there has been increasing interest in the use of lactic acid bacteria as delivery vehicles for vaccines, mucosal antigen
+Index 275: background: Development of drug-target interaction networks is an important time-consuming subject to study in order to determine drug-target interactions. These include compound experiments
+Index 276: Mammalian sperm become fertile after completion of capcitation, a process associated with cholesterol loss and changes in the biophysical properties of
+Index 277: of gene fusion in solid tumors may be in relation to hematological malignancies as opposed to technical heterogeneities. Studies have
+Index 278: indicate an unusual high mortality in all cases of pneumonia 2009. In India, large numbers of the mild but severe H1N1 infection have been observed worldwide,
+Index 279: Newcastle Disease Virus (NDV) is a pathogenic strain of Aavian paramyxovirus which has become an immediate threat to poultry
+Index 280: Anatid herpesvirus Anatid herpesvirus-1 (AHV-1) is associated with mortality in ducks and gees
+Index 281: MPs (microparticles) are membrane vesicles released during cell activation and apoptosis. Additional effects can
+Index 282: Transmission of avian influenza viruses from bird to human is a rare event even though viruses infect the epiciliary airways of avian
+Index 283: A number of paramyxoviruses are responsible for acute respiratory infections among immuno-compromised children and elderly, resulting in severe inflammation
+Index 284: virus replication factor depends on relongation to host RNA plus complexes. This was demonstrated in studies of eukaryotic EF
+Index 285:                
+Index 286: dengue virus pathogenesis is not yet fully understood, identification of patients at high risk for severe disease poses a major challenge in dengue development.
+Index 287: Oral piglets were infected with virulent gingival rotoviruses and scraping 48 hours after infection with non
+Index 288: cell-recognition (CRSID) DGN-binding glycan-carbohydrate receptor domains. In SI
+Index 289: have identified unusual and/or ecotropic gammarovirus mouse variants with altered host ranges: Moloney and Friends of Homeosta
+Index 290: framework to plan health care, it must be stressed, however, that while primary general practice will be at the frontline in response to influenza pandemic
+Index 291: The development of paediatric intensive care for survivors of the critically ill has contributed to quality of life and survival. Physical and psychological sequela are significant
+Index 292: background: Influenza immunisation for healthcare workers is often encouraged to protect vulnerable patients due to a perceived higher risk of influenza. Comparisons have
+Index 293: Protein surfactant-A (SP-A) is most prominent among the four types of surfactant expressed in pulmonary alveolar systems.
+Index 294: Building on obstructive conditions, patients with chronic pulmonary disease (COPPD) can experience an "exacerbation" of "
+Index 295: The emergence of human microbial infections originating in wildlife has brought us to know more about microbial communities in contemporary diagnostic practices. See bio
+Index 296: of CRC: Cyclooxygenase-2 (COX-2) is over-expressed in resistant colorectal cancer, rendering
+Index 297: influenza A (H1N1)-type Pandemic virus emerged in 2007. To assist clinicians with acute respiratory illness (e.g., score
+Index 298: Activation of type I RNA (SIFN) interferon is a major contributor to the small effects of RNA interference pathway at
+Index 299: Laribacter hongkongensis is a newly discovered Gram-negative gastroenteritis-associated fish bacillus in the family
+Index 300: of optimism and health-related quality of life is little known. Comparisons between samples from different cultures show a pseudo-
+Index 301: smallpox response ring vaccination based on contact tracing networks have not been constructed. These models suggest that ring vaccination would be effective
+Index 302: programmed mRNA pseudoknots have a stimulatory function, modelled in frameshifting. Thus, at 1 pfr
+Index 303:                
+Index 304: core: Phage display is widely used in background research, including the discovery of new protein-protein interactions, such as vaccines, computer programs, and
+Index 305:                
+Index 306: how this innate immune response is essential for controlling adaptive immunity and propagation of West Nile virus (WNV). However, it can be reflected
+Index 307: data has been gathered on the feasibility of non-pharmaceutical interventions to reduce the spread of influenza. A follow-up study using face mask
+Index 308: Primary biliary cirrhosis (PBC) is an immune-mediated chronic liver fibrosis. After treatment, patients gradually
+Index 309: The tracing of potentially infectious contacts has become an important part of the control disease strategies for many cases of sexually transmitted infections. Since the early advent
+Index 310: interplay between susceptibility factors and environmental genes is considered an important player in the pathogenesis of multiple sclerosis (MS). In the past
+Index 311: A variety of human diseases are associated with lymphoplasms of gammaviruses, including neoherpes baum
+Index 312: Abstract wild ducks are the main reservoir of influenza viruses, which can be transmitted to humans and other domestic mammals. Six subtypes of He/A
+Index 313: Background: Case definitions have been recognized to be important elements of public health surveillance systems. They are intended to ensure consistency and comparability of the data on
+Index 314: Objective of the Health Alert Organization to assess the acceptability of influenza vaccination at the pre-pandemic escalation level among workers in Hong Kong
+Index 315: Arginine-rich peptide-penetrating transporters (CPPs) are promising for intracellular delivery of antisense
+Index 316: S-palmitoylation describes the reversible attachment of fatty acids to palmitate residues via a combination of cysteine
+Index 317: The spread of infectious disease epidemics is therefore mediated by human travel. However human mobility patterns vary considerably in the length and frequency of travel between regions.
+Index 318: contributed to a 2006 study at county poultry fairs in the Midwest where exhibiting avian pathogens would be to spread the powder somewhat invisible
+Index 319: of glioblastoma is the most frequent and malignant primary brain tumor, resulting in poor prognosis. Therapeutic strategies maximize
+Index 320: background: The construction of spatial network simulation models, especially those used in epidemiology, are a daunting task due to the amount of data available. This
+Index 321: data – Influenza is among the most common vaccine-preventable diseases among travellers. By carrying out cross-section questionnaires during winter 2007, travel
+Index 322: Subtype dating of viral divergence enables researchers to correlate viral divergence with prior geographic and/or demographic sequences. In many occurrence
+Index 323: introduction of a culture medium containing avian tracheal epithelial cells (ATE). The ATE system for further isolate chicken
+Index 324: minimal influenza T-cell immunity leads to rapid global spread of the virus due to a new antibody strain. Emerging into the pre-existing CD
+Index 325: input: The biological basis of pain in the pathogenesis of chronic pancreatitis is poorly understood. Mast cells have been implicated in
+Index 326: Emerging outbreaks of zootic diseases are affecting humans at an alarming rate. Once the ecological factors are better understood, zo
+Index 327: Murine norovirus (MNV), identified in 2003, is the only norovirus which replicates efficiently in tissue culture and has been modeled
+Index 328: describing characteristics of patients with tuberculosis (TB) requiring intensive care and to predict mortality in a hospital in the city of
+Index 329: Planning public health interventions against influenza pandemic relies on predictive models to determine which strategies will be able to be improved. Much research has been concentrated
+Index 330: Simian retrovirus type-1 uses programmed gag frameshifting to control the expression of the ribosomal polypol assembly. The reading
+Index 331: of asthma following viral respiratory tract infections (LRTI), the “attack rate” is consistently lower for the majority of the general population but has been shown to
+Index 332: Adenovial (AD) vectors have been used to express vaccines for a wide range of cancer and infectious diseases. Ad-based vaccine
+Index 333: we report acute encephalopathy associated with influenza A infection in adults. High cerebrospinal fluid (CSF) and plasma concentration (8,
+Index 334: RNA interference (RNAi) provides a particularly potent means of inhibiting viral infection. It has been pointed out that new viruses may be used
+Index 335: BLOB: Passive transfer of antibodies not only provides immediate short-term protection against disease, but can be exploited as a therapeutic tool
+Index 336: In vitro cytotoxicity testing has become an integral aspect of drug discovery because it is a convenient and cost effective combination of chemical potential. The typical
+Index 337: This paper describes the design and implementation of the Real-time Disease Surveillance System (RODS), a public health computer system to report outbreak
+Index 338: Comprehensive protein interaction mapping projects are underway for many species. A key part of this project is estimating the time, cost, and model for humans. When
+Index 339: ‘recoding’ is a term used to describe non-standard genetic read-outs of the Risosomal Programming Frog shift
+Index 340: Description: EpiFlex is a simple and flexible computer model, able to be relied upon as a single-user, for purpose
+Index 341: Herpesviruses constitute a family of large DNA viruses causing diseases widely spread in different vertebrates. They range from 120 ve
+Index 342: HERVCS1 (Type 1). The pathogenesis of respiratory infections late in the simplex is critically ill-advised (
+Index 343: Children and young adults of reproductive age are potentially vulnerable to the 2009 H1N1 pandemic. Sex has been an important factor in examining
+Index 344: in pathogenic avian influenzae H5N1 (HPAI): Sustained outbreaks of influenza species increase risk of readapt
+Index 345: associated. Aplastic anemia (AA) is a rare, serious bone marrow disorder characterized by hypocellular anemia (Hepatit
+Index 346: Electrochemical biosensors have revolutionized glucose monitoring and detection but have not promised a direct replacement for low-cost genetic testing such as PCR Ker
+Index 347: HIV-1 load and rapid viral monitoring methods would appear to be cost-effective in improving clinical diagnosis and management of HIV-positive adults. Subsequent
+Index 348: to the potentially unpredictable nature of the 2011 PH1N1 influenza pandemic highlights the need for preparedness modeling studies to uncover the devastating impact of
+Index 349: we consider using a stochastic-recovered susceptible (SEIR) epidemiological model. The normal-form coordinates can be transposed onto
+Index 350: in Australia, when compared to other developed countries, many public health programs have continued to be poorly funded with only limited support politically. In 2003, the
+Index 351: theories suggest that highly viral influenza isolates in humans cause severe respiratory distress rather than cytokinemia. However, the mechanisms responsible for the pathogenic virus
+Index 352: Heme-1 oxygenase (HO-1), an inducible stress protein, confers cytoprotection during the course of the
+Index 353: (Method) Background: Epidemiological interventions aim to control the spread of infectious diseases incurred. This offers a flexible, flexible
+Index 354: Proteomics is the large scale study of the structure and function of proteins in complex biological sample. A number of tools suitable for this approach to understand
+Index 355: Background: Mycobacterium tuberculosis (MTB) is a major cause of morbidity and mortality in this world.
+Index 356: Avian influenza H5N1) can be transmitted to humans, resulting in a severe or fatal disease. The aim of this study is to investigate
+Index 357: 16S rRNA gene is one of the preferred targets for identification of some species in single-nucleogenesis issues. However, phy
+Index 358: Endothelin-1 (ET-1) is a 21 amino acid peptide with diverse regulatory activity. MET has been implicated in
+Index 359: Lung cancer is the leading cause of cancer-related mortality worldwide. However, specific toxicity remains a limiting factor when chemotherapies
+Index 360: strategic allocation of resources. The anticipated extent of antiviral use during the influenza pandemic can have adverse consequences for the development of drug resistance and rising
+Index 361: Diffuse alveolar haemorrhage (DAH) is a complication of pulmonary mortality and is associated with low
+Index 362: Since 2007, porcine diarrhea virus isolate (PEDV) outbreaks have arose in both Thailand and elsewhere. Analysis of the PEDV virus inf
+Index 363: CD200, a type I membrane glycoprotein, plays an important regulatory role in the prevention of autoimmune diseases, especially fetal loss and tumor
+Index 364: Copy number variations (CNVs) in the human genome are conventionally detected using high-throughput scanning technologies, such as single nucleot
+Index 365: input: Salmonid fishes are among the most widely studied model fish species, but PCR gene transcripts have been shown to be insufficient
+Index 366: response is an overwhelming cause of human inflammatory deaths from avian influenza H5N1. Such analysis has since been accepted by a number of institutions
+Index 367: with the increased occurrence of H5N1 outbreaks worldwide there is concern that the virus could enter commercial poultry farms with severe economic consequences. Interpretation
+Index 368: It is speculated that in the current clinical presentation, 2009 H1N1 influenza virus may fall into a severe seasonal post-pandemic pattern
+Index 369: Programmed ribosomal frameshifting provides a mechanism to decode information located in two overlapping reading frames in an attempt to open up
+Index 370: Human-recognised Plasmodium malaria caused by knownosi, is an important zoonotic pathogen. Recent records show
+Index 371: study is aimed at obtaining nationwide awareness of the attributable fraction of cancer resulting from the present Japanese general population. Samples of 2,000
+Index 372: an oxide-coensule array representing hepatitis A virus (HAVV) comprising 3,000 microarra
+Index 373:                
+Index 374: issued: In 2007 Australia experienced its first infectious outbreak of high equine influenza. Government disease control measures were put in place in order to eradicate this
+Index 375: A shortcoming of most distance correlation methods for phylogenetic analysis is that compositions using distance metrics are not complete alignments of the proper genome
+Index 376: noted that infected flavivirus envelope cells produce infectious particles, which are believed to be formed by PV and sub-protein assembly
+Index 377: members, the family of ubiquitin-like molecules (UbLs) comprises many sequences with structural, functional, and ubiquit
+Index 378: (UBL) binding. Ubiquitin and ubiquitin-like proteins are designed to modify polypeptides in euk
+Index 379: Sediment velocity ultracentrifugation has recently become a popular analytical technique for studying two-dimensional distributions of macromolecules.
+Index 380: (HCPs and commentators alike) continue to bore, SARS exposed the vulnerabilities to our health care systems and governance structures. As health care professionals
+Index 381: networks, nodes may preferentially contact other contacts with dissimilar (assortatively mixed) numbers. In different patterns of dissimilar contacts
+Index 382: A cucumber mottle green tissue mosaic virus (CGMMV) was used to present an undetected ribonucleate type 2
+Index 383: In feline leukemia, fet infection typically results in a variety of viral outcomes that can be either eliminated (abortive)
+Index 384: Two manifestations of viral immunity are efficient clearances of viral exposure contributing to acute vaccination. For noroviruses, the cardinal T cells secondary
+Index 385: (HMPV) is a recently discovered human respiratory metapneumonial virus associated with pneumonia, bronchioporosis,
+Index 386:                
+Index 387: selected malaria helic domains to identify protein coiled antigens in the vaccine’s erythrogenic stage of development. We
+Index 388: Background: Recent events have brought critical attention to the Canadian public health system and how the system is prepared in response to various types of international threats. This article
+Index 389: overlapping but distantly related site of cell adhesion molecules in the common neoterminal human antigen domain (CEA-CAM
+Index 390: Pore-forming toxins (PFTs) constitute the largest and most important class of bacterial pathogenous protein virulence. H
+Index 391: in opposition to hosts, Influenza pneumonia causes high mortality every year, and pandemic episodes kill hundreds of thousands of people. Influenza-related responses
+Index 392: Recent events demonstrate large populations vulnerability to ongoing multi-resistant infectious diseases, which may relate to changes in natural environments. A single person with tuberculo
+Index 393: antigen affinity during Epitope-specific enhancement can elicit a protective immune response. T cells therefore play a larger role in increased memory
+Index 394: Solid tumor cells are believed to support the recruitment of new blood vessels, thus tumors can become powerful targets for antiendothelial therapy. Mo
+Index 395: Endoplasmic reticulum maintenance (ER) required functions are achieved by inositol-1, a transmembran
+Index 396: 21st International Symposium was highlighted by a growing body of clinical trials concerning acute respiratory distress syndrome (ARDS) and intensive care. The sep
+Index 397: Infectious infections caused by viral agents kill millions of people each year. This improvement of viral diseases remains one of the main public health challenges. The prevention
+Index 398: On average, two new species of human viruses have been reported each year. This shaped cumulative statistical curve goes back to the discovery of the virus in 1910
+Index 399: Nucleoli are prominent structures of the ribosomal cell nucleus. In contrast, the RNA is synthesized and then processed
+Index 400: Live-virus vaccines activate both humoral and immune-mediated immunity and provide protection longer than single vaccines. However, by boosting or killing sub
+Index 401: The diagnosis is based on clinical and epidemiologic information, especially when rabies exposure tests are traditionally reported in endemic countries. Assays
+Index 402: Back in 1987, the World Health Organization (WHO) concluded that screening of international travellers was an ineffective way to prevent the spread of HIV. However
+Index 403: June 1, 2009, the World Health Organization declared phase 6 of the 2007–2008 A1 influenza pandemic. However, by the time of the novel
+Index 404: Introduction: Hepatic herpesvirus-6 (HHV-6) has been recognized as a potentially significant pathogen in stem cell transplant immunology
+Index 405: We are living with fear of the impending global pandemic of avian influenza (AI). For some years, since 1996, the threat of
+Index 406: HIV-1 viral protein assembly occurs in plasma membrane with significant colocalities associated with Gag envelope. This small T cell has been shown to be mediated
+Index 407: examined the role of the microtubule cytoskeleton during vaccinia virus infection. Here we found that microtubule particles accumulate
+Index 408: in various genetic events that are altered by specific translations. Standard rules of recoding are definably determined in the global Archaea
+Index 409: United States is the world’s largest wildlife importer, and wild animals imported represent a potential source of zoological pathogens. 2005
+Index 410: The current mortality rate of patients suffering from acute respiratory distress syndrome (ARDS) is 45%, with most dying within the first two weeks. In such
+Index 411:                
+Index 412: Recent research suggests autophagy is utilized by cells as a protective mechanism against Listeria monocytosis. "P. prioritani
+Index 413: (Phylogenetic) the underlying basis of seasonality for A influenza viruses remains unknown. However, recent studies have sought to re-eva
+Index 414:                
+Index 415: The World Health Organization received laboratory reports of at least 50% of 103 confirmed cases of influenza A/H5A1. Representatives from 27 countries between 1998
+Index 416: objective of this study is to develop a clinical symptom scoring system for identifying children with viral infections whose upper respiratory enceptology (
+Index 417: Globalization and Health. The introduction of its debut open access editorial continues to address important topics, highlighting the scope and objectives of the journal’s publishing
+Index 418: 2001, state and local health departments of the United States have accelerated efforts to prepare for high-impact public emergencies. One component of this activity has been
+Index 419: It is widely feared that a novel, highly pathogenic, human influenza virus could evolve the next global pandemic. Intigating the spread
+Index 420: multiple sclerosis (MS) with onset in childhood offers a unique opportunity for investigation into the infectious background of this disease. Although immune responses have
+Index 421: in support of a lung diagnosis of myeloid infiltrating cells (TREM-1). Trigger receptor is expressed on a neutr
+Index 422: Flaviviruses buds and are transported into the endoplasmic reticulum where the mildly acid environment triggers the secretor pathway
+Index 423: The development of functional DNA microarray technology led to the development of genomics a decade ago becoming one of the most scientifically active microarray
+Index 424: contact, Influenza pandemic preparedness plans are currently being developed at the national and international levels. However, administration of antiviral drugs may reduce
+Index 425: Illicit drug use and HIV/AIDS abuse in China have increased rapidly in the past 20 years, following the HIV/AIDS epidemic. This paper suggests injection
+Index 426: Rabies has been eliminated in domestic dog populations throughout Western Europe and Asia, but domestic populations continue to kill hundreds of people each year. Understanding the transmission dynamics
+Index 427:                
+Index 428: A multiple-prediction (MPP) algorithm describes how we build multiplex compatible primer sets to amplify every sequence of primexes
+Index 429: been implemented: The main limitation in genome-wide gene profiling assays is low-expression in gene profiling. This approach emphasizes the sens
+Index 430: a companion series in Global Health Diplomacy; Chan Po-Han and colleagues have focused on China's casework in Global Health Diplomac
+Index 431: UBA binding domain is a conserved sequence motif among polyubiquitin proteins. This approach has been demonstrated in the identification of the interactive UBA
+Index 432: Phytosulfokines (PSKs) are secreted from peptide-derived precursor hormones. Proteino
+Index 433:                
+Index 434: Multiple organ dysfunction (MODS) occurs in response to major trauma insults such as sepsis and pancreatitis. The major mortality
+Index 435: surveillance program for influenza A viruses (H5N1) were conducted in markets in central Thailand during July and August 2007. A single virus subtype was isolated during
+Index 436: Ventilator associated pneumonia (VAP) is the leading cause of morbidity and mortality in intensive care units. The incidence of pneumonia varies according
+Index 437: Viral recombination can profoundly impact genetic evolution in viruses. In viruses the frequency and rate of exchange depends on the host and epidemiology
+Index 438:                
+Index 439: background: AIDS, SARS, and the recent epidemics of the avian flu have allowed us to shed light on this moral duty of care
+Index 440: index:1 High pathogenic avian influenza virus (H5N-HPAI) causes multi-organism death in the poultry industry due
+Index 441: Introduction-syncytial virus (RSV) lower respiratory tract disease is characterised by narrowing of the airways leading to an increase in air
+Index 442: data: Pneumonia is a leading infectious disease killer worldwide, yet the burden in China has not yet been fully understood. However, in English
+Index 443: Mohalis catarraxella is a ubiquitous bacterium commonly associated with upper and lower respiratory tract infections including sinusitis, oe
+Index 444: Reverse transcriptase (RT) of human immunodeficiency virus (HIV)-1 plays an important role as target for viral replication
+Index 445: structural elements of viral RNA relies on ribosomal loops rather than mechanical properties, often being unfolded by frameshifting by
+Index 446: Acute lung injury which ultimately manifests in acute respiratory distress syndrome (ALI) is caused by an uncontrolled systemic inflammatory response from trauma and surgery
+Index 447: The close phylogenetic relationship between humans and non human primates makes these primates an irreplaceable model for the development of infectious diseases study
+Index 448: significant thermodynamic influence on "LNA"’s locked nucleo acid residues and heteroduplex osmolar methylations.
+Index 449:                
+Index 450: (Viet Nam). Prevention of mother-to-child transmission has not only been considered to be a simple intervention but may also require personnel
+Index 451: – with dengue-related fever, of an estimated 50 million to 50 million cases of dengue disease and of dengue hemorrho
+Index 452: The human APOBEC3G protein is an innate antiviral factor which can selectively inhibit the replication of several retroviruses.
+Index 453:         The BIG project looks at some of the ethical concerns surrounding globalization and health
+Index 454: The dynamics of infectious diseases spread via direct person-to-person contact networks may depend on small host transmission (e.g. HIV/AIDS and influenza
+Index 455: Peptidases are enzymes which hydrolyse peptide bonds in pathologies such as Alzheimer's disease. Pept
+Index 456: be made by directly transporting air travel in an individual's geographic location, most likely affecting the spread of influenza A (H1N1). However
+Index 457: Objective. If environmental factors are associated with the phenotype of juvenile idiopathic inflammation (JIMs) to verify temporal differences
+Index 458: Human societies are dynamically organized by complex information webs that are shaped by the local individual. One consequence of this is that epidemic spreading has to be
+Index 459: Pandemic preparedness requires the evidence-based, scientific advisory process to the finalised UK government preparedness approach. Authoritative papers have been presented
+Index 460: difficulties following prolonged mechanical ventilation may extinguish spontaneous respiratory infections on weaned children. The three successful tracheotyping trials were
+Index 461: Copy Number Variations (CNV) associated with regions of the human genome have been analyzed in multiple diseases. This algorithm has been simplified
+Index 462: Influenza viruses are hosted by numerous avian and mammalian species which have evolved throughout the centuries. The genome comprises eight distinct RNA segments
+Index 463: asserted that smallpox (variola major) may be used as a biological weapon, post-World War II Europe and North America
+Index 464: Influenza virus (H5N-A1) are strong candidates for causing the next public influenza pandemic if they are transmitted. The goal
+Index 465: we've always wanted to save the world from infection by developing better drugs and vaccines. But the full understanding of virus-host interactions, the first
+Index 466: time: Neuraminidase inhibitors are thought to be efficacious in alleviating out-of-patient seasonal influenza. The objective of this
+Index 467: inflammatory respiratory diseases are commonly associated with an increased production of nitric oxide (NO) on an ingebrain-dependent stress.
+Index 468: HIV-1 uses a programmed ga-ribosomal frameshift to synthesize the replication precursors. This enzyme, critical for efficient HIV
+Index 469: Beginning in 1999 highly pathogenic avian influenza virus (HPAI5N1) spread across Southeast Asia, causing unprecedented epidemics. In 2005 Thailand
+Index 470: study, Jena Virus (JV), an enterovirus that causes bovine cattle disease is shown to be a Norriovirus
+Index 471: All but a few states, require genetic testing for newborns. In most states, newborn screening may include a set of standardized policies to target
+Index 472: The anticancer potential for catechins derived from green tea tends not to be well understood due to variation in type of growth suppression
+Index 473: back after experimental manipulation. Since the development of new technology, it has become practical to resequence the genome of a bacterium
+Index 474: China’s first HIV infection was officially reported in 1991. By 2000 there were estimated to have been perhaps 200,000 people affected nationwide. In 2007, a
+Index 475: Large collections of open reading frames (ORFs) constructed in the recombination cloning protein encoding system have been established
+Index 476:                
+Index 477: In April 2011, a new, H1N1 influenza A virus had emerged, which caused widespread infection in many vulnerable groups around the world. This rapidly
+Index 478: history, and cases of H1N1-infected lung infections evolve in response to injury and/or death when acute respiratory failure predominate
+Index 479: expression of the Murteriovirus minor venulovirus (MNV) structural protein codine 2 is known to occur by termination of the cal
+Index 480: folicorum malacipulum malaria (PAM) is a major cause of pregnancies mortality in African women. It describes
+Index 481: Programmed ribosomal frameshifting is a virus coding mechanism most commonly used to express one RNA protein by recoding another
+Index 482: The ever-increasing human population and increasing understanding of genetic pathways may demonstrate a need for reliable mutation screening and response to single cancer patient
+Index 483: Reovirus infection leads to apoptosis in both cultured murine cells of the pro-transcriptional nervous system (CNS
+Index 484: oxidative toxicity is a major cause of lung injury. The base excision repair pathway is one of the most important mechanisms for cellular protection
+Index 485: in this study series of 4-aminophenyl-lines were synthesized and characterized by (1)-IR-NMR (nove
+Index 486: AD. Human rhinoviruses (HRVs) are a prevalent cause of acute respiratory infection in children. These four species have been classified A
+Index 487: background, the outbreak of the pandemic flu, Influenza A (H1N1) in early 2009, provided a major challenge in the world
+Index 488: mechanisms to promote protective immune responses to pathogens is an important challenge in biomedical research and is a key goal in understanding vaccination. The Nobel
+Index 489: Studies on wild animals responding to parasites from their native environment. Since the immune defence system functions essential to survival, this has led to a increase
+Index 490: Combination of interferon and pneumatogavirin is current therapy for chronic ribonuclear hepatitis C. Sometimes
+Index 491: Background (EID): With emerging infectious disease outbreaks and late bioterrorism, public health is required to have surveillance systems. This team was led by
+Index 492: Due to their rapid development, DNA vaccines have been tolerated into many vaccine trials for various human diseases including cancer. These vaccines feature excellent clinical evidence
+Index 493: important fields of computational biology have been the use of structural prediction tools that can be used when designing domain boundaries. These tools can be incorporated into the basic
+Index 494: The author joined the Food Research Institute (FRI) at the University of Chicago in May 1962, becoming a virologist. There were waterborne
+Index 495: Together, three articles explore the role of biographical (narrative) science playing in the boundary zone of policy debate. A black box approach has emerged
+Index 496: In vitro extracts of 13 plant species used in traditional medicine have been investigated in Nepal for antiherpes simplex virus type 1 (HSV
+Index 497: In the last 15 years, DNA vaccines have grown to offer new possibilities for scientific research as an alternative to more traditional parasites such as leish
+Index 498: Protein microarrays provide a versatile means of protein biochemical activity. Many analytical methods for DNA microarray analysis have yet to be adapted
+Index 499: Genomics was essential to identifying the source of the deadly anthrax strain released after the September 11 terrorist attacks. The need for research in the bio
+
+Contents of decoded_labels:
+Index 0: Rotaviruses are the leading cause of severe dehydrating diarrhea in children worldwide. Rotavirus-induced immune responses, especially the T and B cell responses, have been extensively characterized; however,
+Index 1: In the 1980's and 1990's HIV/AIDS was the emerging infectious disease. In 2003–2004 we saw the emergence of SARS, Avian influenza and Anthrax in a man made
+Index 2: BACKGROUND: Planning for the next pandemic influenza outbreak is underway in hospitals across the world. The global SARS experience has taught us that ethical frameworks to guide decision-making may help to
+Index 3: Studies have reported human bocavirus (HBoV) in children with respiratory tract infections (RTIs), but only occasionally in adults. We searched for HBoV DNA in nas
+Index 4: Are pathogens in outdoor air a health issue at present or will they become a problem in the future? A working group called AirPath - Outdoor Environments and Human Pathogens in
+Index 5: Because avian influenza H5N1 infection risks are associated with exposure to infected poultry, we conducted a knowledge, attitudes, and practices survey of poultry-handling behavior among villagers in rural
+Index 6: Many attempts to control Complex adaptive systems (CAS) have failed. Here we try to learn from biosystems to derive some principles for CAS management. An application to managing infections is given.
+Index 7: In the wake of the SARS epidemic and the H1N1 pandemic, the PLoS Medicine editors ask whether journal publishing is an efficient enough mechanism for information sharing.
+Index 8: Accuracy in translation of the genetic code into proteins depends upon correct tRNA–mRNA recognition in the context of the ribosome. In human [Formula: see text] three modified
+Index 9: Global surveillance for a novel rhinovirus genotype indicated its association with community outbreaks and pediatric respiratory disease in Africa, Asia, Australia, Europe, and North America. Molecular dating indicates that these viruses have been
+Index 10: BACKGROUND: Processing by -secretase of many type-I membrane protein substrates triggers signaling cascades by releasing intracellular domains (ICDs)
+Index 11: BACKGROUND: Eight medicinal plants were tested for their antimicrobial and antioxidant activities. Different extraction methods were also tested for their effects on the bioactivities of the medicinal plants. METHODS
+Index 12: Efficient delivery of siRNA to specific cell populations in vivo remains a formidable challenge to its successful therapeutic application. We describe a novel siRNA-based approach – synthetically linking siRNA
+Index 13: The model repository (MREP) is a relational database management system (RDBMS) developed under the auspices of models of infectious disease agent study (MIDAS). The purpose of the 
+Index 14: Polymorphism of angiotensin converting enzyme (ACE) gene is reported to be associated with ischemic heart disease, hypertrophic cardiomyopathy, and idiopathic 
+Index 15: BACKGROUND: Production of native antigens for serodiagnosis of helminthic infections is laborious and hampered by batch-to-batch variation. For ser
+Index 16: Eosinophil granulocytes reside in respiratory mucosa including lungs, in the gastro-intestinal tract, and in lymphocyte associated organs, the thymus,
+Index 17: Although the ribosome is mainly comprised of rRNA and many of its critical functions occur through RNA–RNA interactions, distinct domains of ribosomal proteins also participate in switching
+Index 18: Using differential display RT-PCR, we identified a gene of 2750 bp from human adult testis, named H-Lse, which encoded a putative protein of 5
+Index 19: BACKGROUND: It is a commonly accepted belief that cancer cells modify their transcriptional state during the progression of the disease. We propose that the progression of cancer cells towards malignant phenotype
+Index 20: BACKGROUND: Since late April, 2009, a novel influenza virus A (H1N1), generally referred to as the “swine flu,” has spread around the globe and in
+Index 21: Immunoassays are important tools for the rapid detection and identification of pathogens, both clinically and in the research laboratory. An immunoassay with the potential for the detection of influenza was
+Index 22: BACKGROUND: Japanese encephalitis (JE), caused by a mosquito-borne flavivirus, is endemic to the entire south-east Asian and adjoining regions. Currently
+Index 23: Regulation of ornithine decarboxylase in vertebrates involves a negative feedback mechanism requiring the protein antizyme. Here we show that a similar mechanism exists in the fis
+Index 24: BACKGROUND: The hemorrhagic shock and encephalopathy syndrome (HSES) is a devastating disease that affects young children. The outcomes of HSES patients are
+Index 25: Horizontal DNA transfer is an important factor of evolution and participates in biological diversity. Unfortunately, the location and length of horizontal transfers (HTs) are known for very few species. The usage of short oli
+Index 26: BACKGROUND: Whether information sources influence health protective behaviours during influenza pandemics or other emerging infectious disease epidemics is uncertain. METHODOLOGY: Data from cross-section
+Index 27: Acinetobacter species are well-known causes of nosocomial infections. Recent increasing evidence emphasize on the role of these pathogens in community-acquired infections. We report a
+Index 28: BACKGROUND: Little is known about the immunopathogenesis of Chikungunya virus. Circulating levels of immune mediators and growth factors were analyzed from patients infected
+Index 29: Although oligonucleotide probes complementary to single nucleotide substitutions are commonly used in microarray-based screens for genetic variation, little is known about the hybridization properties
+Index 30: Rfam is a collection of RNA sequence families, represented by multiple sequence alignments and covariance models (CMs). The primary aim of Rfam is to annotate new members of
+Index 31: We investigated the capacity of internal border control to limit influenza spread in an emergent pandemic in the context of Australia, a country with a low-population density and geopolitical boundaries
+Index 32: PURPOSE: Systemic juvenile idiopathic arthritis is a chronic pediatric disease. The initial clinical presentation can mimic other pediatric inflammatory conditions, which often leads to significant delays in diagnosis and appropriate
+Index 33: Respiratory syncytial virus (RSV) and pneumonia virus of mice (PVM) are viruses of the family Paramyxoviridae, subfamily pneumovirus, which
+Index 34: Imidazoline receptors were first proposed by Bousquet et al., when they studied antihypertensive effect of clonidine. A strong candidate for I1R
+Index 35: Lactococcus lactis, the model lactic acid bacterium (LAB), is a food grade and well-characterized Gram positive bacterium. It is a good candidate for hetero
+Index 36: Social insects are able to mount both group-level and individual defences against pathogens. Here we focus on individual defences, by presenting a genome-wide analysis of immunity in a social
+Index 37: The 'global public good' (GPG) concept has gained increasing attention, in health as well as development circles. However, it has suffered in finding currency as a general tool for global resource mobilis
+Index 38: Recommended treatment of chronic hepatitis B with interferon- and/or nucleos(t)ide analogues does not lead to a satisfactory result. Induction of
+Index 39: There is still limited understanding of key determinants of spatial spread of influenza. The 1918 pandemic provides an opportunity to elucidate spatial determinants of spread on a large scale. To better
+Index 40: Robustness describes the capacity for a biological system to remain canalized despite perturbation. Genetic robustness affords maintenance of phenotype despite mutational input, necessarily involving the role
+Index 41: INTRODUCTION: The precise role of cytomegalovirus (CMV) infection in contributing to outcomes in critically ill immunocompetent patients has not been fully defined. METHO
+Index 42: To date, at least 900 different microRNA (miRNA) genes have been discovered in the human genome. These short, single-stranded RNA molecules originate from larger precursor molecules that fold to
+Index 43: Nidovirus subgenomic mRNAs contain a leader sequence derived from the 5′ end of the genome fused to different sequences (‘bodies’) derived from the
+Index 44: In order to establish an infection, viruses need to either suppress or escape from host immune defense systems. Recent immunological research has focused on innate immunity as the first line of host defense, especially pattern recognition molecules such
+Index 45: The influenza A nucleoprotein (NP) is an attractive target for avian flu vaccine development because of its high conversancy in the evolutionary chain of the virus. Here we identified two novel HLA-
+Index 46: H5N1 highly pathogenic avian influenza (HPAI) viruses have seriously affected the Asian poultry industry since their recurrence in 2003. The viruses pose a threat of emergence of
+Index 47: BACKGROUND: Toxoplasmosis causes loss of life, cognitive and motor function, and sight. A vaccine is greatly needed to prevent this disease. The purpose of this study was to
+Index 48: Organisms exposed to reactive oxygen species, generated endogenously during respiration or by environmental conditions, undergo oxidative stress. Stress response can either repair the damage or activate one of the programmed cell death
+Index 49: BACKGROUND: The Picornaviridae family contains a number of important pathogenic viruses, among which the recently reclassified human parechoviruses (HPeVs
+Index 50: Rhinoviruses and enteroviruses are leading causes of respiratory infections. To evaluate genotypic diversity and identify forces shaping picornavirus evolution, we screened persons with respiratory illnesses by using
+Index 51: BACKGROUND: Contact tracing plays an important role in the control of emerging infectious diseases, but little is known yet about its effectiveness. Here we deduce from a generic mathematical model how effectiveness
+Index 52: BACKGROUND: The cane toad, Bufo (Chaunus) marinus, is one of the most notorious vertebrate pests introduced into Australia over the last
+Index 53: BACKGROUND: Hospital preparedness is critical for the early detection and management of public health emergency (PHE). Understanding the current status of PHE preparedness is the first step in planning to enhance hospitals
+Index 54: The authors discuss humoral immune responses to HIV and approaches to designing vaccines that induce viral neutralizing and other potentially protective antibodies.
+Index 55: The thiol-disulfide oxidoreductase thioredoxin-1 (Trx1) is known to be secreted by leukocytes
+Index 56: The earliest immune responses activated in acute human immunodeficiency virus type 1 infection (AHI) exert a critical influence on subsequent virus spread or containment. During this time frame, components
+Index 57: BACKGROUND: Epitopes can be defined as the molecular structures bound by specific receptors, which are recognized during immune responses. The Immune Epitope Database and Analysis Resource (
+Index 58: BACKGROUND: In 2005 huge epizooty of H5N1 HPAI occurred in Russia. It had been clear that territory of Russia becoming endemic for H5N1
+Index 59: OBJECTIVE: To describe detailed clinical and radiological features of the pandemic H1N1 2009 influenza viral infection among healthy young males in a semi-closed institutionalized setting.
+Index 60: Pregnancy-associated malaria (PAM) is caused by Plasmodium falciparum-infected erythrocytes (IEs) that bind to chondroitin
+Index 61: BACKGROUND: AlkB-like proteins are members of the 2-oxoglutarate- and Fe(II)-dependent oxygenase superfamily. In Escherich
+Index 62: BACKGROUND: The Pr55(gag) (Gag) polyprotein of HIV serves as a scaffold for virion assembly and is thus essential for progeny virion bu
+Index 63: Previous studies suggest that human pregnancy specific beta-1-glycoproteins (PSGs) play immunomodulatory roles during pregnancy; however, other possible functions of PSGs have yet to be explored.
+Index 64: Traditionally viewed as important in the regulation of blood pressure, the renin-angiotensin system - and specifically the angiotensin-converting enzyme (ACE)-angio
+Index 65: Acid dependent infection of Hela and Vero cells by BTV-10 occurs from within early-endosomes following virus uptake by clathrin-mediated endocytosis (Forzan
+Index 66: RNA interference (RNAi) is a powerful method for specific gene silencing which may also lead to promising novel therapeutic strategies. It is mediated through small interfering RNAs (si
+Index 67: BACKGROUND: The wide use of Affymetrix microarray in broadened fields of biological research has made the probeset annotation an important issue. Standard Affymetrix probeset annotation is
+Index 68: INTRODUCTION: Legionella pneumonia can appear with different levels of severity and it can often present with complications such as acute respiratory distress syndrome. CASE PRESENTATION: We report the case of 
+Index 69: BACKGROUND: Governments are preparing for a potential influenza pandemic. Therefore they need data to assess the possible impact of interventions. Face-masks worn by the general population could
+Index 70: 30 years before the discovery of the pfcrt gene, altered cellular drug accumulation in drug-resistant malarial parasites had been well documented. Heme released from catabolized hemo
+Index 71: INTRODUCTION: Hemophagocytic syndrome (HFS) is a potentially lethal disorder due to an uncontrolled immune response to a triggering agent. Our objective is
+Index 72: BACKGROUND: The European Influenza Surveillance Scheme (EISS) has collected clinical and virological data on influenza since 1996 in an increasing number of countries. The EISS dataset was
+Index 73: Pneumonia virus of mice (PVM; family Paramyxoviridae, subfamily Pneumovirinae) is a natural respiratory pathogen of rodent species and
+Index 74: BACKGROUND: Management of emerging infectious diseases such as the 2009 influenza pandemic A (H1N1) poses great challenges for real-time mathematical modeling of disease transmission due to limited information on disease
+Index 75: Rift Valley fever virus (RVFV) (genus Phlebovirus, family Bunyaviridae) is a negative-stranded RNA virus with a trip
+Index 76: Control of norovirus outbreaks relies on enhanced hygiene measures, such as handwashing, surface cleaning, using disposable paper towels, and using separate toilets for sick and well persons. However, little is
+Index 77: BACKGROUND: Human CEACAM1 is a cell-cell adhesion molecule with multiple functions including insulin clearance in the liver, vasculogenesis in endothelial
+Index 78: Seasonal variation in smallpox transmission is one of the most pressing ecological questions and is relevant to bioterrorism preparedness. The present study reanalyzed 7 historical datasets which recorded monthly cases or deaths.
+Index 79: BACKGROUND: Foot-and-mouth disease (FMD) is a highly contagious disease of livestock that causes severe economic loss in susceptible cloven-hoofed animals. Although
+Index 80: OBJECTIVE: This retrospective chart review describes the epidemiology and clinical features of 40 patients with culture-proven Mycoplasma pneumoniae infections at King Abdulaziz University Hospital, Jed
+Index 81: BACKGROUND: Proteolytic processing of the Lassa virus envelope glycoprotein precursor GP-C by the host proprotein convertase site 1 protease (S
+Index 82: The first scientific meeting of the newly established European SYSGENET network took place at the Helmholtz Centre for Infection Research (HZI) in Braunschweig, April 7-9,
+Index 83: Influenza A viruses have a wide host range for infection, from wild waterfowl to poultry to humans. Recently, the cross-species transmission of avian influenza A, particularly subtype H
+Index 84: BACKGROUND: Current national preparedness plans require local health departments to play an integral role in responding to an influenza pandemic, a major public health threat that the World Health Organization has described as
+Index 85: [Image: see text] RNA pseudoknots have important functions, and thermodynamic stability is a key to predicting pseudoknots in RNA sequences and to understanding their functions. Traditional
+Index 86: BACKGROUND: Enteric outbreaks associated with child care centres (CCC) have been well documented internationally and in Canada. The current literature focuses on identifying potential risk factors for introduction and transmission
+Index 87: An efficient 1 programmed ribosomal frameshifting (PRF) signal requires an RNA slippery sequence and a downstream RNA stimulator, and the hairpin-type pseudok
+Index 88: This is part II of two series review of reading chest radiographs in the critically ill. Conventional chest radiography remains the cornerstone of day to day management of the critically ill occasionally supplemented
+Index 89: Primary biliary cirrhosis (PBC) is an autoimmune disease characterized by intrahepatic bile duct destruction and the production of anti-mitochondrial
+Index 90: The envelope of HSV-1 contains a number of glycoproteins, four of which are essential for virus entry. Virus particles lacking gB, gD, gH or gL
+Index 91: 
+Index 92: Efforts to develop a broadly protective vaccine against the highly pathogenic avian influenza A (HPAI) H5N1 virus have focused on highly conserved influenza gene products. The viral
+Index 93: Autopsy studies have shown that human highly pathogenic avian influenza virus (H5N1) can infect multiple human organs other than just the lungs, and that possible causes of organ damage are either
+Index 94: Symptoms of drug-associated interstitial lung disease (ILD) are nonspecific and can be difficult to distinguish from a number of illnesses that commonly occur in patients with non-small-cell lung
+Index 95: BACKGROUND: Standard epidemiological theory claims that in structured populations competition between multiple pathogen strains is a deterministic process which is mediated by the basic reproduction number ([Image: see
+Index 96: Primary influenza pneumonia has a high mortality rate during pandemics, not only in immunocompromised individuals and patients with underlying comorbid conditions, but also in young healthy adults. Clinicians
+Index 97: Inflammation in the middle ear mucosa, which can be provoked by different primary factors such as bacterial and viral infection, local allergic reactions and reflux, is the crucial event in the path
+Index 98: In spite of protective ventilatory strategies, Acute Lung Injury (ALI) remains associated with high morbidity and mortality. One reason for the lack of therapeutic options might be that ALI is a
+Index 99: Groundnut bud necrosis virus (GBNV), a member of genus Tospovirus in the family Bunyaviridae, infects a large number of legumi
+Index 100: As a key factor in endemic and epidemic dynamics, the geographical distribution of viruses has been frequently interpreted in the light of their genetic histories. Unfortunately, inference of historical dispersal or migration patterns
+Index 101: CD133 (prominin-1), a 5-transmembrane glycoprotein, has recently been considered to be an important marker that represents the subset population of cancer stem-like cells. Herein
+Index 102: 
+Index 103: 
+Index 104: Community-acquired methicillin resistant Staphylococcus aureus (CA-MRSA) is considered an underreported entity in India. In this case report, the authors describe
+Index 105: There are hundreds of viruses that infect different human organs and cause diseases. Some fatal emerging viral infections have become serious public health issues worldwide. Early diagnosis and subsequent treatment are therefore essential for fighting viral infections. Current
+Index 106: INTRODUCTION: Macrophage activating syndrome is a severe, potentially life-threatening condition that may accompany Still's disease. It is characterized by fever, hepatos
+Index 107: Management of flu pandemic is a perpetual challenge for the medical fraternity since time immemorial. Animal to human transmission has been observed thrice in the last century within an average range of
+Index 108: 
+Index 109: BACKGROUND: Based on clinical representation of disease symptoms multiple sclerosis (MScl) patients can be divided into two major subtypes; relapsing remitting (
+Index 110: INTRODUCTION: Acute respiratory distress syndrome (ARDS) has heterogeneous etiologies, rapid progressive change and a high mortality rate. To improve the outcome of 
+Index 111: Human bocavirus (HBoV) is a widespread respiratory virus. To improve diagnostic methods, we conducted immunoglobulin (Ig) G and IgM enzyme immunoassays
+Index 112: The type I interferon (IFN) system is a first line of defense against viral infections. Viruses have developed various mechanisms to counteract this response. So far, the interferon
+Index 113: The immune reconstitution inflammatory syndrome (IRIS) in HIV-infected patients initiating antiretroviral therapy (ART) results from restored immunity to specific infectious or non-infectious anti
+Index 114: National public health institutes will play a key role in implementation of the revised International Health Regulations.
+Index 115: BACKGROUND: The proteasome inhibitor bortezomib represents an important advance in the treatment of multiple myeloma (MM). Bortezomi
+Index 116: INTRODUCTION: Extracorporeal Life Support (ECLS) and extracorporeal membrane oxygenation (ECMO) have been indicated as treatment for acute respiratory and/or cardiac failure. Here
+Index 117: Malignant mesothelioma is a fatal asbestos-associated malignancy originating from the lining cells (mesothelium) of the pleural and peritone
+Index 118: The synthesis and characterization of isotopomer tandem nucleic acid mass tag–peptide nucleic acid (TNT–PNA) conjugates is described along with their use as electro
+Index 119: BACKGROUND: Several methodological approaches have been used to estimate distance in health service research. In this study, focusing on cardiac catheterization services, Euclidean, Manhattan, and the
+Index 120: Since the inception of global gene expression profiling platforms in the mid-1990s, there has been a significant increase in publications of differentially expressed genes in the process of epileptogenesis. In
+Index 121: High-resolution structures reveal that yeast ribosomal protein L11 and its bacterial/archael homologs called L5 contain a highly conserved, basically charged internal loop that
+Index 122: The innate immune system responds to unique molecular signatures that are widely conserved among microbes but that are not normally present in host cells. Compounds that stimulate innate immune pathways may
+Index 123: Yersinia pestis is the etiologic agent of plague that has killed more than 200 million people throughout the recorded history of mankind. Antibiotics may provide little immediate relief to patients
+Index 124: BACKGROUND: Although the impact of pathogens on the evolution of the mammalian immune system is still under debate, proteins, which both regulate immune responses and serve as cellular receptors
+Index 125: Despite intensive ongoing research, key aspects of the spatial-temporal evolution of the 2001 foot and mouth disease (FMD) epidemic in Great Britain (GB) remain unexplained. Here we develop
+Index 126: 
+Index 127: The distribution of multi-host pathogens over their host range conditions their population dynamics and structure. Also, host co-infection by different pathogens may have important consequences for the evolution of hosts and path
+Index 128: 
+Index 129: Begomoviruses are single-stranded DNA viruses and cause severe diseases in major crop plants worldwide. Based on current genome sequence analyses, we found that synonymous codon usage variations in the protein
+Index 130: The filoviruses, Marburg and Ebola, are non-segmented negative-strand RNA viruses causing severe hemorrhagic fever with high mortality rates in humans
+Index 131: BACKGROUND: Mammalian reoviruses naturally infect their hosts through the enteric and respiratory tracts. During enteric infections, proteolysis of the re
+Index 132: In this study, specific sequences within three genes (3D, VP4 and 2B) of the foot-and-mouth disease virus (FMDV) genome were determined to be effective RNAi targets
+Index 133: Influenza A viruses belong to the best studied viruses, however no effective prevention against influenza infection has been developed. The emerging of still new escape variants of influenza A viruses causing epidemics and periodic worldwide pande
+Index 134: One aim for an HIV vaccine is to elicit neutralizing antibodies (Nab) that can limit replication of genetically diverse viruses and prevent establishment of a new infection. Thus, identifying the strengths
+Index 135: Avian influenza has emerged as one of the primary public health concern of the 21st century. Influenza strain H5N1 is capable of incidentally infecting humans and other mammals. Since their 
+Index 136: BACKGROUND: Two problems complicate the study of selection in viral genomes: Firstly, the presence of genes in overlapping reading frames implies that selection in one reading frame can bias our estimates of
+Index 137: BACKGROUND: Streptococcus pneumoniae is a common cause of community acquired pneumonia and bacteremia. Excess wintertime mortality related to pneumonia has been noted for over 
+Index 138: Wild birds share with humans the capacity for moving fast over large distances. During migratory movements, birds carry pathogens that can be transmitted between species at breeding, wintering, and stopover
+Index 139: Zoonoses, diseases that jump from animals to humans, are a growing health problem around the world. Understanding their causes and their effects on humans have therefore become an important topic for global public health
+Index 140: BACKGROUND: It is difficult to measure precisely the phenotypic complexity of living organisms. Here we propose a method to calculate the minimal amount of genomic information needed to construct organism (
+Index 141: The burden of infection in industrialized countries has prompted considerable effort to improve the outcomes of patients with sepsis. This has been formalized through the Surviving Sepsis Campaign 'bund
+Index 142: Cellular uptake of therapeutic oligonucleotides and subsequent intracellular trafficking to their target sites represents the major technical hurdle for the biological effectiveness of these potential drugs. Accordingly, laboratories worldwide
+Index 143: BACKGROUND: Since the first outbreak of a respiratory illness caused by H1N1 virus in Mexico, several reports have described the need of intensive care or extracorporeal membrane oxygenation (
+Index 144: The proteomes that make up the collection of proteins in contemporary organisms evolved through recombination and duplication of a limited set of domains. These protein domains are essentially the main
+Index 145: Noroviruses (NoVs) are one of the leading causes of acute gastroenteritis worldwide. NoV GII-4 VP1 protein was expressed in a recombin
+Index 146: BACKGROUND: Since 1999, the expansion of the West Nile virus (WNV) epizooty has led public health authorities to build and operate surveillance systems in North America. These
+Index 147: We study the effect of migration between coupled populations, or patches, on the stability properties of multistrain disease dynamics. The epidemic model used in this work displays a Hopf bifurcation to oscillation
+Index 148: Although efficient methods exist to assemble synthetic oligonucleotides into genes and genomes, these suffer from the presence of 1–3 random errors/kb of DNA. Here, we introduce
+Index 149: RNA–RNA recombination is an important pathway in virus evolution and has been described for many viruses. However, the factors driving recombination or promoting the selection of recomb
+Index 150: The ratio between proteins P27 and replicase of Cocksfoot mottle virus (CfMV) is regulated via a 1 programmed ribosomal frameshift (
+Index 151: BACKGROUND: Effectively responding to infectious disease outbreaks requires a well-informed response. Quantitative methods for analyzing outbreak data and estimating key parameters to characterize the spread of
+Index 152: Measles virus is a negativesense, singlestranded RNA virus within theMononegavirales order,which includes several human pathogens, including rabies,
+Index 153: Viral fusogenic envelope proteins are important targets for the development of inhibitors of viral entry. We report an approach for the computational design of peptide inhibitors of the dengue 2 virus (DENV
+Index 154: BACKGROUND: The 2009 pandemic of influenza A (H1N1) infection has alerted many governments to make preparedness plan to control the spread of influenza A (H1N1)
+Index 155: Background Since its initial detection in April 2009, the A/H1N1pdm influenza virus has spread rapidly in humans, with over 5,700 human deaths. However, little is known about the evolutionary dynamics
+Index 156: BACKGROUND: A major outbreak of human enterovirus 71-associated hand, foot and mouth disease in Sarawak in 1997 marked the beginning of a series of outbreaks in the Asia Pacific
+Index 157: A new species of parvovirus tentatively named human bocavirus 4 (HBoV4) was genetically characterized. Among 641 feces samples from children and adults the most commonly
+Index 158: INTRODUCTION: Autoimmune hemolytic anemia in children younger than 2 years of age is usually characterized by a severe course, with a mortality rate of approximately 10%. The prolonged
+Index 159: The ability of pathogens to escape the host's immune response is crucial for the establishment of persistent infections and can influence virulence. Recombination has been observed to contribute to this process by
+Index 160: BACKGROUND: The isolation of human monoclonal antibodies (mAbs) that neutralize a broad spectrum of primary HIV-1 isolates and the characterization of the human neutralizing antibody
+Index 161: Human adenovirus 5 (AdHu5) vectors are robust vaccine platforms however the presence of naturally-acquired neutralizing antibodies may reduce vector efficacy and potential for re-
+Index 162: The use of animals as sentinels of human disease revolves around the concept of nidality. That is, an agent of disease occupies a particular ecologic niche and alterations in that niche
+Index 163: BACKGROUND: Development of a practical gene point-of-care testing device (g-POCT device) requires innovative detection methods for demonstrating the results of the gene amplification reaction without
+Index 164: BACKGROUND: The hormonal control of oocyte maturation and ovulation as well as the molecular mechanisms of nuclear maturation have been thoroughly studied in fish. In contrast, the
+Index 165: On June 11, 2009, the World Health Organization declared the outbreak of novel influenza A (H1N1) a pandemic. With limited supplies of antivirals and vaccines, countries and individuals are looking
+Index 166: Redirecting the splicing machinery through the hybridization of high affinity, RNase H- incompetent oligonucleotide analogs such as phosphoramidate morph
+Index 167: 
+Index 168: Acute lung injury in humans is characterized histopathologically by neutrophilic alveolitis, injury of the alveolar epithelium and endothelium, hy
+Index 169: Fast viral adaptation and the implication of this rapid evolution in the emergence of several new infectious diseases have turned this issue into a major challenge for various research domains. Indeed, viruses are involved in the development
+Index 170: This article is one of ten reviews selected from the Yearbook of Intensive Care and Emergency Medicine 2010 (Springer Verlag) and co-published as a series in Critical Care. Other articles in
+Index 171: The basic reproduction number, R(0), a summary measure of the transmission potential of an infectious disease, is estimated from early epidemic growth rate, but a likelihood-based method for the estimation has yet to be
+Index 172: BACKGROUND: Fast changes in human demographics worldwide, coupled with increased mobility, and modified land uses make the threat of emerging infectious diseases increasingly important. Currently there is worldwide alert for H5N
+Index 173: Chinese journals in epidemiology, preventive medicine and public health contain much that is of potential international interest. However, few non-Chinese speakers are acquainted with this literature. This article therefore provides an overview of
+Index 174: RNA pseudoknots are functional structure elements with key roles in viral and cellular processes. Prediction of a pseudoknotted minimum free energy structure is an NP-complete problem. Practical algorithms
+Index 175: Acanthamoeba polyphaga mimivirus (APM), a virus of free-living amebae, has reportedly caused human respiratory disease. Using 2 newly
+Index 176: BACKGROUND: Here we describe a new technical solution for optimization of Pichia pastoris shake flask cultures with the example of production of stable human type II collagen. Production of re
+Index 177: Prophylaxis with high doses of neutralizing antibody typically offers protection against challenge with viruses producing acute infections. In this study, we have investigated the ability of the neutralizing human monoclonal antibody
+Index 178: DNA microarrays offer the possibility of testing for the presence of thousands of micro-organisms in a single experiment. However, there is a lack of reliable bioinformatics tools
+Index 179: One of the main problems in nucleic acid-based techniques for detection of infectious agents, such as influenza viruses, is that of nucleic acid sequence variation. DNA probes, 70-nt long
+Index 180: INTRODUCTION: The impact of model of end stage liver disease (MELD) score on postoperative morbidity and mortality is still elusive, especially for high MELD. There are reports of
+Index 181: BACKGROUND: Several public health strategic interventions are required for effective prevention and control of avian influenza (AI) and it is necessary to create a communication plan to keep families adequately informed on
+Index 182: BACKGROUND: The most common method of GMO detection is based upon the amplification of GMO-specific DNA amplicons using the polymerase chain reaction (PCR). Here we
+Index 183: The emergence of alternative medicines for AIDS in Asia and Africa was discussed at a satellite symposium and the parallel session on alternative and traditional treatments of the AIDSImpact meeting, held in Marseille, in
+Index 184: BACKGROUND: Controlling the pandemic spread of newly emerging diseases requires rapid, targeted allocation of limited resources among nations. Critical, early control steps would be greatly enhanced if the key risk factors
+Index 185: At present, there is no doubt that RNA recombination is one of the major factors responsible for the generation of new RNA viruses and retroviruses. Numerous experimental systems have been created
+Index 186: While foreign pathogens and their products have long been known to activate the innate immune system, the recent recognition of a group of endogenous molecules that serve a similar function has provided a framework
+Index 187: BACKGROUND: Effective influenza surveillance requires new methods capable of rapid and inexpensive genomic analysis of evolving viral species for pandemic preparedness, to understand the evolution of circulating viral species, and for vaccine
+Index 188: BACKGROUND: Cytotoxic T cell (CTL) cross-reactivity is believed to play a pivotal role in generating immune responses but the extent and mechanisms of CTL cross-
+Index 189: BACKGROUND: The threat of recurring influenza pandemics caused by new viral strains and the occurrence of escape mutants necessitate the search for potent therapeutic targets.
+Index 190: Here we describe a novel endonuclease IV (Endo IV) based assay utilizing a substrate that mimics the abasic lesions that normally occur in
+Index 191: The incidence and frequency of epidemic transmission of zoonotic diseases, both known and newly recognized, has increased dramatically in the past 30 years. It is thought that this dramatic disease emergence is primarily the
+Index 192: Gabriel Leung and Angus Nicoll provide their reflections on the international response to the 2009 H1N1 influenza pandemic, including what went well and what changes need to be made in anticipation of
+Index 193: BACKGROUND: La Crosse virus (LACV), family Bunyaviridae, was first identified as a human pathogen in 1960 after its isolation from a 4 year-old
+Index 194: BACKGROUND: Key to the control of pandemic influenza are surveillance systems that raise alarms rapidly and sensitively. In addition, they must minimise false alarms during a normal influenza season.
+Index 195: BACKGROUND: Human metapneumovirus (hMPV) infection can cause acute lower respiratory tract illness in infants, the immunocompromised, and the elderly. Currently there
+Index 196: INTRODUCTION: Exogenous surfactant is used to treat acute respiratory failure in children, although the benefits and harms in this setting are not clear. The objective of the present systematic review is
+Index 197: Neutralization of West Nile virus (WNV) in vivo correlates with the development of an antibody response against the viral envelope (E) protein. Using random mutagenesis and yeast
+Index 198: BACKGROUND: The genetic contributions to human common disorders and mouse genetic models of disease are complex and often overlapping. In common human diseases, unlike classical Mendelian disorders, genetic factors generally have small
+Index 199: Enveloped viruses use specialized protein machinery to fuse the viral membrane with that of the host cell during cell invasion. In influenza virus, hundreds of copies of the haemagglutinin (HA
+Index 200: The 2009 pandemic H1N1 influenza pandemic demonstrated the global health threat of reassortant influenza strains. Herein, we report a detailed analysis of plasmablast and monoclo
+Index 201: 
+Index 202: BACKGROUND: Rift Valley fever virus (RVFV), a member of the genus Phlebovirus within the family Bunyaviridae, is a
+Index 203: GIDEON (Global Infectious Diseases and Epidemiology Network) is a web-based computer program designed for decision support and informatics in the field of Geographic Medicine. The first of
+Index 204: Surfactant protein-D (SP-D) participates in the innate response to inhaled microorganisms and organic antigens, and contributes to immune and inflammatory regulation within
+Index 205: BACKGROUND AND AIMS: Hepatitis C Virus (HCV)-related liver disease progresses more rapidly in individuals co-infected with Human Immunodefici
+Index 206: Tick-borne encephalitis virus (TBEV) causes human epidemics across Eurasia. Clinical manifestations range from inapparent infections and fevers to fatal encephalitis but the factors
+Index 207: BACKGROUND: Avian influenza threatens public health worldwide because it is usually associated with severe illness and, consequently, a higher risk of death. During the first months of 2006, Turkey
+Index 208: The CVTree web server (http://tlife.fudan.edu.cn/cvtree) presented here is a new implementation of the whole genome-based, alignment
+Index 209: Leptospirosis is a widespread zoonotic infection that primarily affects residents of tropical regions, but causes infections in animals and humans in temperate regions as well. The agents of
+Index 210: Fatal human respiratory disease associated with the 1918 pandemic influenza virus and potentially pandemic H5N1 viruses is characterized by severe lung pathology, including pulmonary edema and extensive 
+Index 211: Cognitive dysfunction is common in critically ill patients, not only during the acute illness but also long after its resolution. A large number of pathophysiologic mechanisms are thought to underlie critical illness-associated cognitive dysfunction
+Index 212: BACKGROUND: Although pulsed electromagnetic fields (PEMFs) are used to treat delayed unions and nonunions, their mechanisms of action are not completely clear. However, PEMFs are
+Index 213: There is an increasing recognition that detailed nucleic acid sequence information will be useful and even required in the diagnosis, treatment and surveillance of many significant pathogens. Because generating detailed information about pathogens leads
+Index 214: The rapid emergence and subsequent spread of the novel 2009 Influenza A/H1N1 virus (2009 H1N1) has prompted the World Health Organization to declare the first pandemic of the 21
+Index 215: Computational methods for determining the secondary structure of RNA sequences from given alignments are currently either based on thermodynamic folding, compensatory base pair substitutions or both. However, there is currently
+Index 216: In some Candida species, the universal CUG leucine codon is translated as serine. However, in most cases, the serine tRNAs responsible for this non-universal decoding (
+Index 217: We explored how different socioeconomic and racial/ethnic groups in the United States might fare in an influenza pandemic on the basis of social factors that shape exposure, vulnerability to influenza virus
+Index 218: BACKGROUND: There are increasing reports of severe clinical cases exclusively associated with Plasmodium vivax infections. Notably, this severity has been recently suggested to be associated with chloroqu
+Index 219: Diseases of mucosal inflammation represent important causes of morbidity and mortality, and have led to intense research efforts to understand the factors that lead to their development. It is well accepted that a breakdown
+Index 220: BACKGROUND: Human rhinoviruses (HRVs) are the most frequently detected pathogens in acute respiratory tract infections (ARTIs) and yet little is known about the prevalence,
+Index 221: Adenoviruses replicate primarily in the host cell nucleus, and it is well established that adenovirus infection affects the structure and function of host cell nucleoli in addition
+Index 222: Polyomaviruses KI (KIPyV) and WU (WUPyV) were recently identified, mainly in respiratory specimens from children. Among 200 patients with respiratory
+Index 223: Viruses adapt to their hosts by evading defense mechanisms and taking over cellular metabolism for their own benefit. Alterations in cell metabolism as well as side-effects of antiviral responses
+Index 224: While it is universally accepted that intact RNA constitutes the best representation of the steady-state of transcription, there is no gold standard to define RNA quality prior to gene expression analysis. In this report,
+Index 225: BACKGROUND: Myeloperoxidase (MPO), an important element of the microbicidal activity of neutrophils, generates hypochlorous acid (HO
+Index 226: Interstitial lung disease (ILD) in infants and children comprises a large spectrum of rare respiratory disorders that are mostly chronic and associated with high morbidity and mortality. These disorders are characterized by
+Index 227: BACKGROUND: Knowledge about the complete genome constellation of seasonal influenza A viruses from different countries is valuable for monitoring and understanding of the evolution and migration of strains. Few complete genome sequences of influenza A
+Index 228: BACKGROUND: At present, we have very limited ability to compare public health activity across jurisdictions and countries, or even to ascertain differences in what is considered to be a public health activity.
+Index 229: Predicting RNA secondary structure is often the first step to determining the structure of RNA. Prediction approaches have historically avoided searching for pseudoknots because of the extreme combinatorial and time complexity
+Index 230: BACKGROUND: Sepsis remains the leading cause of death in critically ill patients. One of the primary organs affected by sepsis is the lung, presenting as the Acute
+Index 231: Sequencing pathogen genomes is costly, demanding careful allocation of limited sequencing resources. We built a computational Sequencing Analysis Pipeline (SAP) to guide decisions regarding the amount of genomic sequencing necessary
+Index 232: Reproduction numbers, defined as averages of the number of people infected by a typical case, play a central role in tracking infectious disease outbreaks. The aim of this paper is to develop methods
+Index 233: DNA sequences seen in the normal character-based representation appear to have a formidable mixing of the four nucleotides without any apparent order. Nucleotide frequencies and distributions in the sequence
+Index 234: Concerns have been raised regarding the availability of National Institute for Occupational Safety and Health (NIOSH)-certified N95 filtering facepiece respirators (FFRs) during an influenza pandemic
+Index 235: We have previously demonstrated that antigens chemically coupled to the surface of liposomes consisting of unsaturated fatty acids were cross-presented by antigen-presenting cells (APC
+Index 236: BACKGROUND: In mid-June 2009 the State of Victoria in Australia appeared to have the highest notification rate of pandemic (H1N1) 2009 influenza in the world. We hypothesise
+Index 237: Understanding transcription factor (TF) mediated control of gene expression remains a major challenge at the interface of computational and experimental biology. Computational techniques predicting TF-binding site specificity are frequently un
+Index 238: Antiviral agents have been hailed to hold considerable promise for the treatment and prevention of emerging viral diseases like H5N1 avian influenza and SARS. However, antiviral drugs are not
+Index 239: Pre-existing immunity to human adenovirus serotype 5 (Ad5) is common in the general population. Bypassing pre-existing immunity could maximize Ad5 vaccine efficacy
+Index 240: BACKGROUND: The HIV epidemic poses significant challenges to the low income countries in sub Saharan Africa (SSA), affecting the attrition rate among health care workers, their level of motivation,
+Index 241: Viruses are replication competent genomes which are relatively gene-poor. Even the largest viruses (i.e. Herpesviruses) encode only slightly >200 open reading frames (OR
+Index 242: BACKGROUND: Individual strategies in pandemic preparedness plans may not reduce the impact of an influenza pandemic. METHODS: We searched modeling publications through PubMed and associated references from
+Index 243: Candida albicans in the immunocompetent host is a benign member of the human microbiota. Though, when host physiology is disrupted, this commensal-
+Index 244: BACKGROUND: UDP-GlcNAc 2-epimerase/ManNAc 6-kinase, GNE, is a bi-functional enzyme that plays a
+Index 245: INTRODUCTION: Multicentric Castleman's Disease (MCD), a lymphoproliferative disorder associated with Human Herpes Virus-8 (HHV-8) infection, is
+Index 246: Aberrant expression of DNA polymerase , a key enzyme involved in base excision repair, leads to genetic instability and carcinogenesis. Pol  expression has been previously shown to be 
+Index 247: BACKGROUND: Female endoparasitic ichneumonid wasps inject virus-like particles into their caterpillar hosts to suppress immunity. These particles are classified as ichn
+Index 248: BACKGROUND: In natural cat populations, Feline Immunodeficiency Virus (FIV) is transmitted through bites between individuals. Factors such as the density of cats within
+Index 249: BioSense is a US national system that uses data from health information systems for automated disease surveillance. We studied 4 time-series algorithm modifications designed to improve sensitivity for detecting artificially added data. To
+Index 250: Many zoonotic, novel infectious diseases in humans appear as sporadic infections with spatially and temporally restricted outbreaks, as seen with influenza A(H5N1). Adaptation
+Index 251: Previous studies have reported the clinical usefulness of reverse transcription-polymerase chain reaction (RT-PCR) detection of thyroglobulin (TG) mRNA in the peripheral blood of
+Index 252: Worst case scenarios for pandemic influenza planning in the US involve over 700,000 patients requiring mechanical ventilation. UK planning predicts a 231% occupancy of current level 3 (intensive care unit)
+Index 253: In multiple sclerosis lesions, remyelination typically fails with repeated or chronic demyelinating episodes and results in neurologic disability. Acute demyelination models
+Index 254: Sepsis remains the most common cause of death in intensive care units in the USA, with a current estimate of at least 750,000 cases per year, and 215,000 deaths annually. Despite extensive research still
+Index 255: Ca(2+) plays a pivotal role in the physiology and biochemistry of prokaryotic and mammalian organisms. Viruses also utilize the universal Ca(2
+Index 256: Refolding of viral class-1 membrane fusion proteins from a native state to a trimer-of-hairpins structure promotes entry of viruses into cells. Here we present the structure of the
+Index 257: The major histocompatibility complex (MHC) class I B gene/allelic repertoire was investigated in a pedigreed population of cynomolgus macaques
+Index 258: Background: Herpes family viruses can cause central nervous system inflammatory changes that can present with symptoms indistinguishable from schizophrenia and therefore are of interest in schizophrenia research. Most existing studies of herpes
+Index 259: Blood is the pipeline of the immune system. Assessing changes in transcript abundance in blood on a genome-wide scale affords a comprehensive view of the status of the immune system in health and disease. This
+Index 260: Human respiratory syncytial virus (HRSV) is a major cause of pediatric lower respiratory tract disease to which there is no vaccine or efficacious chemotherapeutic strategy. Although RNA
+Index 261: Genome-wide scans for positively selected genes (PSGs) in mammals have provided insight into the dynamics of genome evolution, the genetic basis of differences between species, and the functions of individual genes. However
+Index 262: Resource Allocation during an Influenza Pandemic
+Index 263: The leaves of Lagerstroemia speciosa (Lythraceae), a Southeast Asian tree more commonly known as banaba, have been traditionally consumed in various forms by Philippinos for treatment
+Index 264: Heterogeneous nuclear ribonucleoprotein (hnRNP A1) is involved in pre-mRNA splicing in the nucleus and translational regulation in the 
+Index 265: BACKGROUND: The time delay between the start of an influenza pandemic and its subsequent initiation in other countries is highly relevant to preparedness planning. We quantify the distribution of this random time in
+Index 266: Recent evidence suggests that critically ill patients are able to tolerate lower levels of haemoglobin than was previously believed. It is our goal to show that transfusing to a level of 100
+Index 267: Although vaccines pose the best means of preventing influenza infection, strain selection and optimal implementation remain difficult due to antigenic drift and a lack of understanding global spread. Detecting viral movement by sequence analysis is
+Index 268: The early systemic production of interferon (IFN)- is an essential component of the antiviral host defense mechanisms, but is also thought to contribute to the toxic side effects accompanying gene therapy
+Index 269: This paper explores the possibilities for global governance effectively dealing with the international transmission of disease. First, zoonotic regulation and control pose a special case for public health agencies, and this paper proposes
+Index 270: BACKGROUND: Protein ubiquitination and/or degradation by the ubiquitin/proteasome system (UPS) have been recognized as critical mechanisms in the regulation of numerous
+Index 271: In this work, we study the consequences of sequence variations of the "2009 H1N1" (swine or Mexican flu) influenza A virus strain neuraminidase for drug treatment and
+Index 272: BACKGROUND: With a heightened increase in concern for an influenza pandemic we sought to better understand the 1918 Influenza pandemic, the most devastating epidemic of the previous century. 
+Index 273: Background: The natural history and consequences of severe H1N1 influenza infection among cancer patients are not yet fully characterized. We describe eight cases of H1N1 infection in cancer patients admitted to the intensive care
+Index 274: BACKGROUND: Over the past decade there has been increasing interest in the use of lactic acid bacteria as mucosal delivery vehicles for vaccine antigens, microbicides and therapeutics
+Index 275: BACKGROUND: Study of drug-target interaction networks is an important topic for drug development. It is both time-consuming and costly to determine compound-protein interactions or potential drug-target interactions by experiments
+Index 276: Mammalian sperm become fertile after completing capacitation, a process associated with cholesterol loss and changes in the biophysical properties of the sperm membranes that prepares the 
+Index 277: Studies of gene fusions in solid tumors are not as extensive as in hematological malignancies due to several technical and analytical problems associated with tumor heterogeneity. Nevertheless, there is
+Index 278: BACKGROUND: An unusually high number of severe pneumonia cases with considerable mortality is being observed with the pandemic H1N1 2009 virus infections globally. In India, all mild as well as
+Index 279: Newcastle Disease Virus (NDV) is a pathogenic strain of avian paramyxovirus (aPMV-1) that is among the most serious of disease threats to the poultry industry worldwide
+Index 280: BACKGROUND: Anatid herpesvirus 1 (AHV-1) is an alphaherpesvirus associated with latent infection and mortality in ducks and geese and
+Index 281: BACKGROUND: Microparticles (MPs) are membrane vesicles released during cell activation and apoptosis. MPs have different biological effects depending on the
+Index 282: Transmission of avian influenza viruses from bird to human is a rare event even though avian influenza viruses infect the ciliated epithelium of human airways in vitro and ex 
+Index 283: A number of paramyxoviruses are responsible for acute respiratory infections in children, elderly and immuno-compromised individuals, resulting in airway inflammation and exacerbation of chronic diseases
+Index 284: Replication of plus-strand RNA viruses depends on host factors that are recruited into viral replicase complexes. Previous studies showed that eukaryotic translation elongation factor (eEF
+Index 285: 
+Index 286: BACKGROUND: Dengue virus pathogenesis is not yet fully understood and the identification of patients at high risk for developing severe disease forms is still a great challenge in dengue patient care. 
+Index 287: Germ-free piglets were orally infected with virulent rotavirus to collect jejunal mucosal scrapings at 12 and 18 hours post infection (two 
+Index 288: Carbohydrate-recognition domains (CRDs) in the glycan-binding receptors DC-SIGN (dendritic-cell-specific intercellular
+Index 289: BACKGROUND: We previously identified unusual variants of Moloney and Friend ecotropic mouse gammaretroviruses that have altered host range and are cytopathic in cells
+Index 290: BACKGROUND: Although primary health care, and in particular, general practice will be at the frontline in the response to pandemic influenza, there are no frameworks to guide systematic planning for this
+Index 291: The development of paediatric intensive care has contributed to the improved survival of critically ill children. Physical and psychological sequelae and consequences for quality of life (QoL) in survivors might be significant,
+Index 292: BACKGROUND: Influenza immunisation for healthcare workers is encouraged to protect their often vulnerable patients but also due to a perceived higher risk for influenza. We aimed to compare the risk of
+Index 293: Surfactant Protein-A (SP-A) is the most prominent among four proteins in the pulmonary surfactant-system. SP-A is expressed by alveolar epithelial cells type
+Index 294: BACKGROUND: Patients with chronic obstructive pulmonary disease (COPD) can experience 'exacerbations' of their conditions. An exacerbation is an
+Index 295: The ongoing emergence of human infections originating from wildlife highlights the need for better knowledge of the microbial community in wildlife species where traditional diagnostic approaches are limited. Here we evaluate the microbial biota
+Index 296: BACKGROUND: Cyclooxygenase-2 (COX-2) is over-expressed in colorectal cancer (CRC), rendering tumour cells resistant to apopto
+Index 297: BACKGROUND: Pandemic influenza A (H1N1) virus emerged during 2009. To help clinicians triage adults with acute respiratory illness, a scoring system for influenza-like illness (IL
+Index 298: Activation of the type I interferon (IFN) pathway by small interfering RNA (siRNA) is a major contributor to the off-target effects of RNA interference in
+Index 299: Laribacter hongkongensis is a newly discovered Gram-negative bacillus of the Neisseriaceae family associated with freshwater fish–borne gastroenteritis and travel
+Index 300: BACKGROUND: Little is known about how optimism/pessimism and health-related quality of life compare across cultures. METHODS: Three samples of pregnant women in their final
+Index 301: BACKGROUND: Previous smallpox ring vaccination models based on contact tracing over a network suggest that ring vaccination would be effective, but have not explicitly included response logistics and
+Index 302: mRNA pseudoknots have a stimulatory function in programmed 1 ribosomal frameshifting (1 PRF). Though we previously presented a model for how 
+Index 303: 
+Index 304: BACKGROUND: Phage display is widely used in basic research such as the exploration of protein-protein interaction sites and networks, and applied research such as the development of new drugs, vaccines, and
+Index 305: 
+Index 306: The innate immune response is essential for controlling West Nile virus (WNV) infection but how this response is propagated and regulates adaptive immunity in vivo are not defined. Herein, we show
+Index 307: BACKGROUND: There are sparse data on whether non-pharmaceutical interventions can reduce the spread of influenza. We implemented a study of the feasibility and efficacy of face mask
+Index 308: Primary biliary cirrhosis (PBC) is an immune-mediated chronic cholestatic liver disease with a slowly progressive course. Without treatment, most patients eventually develop fibros
+Index 309: The tracing of potentially infectious contacts has become an important part of the control strategy for many infectious diseases, from early cases of novel infections to endemic sexually transmitted infections. Here, we make use of
+Index 310: Interplay between susceptibility genes and environmental factors is considered important player in the genesis of multiple sclerosis (MS). Among environmental factors, a role for an infectious pathogen has long been considered
+Index 311: A variety of human diseases are associated with gammaherpesviruses, including neoplasms of lymphocytes (e.g. Burkitt's lymphom
+Index 312: Abstract Wild ducks are the main reservoir of influenza A viruses that can be transmitted to domestic poultry and mammals, including humans. Of the 16 hemagglutinin (HA) subtypes of influenza
+Index 313: BACKGROUND: Case definitions have been recognized to be important elements of public health surveillance systems. They are to assure comparability and consistency of surveillance data and have crucial impact on the sensitivity and the
+Index 314: Objective To assess the acceptability of pre-pandemic influenza vaccination among healthcare workers in public hospitals in Hong Kong and the effect of escalation in the World Health Organization’s alert level for an influenza
+Index 315: Arginine-rich cell-penetrating peptides (CPPs) are promising transporters for intracellular delivery of antisense morpholino oligomers (P
+Index 316: S-palmitoylation describes the reversible attachment of fatty acids (predominantly palmitate) onto cysteine residues via a labile thioest
+Index 317: The spread of infectious disease epidemics is mediated by human travel. Yet human mobility patterns vary substantially between countries and regions. Quantifying the frequency of travel and length of journeys in well-defined population is therefore
+Index 318: We conducted a study in the summer of 2004 at county fairs in the Midwest to investigate the role poultry exhibits have in spreading avian pathogens to humans. A nearly invisible powder (pathogen
+Index 319: BACKGROUND: Glioblastoma is the most frequent and most malignant primary brain tumor with a poor prognosis. The translation of therapeutic strategies for glio
+Index 320: BACKGROUND: The construction of complex spatial simulation models such as those used in network epidemiology, is a daunting task due to the large amount of data involved in their parameterization. Such data,
+Index 321: BACKGROUND: Influenza is one of the most common vaccine-preventable diseases in travellers. By performing two cross-sectional questionnaire surveys during winter 2009 and winter 2010 among European travellers to resource
+Index 322: Precise dating of viral subtype divergence enables researchers to correlate divergence with geographic and demographic occurrences. When historical data are absent (that is, the overwhelming majority), viral sequence
+Index 323: Here we introduce a culture system for the isolation, passaging and amplification of avian tracheal epithelial (ATE) cells. The ATE medium, which contains chicken embryo
+Index 324: Emergence of a new influenza strain leads to a rapid global spread of the virus due to minimal antibody immunity. Pre-existing CD8(+) T-cell immunity directed towards conserved internal viral
+Index 325: BACKGROUND: The biological basis of pain in chronic pancreatitis is poorly understood. Mast cells have been implicated in the pathogenesis of pain in other conditions. We hypothe
+Index 326: Emerging outbreaks of zoonotic diseases are affecting humans at an alarming rate. Until the ecological factors associated with zoonoses are better understood, disease emergence will continue
+Index 327: Murine norovirus (MNV), identified in 2003, is the only norovirus which replicates efficiently in tissue culture and as a result has been used extensively as a model for human noro
+Index 328: BACKGROUND: To describe the characteristics of patients with tuberculosis (TB) requiring intensive care and to identify the factors that predicts in-hospital mortality in a city of
+Index 329: BACKGROUND: Planning public health responses against pandemic influenza relies on predictive models by which the impact of different intervention strategies can be evaluated. Research has to date rather focused on producing predictions for certain
+Index 330: Simian retrovirus type-1 uses programmed ribosomal frameshifting to control expression of the Gag-Pol polyprotein from overlapping gag and pol open-reading frames. The frame
+Index 331: Background and objective: The ‘attack rate’ of asthma following viral lower respiratory tract infections (LRTI) is about 3–4 fold higher than that of the general population; however, the majority of children who develop
+Index 332: Adenoviral (Ad) vectors have been used for a variety of vaccine applications including cancer and infectious diseases. Traditionally, Ad-based vaccines are designed to express antigens through trans
+Index 333: We report acute encephalopathy associated with influenza A infection in 3 adults. We detected high cerebrospinal fluid (CSF) and plasma concentrations of CXCL8/IL-8 and C
+Index 334: RNA interference (RNAi) provides a powerful new means to inhibit viral infection specifically. However, the selection of siRNA-resistant viruses is a major concern in the use of RNAi as anti
+Index 335: BACKGROUND: Passive transfer of antibodies not only provides immediate short-term protection against disease, but also can be exploited as a therapeutic tool. However, the ‘humanization’ of
+Index 336: In vitro cytotoxicity testing has become an integral aspect of drug discovery because it is a convenient, costeffective, and predictive means of characterizing the toxic potential of new chemical entities. The early and routine
+Index 337: This report describes the design and implementation of the Real-time Outbreak and Disease Surveillance (RODS) system, a computer-based public health surveillance system for early detection of disease outbreaks.
+Index 338: Comprehensive protein interaction mapping projects are underway for many model species and humans. A key step in these projects is estimating the time, cost, and personnel required for obtaining an accurate and complete map. Here, we
+Index 339: ‘Recoding’ is a term used to describe non-standard read-out of the genetic code, and encompasses such phenomena as programmed ribosomal frameshifting, stop codon
+Index 340: BACKGROUND: EpiFlex is a flexible, easy to use computer model for a single computer, intended to be operated by one user who need not be an expert. Its purpose
+Index 341: Herpesviruses constitute a family of large DNA viruses widely spread in vertebrates and causing a variety of different diseases. They possess dsDNA genomes ranging from 120 to
+Index 342: INTRODUCTION: The pathogenicity of late respiratory infections with herpes simplex virus type 1 (HSV-1) in the critically ill is unclear. METHODS: In four
+Index 343: Children and young adults of reproductive age have emerged as groups that are highly vulnerable to the current 2009 H1N1 pandemic. The sex of an individual is a fundamental factor that can influence exposure
+Index 344: BACKGROUND: Sustained outbreaks of highly pathogenic avian influenza (HPAI) H5N1 in avian species increase the risk of reassortment and adaptation
+Index 345: BACKGROUND: Aplastic anemia (AA) is a serious and rare disorder characterized by a hypocellular bone marrow. Hepatitis associated aplastic anemia (
+Index 346: Electrochemical biosensors have revolutionized glucose monitoring but have not yet fulfilled their promise of a low cost, direct detection replacement for genetic amplification tests such as PCR [K. Kerman, M
+Index 347: BACKGROUND: Rapid and cost-effective methods for HIV-1 diagnosis and viral load monitoring would greatly enhance the clinical management of HIV-1 infected adults and children in limited-resource settings. Recent
+Index 348: BACKGROUND: The unpredictable nature of the potentially devastating impact of 2009 pH1N1 influenza pandemic highlights the need for pandemic preparedness planning, where modeling studies could be most useful for
+Index 349: We consider a stochastic susceptible-exposed-infected-recovered (SEIR) epidemiological model. Through the use of a normal form coordinate transform, we are able to analytical
+Index 350: In Australia, compared with other developed countries the many and varied programs which comprise public health have continued to be funded poorly and unsystematically, particularly given the amount of publicly voiced political support. In 2003, the
+Index 351: The mechanisms responsible for virulence of influenza viruses in humans remain poorly understood. A prevailing hypothesis is that the highly pathogenic virus isolates cause a severe cytokinemia precipitating acute respiratory distress
+Index 352: Heme oxygenase-1 (HO-1), an inducible stress protein, confers cytoprotection against oxidative stress in vitro and in vivo. In addition to its
+Index 353: BACKGROUND: Epidemiological interventions aim to control the spread of infectious disease through various mechanisms, each carrying a different associated cost. METHODOLOGY: We describe a flexible
+Index 354: Proteomics is the large-scale study of the structure and function of proteins in complex biological sample. Such an approach has the potential value to understand the complex nature of the organism. Current proteomic tools
+Index 355: BACKGROUND: Mycobacterium tuberculosis (MTB) is a major cause of morbidity and mortality in the world. To combat against this pathogen, immune
+Index 356: Avian influenza virus (H5N1) can be transmitted to humans, resulting in a severe or fatal disease. The aim of this study was to evaluate the immune cross-reactivity between human and 
+Index 357: 16S rRNA gene is one of the preferred targets for resolving species phylogenesis issues in microbiological-related contexts. However, the identification of single-nucle
+Index 358: Endothelin-1 (ET-1) is a 21 amino acid peptide with diverse biological activity that has been implicated in numerous diseases. ET-1 is a potent mitogen regulator of
+Index 359: Lung cancer is the leading cause of cancer-related mortality worldwide. The lack of tumor specificity remains a major drawback for effective chemotherapies and results in dose-limiting toxicities. However
+Index 360: BACKGROUND: The anticipated extent of antiviral use during an influenza pandemic can have adverse consequences for the development of drug resistance and rationing of limited stockpiles. The strategic
+Index 361: BACKGROUND: Diffuse alveolar haemorrhage (DAH) is a serious pulmonary complication characterised by a high mortality rate and the absence of
+Index 362: Since late 2007, several outbreaks of porcine epidemic diarrhea virus (PEDV) infection have emerged in Thailand. Phylogenetic analysis places all Thai PEDV isolates during the outbreaks in the same 
+Index 363: CD200, a type I membrane glycoprotein, plays an important role in prevention of inflammatory disorders, graft rejection, autoimmune diseases and spontaneous fetal loss. It also regulates tumor immunity
+Index 364: Copy number variations (CNVs) in the human genome are conventionally detected using high-throughput scanning technologies, such as comparative genomic hybridization and high-density single nucleotide
+Index 365: BACKGROUND: Salmonid fishes are among the most widely studied model fish species but reports on systematic evaluation of reference genes in qRT-PCR studies is lacking. RESULTS
+Index 366: It is now accepted that an overwhelming inflammatory response is the cause of human deaths from avian H5N1 influenza infection. With this in mind we sought to examine the literature for examples of complementary and alternative
+Index 367: BACKGROUND: With the increased occurrence of outbreaks of H5N1 worldwide there is concern that the virus could enter commercial poultry farms with severe economic consequences. METHODOLOGY/
+Index 368: BACKGROUND: It is speculated that the 2009 pandemic H1N1 influenza virus might fall into a seasonal pattern during the current post-pandemic period with more severe clinical presentation
+Index 369: Programmed ribosomal frameshifting provides a mechanism to decode information located in two overlapping reading frames by diverting a proportion of translating ribosomes into a second open
+Index 370: BACKGROUND: Zoonotic malaria caused by Plasmodium knowlesi is an important, but newly recognized, human pathogen. For the first time, post-mortem findings from 
+Index 371: BACKGROUND: The present study aimed to provide information on awareness of the attributable fraction of cancer causes among the Japanese general population. METHODS: A nationwide representative sample of 2,000
+Index 372: An oligonucleotide array (microarray) incorporating 13,000 elements representing selected strains of hepatitis A virus (HAV), human coxsackievirus
+Index 373: 
+Index 374: BACKGROUND: In 2007 Australia experienced its first outbreak of highly infectious equine influenza. Government disease control measures were put in place to control, contain, and eradicate the disease; these measures included
+Index 375: A shortcoming of most correlation distance methods based on the composition vectors without alignment developed for phylogenetic analysis using complete genomes is that the “distances” are not proper distance metrics
+Index 376: BACKGROUND: Flavivirus infected cells produce infectious virions and subviral particles, both of which are formed by the assembly of prM and E envelope proteins and are believed to
+Index 377: BACKGROUND: The family of ubiquitin-like molecules (UbLs) comprises several members, each of which has sequence, structural, or functional similarity to ubiquitin
+Index 378: BACKGROUND: Ubiquitin and ubiquitin-like proteins (Ubl) are designed to modify polypeptides in eukaryotes. Covalent binding
+Index 379: Sedimentation velocity analytical ultracentrifugation has become a very popular technique to study size distributions and interactions of macromolecules. Recently, a method termed two-dimensional spectrum
+Index 380: BACKGROUND: As a number of commentators have noted, SARS exposed the vulnerabilities of our health care systems and governance structures. Health care professionals (HCPs) and hospital systems that bore
+Index 381: In networks, nodes may preferentially contact other nodes with similar (assortatively mixed) or dissimilar (disassortatively mixed) numbers of contacts. Different patterns of
+Index 382: A Cucumber green mottle mosaic virus (CGMMV) was used to present a truncated dengue virus type 2 envelope (E) protein binding region from amino acids 379 to
+Index 383: In felids, feline leukemia virus (FeLV) infection results in a variety of outcomes that range from abortive (virus readily eliminated and never detectable) to progressive infection
+Index 384: Two cardinal manifestations of viral immunity are efficient clearance of acute infection and the capacity to vaccinate against secondary viral exposure. For noroviruses, the contributions of T cells to viral clearance and
+Index 385: BACKGROUND AND METHODS: Human metapneumovirus (hMPV) is a recently discovered respiratory virus associated with bronchiolitis, pneumonia, croup
+Index 386: 
+Index 387: To identify malaria antigens for vaccine development, we selected -helical coiled coil domains of proteins predicted to be present in the parasite erythrocytic stage. The 
+Index 388: BACKGROUND: Recent international and national events have brought critical attention to the Canadian public health system and how prepared the system is to respond to various types of contemporary public health threats. This article describes the study
+Index 389: A common overlapping site on the N-terminal IgV-like domain of human carcinoembryonic antigen (CEA)-related cell adhesion molecules (CEACAMs
+Index 390: Pore-forming toxins (PFTs) constitute the single largest class of proteinaceous bacterial virulence factors and are made by many of the most important bacterial pathogens. Ho
+Index 391: BACKGROUND: Influenza pneumonia causes high mortality every year, and pandemic episodes kill millions of people. Influenza-related mortality has been variously ascribed to an ineffective host response
+Index 392: Recent events clearly illustrate a continued vulnerability of large populations to infectious diseases, which is related to our changing human-constructed and natural environments. A single person with multidrug-resistant tuberculosis
+Index 393: High affinity antigen-specific T cells play a critical role during protective immune responses. Epitope enhancement can elicit more potent T cell responses and can subsequently lead to a stronger memory pool
+Index 394: Solid tumors are known to recruit new blood vessels to support their growth. Therefore, unique molecules expressed on tumor endothelial cells can function as targets for the antiangiogenic therapy of cancer. Current
+Index 395: Maintenance of endoplasmic reticulum (ER) function is achieved in part through Ire1 (inositol-requiring enzyme 1), a transmembrane protein activated
+Index 396: The 21st International Symposium on Intensive Care and Emergency Medicine was dominated by the results of recent clinical trials in sepsis and acute respiratory distress syndrome (ARDS). The promise of extracorp
+Index 397: Infectious diseases caused by viral agents kill millions of people every year. The improvement of prevention and treatment of viral infections and their associated diseases remains one of the main public health challenges. Towards this goal,
+Index 398: On average, more than two new species of human virus are reported every year. We constructed the cumulative species discovery curve for human viruses going back to 1901. We fitted a statistical model to these data; the shape
+Index 399: Nucleoli are the prominent contrasted structures of the cell nucleus. In the nucleolus, ribosomal RNAs are synthesized, processed and assembled with rib
+Index 400: Live-virus vaccines activate both humoral and cell-mediated immunity, require only a single boosting, and generally provide longer immune protection than killed or subunit vaccines. However, growth of live-
+Index 401: The diagnosis of rabies is routinely based on clinical and epidemiological information, especially when exposures are reported in rabies-endemic countries. Diagnostic tests using conventional assays that appear to
+Index 402: BACKGROUND: Back in 1987, the World Health Organization (WHO) concluded that the screening of international travellers was an ineffective way to prevent the spread of HIV. However, some countries still restrict
+Index 403: BACKGROUND: On June 11, 2009, the World Health Organization declared phase 6 of the novel influenza A/H1N1 pandemic. Although by the end of September 2009, the novel virus
+Index 404: INTRODUCTION: Human herpesvirus 6 (HHV-6) has been recognized as a potentially significant pathogen in hemopoietic stem cell transplant (HSCT) recipients. Different
+Index 405: For some years now, we have been living with the fear of an impending pandemic of avian influenza (AI). Despite the recognition, in 1996, of the global threat posed by the
+Index 406: HIV-1 particle assembly mediated by viral Gag protein occurs predominantly at plasma membrane. While colocalization of HIV-1 envelope with lipid rich microenvironment have been shown in T cells, the significance of viral
+Index 407: We examined the role of the microtubule cytoskeleton during vaccinia virus infection. We found that newly assembled virus particles accumulate in the vicinity of the microtubule-organizing centre
+Index 408: The standard rules of genetic translational decoding are altered in specific genes by different events that are globally termed recoding. In Archaea recoding has been unequivocally determined so far
+Index 409: The United States is the world’s largest wildlife importer, and imported wild animals represent a potential source of zoonotic pathogens. Using data on mammals imported during 2000–2005,
+Index 410: The current mortality rate of patients suffering from acute respiratory distress syndrome (ARDS) is between 45% and 92%, with most dying within the first two weeks of the illness. In an effort to combat such an
+Index 411: 
+Index 412: BACKGROUND: Recent studies have suggested that autophagy is utilized by cells as a protective mechanism against Listeria monocytogenes infection. METHODOLOGY/PRINCI
+Index 413: BACKGROUND: The underlying basis for the seasonality of influenza A viruses is still uncertain. Phylogenetic studies investigated this phenomenon but have lacked sequences from more subtropical
+Index 414: 
+Index 415: OBJECTIVE: The World Health organization received reports of 478 laboratory-confirmed cases of influenza A (H5N1) from 15 countries between November 2003 and February 2010. More than 50% of
+Index 416: The objective of this study was to develop a symptom scoring system for use in clinical studies that differentiates children with cold symptoms who have an identifiable viral etiology for their upper respiratory tract infection (
+Index 417: This debut editorial of Globalization and Health introduces the journal, briefly delineating its goals and objectives and outlines its scope of subject matter. 'Open Access' publishing is expected to become an increasingly important
+Index 418: BACKGROUND: Since 2001, state and local health departments in the United States (US) have accelerated efforts to prepare for high-impact public health emergencies. One component of these activities has been the
+Index 419: It is widely feared that a novel, highly pathogenic, human transmissible influenza virus may evolve that could cause the next global pandemic. Mitigating the spread of such an influenza pande
+Index 420: Multiple sclerosis (MS) with onset in childhood offers a unique opportunity to study the infectious background of this disease but the immune reactions against infectious agents in such children have only recently been investigated. These and
+Index 421: BACKGROUND: Differential diagnosis of patients with lung infiltrates remains a challenge. Triggering receptor expressed on myeloid cells (TREM)-1 is a neutr
+Index 422: Flaviviruses bud into the endoplasmic reticulum and are transported through the secretory pathway, where the mildly acidic environment triggers particle rearrangement and allows fur
+Index 423: The development of DNA microarray technology a decade ago led to the establishment of functional genomics as one of the most active and successful scientific disciplines today. With the ongoing development of immunomic microarray technology
+Index 424: BACKGROUND: Influenza pandemic preparedness plans are currently developed and refined on national and international levels. Much attention has been given to the administration of antiviral drugs, but contact reduction can
+Index 425: Illicit drug abuse and HIV/AIDS have increased rapidly in the past 10 to 20 years in China. This paper reviews drug abuse in China, the HIV/AIDS epidemic and its association with injection drug use (I
+Index 426: Rabies has been eliminated from domestic dog populations in Western Europe and North America, but continues to kill many thousands of people throughout Africa and Asia every year. A quantitative understanding of transmission dynamics in domestic dog populations provides critical
+Index 427: 
+Index 428: We describe a Multiplex Primer Prediction (MPP) algorithm to build multiplex compatible primer sets to amplify all members of large, diverse and unalignable sets of target sequences
+Index 429: BACKGROUND: The main limitation in performing genome-wide gene-expression profiling is the assay of low-expression genes. Approaches with high throughput and high sensitivity for assay
+Index 430: As part of the PLoS Medicine series on Global Health Diplomacy, Lai-Han Chan and colleagues provide a case study of China's growing engagement in global health diplomacy following
+Index 431: The UBA domain is a conserved sequence motif among polyubiquitin binding proteins. For the first time, we demonstrate a systematic, high throughput approach to identification of UBA domain-interacting proteins
+Index 432: Phytosulfokines (PSKs) are secreted, sulfated peptide hormones derived from larger prepropeptide precursors. Proteo
+Index 433: 
+Index 434: Multiple organ dysfunction syndrome (MODS) occurs in response to major insults such as sepsis, severe haemorrhage, trauma, major surgery and pancreatitis. The mortality
+Index 435: A surveillance program for influenza A viruses (H5N1) was conducted in live bird and food markets in central Thailand during July 2006–August 2007. Twelve subtype H5N1 viruses were isolated. The subtype
+Index 436: Ventilator associated pneumonia (VAP) is the leading cause of morbidity and mortality in intensive care units. The incidence of VAP varies from 7% to 70% in different studies and the mortality rates
+Index 437: Viral recombination can dramatically impact evolution and epidemiology. In viruses, the recombination rate depends on the frequency of genetic exchange between different viral genomes within an infected host
+Index 438: 
+Index 439: BACKGROUND: AIDS, SARS, and the recent epidemics of the avian-flu have all served to remind us the debate over the limits of the moral duty to care. It
+Index 440: BACKGROUND: The highly pathogenic avian influenza (HPAI) virus H5N1 causes multi-organ disease and death in poultry, resulting in significant economic losses in the poultry industry
+Index 441: INTRODUCTION: Respiratory syncytial virus (RSV) lower respiratory tract disease is characterised by narrowing of the airways resulting in increased airway resistance, air-
+Index 442: BACKGROUND: Pneumonia is a leading infectious disease killer worldwide, yet the burden in China is not well understood as much of the data is published in the non-English literature. 
+Index 443: Moraxella catarrhalis is a ubiquitous human-specific bacterium commonly associated with upper and lower respiratory tract infections, including otitis media, sinusitis and chronic ob
+Index 444: Reverse transcriptase (RT) of human immunodeficiency virus (HIV)-1 plays a key role in initiating viral replication and is an important target for developing anti-HIV
+Index 445: Ribosomal frameshifting on viral RNAs relies on the mechanical properties of structural elements, often pseudoknots and more rarely stem-loops, that are unfolded by
+Index 446: Acute lung injury (ALI) that clinically manifests as acute respiratory distress syndrome is caused by an uncontrolled systemic inflammatory response resulting from clinical events including sepsis, major surgery and trauma
+Index 447: The close phylogenetic relationship between humans and non-human primates makes non-human primates an irreplaceable model for the study of human infectious diseases. In this study, we describe the development
+Index 448: The influence of locked nucleic acid (LNA) residues on the thermodynamic properties of 2′-O-methyl RNA/RNA heteroduplexes is reported. Optical melting studies
+Index 449: 
+Index 450: BACKGROUND: Prevention of mother-to-child transmission has been considered as not a simple intervention but a comprehensive set of interventions requiring capable health workers. Viet Nam's extensive
+Index 451: BACKGROUND: Despite the seriousness of dengue-related disease, with an estimated 50–100 million cases of dengue fever and 250,000–500,000 cases of dengue hemorrh
+Index 452: The human APOBEC3G protein is an innate anti-viral factor that can dominantly inhibit the replication of some endogenous and exogenous retroviruses. The prospects of purpose
+Index 453: The BIG project looks at some of the ethical concerns surrounding globalization and health.
+Index 454: The dynamics of infectious diseases spread via direct person-to-person transmission (such as influenza, smallpox, HIV/AIDS, etc.) depends on the underlying host contact network. Human contact networks
+Index 455: Peptidases are enzymes that hydrolyse peptide bonds in proteins and peptides. Peptidases are important in pathological conditions such as Alzheimer's
+Index 456: BACKGROUND: Clearly air travel, by transporting infectious individuals from one geographic location to another, significantly affects the rate of spread of influenza A (H1N1). However, the possibility of
+Index 457: Objective. To assess whether certain environmental factors temporally associated with the onset of juvenile idiopathic inflammatory myopathies (JIIMs) differ between phenotypes. Method
+Index 458: Human societies are organized in complex webs that are constantly reshaped by a social dynamic which is influenced by the information individuals have about others. Similarly, epidemic spreading may be affected by local information that
+Index 459: Authoratative government pandemic preparedness requires an evidence-based approach. The scientific advisory process that has informed the current UK pandemic preparedness plans is described. The final endorsed scientific papers are now
+Index 460: We describe difficult weaning after prolonged mechanical ventilation in three tracheostomized children affected by respiratory virus infection. Although the spontaneous breathing trials were successful, the patients failed all extubations. Therefore
+Index 461: Copy Number Variations (CNVs) of regions of the human genome have been associated with multiple diseases. We present an algorithm which is mathematically sound and computationally efficient to accurately analyze CNV in a
+Index 462: Influenza A viruses are hosted by numerous avian and mammalian species, which have shaped their evolution into distinct lineages worldwide. The viral genome consists of eight RNA segments that are frequently
+Index 463: BACKGROUND: Because smallpox (variola major) may be used as a biological weapon, we reviewed outbreaks in post-World War II Europe and North America in order to understand
+Index 464: Influenza A (H5N1) viruses are strong candidates for causing the next influenza pandemic if they acquire the ability for efficient human-to-human transmission. A major public health goal is to
+Index 465: We've always wanted to save the world from the scourges of virus infection by developing better drugs and vaccines. But fully understanding the intricacies of virus-host interactions, the first
+Index 466: BACKGROUND: Neuraminidase inhibitors are thought to be efficacious in reducing the time to alleviation of symptoms in outpatients with seasonal influenza. The objective of this
+Index 467: Inflammatory diseases of the respiratory tract are commonly associated with elevated production of nitric oxide (NO•) and increased indices of NO• -dependent oxidative stress. Although NO•
+Index 468: HIV-1 uses a programmed -1 ribosomal frameshift to synthesize the precursor of its enzymes, Gag-Pol. The frameshift efficiency that is critical for the virus replication
+Index 469: Beginning in 2003, highly pathogenic avian influenza (HPAI) H5N1 virus spread across Southeast Asia, causing unprecedented epidemics. Thailand was massively infected in 2004 and 2005 and
+Index 470: BACKGROUND: Jena Virus (JV), a bovine Norovirus, causes enteric disease in cattle and represents a potential model for the study of enteric norovirus
+Index 471: BACKGROUND: All states require some kind of testing for newborns, but the policies are far from standardized. In some states, newborn screening may include genetic tests for a wide range of targets
+Index 472: The anticancer potential of catechins derived from green tea is not well understood, in part because catechin-related growth suppression and/or apoptosis appears to vary with the type
+Index 473: BACKGROUND: With the development of new technology, it has recently become practical to resequence the genome of a bacterium after experimental manipulation. It is critical though to know
+Index 474: China’s first HIV infection was officially reported in 1985 and by the end of 1996, there may have been up to 200,000 people affected nationwide. In 2001, this figure probably exceeded 600,000. By 2003, the
+Index 475: Large collections of protein-encoding open reading frames (ORFs) established in a versatile recombination-based cloning system have been instrumental to study protein functions in high-through
+Index 476: 
+Index 477: In April 2009, a new influenza A (H1N1 2009) virus emerged that rapidly spread around the world. While current variants of this virus have caused widespread disease, particularly in vulnerable groups, there
+Index 478: BACKGROUND: Cases of H1N1 and other pulmonary infections evolve to acute respiratory failure and death when coinfections or lung injury predominate over the immune response, thus
+Index 479: BACKGROUND: Expression of the minor virion structural protein VP2 of the calicivirus murine norovirus (MNV) is believed to occur by the unusual mechanism of termination cod
+Index 480: Pregnancy-associatedPlasmodium falciparum malaria (PAM) is a major cause of morbidity and mortality in African women and their offspring. PAM is characterized
+Index 481: Programmed ribosomal frameshifting is a translational recoding mechanism commonly used by RNA viruses to express two or more proteins from a single mRNA at a fixed ratio
+Index 482: The rapidly growing understanding of human genetic pathways, including those that mediate cancer biology and drug response, leads to an increasing need for extensive and reliable mutation screening on a population or on a single patient basis
+Index 483: Reovirus infection leads to apoptosis in both cultured cells and the murine central nervous system (CNS). NF-B-driven transcription of proapoptotic 
+Index 484: BACKGROUND: Oxygen toxicity is a major cause of lung injury. The base excision repair pathway is one of the most important cellular protection mechanisms that responds to oxidative
+Index 485: In the present study, a novel series of 4-(2-aminophenyl)morpholines were synthesized and characterized by IR, (1)H-NMR, (13)C
+Index 486: BACKGROUND: Human rhinoviruses (HRVs) are a highly prevalent cause of acute respiratory infection in children. They are classified into at least three species, HRV-A,
+Index 487: BACKGROUND: The outbreak of the pandemic flu, Influenza A H1N1 (Swine Flu) in early 2009, provided a major challenge to health services around the world
+Index 488: Understanding the mechanisms that help promote protective immune responses to pathogens is a major challenge in biomedical research and an important goal for the design of innovative therapeutic or vaccination strategies. While natural killer (NK)
+Index 489: BACKGROUND: Studies of wild animals responding to their native parasites are essential if we are to understand how the immune system functions in the natural environment. While immune defence may bring increased survival,
+Index 490: Combination of peginterferon and ribavirin is the current therapy for chronic hepatitis C infection (HCV). Interstitial pneumonitis is a rare side
+Index 491: BACKGROUND: With international concern over emerging infectious diseases (EID) and bioterrorist attacks, public health is being required to have early outbreak detection systems. A disease surveillance team was organized to
+Index 492: Due to their rapid and widespread development, DNA vaccines have entered into a variety of human clinical trials for vaccines against various diseases including cancer. Evidence that DNA vaccines are well tolerated and have an excellent
+Index 493: One of the important fields to apply computational tools for domain boundaries prediction is structural biology. They can be used to design protein constructs that must be expressed in a stable and functional form and must produce dif
+Index 494: In July 1962, the author joined the Food Research Institute (FRI), then at the University of Chicago, to become its food virologist. There was a limited record of waterborne viral disease outbreaks
+Index 495: This article aims to open up the biographical black box of three experts working in the boundary zone between science, policy and public debate. A biographical-narrative approach is used to analyse the roles played
+Index 496: Methanolic extracts of 41 plant species belonging to 27 families used in the traditional medicine in Nepal have been investigated for in vitro antiviral activity against Herpes simplex virus type 1 (HSV
+Index 497: Over the past 15 years, DNA vaccines have gone from a scientific curiosity to one of the most dynamic research field and may offer new alternatives for the control of parasitic diseases such as leishmaniasis
+Index 498: Protein microarrays provide a versatile method for the analysis of many protein biochemical activities. Existing DNA microarray analytical methods do not translate to protein microarrays due to differences between the technologies
+Index 499: Genomics was essential for identifying the source of the deadly anthrax strain released after the September 11 terrorist attacks in the US. The same research that is needed to combat low-probability bioterror
+
+Pair #1
+--------------------------------------------------
+ index: 327
+[pred] Murine norovirus (MNV), identified in 2003, is the only norovirus which replicates efficiently in tissue culture and has been modeled
+[true] Murine norovirus (MNV), identified in 2003, is the only norovirus which replicates efficiently in tissue culture and as a result has been used extensively as a model for human noro
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 57
+[pred] Recognition: Epitopes can be defined as the molecular structures bound by receptors during specific immune responses. The Immunoglobulin Database
+[true] BACKGROUND: Epitopes can be defined as the molecular structures bound by specific receptors, which are recognized during immune responses. The Immune Epitope Database and Analysis Resource (
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 12
+[pred] Efficiently delivering siRNA to specific cell populations of siRNA in ‘vivo’ has become a formidable therapeutic approach. The synthetic link
+[true] Efficient delivery of siRNA to specific cell populations in vivo remains a formidable challenge to its successful therapeutic application. We describe a novel siRNA-based approach – synthetically linking siRNA
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 379
+[pred] Sediment velocity ultracentrifugation has recently become a popular analytical technique for studying two-dimensional distributions of macromolecules.
+[true] Sedimentation velocity analytical ultracentrifugation has become a very popular technique to study size distributions and interactions of macromolecules. Recently, a method termed two-dimensional spectrum
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 140
+[pred] proposal to measure the genomic complexity of living organisms: "To date, this method has become difficult to construct the minimum amount of phenotypic
+[true] BACKGROUND: It is difficult to measure precisely the phenotypic complexity of living organisms. Here we propose a method to calculate the minimal amount of genomic information needed to construct organism (
+--------------------------------------------------
+
+
+{'eval_loss': 11.387473106384277, 'eval_model_preparation_time': 0.0194, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 41.953125, 'eval_token_set_precision': 0.5677554152670022, 'eval_token_set_recall': 0.7256180071561874, 'eval_token_set_f1': 0.6358268452425994, 'eval_token_set_f1_sem': np.float64(0.007936976006096616), 'eval_n_ngrams_match_1': 16.336, 'eval_n_ngrams_match_2': 9.34, 'eval_n_ngrams_match_3': 6.284, 'eval_num_true_words': 28.876, 'eval_num_pred_words': 21.632, 'eval_bleu_score': np.float64(26.74742117343955), 'eval_bleu_score_sem': np.float64(0.7508930228738393), 'eval_rouge_score': np.float64(0.6426719349468779), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.9363100528717041, 'eval_emb_cos_sim_sem': np.float64(0.008855189196765423), 'eval_emb_top1_equal': 0.75, 'eval_emb_top1_equal_sem': np.float64(0.11180339753627777), 'eval_runtime': 3948.7433, 'eval_samples_per_second': 0.127, 'eval_steps_per_second': 0.008}
++++ Evaluation Metrics +++
+eval_loss: 11.387473106384277
+eval_model_preparation_time: 0.0194
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 41.953125
+eval_token_set_precision: 0.5677554152670022
+eval_token_set_recall: 0.7256180071561874
+eval_token_set_f1: 0.6358268452425994
+eval_token_set_f1_sem: 0.007936976006096616
+eval_n_ngrams_match_1: 16.336
+eval_n_ngrams_match_2: 9.34
+eval_n_ngrams_match_3: 6.284
+eval_num_true_words: 28.876
+eval_num_pred_words: 21.632
+eval_bleu_score: 26.74742117343955
+eval_bleu_score_sem: 0.7508930228738393
+eval_rouge_score: 0.6426719349468779
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.9363100528717041
+eval_emb_cos_sim_sem: 0.008855189196765423
+eval_emb_top1_equal: 0.75
+eval_emb_top1_equal_sem: 0.11180339753627777
+eval_runtime: 3948.7433
+eval_samples_per_second: 0.127
+eval_steps_per_second: 0.008
+Time taken: 3949.0309648513794
+Current memory usage: 5.91MB; Peak: 10.99MB
