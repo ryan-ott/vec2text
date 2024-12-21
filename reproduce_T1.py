@@ -1,6 +1,7 @@
 import argparse
 import nltk
 import time
+import torch
 import tracemalloc
 from vec2text import analyze_utils
 
@@ -43,6 +44,7 @@ def main(args):
     print("trainer.num_gen_recursive_steps:", trainer.num_gen_recursive_steps)
     print("trainer.sequence_beam_width:", trainer.sequence_beam_width)
     print("Model name:", args.model)
+    torch.cuda.reset_peak_memory_stats()
     tracemalloc.start()
     start = time.time()
     
@@ -51,9 +53,15 @@ def main(args):
     )
     
     print("Time taken:", time.time() - start)
+    
     current, peak = tracemalloc.get_traced_memory()
     print(f"Current memory usage: {current / 10**6}MB; Peak: {peak / 10**6}MB")
     tracemalloc.stop()
+    
+    if torch.cuda.is_available():
+        peak_gpu_mem = torch.cuda.max_memory_allocated() / 10**6
+        print(f"Peak GPU memory usage: {peak_gpu_mem} MB")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

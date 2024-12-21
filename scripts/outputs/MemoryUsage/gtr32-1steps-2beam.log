@@ -1,0 +1,1762 @@
++++ Args +++
+Namespace(model='jxm/gtr__nq__32__correct', beam_width=2, steps=1)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur2868/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur2868/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+>> using fast tokenizers: True True
++++ Training datasets +++
+DatasetDict({
+    train: Dataset({
+        features: ['input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask', 'idx'],
+        num_rows: 1000
+    })
+    dev: Dataset({
+        features: ['input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask'],
+        num_rows: 1000
+    })
+    validation: Dataset({
+        features: ['input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask', 'idx'],
+        num_rows: 500
+    })
+})
+<class 'datasets.dataset_dict.DatasetDict'>
+{}
++++ Validation datasets +++
+DatasetDict({
+    ag_news: Dataset({
+        features: ['idx', 'input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask'],
+        num_rows: 500
+    })
+    anthropic_toxic_prompts: Dataset({
+        features: ['idx', 'input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask'],
+        num_rows: 500
+    })
+    arxiv: Dataset({
+        features: ['idx', 'input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask'],
+        num_rows: 500
+    })
+    python_code_alpaca: Dataset({
+        features: ['idx', 'input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask'],
+        num_rows: 500
+    })
+    wikibio: Dataset({
+        features: ['idx', 'input_ids', 'attention_mask', 'labels', 'length', 'embedder_input_ids', 'embedder_attention_mask'],
+        num_rows: 500
+    })
+})
+<class 'datasets.dataset_dict.DatasetDict'>
+{}
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 1
+trainer.sequence_beam_width: 2
+Model name: jxm/gtr__nq__32__correct
+
+=== Prediction-Label Pairs ===
+
+Pair #1
+--------------------------------------------------
+ index: 327
+[pred] Sharbot Lake Provincial Park Sharbot Lake Provincial Park is a park in the Central Frontese of Ontario under the auspices of municipality
+[true] Sharbot Lake Provincial Park Sharbot Lake Provincial Park is a park under the auspices of Ontario Parks in the municipality of Central Fronte
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 57
+[pred] James D. Weinrich James Donald "Jim" Weinrich (born 1950) is an American sexual biologist and psych researcher. Re
+[true] James D. Weinrich James Donald "Jim" Weinrich (born 1950) is an American sex researcher and psychobiologist. Much
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 12
+[pred] conservative inclination to politics. However, he did not trust the political writings of Georges J. Macdonald-Étienne
+[true] conservative inclination in politics. However, he did not trust the politics of John A. Macdonald, George-Étienne Car
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 379
+[pred] the television play of the same name. He gained an Academy Award for Best Actor over Dean Sinatra (James Frank), who died in
+[true] the television play of the same name. He gained an Academy Award for Best Actor over Frank Sinatra, James Dean (who had died by the
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 140
+[pred] Gracilicutes Gracilicutes (Latin: "Gracilicutes", "slender", and "cutis skin
+[true] Gracilicutes Gracilicutes (Latin: "gracilis", slender, and "cutis", skin
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+ index: 125
+[pred] Warlocks: Wizards of the Coast (Part 2) Chronicles (2009), on the Morgisterclass website, one of the greatest such full
+[true] worghests. Class Chronicles: Warlocks, Part Two (2007) on the Wizards of the Coast web site details an immense
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+ index: 114
+[pred] Pass the Peace Pass the Peace (30 April 1985 – 2010) was an Irish-bred, British-trained Thoroughbred racehor
+[true] Pass the Peace Pass the Peace (30 April 1986 – 2010) was an Irish-bred, British-trained Thoroughbred racehor
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+ index: 71
+[pred] the main event of the night at the St. Paul's Auditorium. Though his decision earned Stillwater fans in his hometown, cheered
+[true] decision, the night's main event at the Auditorium in St. Paul. Though his Stillwater fans cheered him, even his hometown
+--------------------------------------------------
+
+Pair #9
+--------------------------------------------------
+ index: 377
+[pred] 1795 and was forced to sell the ship in 1869. The bouyer Herman Leopoldus was a timber merchant, laborer
+[true] 1735 and was forced to sold in auction in 1738. The bouyer was Herman Leopoldus, a timber merchant and ship
+--------------------------------------------------
+
+Pair #10
+--------------------------------------------------
+ index: 52
+[pred] trilogy of Basil Watson's "Witness of the Great Pyramid" also found a similar theme in "The Great Pyramid" (1992), written
+[true] theme is also found in Basil Stewart's trilogy on the same subject: "Witness of the Great Pyramid" (1927), "The Great Pyramid
+--------------------------------------------------
+
+Pair #11
+--------------------------------------------------
+ index: 346
+[pred] show, practicing "California Über Alles", the song they were asked to play in. The typically subversive and perverse
+[true] the show practicing "California Über Alles", the song they were asked to play. In typically subversive, perverse style
+--------------------------------------------------
+
+Pair #12
+--------------------------------------------------
+ index: 496
+[pred] successfully preventing him. Aaron realizes that the music video was just a joking single, but Shaq resolves to end with That How
+[true] successfully preventing him. Aaron then reveals that the music video was only a joke which Shaq eventually understands. Single That's How I
+--------------------------------------------------
+
+Pair #13
+--------------------------------------------------
+ index: 456
+[pred] Centers and a LGBT Student Assembly. LGBT student center LGBT centers are administrative offices of a college that provide support and assistance to the student body and
+[true] Center and a GLBT Student Assembly. LGBT student center LGBT student centers are administrative offices of a college or university that provide resources and support for
+--------------------------------------------------
+
+Pair #14
+--------------------------------------------------
+ index: 279
+[pred] the resulting chain will collapse to a higher conformation and the polyelectrolyte salt will be screened for additional charges (a
+[true] added salt, the charges will be screened and consequently the polyelectrolyte chain will collapse to a more conventional conformation (
+--------------------------------------------------
+
+Pair #15
+--------------------------------------------------
+ index: 44
+[pred] a lonely, cold Christmas feeling when the snow falls" and that he watches the "shiver [he sees] when snow is falling".
+[true] cold, lonely feeling he experiences while watching the snow fall (""and I shiver when I see the falling snow""). While Christmas is
+--------------------------------------------------
+
+Pair #16
+--------------------------------------------------
+ index: 302
+[pred] uptown could park. Redd also fought to collect city taxes in order to pay back taxes. He was subsequently successful in reorganizing
+[true] could park uptown. Redd also fought to collect back taxes owed the city as a way to increase the city budget. He also successfully
+--------------------------------------------------
+
+Pair #17
+--------------------------------------------------
+ index: 216
+[pred] not as much concern about gay rights as about the cost of electricity, he accepted criticism of political bias "which does not come from the right wing
+[true] more concerned about gay marriage than about electricity prices, he did not accept the criticism of bias because "a lot of that criticism comes from right wing
+--------------------------------------------------
+
+Pair #18
+--------------------------------------------------
+ index: 16
+[pred] exalted with a shofar, as says, “That is the shout of God that is blessed with the sound of exalted in
+[true] exalted with that shofar, as says, "God is exalted with a shout, the Lord with the sound of 
+--------------------------------------------------
+
+Pair #19
+--------------------------------------------------
+ index: 15
+[pred] him when he returned to the ship. So he swam on deck and held on to the stern while it was ro
+[true] him when he returned on deck. So he swam to a boat and held on to the stern while it was r
+--------------------------------------------------
+
+Pair #20
+--------------------------------------------------
+ index: 47
+[pred] 1869. McKay died in Oyster Bridge at age 62. Donald McKay (politician) Donald Bede Mc
+[true] 1893. McKay died in Oyster Bed Bridge at the age of 58. Donald McKay (politician) Donald
+--------------------------------------------------
+
+Pair #21
+--------------------------------------------------
+ index: 111
+[pred] bees, and stingless, swarm-founded colonies form perennial bees. "S. hollistris"
+[true] bees, stingless bees form perennial, swarm-founded colonies. "M. scutellaris" colonies
+--------------------------------------------------
+
+Pair #22
+--------------------------------------------------
+ index: 119
+[pred] win a bronze medal in the Synchronised Mixed 10m. At the 2018 Commonwealth Games on the Queensland coast, Bedggood won the Gold
+[true] win a bronze medal in the Mixed 10m Synchronised. At the 2018 Commonwealth Games on the Gold Coast, Queensland, Bedggood won
+--------------------------------------------------
+
+Pair #23
+--------------------------------------------------
+ index: 258
+[pred] by Michigan State. The USC Trojans, who were unbeaten 4–0, beat Stanford (9–1) and Nebraska (9–1), came in
+[true] by Michigan State and Nebraska. The USC Trojans, who had beaten Stanford 14–0 and remained unbeaten (4–0–1) were
+--------------------------------------------------
+
+Pair #24
+--------------------------------------------------
+ index: 308
+[pred] Community Park Transfer arrangements for new properties. Endowments provided by the property's assets cover the cost of running a property venture. There is limited
+[true] New Town Community Related Assets transfer arrangements. An endowment of properties provides sufficient income to cover running costs, along with that generated by the Park'
+--------------------------------------------------
+
+Pair #25
+--------------------------------------------------
+ index: 13
+[pred] evolutionary processes. Opabinia cambria Opabinia cambria is an extinct group of arthropod found in Middle
+[true] evolutionary processes. Opabinia Opabinia regalis is an extinct, stem group arthropod found in the Middle Cam
+--------------------------------------------------
+
+Pair #26
+--------------------------------------------------
+ index: 287
+[pred] hidden world beneath it. In a twist from the original tale, however, this "beast" does not view the beauty as a transformed society
+[true] hidden world beneath it. In a twist from the original tale, however, this "beast" does not transform into society's idea of beauty
+--------------------------------------------------
+
+Pair #27
+--------------------------------------------------
+ index: 101
+[pred] safe drinking water by 2015. In March 2012, the UN announced that this global goal has been met in the space of nearly two years leading efforts to reduce water
+[true] safe drinking water by 2015. In March 2012, the UN announced that this goal has been met almost four years in advance, suggesting that global efforts to reduce water
+--------------------------------------------------
+
+Pair #28
+--------------------------------------------------
+ index: 366
+[pred] Gertrud Morgner Gertrud Morgner (born Gertrud Müller; August 28, 1888 – July 3, 1978) was an
+[true] Gertrud Morgner Gertrud Morgner (born Gertrud Müller: 8 August 1887 - 20 July 1978) was 
+--------------------------------------------------
+
+Pair #29
+--------------------------------------------------
+ index: 332
+[pred] in 1997. Locust Lawn (Oxford House, North Carolina) Locust Lawn is a historic tobacco plantation
+[true] in 1988. Locust Lawn (Oxford, North Carolina) Locust Lawn is a historic tobacco plantation house
+--------------------------------------------------
+
+Pair #30
+--------------------------------------------------
+ index: 359
+[pred] military reported that 150 militants were killed, including a fighter over the hill; however, the next day, some 210 militants were airlift
+[true] the military reported that up to 130 militant fighters were killed, however the next day about 700 militants overran a military position on a hill
+--------------------------------------------------
+
+Pair #31
+--------------------------------------------------
+ index: 486
+[pred] long-term banking privileges through the passage of the Tonnage Act. The Royal Charter was granted on 22 June 1871, which required notes.
+[true] long-term banking privileges including the issue of notes. The Royal Charter was granted on 27 July through the passage of the Tonnage Act 1694.
+--------------------------------------------------
+
+Pair #32
+--------------------------------------------------
+ index: 214
+[pred] formed their own troupe and returned to the Indies. Astaman returned, refusing to take a position, and together with Kediri, Sa
+[true] formed their own troupes and returned to the Indies. Astaman returned separately, going to Kediri. After refusing a position with N
+--------------------------------------------------
+
+Pair #33
+--------------------------------------------------
+ index: 112
+[pred] region of Senegal lying south of the Gambia. Pierre Vassiliu Pierre Vassiliu (13 October 1939 in Villemarie 
+[true] region of Senegal lying to the south of the Gambia. Pierre Vassiliu Pierre Vassiliu (23 October 1937 in Villecres
+--------------------------------------------------
+
+Pair #34
+--------------------------------------------------
+ index: 229
+[pred] of new music that he never declined in his creativity". Concert on the Virgin Islands Concert on the Virgin Islands is an album by American pianist, ,
+[true] of mostly new music that he never declined nor lost his creativity". Concert in the Virgin Islands Concert in the Virgin Islands is an album by American pianist,
+--------------------------------------------------
+
+Pair #35
+--------------------------------------------------
+ index: 301
+[pred] MCC Coaching Manual The MCC Coaching Manual, the popular name for the MCC Cricket coaching book, is a manual on cricket skills produced by the
+[true] MCC Coaching manual The MCC Coaching Manual is the popular name for "The MCC Cricket Coaching Book", a manual of cricket skills produced by the
+--------------------------------------------------
+
+Pair #36
+--------------------------------------------------
+ index: 142
+[pred] My Golden Days My Golden Days (French title: Trois souvenirs de ma jeunesse; also titled My Golden Years) is a 2015
+[true] My Golden Days My Golden Days (French title: Trois souvenirs de ma jeunesse; also titled My Golden Years) is a 2015
+--------------------------------------------------
+
+Pair #37
+--------------------------------------------------
+ index: 414
+[pred] While unifying among the majority of the population at this time, Spanish was the widely understood language since Tagalog was no longer ubiquitous and was viewed
+[true] While widely understood by the majority of the population, Spanish at this time was the unifying language since Tagalog was not as prominent or ubiquitous as it
+--------------------------------------------------
+
+Pair #38
+--------------------------------------------------
+ index: 445
+[pred] makes a fortune if you make less money, you make more friends." Later that year, the band released their debut album with lines "Drastic
+[true] with lines like "If you make more money, you make fewer friends." Later on in the year, the band released their debut album "Drastic
+--------------------------------------------------
+
+Pair #39
+--------------------------------------------------
+ index: 3
+[pred] military, and that Stalin would be welcomed to a North Korean invasion. Kim started to gather support for a South Korean invasion in late March, hoping
+[true] military and that a North Korean invasion would be welcomed by much of the South Korean population. Kim began seeking Stalin's support for an invasion in March
+--------------------------------------------------
+
+Pair #40
+--------------------------------------------------
+ index: 388
+[pred] financial institutions such as the Bombay Stock Exchange, National Stock Exchange, Reserve Bank of India, the Mint and numerous Indian companies, as well as
+[true] financial institutions such as the Bombay Stock Exchange, Reserve Bank of India, National Stock Exchange, the Mint, as well as numerous Indian companies such
+--------------------------------------------------
+
+Pair #41
+--------------------------------------------------
+ index: 412
+[pred] Lawrence Weinstein. Continental Indoor Soccer League The Continental Indoor Soccer League (CISL) was a professional indoor soccer league that played from 1989 to 1993,
+[true] Lawrence Albert Weinstein. Continental Indoor Soccer League The Continental Indoor Soccer League (CISL) was a professional indoor soccer league that played from 1993 to 1997
+--------------------------------------------------
+
+Pair #42
+--------------------------------------------------
+ index: 81
+[pred] style="border:0%;" width="top:0" | Vayeira, border:0 | Vayeira, border:0 | 
+[true] style="border:0"| | width="25%" align="top" style="border:0"| Vayeira Vayeira,
+--------------------------------------------------
+
+Pair #43
+--------------------------------------------------
+ index: 357
+[pred] Melissa Tancredi Melissa Julie Palma Tancredi (born December 27, 1981) is a retired Canadian soccer forward who played for the Toronto provincial women
+[true] Melissa Tancredi Melissa Palma Julie Tancredi (born December 27, 1981) is a Canadian retired soccer forward who played for the Canada women'
+--------------------------------------------------
+
+Pair #44
+--------------------------------------------------
+ index: 483
+[pred] started using Ali's theme music, "The Greatest", a catchphrase taken from the film, and borrowed it as his own signature tune.
+[true] started using Ali's theme music, "The Greatest" (taken from the film), as his own signature tune, and borrowed the catchphrase
+--------------------------------------------------
+
+Pair #45
+--------------------------------------------------
+ index: 174
+[pred] Mobile County became part of the state called the Alabama Territory. Two years later, the county became part of the State of Alabama, granted statehood on December
+[true] Mobile County became part of what was called the Alabama Territory. Two years later, the county became part of the state of Alabama, granted statehood on December
+--------------------------------------------------
+
+Pair #46
+--------------------------------------------------
+ index: 464
+[pred] can also be accessed and shared. A common technique is to provide an unattended technician (sometimes called Remote Support) to the server without taking 
+[true] sharing. It is also possible to provide what is commonly called Unattended Support (the technician is granted total remote access to the client’s computer,
+--------------------------------------------------
+
+Pair #47
+--------------------------------------------------
+ index: 79
+[pred] Asbury United Methodist Church (Knoxville, Tennessee) Asbury United Methodist Church, formerly known as Asbury Methodist Episcopal Church, South
+[true] Asbury United Methodist Church (Knoxville, Tennessee) Asbury United Methodist Church, formerly known as Asbury Methodist Episcopal Church, South
+--------------------------------------------------
+
+Pair #48
+--------------------------------------------------
+ index: 110
+[pred] Ryan led the EBEL with 84 goals and 57 points in 57 games. He was awarded the Kenneth Kennedy Trophy and won the league
+[true] Ryan lead the EBEL with 38 goals and finished with 84 points in 54 games. He was awarded the Ron Kennedy Trophy as the league's
+--------------------------------------------------
+
+Pair #49
+--------------------------------------------------
+ index: 390
+[pred] by Palale. Its major source of livelihood is agriculture (farming and nipa weaving) and employment in public and private ways
+[true] by Palale. Its major source of livelihood is agriculture (farming and nipa weaving), and employment in both public and private
+--------------------------------------------------
+
+Pair #50
+--------------------------------------------------
+ index: 172
+[pred] Kurt Sutter Kurt Leon Sutter (born May 5, 1960) is an American screenwriter, director, producer, and actor. He worked as
+[true] Kurt Sutter Kurt Leon Sutter (born May 5, 1960) is an American screenwriter, director, producer, and actor. He worked as
+--------------------------------------------------
+
+Pair #51
+--------------------------------------------------
+ index: 490
+[pred] the magnesium is expelled into the interstellar medium where it will recycle into new star systems. Magnesium is the eighth most abundant element
+[true] the magnesium is expelled into the interstellar medium where it may recycle into new star systems. Magnesium is the eighth most abundant element
+--------------------------------------------------
+
+Pair #52
+--------------------------------------------------
+ index: 480
+[pred] the explicit condition that Gakkai observe Nichiren Shsha's up-and-coming doctrine of Shangri-chan. On
+[true] the explicit condition that Ska Gakkai observe its solemn promise to uphold Nichiren Shsh doctrine. On
+--------------------------------------------------
+
+Pair #53
+--------------------------------------------------
+ index: 194
+[pred] Killing Me Softly with His Song "Killing Me Softly with His Song" is a song composed by Charles Fox with lyrics by Norman
+[true] Killing Me Softly with His Song "Killing Me Softly with His Song" is a song composed by Charles Fox with lyrics by Norman
+--------------------------------------------------
+
+Pair #54
+--------------------------------------------------
+ index: 49
+[pred] smash hit that is the equal part of Jo Messina and Shae Dee Dee." Stephen Thomas Erlewine wrote that the coming "
+[true] smash hit in the making that is equal parts Jo Dee Messina and SHeDAISY." Stephen Thomas Erlewine wrote that Under
+--------------------------------------------------
+
+Pair #55
+--------------------------------------------------
+ index: 183
+[pred] his right arm to bring Al's soul back to life after receiving a suit of armor. Al mails Edward with newly autoprosed versions of
+[true] his right arm to bring Al's soul back and houses it in a nearby suit of armor. After Edward receives automail prosthetics from
+--------------------------------------------------
+
+Pair #56
+--------------------------------------------------
+ index: 433
+[pred] between Gascoyne and Mount Augustus in the Ashburton Downs biogeologic region. "Eremophila rigo
+[true] between Mount Augustus and Ashburton Downs in the Gascoyne biogeographic region. "Eremophila rigen
+--------------------------------------------------
+
+Pair #57
+--------------------------------------------------
+ index: 176
+[pred] narratives" fails to have a weighted average. On Metacritic, which assigns a normal rating to the film, reviewers
+[true] movie's narrative falters". On Metacritic, which assigns a weighted average rating to reviews, the film has a normal
+--------------------------------------------------
+
+Pair #58
+--------------------------------------------------
+ index: 309
+[pred] Edward Lascelles, 1st Earl of Harewood Edward Lascelles, 1st Earl of Harewood (7 January 1740,
+[true] Edward Lascelles, 1st Earl of Harewood Edward Lascelles, 1st Earl of Harewood (7 January 1740 
+--------------------------------------------------
+
+Pair #59
+--------------------------------------------------
+ index: 135
+[pred] religious practices and studies, not as a research project, but as an academic study. Hixon was born on December 25, 1941 in Pasaden
+[true] religious practices and studies, not as a research project but as an act of faith. Hixon was born on December 25, 1941 in Pasaden
+--------------------------------------------------
+
+Pair #60
+--------------------------------------------------
+ index: 413
+[pred] to do whatever it takes to locate Frankie. Unbeknownst to Mr. Kingston, he is the only one after her. 
+[true] to do whatever it takes to locate Frankie. Unbeknownst to Mr. Kingston, he is not the only one after her.
+--------------------------------------------------
+
+Pair #61
+--------------------------------------------------
+ index: 22
+[pred] argues that this rule prohibits violence against oneself, but does not prohibit killing another person if he wants to. Thus sati is 
+[true] argues that this rule prohibits violence against another person, but does not prohibit killing oneself if one wants to. Thus sati is a
+--------------------------------------------------
+
+Pair #62
+--------------------------------------------------
+ index: 373
+[pred] no husband present, and 35.4% were non-families. 30.9% of all households were made up of individuals and 14.9% had someone
+[true] no husband present, and 35.4% were non-families. 30.9% of all households were made up of individuals and 15.9% had someone
+--------------------------------------------------
+
+Pair #63
+--------------------------------------------------
+ index: 235
+[pred] credited to both Tui Sutherland and Braswell as the writer. (Tui Sutherland is credited as a user
+[true] credited to Tui T. Sutherland as writer. (Both Braswell and Sutherland are also credited as users of other
+--------------------------------------------------
+
+Pair #64
+--------------------------------------------------
+ index: 274
+[pred] in some countries including Australia and Lebanon where it spent 7 weeks at the top position; it remained the country's official Top 20 number one. The
+[true] top position in many countries, including Australia and Lebanon where it spent 7 weeks at number 1 in "The Official Lebanese Top 20". The
+--------------------------------------------------
+
+Pair #65
+--------------------------------------------------
+ index: 63
+[pred] a strong sense of competition with each other. In terms of sport, the school also has a long-running rivalry with its clubs including Our
+[true] a strong sense of competition between each other. In terms of sport and sporting clubs, the school also has a long-running rivalry with Our
+--------------------------------------------------
+
+Pair #66
+--------------------------------------------------
+ index: 193
+[pred] probably should have "divided and weakened" Germany by undoing Bismarck's work and reversing Barnett's
+[true] should have (according to Barnett) "divided and permanently weakened" Germany by undoing Bismarck's work and partition
+--------------------------------------------------
+
+Pair #67
+--------------------------------------------------
+ index: 40
+[pred] the lumen and stroma is high enough to drive the ATP synthesis using ATP synthase. As the protons travel back
+[true] the lumen and stroma is high enough to drive ATP synthesis using the ATP synthase. As the protons travel back
+--------------------------------------------------
+
+Pair #68
+--------------------------------------------------
+ index: 282
+[pred] Jonathan Meza Jonathan Meza (born Los Angeles, California) is an American actor who works for Bang Zoom Productions (mainly in international bang.
+[true] Jonathan Meza Jonathan Meza (born Los Angeles, California, USA) is an American actor who frequently works with dubbing studio Bang Zoom! Entertainment.
+--------------------------------------------------
+
+Pair #69
+--------------------------------------------------
+ index: 150
+[pred] who wants ultimate power just to take over the world and not get a throne". Avoiding the death storyline, moved away from tea
+[true] who wants ultimate power just to take over the world and sit on a throne". Avoiding the Death storyline moved away from the tea
+--------------------------------------------------
+
+Pair #70
+--------------------------------------------------
+ index: 424
+[pred] 57% to Tony Cavi with 56%. Cyr won the general election on October 4, beating Cavi by 66%. Julian Andre Julian And
+[true] 38%. Cyr won the general election on November 8 against Tony Schiavi, after winning 57% to 43%. Julian Cyr Julian Andre
+--------------------------------------------------
+
+Pair #71
+--------------------------------------------------
+ index: 321
+[pred] on 8 September, the release date of "Can't Get You Out of My Head" in Australia. "Can't Get You Out of My
+[true] on 8 September, the release date of "Can't Get You Out of My Head" in Australia. "Can't Get You Out of My
+--------------------------------------------------
+
+Pair #72
+--------------------------------------------------
+ index: 316
+[pred] and self-mutilation. Furthermore, as with halakhah, one generally sets limits on how much each person may commit to another;
+[true] and, generally speaking, self-mutilation. Furthermore, just as halakhah sets limits on how much one may place another person,
+--------------------------------------------------
+
+Pair #73
+--------------------------------------------------
+ index: 185
+[pred] children's literature during the opening ceremony of the London Olympic Games. In a sequence called "The Commencement of Mary Poppins over twenty
+[true] British children's literature during the opening ceremony of the London 2012 Olympic Games. In a sequence called "", over thirty Mary Poppins' de
+--------------------------------------------------
+
+Pair #74
+--------------------------------------------------
+ index: 295
+[pred] Luff the Living Magic Dragon in the Land of the Plies Luff the Living Magic Dragon in the Land of the Plies is a 30-minute
+[true] Puff the Magic Dragon in the Land of the Living Lies Puff the Magic Dragon in the Land of the Living Lies is a 30-minute
+--------------------------------------------------
+
+Pair #75
+--------------------------------------------------
+ index: 98
+[pred] and occasionally doing reverent work. In May 2013, Rufus was inducted into the Charlton Athletic's Hall of Fame, becoming the main comment
+[true] as well as occasionally doing punditry work. In May 2013, Rufus was inducted into the Charlton Athletic Hall of Fame, reflecting the revere
+--------------------------------------------------
+
+Pair #76
+--------------------------------------------------
+ index: 360
+[pred] SOAT2 Sterol O-acyltransferase 2, also known as SOAT2, is an enzyme that in humans is encoded by
+[true] SOAT2 Sterol O-acyltransferase 2, also known as SOAT2, is an enzyme that in humans is encoded by
+--------------------------------------------------
+
+Pair #77
+--------------------------------------------------
+ index: 35
+[pred] film studios and marketing companies. Vertical integration through production contracts is also a dominant model. Currently, livestock production and rumor has been 
+[true] a film studio company are under same umbrella. Vertical integration through production and marketing contracts have also become the dominant model for livestock production. Currently, 90%
+--------------------------------------------------
+
+Pair #78
+--------------------------------------------------
+ index: 23
+[pred] "Body of Proof" feels as if the series continues to work in a formulaic way from the first season. I was pleasantly surprised
+[true] "Body of Proof" takes what worked with the first season and continues to build on the premise. The series still feels formulaic to me,
+--------------------------------------------------
+
+Pair #79
+--------------------------------------------------
+ index: 338
+[pred] Australian series chronology, this series is partly a prequel but also runs concurrently with events in "Underbelly: A Tale of Two
+[true] Australian series chronology, this series is partly a prequel and partly runs concurrently with events in "Underbelly: A Tale of Two
+--------------------------------------------------
+
+Pair #80
+--------------------------------------------------
+ index: 116
+[pred] and some of these became foreign grantees. In practice, many of these rancho residents were "Californios" by
+[true] of this practice. Many of the foreign residents also became rancho grantees. Some were "Californios by marriage"
+--------------------------------------------------
+
+Pair #81
+--------------------------------------------------
+ index: 395
+[pred] v. Illinois", but neither mandated the use of death. However, in the decision of "Lockhart v. McCree",
+[true] v. Illinois", and in "Lockhart v. McCree"; neither decision, though, mandated the use of death-
+--------------------------------------------------
+
+Pair #82
+--------------------------------------------------
+ index: 148
+[pred] he took a habit in his native city and attended the Augustinian school called the convent of the Order, then at San Ildef
+[true] he took the Augustinian habit in the convent of his native city. He then went to the school of his Order called San Ildef
+--------------------------------------------------
+
+Pair #83
+--------------------------------------------------
+ index: 444
+[pred] Sela pri Treberku Sela pri Treberku (; ) is a village in the Municipality of umb
+[true] Sela pri umberku Sela pri umberku () is a village in the Municipality of Treb
+--------------------------------------------------
+
+Pair #84
+--------------------------------------------------
+ index: 478
+[pred] Pavisetta. Federico Valdarol Federico Santiago Valdarol Dipolina (; born 31 July 1990),
+[true] Saldavia. Pearol Federico Valverde Federico Santiago Valverde Dipetta (; born 22 July 1998) is 
+--------------------------------------------------
+
+Pair #85
+--------------------------------------------------
+ index: 51
+[pred] franca in society. Local Zambian has an important role in various sectors. For instance, Local Languages are an important sector in schools, institutions
+[true] franca is some areas. Local Zambian Languages plays an important role in different sectors of society. For instance, in the education sector, local
+--------------------------------------------------
+
+Pair #86
+--------------------------------------------------
+ index: 447
+[pred] Michigan Air Line Railroad The Michigan Air Line Railroad was a planned railroad across southern Michigan, connecting Chicago, Illinois with the Canada Southern Railway. Only part of
+[true] Michigan Air Line Railroad The Michigan Air Line Railroad was a planned railroad across southern Michigan, connecting the Canada Southern Railway to Chicago, Illinois. Only part of
+--------------------------------------------------
+
+Pair #87
+--------------------------------------------------
+ index: 454
+[pred] 'Wave Your Way to Plough Lane Field' at the theme parks of Universal Studios Florida in the 'Mozart Home World
+[true] home stadium: 'Show Me The Way To Plough Lane' Theme Parks At Universal Studios Florida, in the WIzarding World
+--------------------------------------------------
+
+Pair #88
+--------------------------------------------------
+ index: 232
+[pred] other diseases, where the immune system plays a part in the pathology of reactions caused by the system. Clinical features are the broadest of the 
+[true] other systems, where immune reactions play a part in the pathology and clinical features. The diseases caused by disorders of the immune system fall into two broad
+--------------------------------------------------
+
+Pair #89
+--------------------------------------------------
+ index: 325
+[pred] Winter Sun", was a Producer and Co-Executive Producer on Amazon's "Mad Dogs", a board writer on
+[true] Winter Sun", was a writer and Co-Executive Producer on Amazon's "Mad Dogs," a Consulting Producer on
+--------------------------------------------------
+
+Pair #90
+--------------------------------------------------
+ index: 186
+[pred] League. Warden competed at the 1956 Winter Olympics. Jim Warden Jim Warden is a retired ice hockey goal for the United States national
+[true] Hockey League. Warden competed for the United States at the 1976 Winter Olympics. Jim Warden Jim Warden is a retired ice hockey goal
+--------------------------------------------------
+
+Pair #91
+--------------------------------------------------
+ index: 83
+[pred] of the central digit from the cross-product of the two digits, plus the inclination to add. The duplex is computed
+[true] of the central digit plus double the cross-product of digits equidistant from the center. The duplex is computed
+--------------------------------------------------
+
+Pair #92
+--------------------------------------------------
+ index: 189
+[pred] churches, bowling alleys, banks, clubs, and even the ballroom. In 1947, Davis and Armet opened architectural firm Davis and Arme
+[true] churches, country clubs, banks and even bowling alleys. In 1947, Davis and Armet opened their architectural firm, Armet & Davis
+--------------------------------------------------
+
+Pair #93
+--------------------------------------------------
+ index: 181
+[pred] Samaria to another Australian traveler who had been beaten and raped by a bandit and other religious ethnic groups. Most states quickly
+[true] Samaria to another traveller of a conflicting religious and ethnic background who had been beaten and robbed by bandits. Most Australian states
+--------------------------------------------------
+
+Pair #94
+--------------------------------------------------
+ index: 107
+[pred] werewolves attacking him with bacon, and that he always eats his best foes. David Spade reprised his role as Griffin.
+[true] werewolf pups attacking him whenever he holds bacon, and doing really badly at charades. David Spade reprised his role as Griffin
+--------------------------------------------------
+
+Pair #95
+--------------------------------------------------
+ index: 343
+[pred] small snakes, however, are illegal for people to breed. The vivarium also housed amphibious snakes commonly sold in California cricket
+[true] small amphibians, not necessarily people; snakes poisonous to people are illegal to sell in California. The vivarium also breeds cricket
+--------------------------------------------------
+
+Pair #96
+--------------------------------------------------
+ index: 136
+[pred] years ago, when the humidity was more humid. The Baetic System is divided into the following subchains: The Pentaic System includes the
+[true] years ago when it was more humid. The Baetic System is divided into the following sub-chains: The Penibaetic System includes the
+--------------------------------------------------
+
+Pair #97
+--------------------------------------------------
+ index: 470
+[pred] Aye Solomon attacked and defeated a rival district, and Grandlowe Embrakingt revenged on a rooster
+[true] Grandlow rowling Ayte Solomon attacked a neighboring district and was defeated, and Embet twice tried to avenge
+--------------------------------------------------
+
+Pair #98
+--------------------------------------------------
+ index: 349
+[pred] Saints, a group of about 1500, to Salt Lake Valley, where Young and the others settled and established Salt Lake City and the Great. Coleman
+[true] Saints, a group of about 1500, to the Salt Lake Valley, where Young and the others had settled and established Great Salt Lake City. Taylor
+--------------------------------------------------
+
+Pair #99
+--------------------------------------------------
+ index: 331
+[pred] laws more or less. The structure of the different classes, despite the background of the local clientele, remained stagnant. The financial branch listed
+[true] laws, the structure more or less remained despite continuous weakening due to the financial background of the local clientele. The different classes are listed
+--------------------------------------------------
+
+Pair #100
+--------------------------------------------------
+ index: 36
+[pred] New Zealand permanent residents Permanent residents New Zealand permanent residents are those who hold a New Zealand residency visa, i.e. reside in the Department that
+[true] New Zealand permanent residency New Zealand Permanent Residents are residents of New Zealand, who hold a permanent resident visa, which – superficially seen – makes
+--------------------------------------------------
+
+Pair #101
+--------------------------------------------------
+ index: 311
+[pred] running the bases. Correa played for Puerto Rico in the 2017 World Baseball Classic as shortstop and Francisco López Bain. Lindor and
+[true] running the bases. Correa played for Puerto Rico in the 2017 World Baseball Classic. With Francisco Lindor playing shortstop and Javier Baez as the
+--------------------------------------------------
+
+Pair #102
+--------------------------------------------------
+ index: 411
+[pred] Santi Mina Santiago "Santi" Mina Lorenzo (born 7 December 1994) is a Spanish professional footballer who plays for Valencia
+[true] Santi Mina Santiago "Santi" Mina Lorenzo (born 7 December 1995) is a Spanish professional footballer who plays for Valencia
+--------------------------------------------------
+
+Pair #103
+--------------------------------------------------
+ index: 87
+[pred] is also bullet-proof, but has enhanced durability and is hardly impervious to harm. Mighty Man (comics image) Mighty Man
+[true] is also bullet-proof and has enhanced durability though he is not totally impervious to harm. Mighty Man (Image Comics) Mighty
+--------------------------------------------------
+
+Pair #104
+--------------------------------------------------
+ index: 273
+[pred] Foreign relations of Saint Lucia Saint Lucia maintains active friendly relations with the major powers in the Caribbean including the United States, United Kingdom, the United
+[true] Foreign relations of Saint Lucia Saint Lucia maintains friendly relations with the major powers active in the Caribbean, including the United States, the United Kingdom,
+--------------------------------------------------
+
+Pair #105
+--------------------------------------------------
+ index: 438
+[pred] daylight saving time, which is smaller than in geographic areas throughout the United States. The state has little difference in location, resulting in a delay of
+[true] daylight saving time, which is earlier than most areas of the United States. The state is small enough that geographical location only results in a difference of 
+--------------------------------------------------
+
+Pair #106
+--------------------------------------------------
+ index: 494
+[pred] of Mortlake Crematorium, where his body was cremated. His ashes were interred in a grave near the east door of the Church
+[true] of Mortlake Crematorium, where his body was cremated. His ashes were interred in a grave near the south door of the Church
+--------------------------------------------------
+
+Pair #107
+--------------------------------------------------
+ index: 409
+[pred] about manages to forgive him. Bob and Carlos go to see how they can adopt a little girl named Maggie and Lee invites them to have lunch
+[true] was talking about manages to forgive him. Gabrielle and Carlos have Bob and Lee over for lunch and discover they plan to adopt a little girl called
+--------------------------------------------------
+
+Pair #108
+--------------------------------------------------
+ index: 236
+[pred] Clement III, Peter Maynard and David. He also has a daughter named Andrea. In 1986, Clement and Allyn were appointed
+[true] Peter, Allyson, David and Clement III. He also has a daughter named Andrea. In 1989 Clement Maynard was appointed 
+--------------------------------------------------
+
+Pair #109
+--------------------------------------------------
+ index: 463
+[pred] describing letting a girl move into Ahmed's apartment, and transferring her back to the meat market. In English, he refers
+[true] in English and describes letting a girl into Ahmed's apartment, taking her to the meat market, and then moving her again. He refers
+--------------------------------------------------
+
+Pair #110
+--------------------------------------------------
+ index: 138
+[pred] music services. In September 2013, 16-year-old singer Lorde (Ella Yelich-O'Connor) became the youngest solo artist 
+[true] services to music. In September 2013, 16-year-old singer Lorde (Ella Yelich-O'Connor) became the youngest solo artist
+--------------------------------------------------
+
+Pair #111
+--------------------------------------------------
+ index: 499
+[pred] revealed until Super Bowl XX in January 1986, when he was shown wearing black "flood pants" and white socks, and
+[true] revealed until Super Bowl XX in January 1986; he was shown to be wearing white socks, black "flood pants", and
+--------------------------------------------------
+
+Pair #112
+--------------------------------------------------
+ index: 352
+[pred] MTW's work around the world. In addition, there is an online MTW email that includes bi-weekly posts on recent blogs
+[true] MTW's work around the world. In addition, there is a bi-weekly MTW Online email that includes recent blog posts
+--------------------------------------------------
+
+Pair #113
+--------------------------------------------------
+ index: 285
+[pred] and deepening the mythology of the series. Dornbush also praised the performances of guest stars such as Lucy Warbu and Patrick Punch
+[true] and deepening the novel series' mythology. Dornbush also praised the performance of guest stars such as Lucy Punch and Patrick Warbu
+--------------------------------------------------
+
+Pair #114
+--------------------------------------------------
+ index: 467
+[pred] loves Paige, he should marry her. Edvard reconciles and proposes Paige. He accepts, while witnesses employers working in
+[true] loves Paige, he should marry her. Edvard proposes and Paige accepts. After witnessing him reconcile workers and employers in
+--------------------------------------------------
+
+Pair #115
+--------------------------------------------------
+ index: 350
+[pred] of them. The starting point was a small town in Uganda. After travelling to Lake Victoria, which people think is the source of the three of the
+[true] the three of them. The starting point was a small town in Uganda. After travelling to Lake Victoria, which many people think is the source of the
+--------------------------------------------------
+
+Pair #116
+--------------------------------------------------
+ index: 166
+[pred] population ratio: Government of West Bengal decided to start a new MBBS Medical College with a capacity of 100 doctors / student of 190
+[true] Doctor:Population ratio of 1:2600, Government of West Bengal decided to start a new medical college with a capacity of 100 MBBS student
+--------------------------------------------------
+
+Pair #117
+--------------------------------------------------
+ index: 28
+[pred] help us win. We don’t care if people think we’re telling the other." In August 2014, Ho-Sang opin
+[true] help us win. [And] we don’t give a shit what anyone else thinks." In October 2014, Ho-Sang
+--------------------------------------------------
+
+Pair #118
+--------------------------------------------------
+ index: 117
+[pred] produced by Steinman, along with other co-producers. Like most of Steinman's work, the show deals with adaptation (or recycling
+[true] produced by Steinman, along with other co-producers. Like much of Steinman's work, the show includes adaptation (or, recycling
+--------------------------------------------------
+
+Pair #119
+--------------------------------------------------
+ index: 482
+[pred] he was used to – losing in the second round to the K-1 Fighting Network. Lee would go back to the show the following year with tactics
+[true] what he was used to - losing by knockout in the second round. Lee would return to action the following year at the K-1 Fighting Network
+--------------------------------------------------
+
+Pair #120
+--------------------------------------------------
+ index: 161
+[pred] a renowned interpreter of the works of Eugene O'Neill on the stage, as well as her early career in dramas and film,
+[true] a renowned interpreter of the works of Eugene O'Neill on the stage, and her career also encompassed film, early dramas
+--------------------------------------------------
+
+Pair #121
+--------------------------------------------------
+ index: 205
+[pred] conducting brutal acts such as the killing of women and children at the Cherry Valley massacre and the clubbing of surviving American soldiers at Oriskany.
+[true] conducting brutal acts such as the killing of women and children at the Cherry Valley massacre and the clubbing of surviving American soldiers at Oriskany.
+--------------------------------------------------
+
+Pair #122
+--------------------------------------------------
+ index: 137
+[pred] Colonel Stone Johnson Colonel Stone Johnson (September 9, 1918 – January 14, 2012) was an African-American activist in the Civil Rights Movement. A railway worker
+[true] Colonel Stone Johnson Colonel Stone Johnson (September 9, 1918 – January 19, 2012) was an African-American activist in the Civil Rights Movement. A railway worker
+--------------------------------------------------
+
+Pair #123
+--------------------------------------------------
+ index: 33
+[pred] of her drawings. She has regularly exhibited as part of the "Whitechapel Open" exhibition at Entwistle Gallery and at numerous other White
+[true] of her drawings at Entwistle Gallery. She has exhibited as part of numerous group exhibitions including "The Whitechapel Open" at White
+--------------------------------------------------
+
+Pair #124
+--------------------------------------------------
+ index: 108
+[pred] from Albany and Schenectady Counties in 1796, and from Schenectady Counties in 1797. He was
+[true] 1795, from Albany and Schenectady Counties in 1796, and from Schenectady County in 1810. He was
+--------------------------------------------------
+
+Pair #125
+--------------------------------------------------
+ index: 290
+[pred] their 2nd year. The school hosts around 300 students a year. "The NUS Students' Club," a time when many foreign exchange business
+[true] their 2nd or 3rd year. During this time, the school hosts about 200 exchange students. The NUS Students’ Business Club, commonly
+--------------------------------------------------
+
+Pair #126
+--------------------------------------------------
+ index: 367
+[pred] Lambeth degree A Lambeth degree is an academic degree conferred by the Archbishop of Canterbury under the authority of Ecclesii
+[true] Lambeth degree A Lambeth degree is an academic degree conferred by the Archbishop of Canterbury under the authority of the Ecclesi
+--------------------------------------------------
+
+Pair #127
+--------------------------------------------------
+ index: 380
+[pred] songs that have been used as themes such as "Taking Chances" on "Glee", "Come Clean" on "", "Autobio
+[true] songs that have been used as themes such as "Taking Chances" on "Glee", "Come Clean" on "", "Autobio
+--------------------------------------------------
+
+Pair #128
+--------------------------------------------------
+ index: 376
+[pred] the French movements. This modest success, and the encouragement of General Washington, prompted Destouches to embark on a full-scale operation.
+[true] the French movements. This modest success, and the encouragement of General Washington, prompted Destouches to embark on a full-scale operation.
+--------------------------------------------------
+
+Pair #129
+--------------------------------------------------
+ index: 335
+[pred] Kiriakis family The Kiriakis family is an upper-class Greek-American family living in the town of Salem on the NBC
+[true] Kiriakis family The Kiriakis family is an upper-class Greek-American family living in the town of Salem on the NBC
+--------------------------------------------------
+
+Pair #130
+--------------------------------------------------
+ index: 255
+[pred] the game 4–0, with Cornish and Huzzey scoring a try each. The 1899 Home Nations Championship was the site of Welsh
+[true] the game 6–0, with Cornish and wing Huzzey scoring a try each. The 1899 Home Nations Championship saw the Welsh
+--------------------------------------------------
+
+Pair #131
+--------------------------------------------------
+ index: 202
+[pred] artifacts, the submarine was 78 feet (25 meters) close to her target. The initial dive for "Housat", Huley
+[true] recovered "Hunley" artifacts suggests that the submarine was as close as 20 feet (6 meters) to her target, "Housat
+--------------------------------------------------
+
+Pair #132
+--------------------------------------------------
+ index: 329
+[pred] into space as they suddenly arrived." According to "TV Zone Special Issue #70" (1999) McDowall’s filmed these "two 
+[true] into space as suddenly as they’d arrived." According to "TV Zone Special #17" (1995 issue) McDowall filmed these "two
+--------------------------------------------------
+
+Pair #133
+--------------------------------------------------
+ index: 234
+[pred] protest with both the British Boxing Board of Control and the Irish Boxing Board of Control as a result of the decision. Maloney stated "
+[true] protest with both the British Boxing Board of Control and the Irish Boxing Board of Control as a result of the decision. Maloney stated,
+--------------------------------------------------
+
+Pair #134
+--------------------------------------------------
+ index: 73
+[pred] a bronze in reconnaissance flying experience (Flik 1). He survived a flying accident on 31 March 1914 when he was awarded the Military Expedition Mer
+[true] a period gaining experience flying reconnaissance for Flik 1, he survived a landing accident on 31 July 1914. He was awarded the Bronze Military Mer
+--------------------------------------------------
+
+Pair #135
+--------------------------------------------------
+ index: 441
+[pred] Charlotte Harris (artist) Charlotte Harris is a portrait artist who was born in Ashford, Kent in 1981 and currently works in her studio in Folk
+[true] Charlotte Harris (artist) Charlotte Harris is a portrait artist who was born in Ashford, Kent in 1981 and currently works from her studio in Folk
+--------------------------------------------------
+
+Pair #136
+--------------------------------------------------
+ index: 492
+[pred] criticized the game as a poor movie tie-in and included it on the show's list of "Games We Wish Were Buried
+[true] criticized the game as a poor movie tie-in and included it on the show's list of "Games We Wish Were Buried
+--------------------------------------------------
+
+Pair #137
+--------------------------------------------------
+ index: 126
+[pred] Neil Courtney Neil Courtney is a former professional rugby league footballer who played in the 1980s. He played at his representative level for Great Britain
+[true] Neil Courtney Neil Courtney is a former professional rugby league footballer who played in the 1980s. He played at representative level for Great Britain,
+--------------------------------------------------
+
+Pair #138
+--------------------------------------------------
+ index: 474
+[pred] Canada at additional costs. Cricket Wireless initially indicated that CDMA service would be terminated as early as September 2015. Most of the devices on the site (other
+[true] Canada at no additional costs. Cricket Wireless noted on their old website that CDMA service would be terminated as early as September 2015. Most devices prior to the
+--------------------------------------------------
+
+Pair #139
+--------------------------------------------------
+ index: 275
+[pred] Brakebein Brakebein, is the second full-length album by Norwegian folk metal band, Trollfest. It was released on May
+[true] Brakebein Brakebein, is the second full-length album by Norwegian folk metal band, Trollfest. It was released on May
+--------------------------------------------------
+
+Pair #140
+--------------------------------------------------
+ index: 134
+[pred] A metallic phase was discovered in 1996 when solid oxygen is seen at a pressure of g/a and was subsequently shown in the year 2000
+[true] A metallic phase was discovered in 1990 when solid oxygen is subjected to a pressure of above 96 GPa and it was shown in 1998
+--------------------------------------------------
+
+Pair #141
+--------------------------------------------------
+ index: 299
+[pred] 1,000 rose bushes. On the last Friday in June, Bank of the West hosts the "Bank of the West Celebrity Concert" in the park,
+[true] 1,000 rose bushes. On the last Friday in June, Bank of the West hosts the "Bank of the West Celebrates America" concert in the park
+--------------------------------------------------
+
+Pair #142
+--------------------------------------------------
+ index: 219
+[pred] turned ghost-seeking prince who patrols the palace after leaving his guards and acts as a night watchman who keeps the King safe and peaceful
+[true] a prince turned ghost-seeing night watchman who patrols the palace after curfew and keeps the king and his citizens safe,
+--------------------------------------------------
+
+Pair #143
+--------------------------------------------------
+ index: 298
+[pred] born Helge Haugan and his partner Alexander R. John Lindgren. It was initially focused on the population of Scandinavia, but later became the
+[true] born Helge Alexander Haugan and his partner John R. Lindgren. It had initially focused on the large population of Scandinavian residents within the
+--------------------------------------------------
+
+Pair #144
+--------------------------------------------------
+ index: 204
+[pred] Toonimo Toonimo is a web-based solution that provides online assistance with digitally accessible walkthroughs. Toonimim
+[true] Toonimo Toonimo is a web-based solution that offers on-site user assistance via online walkthroughs. Toonim
+--------------------------------------------------
+
+Pair #145
+--------------------------------------------------
+ index: 427
+[pred] II, with its Neo-Gothic architecture particularly impressive, the mausoleum at Beechwood was built in the early 1930s. The
+[true] II. Noted for its Neo-Gothic architecture, the mausoleum at Beechwood was built in the early 1930s. The
+--------------------------------------------------
+
+Pair #146
+--------------------------------------------------
+ index: 386
+[pred] distribution of its own software. A method he used by most software publishers in the world. In 1991 – Wi-Fi – a process
+[true] distribution of his own software. Now the process is used by the majority of software publishers in the world. 1992 – Wi-Fi – A method
+--------------------------------------------------
+
+Pair #147
+--------------------------------------------------
+ index: 70
+[pred] income tax. Under the dual income tax, pensions and capital income from labour is taxed at progressive rates, whereas capital income is taxe
+[true] income tax. Under the dual income tax, income from labour and pensions is taxed at progressive rates, while capital income is taxed at
+--------------------------------------------------
+
+Pair #148
+--------------------------------------------------
+ index: 260
+[pred] was incomplete, which would have been flagged for roughing the passer, leaving Richardson to be punted, which should have given the 49ers 
+[true] was incomplete, which should have meant them having to punt, only for Richardson to be flagged for roughing the passer, giving the 49ers
+--------------------------------------------------
+
+Pair #149
+--------------------------------------------------
+ index: 252
+[pred] win against Cheltenham Town. Kicking off the game against Everton on 21 September 2013, Morrison scored his first Premier League goal and West
+[true] win against Cheltenham Town. Starting the game against Everton on 21 September 2013, Morrison scored his first Premier League goal, and West Ham
+--------------------------------------------------
+
+Pair #150
+--------------------------------------------------
+ index: 46
+[pred] a writer for ITV's long-running soap opera "Coronation Street" since March 1999. In the last few years he has
+[true] a writer for ITV's long-running soap opera "Coronation Street" since March 1999. For the past few years he has
+--------------------------------------------------
+
+Pair #151
+--------------------------------------------------
+ index: 24
+[pred] of 1948 and the country was then divided into two. In 1954, the South adopted the dinghy name Daehan Minguk (
+[true] (1945) and the country was then divided. In 1948, the South adopted the provisional government's name of Daehan Minguk (
+--------------------------------------------------
+
+Pair #152
+--------------------------------------------------
+ index: 56
+[pred] telecommunications industry. During the 1990s, the company grew, producing complete products for major OEM companies and completing a number 
+[true] telecommunications industry. During the 1990s, the company grew , producing complete products for major OEM companies and completing a number
+--------------------------------------------------
+
+Pair #153
+--------------------------------------------------
+ index: 78
+[pred] The Indians finished the season 92-89, which was good enough for the top wild card spot, which meant they could host the 2013 American League
+[true] The Indians finished the season 92-70, which was good enough for the top wild card spot, which meant they would host the 2013 American League
+--------------------------------------------------
+
+Pair #154
+--------------------------------------------------
+ index: 429
+[pred] Nord (2013–present) – together with the other right-center parties of the coalition supported by Mroni, Fontana and the party will
+[true] Nord – the parties of Maroni and Fontana – and with the support of the other parties members of the 2013 center right coalition) will
+--------------------------------------------------
+
+Pair #155
+--------------------------------------------------
+ index: 458
+[pred] Saltus Grocery Store The Saltus Grocery Store is a historic, mixed-use commercial building at 2301-3301 North Wine
+[true] Saltus Grocery Store The Saltus Grocery Store is a historic mixed-use commercial and residential building at 299-301 North Win
+--------------------------------------------------
+
+Pair #156
+--------------------------------------------------
+ index: 487
+[pred] estimated 10–100 billion multiple organisms that colonize the human body. Some antibiotics can change the ill-effects of a parasite
+[true] estimated 10-100 trillion multiple organisms that colonize the human body. As a side-effect of therapy, antibiotics can change the body's
+--------------------------------------------------
+
+Pair #157
+--------------------------------------------------
+ index: 305
+[pred] this time, he abandoned his job in a delicatessen to become a professional actor. Hoffman continued to play small roles throughout the early 1990s
+[true] this time, he abandoned his job in a delicatessen to become a professional actor. Hoffman continued playing small roles throughout the early 1990s.
+--------------------------------------------------
+
+Pair #158
+--------------------------------------------------
+ index: 32
+[pred] was found guilty of conspiring to commit the crime of conspiracy and was sentenced to be strangled and later burned for witchcraft. On 19 December Bal
+[true] was found guilty of conspiring to murder by the use of witchcraft and was sentenced to be strangled and burned. On 16 December 1594 Bal
+--------------------------------------------------
+
+Pair #159
+--------------------------------------------------
+ index: 197
+[pred] the site. It provides a rich shopping and boosts the local economy by providing over 3,000 jobs. As one of the largest urban areas in the
+[true] the site. It provides three storeys of shopping and boosted the local economy by providing 4,000 jobs. As one of the largest urban areas in
+--------------------------------------------------
+
+Pair #160
+--------------------------------------------------
+ index: 195
+[pred] Suhasi Dhami Suhasi Goradia Dhami is an Indian film and television actress. She is well known for portraying the role
+[true] Suhasi Dhami Suhasi Goradia Dhami is an Indian film and television actress. She is well known for portraying the role
+--------------------------------------------------
+
+Pair #161
+--------------------------------------------------
+ index: 405
+[pred] Louis Halsey Louis Arthur Owen Halsey (born 1929) is an English composer, conductor and choral arranger. He
+[true] Louis Halsey Louis Arthur Owen Halsey (born 1929) is an English composer, arranger and choral conductor. He
+--------------------------------------------------
+
+Pair #162
+--------------------------------------------------
+ index: 239
+[pred] late ware is distinguished by the medium mode of its firing. It has a thin grey section, somewhat like that of period III. It is 
+[true] late grey ware is distinguished by the mode of its firing. It has a medium-thick section like the one from period III. It is
+--------------------------------------------------
+
+Pair #163
+--------------------------------------------------
+ index: 270
+[pred] the primitive and rigid mode of production, could not and did not, because of the numbers, nor could they be stray enough to be produced by
+[true] the primitive mode of production, howsoever rigid and stratified they might be, did not and could not, simply because of the numbers, produce
+--------------------------------------------------
+
+Pair #164
+--------------------------------------------------
+ index: 128
+[pred] steps, stationary trainers, weight training equipment and various types of free-wheelers. This facility was expanded and reopened in 2007. In 2007, the
+[true] steppers, stationary bikes, free weights and various types of weight training equipment. This facility was expanded in 2007. Opened in 1994, the Buffalo
+--------------------------------------------------
+
+Pair #165
+--------------------------------------------------
+ index: 283
+[pred] velocity, and a wrench combine forces to form a six-dimensional object called a twist. Two similar objects are combined in six-dimensional objects
+[true] velocity are combined into one six-dimensional object, called a twist. A similar object called a wrench combines forces and torques in six dimensions
+--------------------------------------------------
+
+Pair #166
+--------------------------------------------------
+ index: 5
+[pred] for the dispersal of seeds. The large leaves were used by the indigenous people of northern Australia, to hold large amounts of food. They could and
+[true] for the dispersal of seeds. The large leaves were used in various ways by the indigenous people of northern Australia; they could hold food, and when
+--------------------------------------------------
+
+Pair #167
+--------------------------------------------------
+ index: 58
+[pred] The environmental scan focuses on all of the areas within the strategic plan. The environmental scan will evaluate and give the areas that the plan focuses on and
+[true] The environmental scan focuses on all of the areas the strategic plan focuses on. The environmental scan will evaluate and survey these areas and give those who are
+--------------------------------------------------
+
+Pair #168
+--------------------------------------------------
+ index: 436
+[pred] field studies on the Timna Complex (Methys & Bethany, Israel). In March 2003, Walter M. Field, Sudan
+[true] studies on the Timna Complex, Israel (with M. Beyth and M. Walter) 11. March 1986: Field studies in NE Sudan
+--------------------------------------------------
+
+Pair #169
+--------------------------------------------------
+ index: 404
+[pred] 'Hawaawaja'. Lord Kharich of the Bridge said that despite the seriousness of allegations against a detainee of
+[true] "Khawaja" Lord Bridge of Harwich said that given the seriousness of the allegations against a detainee and the consequences of
+--------------------------------------------------
+
+Pair #170
+--------------------------------------------------
+ index: 328
+[pred] for the first time, however, and World War I had brought the competition down to just four clubs, finals qualification was automatic. Finally, in 1919
+[true] for the first time, however, with World War I having reduced the competition to just four clubs, finals qualification was automatic. Finally, in 1919,
+--------------------------------------------------
+
+Pair #171
+--------------------------------------------------
+ index: 455
+[pred] Punta Pippeto Lighthouse Punta Pippeto Lighthouse () is an active promontory lighthouse located on the northernmost tip of
+[true] Punta Pioppeto Lighthouse Punta Pioppeto Lighthouse () is an active lighthouse located on the northernmost promontory
+--------------------------------------------------
+
+Pair #172
+--------------------------------------------------
+ index: 498
+[pred] They were transported to the Devil's Dinosaur to take them to the "Cocanut" Earth. Then Angels travelled
+[true] They were transported, with the Fallen Angels, to Devil Dinosaur's planet. They then traveled to the "Coconut
+--------------------------------------------------
+
+Pair #173
+--------------------------------------------------
+ index: 431
+[pred] to if the flag had red or blue ensigns based on it. Though ensigns based on the flag do appear on
+[true] to if the flag had red or blue ensigns based upon it. Though ensigns based on the flag do appear on
+--------------------------------------------------
+
+Pair #174
+--------------------------------------------------
+ index: 222
+[pred] to be limited because of concerns about possible FAA interference with flight from the nearby McCarran International Airport. Construction of the $32 million-built tower
+[true] ultimately limited to because of concerns from the FAA about possible interference with flights from the nearby McCarran International Airport. Construction of the $32 million tower
+--------------------------------------------------
+
+Pair #175
+--------------------------------------------------
+ index: 80
+[pred] escutcheon of Granada quarterly, compiled and surveyed of Castile, Aragon, León and Valle Point National
+[true] escutcheon quarterly of Castile, Leon, Aragon and Navarra enté en point of Granada, overall
+--------------------------------------------------
+
+Pair #176
+--------------------------------------------------
+ index: 459
+[pred] Coarticulation In phonetics, the term coarticulation may refer to two different articulatory phenomena: one is the transition from one gesture to 
+[true] Coarticulation in phonetics refers to two different phenomena: The term coarticulation may also refer to the transition from one articulatory gesture to
+--------------------------------------------------
+
+Pair #177
+--------------------------------------------------
+ index: 1
+[pred] surgeon, to pioneer the practice of a seuroectomy, a procedure previously practised by the Portuguese physician Antón Le
+[true] surgeon in order to practice the leucotomy, a technique pioneered by the Portuguese neurologist António Egas
+--------------------------------------------------
+
+Pair #178
+--------------------------------------------------
+ index: 430
+[pred] on the Road" tour. He was replaced by the band's current drummer, Nicko McBrain. Burr co-wrote one song
+[true] on the Road tour. He was replaced by the band's current drummer, Nicko McBrain. Burr co-wrote one song on
+--------------------------------------------------
+
+Pair #179
+--------------------------------------------------
+ index: 256
+[pred] Ralph Craig Ralph Cook Craig (June 21, 1881 – July 11, 1962) was an American athlete, the winner of the sprint double at the 19
+[true] Ralph Craig Ralph Cook Craig (June 21, 1889 – July 21, 1972) was an American athlete, winner of the sprint double at the 1912
+--------------------------------------------------
+
+Pair #180
+--------------------------------------------------
+ index: 91
+[pred] so long as the size of the tank is large enough to keep the fish from fearing that shock waves will send water pressure through the goldfish. For
+[true] as this sends shock waves of sound pressure through the water scaring the fish. The size of the tank should be large enough because goldfish can “
+--------------------------------------------------
+
+Pair #181
+--------------------------------------------------
+ index: 259
+[pred] 2014-2015. He was fired in early 2015 after the Trojans finished third nationally in scoring defense, with 59 points per game (to be 17
+[true] 2014 to 2015, he was fired in early December 2015 after the Trojans finished 50th nationally in scoring defense (25.7 points per game) and 65
+--------------------------------------------------
+
+Pair #182
+--------------------------------------------------
+ index: 54
+[pred] Mardo of Tuscany Guy (also called "Guido" or "Guido", Legrave, godfather of the
+[true] Guy, Margrave of Tuscany Guy (also "Guido" or "Wido"; raised Leo; called the
+--------------------------------------------------
+
+Pair #183
+--------------------------------------------------
+ index: 152
+[pred] sold 394,000 copies in the United States. The Twilight Saga: Breaking Dawn – Part 1 (soundtrack) The Twilight Saga
+[true] sold 467,000 copies in the United States. The Twilight Saga: Breaking Dawn – Part 1 (soundtrack) The Twilight Saga
+--------------------------------------------------
+
+Pair #184
+--------------------------------------------------
+ index: 319
+[pred] He rallied from a second-to-last deficit to beat Hard Spun by 2 lengths. This victory made him the first winner of the
+[true] He rallied from a second-to-last deficit to beat Hard Spun by 2 lengths. This victory made him the first winner of the
+--------------------------------------------------
+
+Pair #185
+--------------------------------------------------
+ index: 399
+[pred] role in the ER over-development include: - ER selectively takes part in the ER antagonists - physiological ER
+[true] over ER include: Antagonists of ER selective over ER include: ER plays a role in the physiological development
+--------------------------------------------------
+
+Pair #186
+--------------------------------------------------
+ index: 473
+[pred] village, which took on the name "Ang Kio" and the mainly immigrant Mo Chinese. The clearing out of the land and the Ho
+[true] village that sprang up with the clearing of the land took on the name "Ang Mo Kio". The immigrant Chinese, mostly Ho
+--------------------------------------------------
+
+Pair #187
+--------------------------------------------------
+ index: 347
+[pred] when it was destroyed by fire, undaunted, they planned to rebuild it, but instead of simply laying a replacement, they did so
+[true] when it was destroyed by fire, but undaunted they laid plans for its replacement. Rather than simply rebuilding what was destroyed, they 
+--------------------------------------------------
+
+Pair #188
+--------------------------------------------------
+ index: 191
+[pred] but was tried on one of these in March, with the last charge being the complainant he was to work on. The remainder of the June 2016
+[true] but one of these in March 2016. He was to be tried in June on the last remaining charge, relating to a complainant who had also worked
+--------------------------------------------------
+
+Pair #189
+--------------------------------------------------
+ index: 82
+[pred] Biconcave disc A biconcave disc is a geometric shape resembling an oblate spheroid
+[true] Biconcave disc A biconcave disc is a geometric shape resembling an oblate spheroid
+--------------------------------------------------
+
+Pair #190
+--------------------------------------------------
+ index: 276
+[pred] associated with educational society and the forum. Informal debates and debate talk shows are commonplace, particularly in the Australian and British schools, establishing formal
+[true] associated with educational establishments and debating societies. Informal and forum debate is relatively common, shown by TV shows such as the Australian talk show,
+--------------------------------------------------
+
+Pair #191
+--------------------------------------------------
+ index: 271
+[pred] post-nominal letters O.M.C. Ontario Medal for Good Citizenship The Ontario Medal for Good Citizenship is an orthography award used
+[true] use the postnominal letters O.M.C. Ontario Medal for Good Citizenship The Ontario Medal for Good Citizenship is an honorary medal produced
+--------------------------------------------------
+
+Pair #192
+--------------------------------------------------
+ index: 0
+[pred] Mauryan Empire was significantly weakened following the death of Ashoka. The dynasty lasted until c. 290 B
+[true] Mauryan Empire was greatly weakened following the death of Ashoka. The dynasty lasted until c.184 B.
+--------------------------------------------------
+
+Pair #193
+--------------------------------------------------
+ index: 306
+[pred] Presidential Palace, Helsinki The Presidential Palace (, ) is one of the three official residences of the President of the Republic of Finland. It is situated
+[true] Presidential Palace, Helsinki The Presidential Palace (, ) is one of the three official residences of the President of the Republic of Finland. It is situated
+--------------------------------------------------
+
+Pair #194
+--------------------------------------------------
+ index: 165
+[pred] Mad Dog American Mad Dog American is the debut album by American rap metal group SX-10. It was released on June 11, 2000. The twelve-
+[true] Mad Dog American Mad Dog American is the debut album by American rap metal group SX-10. It was released on June 6, 2000. The twelve-
+--------------------------------------------------
+
+Pair #195
+--------------------------------------------------
+ index: 250
+[pred] Morena". This audition was really a birthday day, so the media gave him a lot of support. Moreover, celebrities gave his audition
+[true] Morena“. This audition was a real media blast, since on the audition day it was his birthday, and many celebrities gave a big support
+--------------------------------------------------
+
+Pair #196
+--------------------------------------------------
+ index: 9
+[pred] national anthem at a civic event in Denver, Colorado, when she caused controversy by substituting a word from "Lift Every 
+[true] national anthem at a civic event in Denver, Colorado, where she caused a controversy by substituting the words of "Lift Every
+--------------------------------------------------
+
+Pair #197
+--------------------------------------------------
+ index: 330
+[pred] Remilitarization of the Rhineland The remilitarization of the Rhineland () by the German Army took place on
+[true] Remilitarization of the Rhineland The remilitarization of the Rhineland () by the German Army took place on
+--------------------------------------------------
+
+Pair #198
+--------------------------------------------------
+ index: 355
+[pred] Daily Sport The Daily Sport was a tabloid newspaper in the United Kingdom which was published by Daily Sport Ltd, a specialist news and celebrity-centric
+[true] Daily Sport The Daily Sport was a tabloid newspaper published in the United Kingdom by Daily Sport Ltd., which specialised in celebrity news and softcore
+--------------------------------------------------
+
+Pair #199
+--------------------------------------------------
+ index: 157
+[pred] who is perhaps best known for his novel "The Enemy of Knowledge" Muhammad Ibrahim Derame-Warise was also the orientalised love
+[true] who is perhaps best known for his Dervish era novel, "Ignorance is the enemy of love". Mohamed Ibrahim Warsame is considered
+--------------------------------------------------
+
+Pair #200
+--------------------------------------------------
+ index: 122
+[pred] Development of newer material such as porous polyethylene (PP) has allowed the introduction of biocompatible polymer into the chemistry field to introduce the
+[true] Development in polymer chemistry has allowed introduction of newer biocompatible material such as porous polyethylene (PP) to be introduced into the field of
+--------------------------------------------------
+
+
+{'eval_loss': 0.601550817489624, 'eval_model_preparation_time': 0.0197, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 32.0, 'eval_token_set_precision': 0.795371472284136, 'eval_token_set_recall': 0.8115198390926948, 'eval_token_set_f1': 0.8024189323453295, 'eval_token_set_f1_sem': np.float64(0.006365035742157658), 'eval_n_ngrams_match_1': 19.266, 'eval_n_ngrams_match_2': 13.486, 'eval_n_ngrams_match_3': 10.378, 'eval_num_true_words': 24.308, 'eval_num_pred_words': 24.176, 'eval_bleu_score': np.float64(51.054154286046064), 'eval_bleu_score_sem': np.float64(1.2545800208766216), 'eval_rouge_score': np.float64(0.8034075941557541), 'eval_exact_match': np.float64(0.088), 'eval_exact_match_sem': np.float64(0.012682021421471788), 'eval_emb_cos_sim': 0.9541867971420288, 'eval_emb_cos_sim_sem': np.float64(0.01341440249234438), 'eval_emb_top1_equal': 0.625, 'eval_emb_top1_equal_sem': np.float64(0.125), 'eval_runtime': 89.5953, 'eval_samples_per_second': 5.581, 'eval_steps_per_second': 0.357}
+Time taken: 89.6177294254303
+Current memory usage: 4.879191MB; Peak: 9.999903MB
+Peak GPU memory usage: 5759.978496 MB
