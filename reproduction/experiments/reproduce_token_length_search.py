@@ -4,6 +4,12 @@ import time
 import tracemalloc
 import os
 import random
+import sys # ADDED
+
+# Add the root directory to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) # ADDED
+from settings import PROJECT_ROOT, OUTPUTS_DIR # ADDED
+
 from vec2text import analyze_utils, data_helpers
 import pandas as pd
 
@@ -110,8 +116,8 @@ def main(args):
     #save metrics to a CSV file
     if args.output_csv:
         df = pd.DataFrame([metrics])
-        df.to_csv(args.output_csv, index=False)
-        print(f"Metrics saved to {args.output_csv}")
+        df.to_csv(args.output_csv, index=False) # no changes here
+        print(f"Metrics saved to {args.output_csv}") # no changes here
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Reproduce Out-of-Domain Experiments on BEIR Datasets")
@@ -181,6 +187,13 @@ if __name__ == "__main__":
     type=int,
     default=512,
     help="Maximum sequence length for tokenizers",
+    )
+
+    parser.add_argument(
+        "--max_seq_length",
+        type=int,
+        default=512,
+        help="Maximum sequence length for tokenizers",
     )
     args = parser.parse_args()
     
