@@ -32,8 +32,8 @@ def main(args):
         random.seed(42) 
         
         # Get random indices
-            new_length = min(len(beir_dataset_name), args.max_samples)
-            beir_dataset_name = beir_dataset_name.select(range(new_length))
+        new_length = min(len(beir_dataset_name), args.max_samples)
+        beir_dataset_name = beir_dataset_name.select(range(new_length))
         
         # Select random samples
         

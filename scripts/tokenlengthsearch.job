@@ -92,7 +92,7 @@ run_experiment() {
     echo "Log file: ${log_file}"
 
     # Run the Python script
-    python reproduce_T2_fix.py \
+    python token_len_exp.py \
         --model jxm/gtr__nq__32__correct \
         --steps $steps \
         --beam-width $beam_width \
