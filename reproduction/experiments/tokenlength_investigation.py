@@ -39,101 +39,101 @@ def calculate_token_f1(pred, label):
      return f1
 
 
-# --- Metric Extraction and Plotting ---
+    # --- Metric Extraction and Plotting ---
 def extract_metrics_from_log(log_file_path):
-     """
-     Extracts multiple evaluation metrics (exact match, token F1, SBERT score, BLEU) and max token
-     from a log file and returns them in a structured dictionary.
-     """
-     preds = {}
-     labels = {}
+    """
+    Extracts multiple evaluation metrics (exact match, token F1, SBERT score, BLEU) and max token
+    from a log file and returns them in a structured dictionary.
+    """
+    preds = {}
+    labels = {}
+    log_file_path = str(log_file_path)
 
-     with open(log_file_path, 'r') as log_file:
-         lines = log_file.readlines()
+    with open(log_file_path, 'r') as log_file:
+        lines = log_file.readlines()
 
-     preds_section = False
-     labels_section = False
+    preds_section = False
+    labels_section = False
 
-     for line in lines:
-         if "Contents of decoded_preds:" in line:
-             preds_section = True
-             labels_section = False
-             continue
-         elif "Contents of decoded_labels:" in line:
-             preds_section = False
-             labels_section = True
-             continue
+    for line in lines:
+        if "Contents of decoded_preds:" in line:
+            preds_section = True
+            labels_section = False
+            continue
+        elif "Contents of decoded_labels:" in line:
+            preds_section = False
+            labels_section = True
+            continue
 
-         if preds_section:
-             match = re.match(r"^Index (\d+): (.*)", line)
-             if match:
-                 index = int(match.group(1))
-                 preds[index] = match.group(2)
-         elif labels_section:
-             match = re.match(r"^Index (\d+): (.*)", line)
-             if match:
-                 index = int(match.group(1))
-                 labels[index] = match.group(2)
+        if preds_section:
+            match = re.match(r"^Index (\d+): (.*)", line)
+            if match:
+                index = int(match.group(1))
+                preds[index] = match.group(2)
+        elif labels_section:
+            match = re.match(r"^Index (\d+): (.*)", line)
+            if match:
+                index = int(match.group(1))
+                labels[index] = match.group(2)
 
-     if len(preds) != len(labels):
-         print(f"Warning: Number of predictions ({len(preds)}) and labels ({len(labels)}) differ in {log_file_path}.")
+    if len(preds) != len(labels):
+        print(f"Warning: Number of predictions ({len(preds)}) and labels ({len(labels)}) differ in {log_file_path}.")
          
-     min_len = min(len(preds), len(labels))
+    min_len = min(len(preds), len(labels))
      
-     model = SentenceTransformer('all-mpnet-base-v2')
-     bleu = load("sacrebleu")
+    model = SentenceTransformer('all-mpnet-base-v2')
+    bleu = load("sacrebleu")
      
-     exact_matches = []
-     token_f1s = []
-     sbert_scores = []
-     bleu_scores = []
-     data_added_to_bleu = False
+    exact_matches = []
+    token_f1s = []
+    sbert_scores = []
+    bleu_scores = []
+    data_added_to_bleu = False
 
-     for i in range(min_len):
-         if i in preds and i in labels:
-             cleaned_pred = clean_line(preds[i])
-             cleaned_label = clean_line(labels[i])
-
-             exact_match = 1.0 if cleaned_pred == cleaned_label else 0.0
-             exact_matches.append(exact_match)
+    for i in range(min_len):
+        if i in preds and i in labels:
+            cleaned_pred = clean_line(preds[i])
+            cleaned_label = clean_line(labels[i])
+            exact_match = 1.0 if cleaned_pred == cleaned_label else 0.0
+            exact_matches.append(exact_match)
+            
+            token_f1 = calculate_token_f1(cleaned_pred, cleaned_label)
+            token_f1s.append(token_f1)
+            
+            pred_embedding = model.encode(cleaned_pred, convert_to_tensor=True)
+            label_embedding = model.encode(cleaned_label, convert_to_tensor=True)
+            cosine_sim = util.pytorch_cos_sim(pred_embedding, label_embedding)
+            sbert_scores.append(cosine_sim.item())
+            
+            bleu.add_batch(predictions=[cleaned_pred], references=[[cleaned_label]])
+            data_added_to_bleu = True
              
-             token_f1 = calculate_token_f1(cleaned_pred, cleaned_label)
-             token_f1s.append(token_f1)
-             
-             pred_embedding = model.encode(cleaned_pred, convert_to_tensor=True)
-             label_embedding = model.encode(cleaned_label, convert_to_tensor=True)
-             cosine_sim = util.pytorch_cos_sim(pred_embedding, label_embedding)
-             sbert_scores.append(cosine_sim.item())
-             
-             bleu.add_batch(predictions=[cleaned_pred], references=[[cleaned_label]])
-             data_added_to_bleu = True
-             
-     if data_added_to_bleu:
-         bleu_results = bleu.compute()
-         bleu_scores = [bleu_results["score"]] * min_len
-     else:
+    if data_added_to_bleu:
+        bleu_results = bleu.compute()
+        bleu_scores = [bleu_results["score"]] * min_len
+    else:
          bleu_scores = [0.0] * min_len
          
      # Extract max token and dataset name from filename
-     if "maxtoken" in log_file_path:
-         max_token = int(log_file_path.split("_")[-1].replace("maxtoken.log", ""))
-     else:
-         max_token = None
+    if "maxtoken" in log_file_path:
+        max_token = int(log_file_path.split("_")[-1].replace("maxtoken.log", ""))
+    else:
+        max_token = None
 
-     match = re.search(r"_(.*?)_500samples_", log_file_path)
-     dataset_name = match.group(1) if match else None
+    match = re.search(r"_(.*?)_500samples_", log_file_path)
+    dataset_name = match.group(1) if match else None
 
-     if max_token is not None and dataset_name is not None:
-         return {
-             "max_token": max_token,
-             "dataset_name": dataset_name,
-             "exact_match": exact_matches,
-             "token_f1": token_f1s,
-             "sbert_score": sbert_scores,
-             "bleu": bleu_scores,
-         }
-     else:
-         return None
+    if max_token is not None and dataset_name is not None:
+        return {
+            "max_token": max_token,
+            "dataset_name": dataset_name,
+            "exact_match": exact_matches,
+            "token_f1": token_f1s,
+            "sbert_score": sbert_scores,
+            "bleu": bleu_scores,
+            }
+    else:
+        return None
 
 def plot_metrics_vs_max_token(all_data, output_dir):
      """
@@ -311,16 +311,16 @@ def main():
          print("No valid data found in log files for plotting metrics vs max token length.")
 
      # -- Experiment 2: Qualitative Analysis of one log file
-     print("\n--- Qualitative Analysis ---")
-     try:
-         nltk.data.find('tokenizers/punkt')
-     except LookupError:
-         nltk.download('punkt')
+    #  print("\n--- Qualitative Analysis ---")
+    #  try:
+    #      nltk.data.find('tokenizers/punkt')
+    #  except LookupError:
+    #      nltk.download('punkt')
 
-     try:
-         extract_and_compare_samples(qual_log_file)
-     except FileNotFoundError:
-         print(f"The specified log file for qualitative analysis was not found. Please make sure to provide a valid file path. Given {qual_log_file}")
+    #  try:
+    #      extract_and_compare_samples(qual_log_file)
+    #  except FileNotFoundError:
+    #      print(f"The specified log file for qualitative analysis was not found. Please make sure to provide a valid file path. Given {qual_log_file}")
 
 if __name__ == "__main__":
      main()
