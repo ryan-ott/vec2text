@@ -1,0 +1,1395 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='dbpedia-entity', beam_width=4, steps=50, batch_size=16, max_samples=500, output_csv=None, max_length=48)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: dbpedia-entity
+Original dataset size: 100000
+cut dataset at 500 samples.
+Model tokens max_length: 48
+Embedder tokens max_length: 48
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 4
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 500
+})
+
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 500
+Length of decoded_labels: 500
+
+Contents of decoded_preds:
+Index 0: Saint Aurelius Ambrosius (fl. 939 – April 98), known as Ambrose, was bishop of Milan
+Index 1: Academy Award The Oscars, officially the Academy Awards, is an annual collection of awards celebrating the merits of a major American cinematic figure. Following
+Index 2: The economy of Angola is one of the fastest growing economies in the world, recovering from the Civil War (2007). Annual GDP growth is reported at
+Index 3: The northern cavefish, or Amblinopsys cavefish, is found in Kentucky and Indiana in the United States. This is a threatened species
+Index 4: Adelaide (pronounced ) is the capital city of the state of South Australia. Situated on of land, it was the fifth-largest of
+Index 5: Actaeon (Greek: "") in Ancient Greek mythology, the son of the autokodist Aristarchus of
+Index 6: An aromatic hydrocarbon (also termed arene or aryl hydrocarbon) is an hydrocarbon with sigma rings between atoms
+Index 7: Apollo (also known as the Project Apollo program) was the third United States space program carried out by the NASA to achieve the first human landing in
+Index 8: Mouth rinse, mouth bath or oral mouthwash is a liquid held in motion by the periordal muscles and/or passively by
+Index 9: Abbot, meaning father, is an ecclesiastical title given to an office of the head of a monastery. In tradition
+Index 10: Abensberg (, Bavarian: ; ) is a small town in the lower Kelheim district of Bavaria, Germany
+Index 11: Albert Schweitzer (November 21, 1906 – July 15, 1995) was a French physician, theologian, and medical and philosophical missionary in Africa
+Index 12: Antonio Lucio Vivaldi (Italian/Vietnamese: 4 March 1786 – 4 July 179
+Index 13: Accordions (from the Eighteenth-century German Akkord) are the family of musical instruments: box-shaped cords ("sound
+Index 14: with the atomic symbol of 95. Amertium is a transuranic element located in the periodic table of the periodic mass index (M
+Index 15: The Aare or Aar (German:) is a tributary of the Rhine which rises and ends as the longest river in
+Index 16: Amyntas III (Greek: ; died 328 BC) was the son of Philip III, king of the ancient Macedon
+Index 17: The Alexandrists were a school of Renaissance philosophers who explained them in the controversy of de Anima, given by Ptolemy I
+Index 18: Aristotle [[aristotle]] (Greek: '; 211 BC – 82) was a
+Index 19: Alexei Petrovich Romanov (Russian: лександимир) (fl. 28 July 176
+Index 20: The Analytical Engine was a mechanical general-purpose computer proposed by English mathematician Charles Babbage which was first designed in 19
+Index 21: Anacharsis (; ) was a Scythonian philosopher who travelled to the northern shores of the Black Sea, at
+Index 22: AMEX (NYSE) American Stock Exchange LLC, formerly known as the MKT Exchange, is an exchange owned in New York City. Originally
+Index 23: Anarchism is a political philosophy that advocates voluntary, stateless societies, often defined as self-governed institutions. However, according to several authors
+Index 24: Augusta King, Countess of Lovelace (née Ada Byron) (1731 – 22 December 1792) was the writer
+Index 25: Assistive technology is an umbrella term for selecting and using assistive, adaptive, and rehabilitative devices for people with disabilities. These technologies
+Index 26: Alexander Balas (Ancient Greek: ; Bé), ruler of the Greek Seleucid kingdom in 110–151 BC.
+Index 27: American Sign Language (ASL) is the predominant sign language of deaf communities in North America and Canada. Some creoles, such as United
+Index 28: An algebraic number is a complex rational number that may or may not be the root of a non-zero polynomial of one
+Index 29: A (named "aes") is a plural letter and the first vowel in the ISO basic Latin alphabet. Similar to the 1,
+Index 30: In mythology, religion, and fiction, afterlife (sometimes referred to as the realm or hereafter) is a philosophical concept of the physical
+Index 31: Americans with Disabilities Act (ADA) is a law that was enacted in 1990 by the U.S. Congress on the recommendation of
+Index 32: APL (named from the book "Multidimensional arrays") is a programming language developed in 1960. Its central datatype is a
+Index 33: Generally, an answer is a reply to a question.         
+Index 34: Area is the plane quantity that expresses the surface figure in a two-dimensional or three-dimensional extent. Whereas the laminar
+Index 35: U.K.) Asphalt (also known as "bitumen"/"sultumen"/"fust"), occasionally
+Index 36: Arthur Schopenhauer (German:) () ( – 22 February 1711) was a German philosopher. He is perhaps best known for
+Index 37: Altaic (/lék/) is the proposed but discredited language family of Central and Eastern Eurasia. The Turko-Mon
+Index 38: Alboin (572–554) was king of the Lombards in 530. His reign lasted until June 28, ending migrations
+Index 39: – Anaxarchus (d. c. 172 BC – c. 174 AD) was a Greek philosopher of dem
+Index 40: Ahab (Ancient Greek: ', Latin: ' (Brother to the father; Hebrew: ') was the
+Index 41: The Ashes is a Test cricket series played between the Ashes which are currently held by England and Australia.The term has been popularised
+Index 42: Ambigorix was, together with Belica, head of the eminent American tribe of Catalonia (north
+Index 43: The American Football Conference (AFC) is one of the two conferences in the National Football League (NFL). The conference currently consists of 16 teams
+Index 44: Alexander I or Aleksandr Obrianovi (; c. 1380 – c. 11 June 1458) was king (
+Index 45: Alfonso Orozco Cuarón (; ; ; born November 18, 1961) is a Mexican director, producer, screen
+Index 46: an amateur (Latin, "amator amateur", Latin, "lover") is generally considered to originate from someone attached to a particular pursuit
+Index 47: Alger, Magister of Liège also known as Alger of Clunisy (1510–1541) was an eminent author learned
+Index 48: The Parsleyaceae, commonly known as the carrot or celery, are an umbelliferae family of aromatic plants. Named for
+Index 49: anisotropy (a property of being direction-dependent) is the "nisotrpi", which can be identical to all
+Index 50: Anatoly Karpov, PhD (Russian: Aleksandrovich-Aleksandrovich Yevgeniyevich
+Index 51: Abraham Lincoln (February 1809 – April 8, 1874) (b. March 8, 1807) was the 16th president of the United States, serving
+Index 52: Albert of Prussia (17 May 1794) was the last Knight of the Grand Duchy, who, upon converting to become the first Lutheran Masters
+Index 53: Acute autoimmune disseminated encephalomyelitis (ADEM) is a rare sudden attack due to brain inflammation and
+Index 54: Aztlan Underground is an indigenous Los Angeles band. Since 1989, Aztlan Underground has played Rapcore. Fusion drums can be found in many
+Index 55: An aircraft is a machine which is able to fly against the atmosphere, either by gaining the support of gravity, or by using a static
+Index 56: In Old Norse mythology, Ask and Embla (both male and female) were the first two humans created by the gods. In an
+Index 57: The abaci (spelled singularly as an "abacus") is a counting frame used by modern calculating tools and it is one of
+Index 58: the MessagePad is the first series of personal digital assistant devices developed by Apple for Apple's Japan hardware in late 1990. Further modifications to the message
+Index 59: Alaccinus Alaccinus (fl. 1477), also known as Flwine of York, was an eminent scholar
+Index 60: Ardipithecus is a genus of extinct hominine living in Eastern Ethiopia during the Late Miocene (1
+Index 61: Allan Dwan (3 April 1885 – 28 December 1981) was a pioneering Canadian-born American motion picture director, producer and screenwriter
+Index 62: Ajax or Aias (Greek: ; ; ; ; ; ) was a Greek mythological
+Index 63: The Andes is the longest continental mountain range in the world, continuing towards the highlands of western South America. This range is about 4,000 km
+Index 64: Alexander Aetolus (Ancient Greek: ) was a Greek poet, the only known representative of Aeogrammarian poetry
+Index 65: Augustus (Julius Caesar) Augustus (; d. 7 September 264 BC) was the Roman Emperor and founder of the First Empire
+Index 66: Aruba (Dutch pronunciation: "ru-"; ) is an island-country in the Southern Caribbean Sea, located 600 kilometers west
+Index 67: Asia (pronounced "e") is the Earth's largest and most populous continent, located in the eastern and northern hemispheres. Though
+Index 68: Alfonso Alfonso (also spelled as Kapon; c. 1477–1487) was King of Ar
+Index 69: August 22 is the 44th day of the year in the Gregorian calendar. There are 235 days remaining at the end of the year.
+Index 70: Antimony is a chemical element with symbol Sb. (from the Latin for lustral grey) and atomic number 51. Found in nature
+Index 71: April 6 is the 96th day of the year in the Gregorian calendar. There are 869 days remaining until the end of the year
+Index 72: Alan Alexander Milne (b. 17 April 1934) was an English author, best known for his books about the teddy bear Winnie
+Index 73: Alberta (; ) is a western province (Lot) of Canada, with a 2011 population estimated at 119,529,
+Index 74: Ames is a city in Des Moines County in the U.S. state of Iowa. Located about 1.5 miles (1.6 km) southwest
+Index 75: August 2 is the 44th day of the year at the end of the year in the Gregorian calendar. There are 151 days remaining.
+Index 76: Astrometry is the branch of astronomy which involves precise measurements of the positions and movements of stars and other celestial bodies. The information is obtained
+Index 77: An assembly language (or assembler language) is a low-level programming language (typically for a computer) that is strong to one
+Index 78: Aalborg Municipality is a municipality in northern Jutland in the Nordland Region of Denmark, bounded by the Komune
+Index 79: Agnosticism is the view that certain truth claims – whether religious or metaphysical – exist which are either unknown or unvaluable. According
+Index 80: Animalia is a 1992 children's book illustrated by Graeme Brown. It was published in a six-month anniversary edition around
+Index 81:           This article is about communications systems in Anguilla
+Index 82: Alcidamas (Greek: ), of Aeolios' rhetoric, flourished in 5th century
+Index 83: Ice Brothers, also known as "Ol'Analogue T", were electro drummers featuring Keith Kobib (keyboards), Keith Ko
+Index 84: A Modest Proposal for Preventing the Beneficial of Children of the Poor to Parents of the Riches, commonly referred to Bur
+Index 85: Amalaric (Galician: "Amalarecos"), was king of the Visigoth from 651, until
+Index 86: Andrey (Andrei Markov) (Russian: Andreivich-Andreivich, in older works: "
+Index 87: The Dodo is one of Alice's fictional characters, appearing in Chapter 3 of Lewis Carroll's "The Adventures of Wonderland".
+Index 88: Alan Garner OBE (born 17 October 1934) is an English fantasy novelist best known for his children's renditions of various folk tales
+Index 89: Angst means anxiety or fear and its origins are roughly related to the Latin word anglicate (Norwegian). In English, ang
+Index 90: Aristophanes (Greek: [[rist(n)|rist(n)], pronounced [[fuz
+Index 91: Ambracia (Latin: "ampracia") () was a city of ancient Greece, sometimes on the modern site of Arte
+Index 92: Albert II (b. 1536) was the Margrave of Brandenburg-Lünefeld (Baubach) from 28 March 15
+Index 93: Alexander (Greek: ) was the despot of tagus in Phaeasia and ruled between 395 and 3
+Index 94: Armenia is the second most densely populated of the former Soviet republics because of its small size. It is situated between the Black Sea and the Georgia
+Index 95: Alcamenes (Latin: ) was an Ancient Greek sculptor of Leo who flourished around the fifth century BC
+Index 96: According to the Bible, Absalom or Avshalom (Hebrew: Avshalom; modern "fat
+Index 97: Allah (pronounced [l]oh-al-l]) is the Arabic-English syllable for "Allah" (
+Index 98: Audi AG (; ) is a German automobile engineering manufacturer that designs, manufactures, markets and markets luxury vehicles. Headquartered in Marie
+Index 99: August 21 is the 124th day of the year, in the Gregorian calendar. There are 316 remaining days by the end of year
+Index 100: An abbey (derived from the Latin "abbas" or "father") is a Catholic monastery or convent (usually Anglican
+Index 101: Ankara (Azerbaijani: ; ), formerly known as Angra (), is the capital of Turkey, located
+Index 102: Algorithms is a peer-reviewed journal dedicated to experimental mathematics published openly by Jeffrey Abbott. Parts include analysis, design,
+Index 103: Agnostida is an order of arthropod that first developed at the end of the Early Middle Cambrian period and has been present in fossil
+Index 104: Absolute zero is the temperature state of the lower limit of the thermodynamic enthalpy scale, corresponding to the ideal gas. To take
+Index 105: Anthropology is the study of humanity. Its main subdivisions include social and linguistic anthropology that investigates the workings of societies around world
+Index 106: August 14 is the 226th day of the year in the Gregorian calendar. There are 264 days remaining until the end of the year
+Index 107: Park Güell (Category: Parc Güell) () is an expansive public garden system in Barcelona, situated on the Carmel hill
+Index 108: an artist is a person engaged in one or more of the broad spectrum of activities related to creating, practicing, and exhibiting art. In common usage
+Index 109: AWK is an interpreted programming language designed to be used for text extraction and reporting programming.This language is a common part of the UNI
+Index 110: Ampere (symbol "amp") is the SI unit of electric current, and its name is one of the seven base units ("A
+Index 111: Attica Athena (Ancient Greek: ; "Athena", "Authena", "Auth
+Index 112: Dame Agatha Mary Deborah Miller Christie, CBE (née Davis; 14 July 1896 – 15 September 1987), was an American novel
+Index 113: An anaconda        is a large snake found in tropical South America.
+Index 114: Apple Computer, also known retroactively as Apple I-1, was released by the Apple Computer Company in 1976. They were hand designed and built by Steve
+Index 115: Alcaesus of Mytilene (Greek: ; fl. c. 900 BC), Greek ly
+Index 116: Abraxas () was a variant form of the Gnostic word of Abrasiatic mystique in the system of St
+Index 117: Anatole France (French: [fr:]; born François-Anastas Thibault, [fr:
+Index 118: a Clockwork Orange novel is a dystopian future by Anthony Burgess published in 1962. Set in a cult
+Index 119: Arminianism is based on theological ideas of the Dutch Reformed theologian Jacobus Renius (1588–1648). His supporters
+Index 120: An army (from modern French "armées", Latin for "armed") is a fighting force that fights on land. In the broadest sense
+Index 121: Alfred Russel Wallace OM FRS (12 November 1897 – 25 February 1988) was an acclaimed British naturalist, explorer, and scientist
+Index 122: Afro Celt Sound System is a folk group that combines electronic dance rhythms with Irish trip hop, which was formed in the late 2000s
+Index 123: Alessandro Algardi (15 June 1302 – 1581) was an Italian high baroque sculptor residing in Rome during
+Index 124: the Aegean Sea (Greek: '; Greek: '; Turkish: '; or "Adal Denzi
+Index 125: Asterales (diasterels) is an order of large flowering plants in the subfamily Acotyzoaceae
+Index 126: Since its liberation, Armenia has maintained a policy of complementarianism in its relations with the USA and Iran. By trying to avoid numerous Genocid
+Index 127: Art is the product of a diverse range of human activities, usually creative or imaginative. These include the study and production of technical works, criticism of particular
+Index 128: Alexander (Latin: *"lézr") is a common first name (derived from the Greek *"lézr",
+Index 129: Aberdeenshire () is one of the 25 council areas of Scotland. Its name derives from Scottish Gaelic county "Seodrahm
+Index 130: Treaties, collectively known as the Antarctic Agreement System (ATS), regulate international relations with the Antarctic continent without regard to Earth's population. For this
+Index 131: Alain Connes (French: ; born April 1947) is a French mathematician, currently Professor at Ih
+Index 132: August 17 is the 229th day of the year at the end of the year in the Gregorian calendar. There are 130 days remaining.
+Index 133: Ambrosians are members of one of the religious sects which have sprung up around the 15th century Milan and at times in the Ana
+Index 134: the Amber Diceless Roleplaying Game is a fantasy role-playing game created by Writer Eric Wujczek for published
+Index 135: the almond (Lat. "Muyendiculus dulcis", "Muyendiculus praeoides", "
+Index 136: August 9 is the 22nd day of the year in the Gregorian calendar at the end of the year. There are 187 days remaining.
+Index 137: Aluminium, or aluminium, is a chemical element in the non-metallic group of ducts with atomic symbol 13. It is soft white
+Index 138: Transport in Antarctica has transformed crossing the more isolated open area of Antarctica by foot as a result of human exploration and technological advances, such as faster
+Index 139: The Austroasiatic languages, synonymous with Mon-Khmer, are a large subfamily in central Southeast Asia bordering India. The B
+Index 140: Afonso IV (Portuguese pronunciation: ""; d. 26 February 1229), called the Brave (), was
+Index 141: Associación Alumni, is a senior rugby union club located in Grupos, Toruato, Buenos Aires. All
+Index 142: Amethyst is a violet variety of quartz, often used in jewelry. The name derives from the Greek "(not) mé
+Index 143: Amos is a minor prophetic of the Hebrew Bible. The Book of Amos is one of the twelve prophets active between 610 BC and
+Index 144: an acropolis (Greek: from Akros, "akron", "city"; common plural: "highest, above
+Index 145: Alexander of Aphrodisias (Greek: ) was a Peripatetic Greek philosopher and one of the celebrated comment
+Index 146: Anna Kournikova Sergeyavna (Russian: '; pl: '; pl: '; pl: "
+Index 147: be confused with Amathus, Palestine was one of the most ancient royal cities of Cyprus, lying north of the Araeas-Mat
+Index 148: in Ancient Greek mythology, Achilles (Greek: "akhilléus", pronounced "khilláz") was a Greek
+Index 149: Apple Inc. (known as Apple) is an American multinational technology company headquartered in Cupertino, California that designs and sells consumer software
+Index 150: Apollo (Apolonic Greek: ', Homeric: ', Idotonic: ', Attic: ',
+Index 151: Aga Sultan Muhammad Shah III, MPN, GCSI, GCVO (d. 5 July 1952) was the 37th Imam of N
+Index 152: ABBA were a Stockholm-based pop group formed in 1974. Members included Sven-Kjöld (Stylish)
+Index 153: Arthur Aikin, GS (d. 15 May 1864) was a mineralochemist, writer and founding member of the Chemical Society
+Index 154: Alfonso II (fl. 1261), called the Chaste, was king of Asturias from July 731 until
+Index 155: Avicenna (Latin form: '; Persian form: '; Arabic: '; Ibn-S
+Index 156: The Atlantic Ocean is the second largest of the ocean divisions in the world, with a total area of 990,000 kilometres. It
+Index 157: Alexander I Jagiellon (Polish: Aleksander-Aleksandriolis; – 27 August 1691) after the Lithuania
+Index 158: An architect is someone who may design and practice architecture, which oversees the construction of buildings. Together with services associated with the construction of buildings in order to
+Index 159: Artificial intelligence (AI), is the name of the field of academic studies and software that can exhibit the intelligence behaviors by creating machines or computers. This neural network
+Index 160: Abbotsford is a historic house on the Scottish Borders in the townland of Gala, near the river Melrose. It is home
+Index 161: Aquaculture, also known as aquafarming, is the farming of aquatic organisms including molluscs, fish and terrestrial crustaceans
+Index 162: An atomic orbital is a mathematical function that describes the wave-like behavior of the probability of finding one pair of electrons. This function uses
+Index 163: An astronaut (or cosmonaut) is a person trained by a professional space program to serve as a flight crew member. When traveling
+Index 164: The anthophytes were thought to be a clade containing flowering plants with flowerlike structures. The group included roses,
+Index 165: Aphrodite (Greek: ; Proto-Daetian: "") is the goddess of love, pleasure, and fer
+Index 166: ports, Uai and Faleasi. American Samoa has 98 km of highways (estimated in 2011) including
+Index 167: In the Book of Samuel, Abner (Hebrew: "Avv", meaning "father") is cousin to a commander of the light
+Index 168: August (according to the Julian calendar) is the seventh in the eight-month length of the year (Judg/Wu and September
+Index 169: Vipasania Agrippina, most commonly known as Agrippina Major (Latin for ‘Agrippina the Elder’
+Index 170: Apache Software Foundation (US) Apache Software Foundation, Inc. (ASF) is an American 501(c)(3) non-profit organization to support
+Index 171: August 16 is the 229th day of the year, at the end of the Gregorian calendar year. There are 137 days remaining.
+Index 172: Asparagales is the name of an order of plants, which is often used in modern classification systems within the family APG IIIceae. This
+Index 173: Azerbaijan is a member of the United Nations, the Non-Aligned Movement, the NATO Partnership for Security and Cooperation Worldwide
+Index 174: April 13 is the 103rd day of the year in the Gregorian calendar, at the end of the leap year. There are 53
+Index 175: Hercule Poirot (Latin: "khwu-ru-lu") () is a Belgian detective
+Index 176: Alexander III of Macedon (), commonly known as Alexander the Great (; c. 106 BC – July 23, 106 BC) (Hang
+Index 177: Alabama () is a state located in the southeastern region of the United States, bordered by Georgia to the east and Tennessee to the
+Index 178: Advanced Chemistry is a German hip hop group based in Stuttgart, West Germany. Advanced Chemistry was founded in Heidelberg in 1977 by Toni M. L
+Index 179: Acacia (tree) Acacia, also known as acacia, wattle, or thorn, is a
+Index 180: Algol, known as the Perseus Star (Latin: "Bea"), is a bright demon in the constellation "
+Index 181: name Alp Arslan (Persian: Diya ad-Durak ad-Durak ad-
+Index 182: American Samoa, located in Oceania, is one of two United States possessions in the Southern Hemisphere. Its total geographic
+Index 183: August. William Derleth H. P. (April 9, 1946 – July 25, 2010) was best remembered for being the publisher of the first books
+Index 184: Alan Curtis Kay (born May 17, 1940) is an American computer scientist. He was elected to the American Academy of Arts, Sciences and Humanities
+Index 185: Autism is a neurodevelopmental disorder characterized by impaired social behavior, repetitive signs, and non-observable communication. Parents usually begin their first year
+Index 186: Arabic (Arabic: ' or al-'aribabiyyah / al-'aribiyyah / r
+Index 187: The American Revolutionary War, or American Independence War (1775–1783), was the armed conflict between the thirteen colonies of Great Britain, which had
+Index 188: Maria Alfons Jakob (17 July 1907, Hamburg – c. 1987, Leipzig) was an entomologist
+Index 189: Ailanthus", a word derived from "amanto", meaning "tree of the heavens" or "tree of the
+Index 190: An affidavit (/affi-d-t/) is a sworn written statement of fact voluntarily made by
+Index 191: The economy of American Samoa is a traditional Polynesian economy in which land is communally owned. US participation is linked to approximately 90%
+Index 192: Alexander I of Epirus (Greek: ; 310 BC – 114 BC), also known as Alexander Molossus, was
+Index 193: Andy Warhol (b. June 23, 1934) was an American artist, known for his work in the visual arts as the leading figure in pop art and
+Index 194: Alfred, or Alredus of Beverley, was fiftieth century sacristan of the English church in 1143
+Index 195: April 15 is the 110th day of the year in the Gregorian calendar at the leap year. There are 105 days remaining until the end
+Index 196: An author is broadly defined as the person whose existence or origin is responsible for creating anything. Historically, an author can be defined by what has been
+Index 197: Andre Kirk Agassi (né; born June 23, 1974) is an American retired professional tennis player who was once the world's dominant No.
+Index 198: Alfheim () (Old Norse: "Land of the Fairies"), also called Ljoslárheim
+Index 199: Amines (U.S.//mniz/) or "minz" (UK//mniz/) (
+Index 200: In the Book of Exodus, "Amram" (; ; modern Hebrew: "Mu'ir", "Friend of the High
+Index 201: In law, an abstract is a brief statement that contains the most important points of a long legal document or of several related legal papers. 
+Index 202: Ahmed I (Ottoman) Ahmed I (Turkish: ; – 15 November 1634) was the Sultan of Otto
+Index 203: Algeria (country) Algeria, "Nazr al-Java", is a capital city of Democratic Republic of West Africa on the northern Mediterranean
+Index 204: An American in Paris is a jazz-influenced symphonic poem composed George Gershwin in 1928. Following Gershwin'
+Index 205: This article is about the demographic features of the population of Antigua and Barbuda, including population density, ethnicity, religious affiliation and others.
+Index 206: April 16 is the 107th day of the year in the Gregorian calendar. There are 44 remaining days until the end of the year.
+Index 207: Alfred Joseph Hitchcock, KBE (16 May 1899 – 31 August 1991), nicknamed Master of Suspense, was an early director
+Index 208: August 1 is the 14th day of the year at the end of the year in the Gregorian calendar. There are 283 days remaining.
+Index 209: Kolmogorov complexity In computational information theory, the Kolmogorov complexity, or descriptiveness, in the subfield of entropy,
+Index 210: April is the fourth month of the year in the Julian and Gregorian calendar, having a length of 30 days.April (plural "
+Index 211: the Apiales, are flowering orders for some plants. The classification system is similar to that of several other families. The most notable is TorPG
+Index 212: Alexander I (modern Gaelic: Alaimhluim mac Alaimhluim mac Coelair; d. 10
+Index 213: Asteroids is an arcade shooter released by Atari in November 1979. Designed by Lynn Richardson, the player controls a spaceship'
+Index 214: Alanus de Lille (or Alain Insulis) (d. 1166/66) was an English poet. Born in the spring of 11
+Index 215: This article is about demographic features of the population of American Samoa including the ethnicity, education level, health status, economic status and many others.
+Index 216: Albedo (derived from Latin "albedo", "whiteness") or albedo reflection coefficient (from "lus-bon") is the
+Index 217: Asteraceae Asteraceae, commonly referred to as the composite or daisy family or sunflower, are an extremely large plant
+Index 218: Anarcho-capitalism (referring to the lack of a state and liberation of the said free market, also known as anarcho
+Index 219: An analog signal is any continuous or time-varying signal for an analogue, in which the features of that analogue are represented by the other
+Index 220: Azincourt (French pronunciation: Azincourt-in-né, pl.) is a commune and department in the Agk
+Index 221: Ada is an imperative, statistic, structured, type-oriented, high-level computer programming language. It has been described in Pascal's specification
+Index 222: André Paul Guillaume Gide () (July 23, 1866 (Italy) – November 23, 1947) was a French author
+Index 223: April 12 is the 102nd day of the year in the Gregorian calendar. There are 39 leap years remaining until the end of year.
+Index 224: The atomic number of an element (also known in atomic physics as its chemical number) is the number of proton found in the element therefore
+Index 225: Casa Batlló (; pronounced ; ) is a renowned building located on Barcelona's classical center, Gaudán. "
+Index 226: August 23 is the 235th day of the year, in the Gregorian calendar at the end of the leap year. There are 110 remaining
+Index 227: Apollo 8, the second Apollo space program, launched on December 11, 1968, became the first manned spacecraft to leave Earth orbit and reach the United States on
+Index 228: An alloy is a mixture of elements in another alloy. Alloys may be defined as a metallic solution (solid metal or a single
+Index 229: Alfred Elton van Vogt (b. April 19, 1914 – d. December 1995) was an American science fiction author perhaps the most popular
+Index 230: Arne Kaijser (born 1950) is a professor of History and Technology at the Royal Institute of Science and Technology in Stockholm.Hi
+Index 231: An adventure is an exciting, possibly bold, or unusual experience. Risks may manifest in adventurous activities, such as skydiving or mountaineering
+Index 232: Aries is one of the constellations of the zodiac. The name is located in the northern celestial hemisphere. In Latin
+Index 233: Azerbaijan has an oil-based economy which has completed a major post-Soviet transition from the Bakubili Pipeline in
+Index 234: Arianism is a nontrinitarian belief which asserts that Jesus is the son of God and its teachings subordinate to Jesus.
+Index 235: April 22 is the 11th day of the year at the end of the second year in the Gregorian calendar. There are 444 remaining days
+Index 236: Amos Bronson Alcott () ( – November 8, 1799) was an American philosopher, reformer, writer, and teacher. L
+Index 237: Aikido (Japanese: [aikido]) is a Japanese martial art developed by Mori-Hepburn
+Index 238: Azerbaijan is situated in the Caucasus region of Eurasia. Four physical features dominate the Caucasus-Azerbaijan Sea
+Index 239: Miss Marple, commonly referred to as Jane Marple, is an elderly fictional character who appears in 12 short stories in Agatha Christie'
+Index 240: - the Annales School - is the name of a group of historians who stress on French historiography since the nineteenth century ("al
+Index 241: Andrei Tarkovsky (Russian: аркованские arseny, [pseudo-p
+Index 242: In particle physics, antimatter is particle material, which is composed of particles having the same masses as ordinary protons and extraparticles such
+Index 243: agate ('t') is a cryptocrystalline variety of silica noted for its brightness and fineness. Chromosomes
+Index 244: Arsenic is a chemical element with symbol As and atomic number 33. Arsenic occurs in combination with many pure minerals. In
+Index 245: August 12 is the eleventh day of the year which has reached a peak on the Gregorian calendar. There is 224 days remaining per
+Index 246: Attila "Attila" () (fl. 235), often referred to collectively as the Hu, was
+Index 247: Alvin Toffler (born 4 October 1934) is an American writer known for his insights on futurist trends and the digital revolution, communication technology,
+Index 248: Anadyr (Russian: ), is a river in northeast Siberia which drains into the Bering Bay and flows into the
+Index 249: All Souls’ Day is the day in Christianity, commemorating the faithful or relatives of the recently departed saint. This tradition is held at 2 November
+Index 250: The Triumph of Time" is a poem by Algernon Swinburne, published in 1869. It has been adapted by Joseph
+Index 251: Akira Kurosawa Akira Kurosawa (Japanese: 5 March 1910 – 5 September 1996) was a filmmaker
+Index 252: Alfred Bernhard Nobel (Swedish: "nob/nob/no") (12 October 1896 – 1 December 18
+Index 253: An allocutus or allocution is a formal statement made to court by the defendant who has been found guilty, prior to sentence.
+Index 254: August 6 is the 146th day of the year in the Gregorian calendar. There are a number of leap days remaining until the end
+Index 255: August 24 is the 236th day of the year in the Gregorian calendar. There are 41 days remaining until the end of the year.
+Index 256: August Wilhelm Ambros (17 November 1816 – 28 June 1876) was an Austrian composer and music historian of Czech descent. 
+Index 257: April 29 is the 114th day of the year in the Gregorian calendar, at the end of the leap year. There are 338
+Index 258: Albert Camus (; 26 January 1912 – 7 May 1964) was a French Nobel Prize-winning author, journalist, and philosopher, rising
+Index 259: Animism (from Latin "anima", "animal spirit") is the philosophical view that non-life entities, such as plants, breath
+Index 260: Afonso V (Portuguese: "Afonso k.v."), originally called the African (15 June 17
+Index 261: (ataxia) (Greek: "order") is a neurological sign of a lack of coordination of negative muscle movements in the va
+Index 262:         This article is about communications systems in Antigua and Barbuda.
+Index 263: The American Civil War, known in several sections as simply the Civil War, was a war fought from 1861 to 1865 to determine independence for
+Index 264: ASCII, abbreviated as ASS-KIE, is an acronym for American Standard Interchange, a phonetic encoding
+Index 265: Field Alfred Habbk Korsakkiewicz (17 July 1895 – 1 May 1974) was an American scholar who developed general semantics
+Index 266: Adobe (British: "dûbo"; Spanish: "dûbo"; UK: clay) is a building
+Index 267: Alphonso, or Afonso VI (Portuguese pronunciation: "Aphonzo", Old Portuguese pronunciation: 28 August 17
+Index 268: the politics of Antigua and Barbuda takes place in a unitary parliamentary democratic framework where the Sovereign of Antigua
+Index 269: fray Augustin-Jean Fresnel (French: "né"; pl. "né"; pl.
+Index 270: April 30 is the 120th day of the year in the Gregorian calendar. There are 124 days remaining until the end of the year.
+Index 271: April day is the 1st day in the Gregorian calendar. There are 87 days remaining by the end of the leap year. 
+Index 272: Arable land, defined as land that can be plowed and used to grow crops, was one of the ideas of ancient Britain (see Latinologie
+Index 273: Abraham (Hebrew: "Abram"; transliterated from "-bêm") is the first of the three originally biblical patri-
+Index 274: The alpin horn or albrophone () is a laphorn consisting of a hollow wooden natural horn used as ane
+Index 275: August 19 is the 231st day of the year in the Gregorian calendar. There are 130 leap years remaining until the end of year
+Index 276: The astronomical unit, or symbol au, is the length of the distance from the Sun to the Earth. This distance varies
+Index 277: August 13 is the 110th day of the year, at the end of the Gregorian calendar year. There are 225 leap days remaining.
+Index 278: April 28 is the 114th day of the year in the Gregorian calendar. There are 47 leap days remaining until the end of year.
+Index 279: Aga Khan I (Persian: Khil-ul-Wahwal i.e. Khil-ul-Wahwal
+Index 280: The territory of Ashmore and Cartier Islands is an uninhabited tropical external territory of Australia encompassing three remote islands in the low-lying seas
+Index 281: Alexander III (modern Gaelic: Alaxmealdair mac Alaxmealdair mac Alaxmealdair
+Index 282: in HTML tag form.An abbreviation (abbr) is an element of the Latin word "abb", a phrase such as short
+Index 283: In Christianity, an abbess (Latin: abbata) is the female superior of an abbot or community of nuns.
+Index 284: Abalone (or "aulón bólnio bólnio" in the Spanish language) is an
+Index 285: In mathematics, an automorphism is an isomorphism to a mathematical object. In the sense of mapping the symmetry of itself
+Index 286: The Anglican Communion is an international association of churches consisting of the Church of England and national and regional Anglican churches in full communion with
+Index 287: August 27 is the 46th day of the year in the Gregorian calendar until the end of the year. There are a number of extra
+Index 288: Amric of Bena (French: Amaury de Bécharens; Latin: Amaury de Almarius; died C
+Index 289: An atom is the smallest constituent unit of the ionized properties of every ordinary substance. It is made up of gas or liquid. Plasma
+Index 290: In mathematics, the [|] absolute value of "x" is the modulus of the non-negative real number "x". For a sign
+Index 291: Azerbaijan (Azerbaijani: 'AZ-bahrbaycan'; Azerbaijani: '
+Index 292: August 18 is the 130th day of the year by the end of the year on the Gregorian calendar, there are 235 days remaining.
+Index 293: Politics of American Samoa takes place in the framework of a presidential multi-party dependency democracy, with the Governor being the head representative. Sam
+Index 294: An alphabet is a standard set of written letters (basic symbols) that are used to represent the phonemes of languages and to compute the number of
+Index 295: Amaranth, known collectively as amaranthus, is a genus of short-lived varieties that are perennial leaf vegetables
+Index 296: The Azerbaijani Armed Forces (Azerbaijani Silabayh-Qalcan) were re-established according
+Index 297: — Agathon (; c. 384 – c. 448 BC) was a lost Greek poet of classical antiquity
+Index 298: "Amino acids" (a.k.a. "amines") are biologically important organic compounds containing NH(2)-NH and
+Index 299: This lists links in Western philosophy. In ancient philosophy, the spread of Christianity showed the beginnings of Hellenistic philosophy at the end of the medieval Roman
+Index 300: August 7 is the 2197th day of the year which marks the end of the year in the mid-Gregorian calendar. There are still approximately
+Index 301: In mathematics and statistics, the arithmetic mean (syllable: "r-t-m-n", third-stress
+Index 302: Actrius (Catalans) is a film directed by Hernán Ponsarro in 1996. No actresses were cast in this
+Index 303: Casa Milà (Catalan pronunciation: '; Spanish pronunciation: '), popularly known as La Pedrera (Korés
+Index 304: Alismatales is an order of flowering plants. Some 3,500 species are assigned. These plants grow in marine, aquatic, and tropical habitats
+Index 305: The demographics of Armenia is about the demographic features of the population of Armenia, including ethnicity, health status, education, economic growth and religious affiliation.
+Index 306: Alan Mathison Turing, OBE, FRS (; 15 June 1929 – 21 June 1995), was a British pioneering computer scientist
+Index 307: An axon (also known as a nerve fibre) is a long, slender, axonal projection of cells
+Index 308: An argot (pronounced [rào argo]) is a secret English/French slang language used by various schools—
+Index 309: Albert the Bear (or Albert I of Albrecht) (d. 1129) was the first Margrave of Brandenburg till his death in about
+Index 310: in common law, assault is the act of creating an apprehension of an imminent harmful offense or threat.Contact with a person may include
+Index 311: The Amazing Spider-Man (abbreviated as ASM) is an American comic book series published by Marvel featuring the adventures of numerous fictional superheroe
+Index 312: August 8 is the 22nd day of the year along the end of the year in the Gregorian calendar. There are 444 days remaining.
+Index 313: relations of Angola are dependent on U.S. support for Angola's foreign policy towards the American economy.From 1975 to 2004, An
+Index 314: Actinium () is a radioactive element with atomic number 89, which is the symbol group Ac when discovered in the 1790s
+Index 315: Anatolia (from Greek: "Atoltürk", lit. ‘east’) – known in geography as Asia Minor ()
+Index 316: Ambrose Cam, also known as Ambrose of Traversaldoli (c. 1377 – 1439), was an Italian mon
+Index 317: Ealdred (died 11 September 1175) was Abbot of Tystock, Worcester, England, and related to the bishop of a
+Index 318: An abjad is a type of writing system whereby a symbol is chosen which always stands for the consonant vowel.Christ
+Index 319: August 3 is the 261st day of the year in the Gregorian calendar. There are 150 days remaining at the end of the year
+Index 320: Ancient Egypt was a civilization of northeastern Egypt in the African basin. It is one of six countries to arise independently of modern Egypt. The river
+Index 321: Antonio Agliardi (4 September 1832 – 19 March 1915) was an Italian Roman Catholic Cardinal, archbishop, and papal diplomat
+Index 322: In abstract algebra, an algebraically closed field F contains the root for every non-constant polynomial F in the ring of coefficients
+Index 323: In mathematics, the phrase  "almost all" has a number of specialised uses, to which it extends its intuitive meaning.
+Index 324: Alexius II Komnennos (or Alexius II Comnennos) (Greek: ""; 1198 –
+Index 325: Agriculture is the cultivation of animal, plant, fungi and other foodstuffs which grow fiber, fuel and improve human life. In the early
+Index 326: member and rapper Arabian Prince, better known by his stage name N.A.W. (born Kim Nazel) is an American hip hop group
+Index 327: Julia Agrippina, commonly referred to as Agrippina Minor or Augusta Julia the Younger, since the early 18th century,
+Index 328: Albert of Brandenburg, was Cardinal Elector (later Archbishop von Brandenburg) of West Germany, (15 June 1577 – 27
+Index 329: symbol, and Aquarius is a constellation of the Latin zodiac. Its name is "cup-water-carrier", which is 20
+Index 330: Amasis II or Ahmose II (Ancient Greek: ) was a pharaoh (570 BCE
+Index 331: Alexis () was a Greek comic poet during the twelfth to twelfth centuries BC. He was born in Middle
+Index 332: in Neo-Roman mythology, Aeneas (Greek: "") was a Greek derivation for "praised" or
+Index 333: American Chinese cuisine, known in the United States as simply Chinese cuisine, is a style of cuisine developed by American restaurants serving Chinese dishes. Many North American
+Index 334: Agrarianism has two common meanings. The first meaning is the social political philosophy, which sees rural farmer as superior to an independent working society
+Index 335: The AK-47 (also known colloquially in Russian as kalash-47) is an automatic, selective-fire, kal
+Index 336: The Governor of Alabama is the chief executive of the state of Alabama. The governor is in charge of enforcing state laws. The United States
+Index 337: In organic chemistry an alkane, or paraffin (from its historical meaning), is a saturated hydrocarbon. Such carbons consist of hydrogen
+Index 338: This article considers transport in Armenia. For transportation in the Soviet Union, see       Soviet Transport.
+Index 339: Advanced Encryption Standard (AES), also known as the Rijndael, is a specification of the U.S.
+Index 340: uses Alga, redirecting to places called "Alga" (see Algae for further ambiguation). Alga
+Index 341: Extreme poverty, or absolute poverty, was originally defined by the United Nations in 1999 as "a condition deprived of basic human needs including food, water
+Index 342: Altruism or selflessness is the principle or virtue of concern for the welfare of others. It is a traditional aspect in many religious and philosophical
+Index 343: August 31 is the 243rd day of the year. On the Gregorian calendar, there are 151 days remaining at the end of
+Index 344: An abscess (Latin: abscess) is a collection of pus that has built up in the tissue of the body
+Index 345: "nanda" (Chinese: '; Burmese: '; ') was one of the ten principal disciples
+Index 346: the Articles of Confederation (Perpetual Confederation), was an agreement among the thirteen original union states and its first United States. It
+Index 347: Abner Doubleday (b. December 19, 1891) was an army officer during the American Civil War. He fired the first shot at Union Fort and
+Index 348: terms Domini anno (AD) and anno (BC) are used to label the years before Christ in the Gregorian calendar. This
+Index 349: As with most matter particles, there is an associated antipatter with the same mass and opposite charge including the electric charge. For example, an antip
+Index 350: This is a list of characters in Ayn Rand's novel       Atlas Shrugged
+Index 351: Alarik Alarik, also known as Alairich II (Indonesian: "Aarcos" and Latin: "
+Index 352: An acid, from Latin for acid, is an aqueous substance with a sour taste whose chemical characteristics can lead to the blue
+Index 353: Achill Island (, Acáe: ""), situated off County Mayo, is the largest island off the west coast of Ireland. It is
+Index 354: Alexander II was a king of Epirus, the son of Pyrrhus and the Sicilian tyrant Lansa.
+Index 355: Anaximander (Ancient Greek: ; d. c. 552 – c. 551) was an pre
+Index 356: In the Hebrew Bible and the Quran, Aaron (Ukrainian: "rû") was the older brother of Moses (b. 1034
+Index 357: Ancylopoda, is a group of herbivorous and permian mammals, showing long claws and cleft
+Index 358: An astronomer is a scientist or astronomical field, which studies stars, planets, comets, moons, etc. related
+Index 359: The Austrian school is a concept of methodological economic thought that is based on the motivation of individualism. It originated in the late nineteenth
+Index 360: An assembly line is a manufacturing process where progressive assembly parts (sometimes shortened to interchangeable parts) are added to one of the workstations finishing
+Index 361: The ancient Aramaic alphabet is distinctive to the alphabet. It was adapted from the Phoenician language around 1000 BC and used to represent
+Index 362: the word American is derived from a variety of historical, geographical, and political contexts. In the New World, the American meaning used in English
+Index 363: Alyattes, king of Lydia in 264 BC, considered the founder of the Lydian empire, was the son of Sadimaye
+Index 364: (the Peste) is a novel by Camus La Plague, published in 1955 that recounts the sweeping of Algerian city of Or
+Index 365: Animal Farm is an allegorical dystopia by George Orwell, first published on 17 August 1917. The novel takes place somewhere between London and England
+Index 366: In Greek mythology, Alcmene (Greek: "Alcmena") or Alkmenn (Greek:
+Index 367: In mathematics and computer science, an algorithm (/l-r-g-dh-m/) is any self-contained step-by
+Index 368: Ana (), sometimes referred to as Annah or Ana, is an Iraqi Arab town on the Euphrates river reaching a southeastern
+Index 369: Albert Sidney Johnston (February 1862 – April 1955) served as a general in three different armies: the Texas Republic, the
+Index 370: Aarhus (Danish: "Rhus") is the seat of the second-largest city municipality in Denmark and is located to the
+Index 371: analysis of variance (ANOVA) is a collection of statistical models used by evolutionary biologists in order to define differences between groups in relation to the group
+Index 372: April 26 is the 117th day of the year in the Gregorian calendar. At the end of the year, there are 53 days remaining
+Index 373: Agnes Maria of Andechs (died 1201) was Queen of France, a daughter of the count of Mecklenburgia du
+Index 374: Politics of Armenia takes place in a framework of representative democratic multi-party systems, where the president is the head of government with executive power. This
+Index 375: Rodolphe Emmanuel Agassiz (May 9, 1834 – March 9, 1910) was an American engineer and scientist son of Louis Antonio Agassi
+Index 376: The Dasyproctidae are a family of large South American rodents. The fur comprises a dark agoscu
+Index 377: Abortion is the ending of a pregnancy when a fetus is removed spontaneously rather than surgically; it is called mis
+Index 378: The Arbets Museum, or Museum of Work, is a museum located in Norrköping, Sweden. In the late 19th century
+Index 379: Ajax (; ) was a Greek hero, son of the goddess Oelius, sometimes referred to as "Loer
+Index 380: "America the Beautiful" is an American patriotic song.The lyrics were written by Katharine Bishop and the music was composed by Samuel Lee Bates
+Index 381: Alexander Graham Bell (March 23, 1830August 3, 1922) was a Scottish scientist and inventor credited with inventing the first practical telephone,
+Index 382: The Antigua and Barbuda Defence Force is the armed force of Antigua and the Barbuda Defence Force of Antigua.
+Index 383: Alder is the common name of a genus of flowering plants of the family Anthracaceae, comprising 47 ben
+Index 384: Auto racing (also known as automobile racing) is a sport involving motor racing competition for an individual event. The aim is to set the fastest time
+Index 385: Afrorasiatic (Asiatic), also known as Afro-Chamito-Hessemitic, is a large language family
+Index 386: An appeal is a petition in a United States court of law for a case procedure, which is then reviewed, to overturn the decision of
+Index 387: Afghanistan ', or officially, the Islamic Republic of Afghanistan (Pashto: "Fa'n"), is a landlocked country located
+Index 388: Asteroids are minor planets, especially those orbiting larger objects of the inner Solar System. This term has only been called since it began exhibiting
+Index 389: Alaska () is a U.S. state situated in the northwest extremity of the American continent. Bordering the territory of the Yukon east
+Index 390: algorithms for calculating variance play a large role in computational statistics. One of the problems with good algorithms is that the sum of formula
+Index 391: The Alps (Alps: "alp", Italian: "allei", French: "alpine", Slovene: "al
+Index 392: August 15 is the 229th day of the year at the end of the year in the Gregorian calendar. There are 42 days remaining.
+Index 393: The aspect ratio of a geometric shape is the ratio of its length to its width. For example, a rectangle has different sides to its shorter side
+Index 394: Alfred William Lawson (March 23, 1884 – April 24, 1966) was a professional in the baseball and aircraft industry in the 19th century until
+Index 395: The term abdominal surgery involves the opening of the abdominal abdomen. Such operations cover various abdominal organs (including liver, kidneys, etc.). Within the
+Index 396: Animation is the process of motion and thought illusion to create a rapid change in the shape of images over a relatively short interval. This is in contrast
+Index 397: Antisemitism (also spelled anti-Semitism) is prejudice or hatred against Jews, ethnic or religious, or
+Index 398: Antigua and Barbuda (pl. "ba-dye-dye-dye-dye-
+Index 399: Austrian German: 'sterreichische Deutsch', Austrian Standard German: 'sterreichische Deutsch', Austrian High German: 
+Index 400: Amphibians are ectothermic amphibians of the tetrapod class. Modern vertebrates include various Lis
+Index 401: Alternate history, sometimes abbreviated as AH, is a genre of fiction in which historical events unfold in different worlds depending on
+Index 402: "Amazing Grace" is a Christian hymn with words written by noted English poet John Newton and published in 1727.In 1727 he
+Index 403: An anagram is a type of word play, the result of rearranging the letters or phrases to produce something exactly once, for example the
+Index 404: Anbar (; ) was a town in Iraq, on the east bank of 34°N and east bank of 49°E, lat
+Index 405: In planar geometry, an angle is the angle figure, called formed by two rays common to the sides of the vertex.An angle
+Index 406: Alabaster is a name applied to two distinct minerals: one as a calcite material, gypsum, or hydrocarbon
+Index 407: Ambiguity is a type of uncertainty pertaining to an interpretation of meaning which is only possible when a solution to several proposed ideas is made.
+Index 408: Angolan Armedas The Armed Forces of Angola (Portuguese: ) are the military in Angola that succeeded
+Index 409: Agapanthus africanus (African lily) is a gardener native to Cape of Good Hope in South Africa. Growing
+Index 410: Alexander Mackenzie, PC (March 23, 1823 – January 25, 1923) was the second Prime Minister of Canada and a construction editor.
+Index 411: Anatomy is one of the branches of biology concerned with the study of the anatomy and structure of organisms. The evolutionary aspect is closely related to comparativ
+Index 412: Saint Angilbert, sometimes known as Anglberk (c. 1604) was a noble Frankish poet who served under Alagne
+Index 413: "American shot" is a translation of "knee américain", referring to a film plan of medium-long characters and criticism of
+Index 414: Anglicanism is a church tradition within Christianity which forms part of the shared beliefs and practices of related churches in England. The term derives
+Index 415: Amati is the last name of an important family of Italian violin makers, who may have lived at Cremona between 1577 and 1724. These
+Index 416: AOL America Online, Inc. (originally written as AOL) is an American multinational media corporation based in New York that invests and develop
+Index 417: Arraignment is formal reading of a document informing the defendant of the criminal charges being brought against them. The defendant is expected to respond
+Index 418: Anime (Japanese) , or anime, are Japanese terms for computerized animation, including hand-drawn and produced (R
+Index 419: Anavarbus (alias Azar) was an ancient Cilician city in Zanzibaria (modern-day Turkey), east
+Index 420: Antoninus Pius Antoninus Augustus Pius (; born Titus Hadrianus; – died 11 March, c.
+Index 421: Aldine Press was the printing office started by Aldus in Venice in 953/94, honoring the grandsires of the Classical Greek edition
+Index 422: Alypius of Antioch was a geographer of Britannia in the late 5th or early 6th AD. He replaced Victor
+Index 423: The American National Standards Institute (ANSI, n-s) is a national non-profit organization that oversees consensus systems, products and services
+Index 424: The alkali metals are a group in the periodic table comprising sodium (Na), potassium (L), calium (Ri
+Index 425: Alchemy is an influential tradition whose practitioners claim to have been the precursor to its profound powers. As described in the Encyclopedia of Diderot,
+Index 426: Analysis is the process of breaking a complex topic or substance into smaller parts in order to gain a better understanding of it  .
+Index 427: Edward Crowley (alias Aleister Crowley) (born 15 November 1461) was an English occultist, poet, painter
+Index 428: Apocrypha are works, usually of unknown, doubtful, or canonical authorship, and therefore should not be treated as having been written
+Index 429: This article presents demographic features of the population of Angola including ethnicity, health status, education, religious status and so forth. According to a
+Index 430: Amber is fossil resin (not sap) which has been made into an ornamental tree since prehistoric times. Due to its beauty and natural value, it
+Index 431: Aldous Leonard Huxley () (15 July 1891 – 11 November 1963) was a prominent writer and philosopher member of the "L
+Index 432: (AM). Amplitude modulation is a form of modulation technique used in electronic communication. In the transmission of a radio frequency signal strength
+Index 433: An annual plant is a plant which completes its life cycle, with seed maturation in spring or autumn. Summer germinates and die around one
+Index 434: Alexis Carrel () (July 9, 1881 – June 8, 1942) was a French surgeon and biologist awarded Nobel in
+Index 435: Irwin Allen Ginsberg (June 23, 1927 – June 3, 1988) was an American poet and fellow of the Beat Generation of 1950
+Index 436: Since the adoption of a new constitution in 2007, the presidency of Angola is in the framework of a political republic wherein both head of state
+Index 437: Ayn Rand (; née Zianova; born Alisa Rosenbaum, Russian-Lithuanian-Rus
+Index 438: Transport in Angola comprises:            
+Index 439: Abdul Alhazed is a fictional character created by the American horror writer T. M. Lovecraft better known by the pseudonym Ki
+Index 440: André-Marie Ampère (; ) (10 January 1796 – 5 June 1866) was a French mathematician/
+Index 441: In computing, an applet is any small application which performs one specific task, often running on a dedicated plug-in widget engine. The term
+Index 442: In Greek mythology, Agamemnon (; ; from "*mn-" "think-very-on" and "*
+Index 443: Applied ethics is the moral examination in matters involving a particular philosophical point of view. This may be the way to approach issues in the public sense
+Index 444: Berthold Hermann Albert Speer (; – 16 March 1996) was a German architect who, as part of World War II, Minister of
+Index 445: An anchor is a device, made of metal or fabric, used to connect a vessel to the bed of water to prevent drift. In the ancient
+Index 446: Anguilla (, ) is a British overseas territory in the north-western Caribbean. It is home to the Lee–Wilward
+Index 447: Abydos (Greek: "Addus"), an ancient city in Asia Minor situated on the road from Nara to Tam
+Index 448: Court of appeals A court of appeals (American English), commonly called an appellate court or second instance court, is any court of law empowered to
+Index 449: Armenia is a landlocked country in the Transcaucasia region, bordering on the east by the Caspian Sea and on the south
+Index 450: Amsterdam (in English: "droom-mst" or "droom-mst") is a
+Index 451: An "abbugida" (Algerian: 'abugad') is a segmental alpha-writing,
+Index 452: The aardvark (Rhodopterus ornatus) is a medium-sized, burrowing, noc
+Index 453: - Andorra, formally the principality of [[Catalonia]] (north-north-doli
+Index 454: Ahmed II (Ottoman Turkish:) (February 16, 1634 – c. 1695) was the Sultan of the Ottoman
+Index 455: Aphophobia or arachnophobia (from the Greeks: "arachne", "fear", and "spider") is
+Index 456: The Alan Parsons Project are a British progressive rock band active between 1975 and 2000, consisting of Eric Woolson and a handful of touring guests
+Index 457: Ahmed III (Ottoman Turkish: ; c. 1676 – 7 December 1734) was Sultan of the Ottoman Empire
+Index 458: (ALGOL) is the imperative mathematical language that evolved in the early 20th century and is based on the standard Algebraic Programming
+Index 459: America's National Game is a book by Albert Spalding published in 1911 dealing with the early history of baseball. The book details the history
+Index 460: The Andaman Islands () form an archipelago around the Bay of Bengal to the east and India to the west. Part of And
+Index 461: Anxiety is an unpleasant emotion, characterized by a state of inner turmoil consisting of sensual responses and back and forth steadi
+Index 462: The American Film Institute (AFI) is an organization that supports the film education of American filmmakers and the moving arts. AFI has been praised
+Index 463: The aardwolf (proteles cristata) is small, insectivorous mammal native to East Africa. The name
+Index 464: An 'amide' (also known as an 'acid' or 'e-ad') is a compound of the functional
+Index 465: Albania (or al-BAA-bey, a.k.a. al-BAA-nee; sometimes "len
+Index 466: (abbydos) is one of the oldest cities in Ancient Egypt, along with the capital, the Baltas. It is located
+Index 467: Academy Awards are categories for production design direction. The Academy Award for Best Achievement in Motion Pictures is believed to be the oldest awards ceremony to feature a "
+Index 468: Alpha (; uppercase: ; lowercase: ) is the first letter of the Greek alphabet. The alphabet had a numerical value of 1
+Index 469: In Norse religion, Asgard (Old Norse: "Sir") is one of the nine "enclosures
+Index 470: An axiom or postulate is an axiological premise with a starting point as the starting point of reason always widely considered.E
+Index 471: Amateur astronomy is a hobby that participants enjoy when they can find binoculars, the unaided eye, and the sky.
+Index 472: An android is a robot or synthetic organism designed to look and act much like a human with a fleshy body. However, in recent decades
+Index 473: An allegiance is a duty of fidelity owed, said to be freely committed by the people, subjects or citizens of their state or sovereign
+Index 474: The geography of Alabama is a large topic in this article. It covers the borders of four U.S. states: Mississippi, Florida, and Georgia
+Index 475: In ancient Greek mythology, ambrosia (Greek for "[sustenance]") is one of the food and drink
+Index 476: The geography of Antarctica is dominated by its ice location. The continent is located asymmetrically about the southern hemisphere, with
+Index 477: Ahenobarbus refers to a redbeard, a name that was used during the early years of the Roman Empire (Peri
+Index 478: Ammonius Hermiae (, ""; c. 130s – c. 145) was a Greek-
+Index 479: the Ateranoff-Bers automatic computer (ABC) was the first digital electronic computer. Some media experts might consider this to be an obscure
+Index 480: The "Hymn to Proserpine" is a poem by Algernon Proserpina, published in 17
+Index 481: An antipope (Latin: "papa") is commonly taken to be someone who claims to be the legitimately elected Pope in opposition to
+Index 482: (iii) Actiopteryginidae constitute a 'ray-finned' sub-class of fish
+Index 483: Alexander II (medieval Gaelic: Mac Aalmair; modern Gaelic: Mac Aalmair) (8 July 1229
+Index 484: International Atomic Time International Atomic Time (TAI for short) is a coordinate standard in astronomical nomenclature based on French
+Index 485: The Alemanni ("Subians") was a tribe comprising the Wahba along the Rhine river. Germanic historian Paol
+Index 486: the Armed Forces of the Republic of Armenia comprise two services: the Army and the Air Force. The branch was formed out of the unified Soviet
+Index 487: Argon is an atomic element and is a noble gas with chemical symbol number 18. It is the third most common group in the periodic table. In
+Index 488: motor neuron disease (MND) is any of the five voluntary neurons that affect specific muscle activity, including walking, swallowing, speaking, and controlling
+Index 489: In chemistry, an alcohol is any organic compound in which the hydroxyl functional group (OH) is bound to a saturated carbon atom.
+Index 490: Alabama, is formed by the Tallapoosa and Coosa rivers in the U.S. state of Montgomery.The river flows 11
+Index 491: An archipelago (; lit. "archipelago", cluster, group, or group of islands) is called an island chain
+Index 492: August 25 is the 237th day of the year on the Gregorian calendar at the end of the year. There are 35 years left.
+Index 493: Throughout history, artistic movements have gone through periodic abrupt changes, called revolutions. Many forms of art have also been replaced by new ones. This ends
+Index 494: Ashoka Ashoka () (c. 410 – 301 BCE), known as Maurya the Great, was an Indian
+Index 495: French chronicler, Aimoin (fl. c. 1694) was born at Villefranche-en-Luechat
+Index 496: Astatine is a very rare radioactive chemical element on Earth. It occurs as a result of decay to heavier elements. The atomic number 85
+Index 497: Albert Einstein (Naab.: ""; German: ""; April 19, 1884 – March 19, 1955) was a
+Index 498: Angola - officially the "Republic of Angola" (Portuguese: Dima a niel a n
+Index 499: the Apollo 11 humans were the first to land on the Moon, when American space shuttle Buzz Aldrin launched from the Moon on July 14, 1969 to "second
+
+Contents of decoded_labels:
+Index 0: Aurelius Ambrosius, better known in English as Saint Ambrose (/mbroz/; c. 340 – 4 April 397), was a bishop of Milan who became
+Index 1: The Academy Awards or The Oscars is an annual American awards ceremony honoring cinematic achievements in the film industry. The various category winners are awarded a copy of a statuette, officially the Academy Award of Merit
+Index 2: The Economy of Angola is one of the fastest-growing economies in the world, with reported annual average GDP growth of 11.1 percent for the period from 2001 to 2010. It is still recovering from the Angolan Civil War that
+Index 3: The northern cavefish or northern blindfish, Amblyopsis spelaea, is found in caves through Kentucky and southern Indiana. It is listed as a threatened species in the United States and the I
+Index 4: Adelaide (/dled/ AD--layd) is the capital city of the state of South Australia, and the fifth-largest city of Australia. It is situated on the land of the
+Index 5: Actaeon (/ktin/; Ancient Greek: ), in Greek mythology, son of the priestly herdsman Aristaeus and Autonoe in Bo
+Index 6: An aromatic hydrocarbon or arene (or sometimes aryl hydrocarbon) is a hydrocarbon with sigma bonds and delocalized pi electrons between carbon atoms forming rings. The term '
+Index 7: The Apollo program, also known as Project Apollo, was the third United States human spaceflight program carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the first humans on the Moon from 1969
+Index 8: Mouthwash, mouth rinse, oral rinse or mouth bath, is a liquid which is held in the mouth passively or swilled around the mouth by contraction of the perioral muscles and/or movement of
+Index 9: Abbot, meaning father, is an ecclesiastical title given to the head of a monastery in various traditions, including Christianity. The office may also be given as an honorary title to a clergy
+Index 10: Abensberg (German pronunciation: [abnsbk]) is a town in the Lower Bavarian district of Kelheim, in Bavaria, Germany, lying around 30
+Index 11: Albert Schweitzer (14 January 1875 – 4 September 1965) was a German—and later French—theologian, organist, philosopher, physician, and medical missionary in Africa, also known for his historical work
+Index 12: Antonio Lucio Vivaldi (Italian: [antnjo luto vivaldi]; 4 March 1678 – 28 July 1741) was
+Index 13: Accordions (from 19th-century German Akkordeon, from Akkord - "musical chord, concord of sounds") are a family of box-shaped musical instruments of the bellows-
+Index 14: Americium is a radioactive transuranic chemical element with symbol Am and atomic number 95. This member of the actinide series is located in the periodic table under the lanthanide element europium,
+Index 15: The Aare (German pronunciation: [ar]) or Aar is a tributary of the High Rhine and the longest river that both rises and ends entirely within Switzerland.Its
+Index 16: Amyntas III (Greek:   ; died 370 BC), son of Arrhidaeus and father of Philip II, was a Macedonian king of Macedon
+Index 17: The Alexandrists were a school of Renaissance philosophers who, in the great controversy on the subject of personal immortality, adopted the explanation of the De Anima given by Alexander of Aphrodisias.
+Index 18: Aristotle (/rsttl/; Greek:  [aristotéls], Aristotéls; 384 – 322 BC) was a
+Index 19: Alexei Petrovich Romanov (Russian: лексе етрови) (28 February [O.S. 18 February] 1690 – 7 July [O.S
+Index 20: The Analytical Engine was a proposed mechanical general-purpose computer designed by English mathematician and computer pioneer Charles Babbage.It was first described in 1837 as the successor to Babbage's
+Index 21: Anacharsis (/nkrss/; Greek: ) was a Scythian philosopher who travelled from his homeland on the northern shores of the Black Sea to At
+Index 22: NYSE MKT LLC, formerly known as the American Stock Exchange (AMEX), is an American stock exchange situated in New York City, New York. AMEX was previously a mutual organization, owned by its members.
+Index 23: Anarchism is a political philosophy that advocates stateless societies, often defined as self-governed, voluntary institutions, but that several authors have defined as more specific institutions based on non-hierarchical free associations. An
+Index 24: Augusta Ada King, Countess of Lovelace (née Byron; 10 December 1815 – 27 November 1852) was an English mathematician and writer, chiefly known for her work
+Index 25: Assistive technology is an umbrella term that includes assistive, adaptive, and rehabilitative devices for people with disabilities and also includes the process used in selecting, locating, and using them. Assistive technology
+Index 26: Alexander Balas (Ancient Greek: o B), ruler of the Greek Seleucid kingdom in 150–146 BC.
+Index 27: American Sign Language (ASL) is the predominant sign language of deaf communities in the United States and most of anglophone Canada. Besides North America, dialects of ASL and ASL-based creoles
+Index 28: An algebraic number is a possibly complex number that is a root of a finite, non-zero polynomial in one variable with rational coefficients (or equivalently – by clearing denomin
+Index 29: A (named a /e/, plural aes) is the 1st letter and the first vowel in the ISO basic Latin alphabet. It is similar to the Ancient Greek letter al
+Index 30: In philosophy, religion, mythology, and fiction, the afterlife (also referred to as life after death or the Hereafter) is the concept of a realm, or the realm itself (whether physical or transcendental
+Index 31: The Americans with Disabilities Act of 1990 (ADA) is a law that was enacted by the U.S. Congress in 1990. In 1986, the National Council on Disability had recommended enactment of an
+Index 32: APL (named after the book A Programming Language) is a programming language developed in the 1960s by Kenneth E. Iverson. Its central datatype is the multidimensional array. It uses a
+Index 33: Generally, an answer is a reply to a question.
+Index 34: Area is the quantity that expresses the extent of a two-dimensional figure or shape, or planar lamina, in the plane. Surface area is its analog on the two-dimensional surface of a three-
+Index 35: Asphalt (US /sflt/ or UK /sflt/, occasionally /flt/), also known as bitumen (/btju
+Index 36: Arthur Schopenhauer (German: [at pnha]; 22 February 1788 – 21 September 1860) was a German philosopher. He is best known for his
+Index 37: Altaic /ltek/ is a proposed, but widely discredited, language family of central Eurasia. Various versions include the Turkic, Mongolic, Tungusic
+Index 38: Alboin (530s – June 28, 572) was king of the Lombards from about 560 until 572. During his reign the Lombards ended their migrations by settling in
+Index 39: Anaxarchus (/nzrks/; Greek: ; c. 380 – c. 320 BC) was a Greek philosopher of the school of Democrit
+Index 40: Ahab (Hebrew: , Modern A'av, Tiberian A ; "Brother of the father"; Greek: ; Latin: Achab) was the
+Index 41: The Ashes is a Test cricket series played between England and Australia. The Ashes are regarded as being held by the team that most recently won the Test series.The term originated in a satirical
+Index 42: Ambiorix was, together with Cativolcus, prince of the Eburones, leader of a Belgic tribe of north-eastern Gaul (Gallia Belgica), where
+Index 43: The American Football Conference (AFC) is one of the two conferences of the National Football League (NFL). This conference and its counterpart, the National Football Conference (NFC), currently contain 16 teams each, making up the 32
+Index 44: Alexander I or Aleksandar Obrenovi (Cyrillic: лександар ренови; 14 August 1876 – 11 June 1903) was king
+Index 45: Alfonso Cuarón Orozco (Spanish pronunciation: [alfonso kwaon]; born November 28, 1961) is a Mexican film director, screenwriter, producer
+Index 46: An amateur (French amateur "lover of", from Old French and ultimately from Latin amatorem nom. amator, "lover") is generally considered a person attached to a particular pursuit, study,
+Index 47: Alger of Liège (1055–1131), known also as Alger of Cluny and Algerus Magister, was a learned clergyman from Liège author of several notable works.Alger was first
+Index 48: The Apiaceae or Umbelliferae, commonly known as the celery, carrot or parsley family, are a family of mostly aromatic plants with hollow stems. The family, which is named after the
+Index 49: Anisotropy /nastrpi/ is the property of being directionally dependent, as opposed to isotropy, which implies identical properties in all directions. It can be
+Index 50: Anatoly Yevgenyevich Karpov, PhD (Russian: натоли веневи аров, Anatoli
+Index 51: Abraham Lincoln /ebrhm lkn/ (February 12, 1809 – April 15, 1865) was the 16th President of the United States, serving from March 18
+Index 52: Albert of Prussia (17 May 1490 – 20 March 1568) was the last Grand Master of the Teutonic Knights, who after converting to Lutheranism, became the first monarch of the Duchy of
+Index 53: Acute disseminated encephalomyelitis (ADEM) is a rare autoimmune disease marked by a sudden, widespread attack of inflammation in the brain and spinal cord. ADEM also attacks the
+Index 54: Aztlan Underground is a fusion band from Los Angeles. Since early 1989, Aztlan Underground has played Rapcore. Indigenous drums, flutes, and rattles are commonplace in its musical compositions.This
+Index 55: An aircraft is a machine that is able to fly by gaining support from the air, or, in general, the atmosphere of a planet. It counters the force of gravity by using either static lift or by using
+Index 56: In Norse mythology, Ask and Embla (from Old Norse Askr ok Embla)—male and female respectively—were the first two humans, created by the Gods. The pair are at
+Index 57: The abacus (plural abaci or abacuses), also called a counting frame, is a calculating tool that was in use centuries before the adoption of the written modern numeral system and is
+Index 58: The MessagePad is the first series of personal digital assistant devices developed by Apple Computer for the Newton platform in 1993. Some electronic engineering and the manufacture of Apple's MessagePad devices was undertaken in Japan by the Sharp Corporation.
+Index 59: Alcuin of York (Latin: Alcuinus, c. 735 – 19 May 804), also called Ealhwine, Albinus or Flaccus, was an English scholar
+Index 60: Ardipithecus is a genus of an extinct hominine that lived during Late Miocene and Early Pliocene in Afar Depression, Ethiopia. Originally described as
+Index 61: Allan Dwan (3 April 1885 – 28 December 1981) was a pioneering Canadian-born American motion picture director, producer and screenwriter.
+Index 62: Ajax or Aias (/edks/ or /a.s/; Ancient Greek: , gen. ) was a mythological Greek
+Index 63: The Andes is the longest continental mountain range in the world. It is a continual range of highlands along the western coast of South America. This range is about 7,000 km (4,300 mi) long, about
+Index 64: Alexander Aetolus (Ancient Greek:   ) was a Greek poet and grammarian, the only known representative of Aetolian poetry.
+Index 65: Augustus (Latin: Impertor Caesar Dv Flius Augustus; 23 September 63 BC – 19 August 14 AD) was the founder of the Roman Empire and its first Emperor,
+Index 66: Aruba (/rub/ -ROO-b; Dutch pronunciation: [aruba]) is an island country in the southern Caribbean Sea, located about 1,600 kilometre
+Index 67: Asia (/e/ or /e/) is the Earth's largest and most populous continent, located primarily in the eastern and northern hemispheres. Though it covers only 8.7%
+Index 68: Alfonso the Magnanimous KG (also Alphonso; Catalan: Alfons; 1396 – 27 June 1458) was the King of Aragon (as Al
+Index 69: August 22 is the 234th day of the year (235th in leap years) in the Gregorian calendar. There are 131 days remaining until the end of the year.
+Index 70: Antimony is a chemical element with symbol Sb (from Latin: stibium) and atomic number 51. A lustrous gray metalloid, it is found in nature mainly as the sulf
+Index 71: April 6 is the 96th day of the year (97th in leap years) in the Gregorian calendar. There are 269 days remaining until the end of the year.
+Index 72: Alan Alexander Milne (/mln/; 18 January 1882 – 31 January 1956) was an English author, best known for his books about the teddy bear Winnie-the-P
+Index 73: Alberta (/lbrt/) is a western province of Canada. With a population of 3,645,257 in 2011 and an estimated population of 4,145,992 as of October 1,
+Index 74: Ames is a city located in the central part of the U.S. state of Iowa in Story County. Lying approximately 30 miles (48 km) north of Des Moines, it had a 2010 population of 
+Index 75: August 2 is the 214th day of the year (215th in leap years) in the Gregorian calendar. There are 151 days remaining until the end of the year.
+Index 76: Astrometry is the branch of astronomy that involves precise measurements of the positions and movements of stars and other celestial bodies. The information obtained by astrometric measurements provides information on the kinematics and physical
+Index 77: An assembly language (or assembler language) is a low-level programming language for a computer, or other programmable device, in which there is a very strong (generally one-to-one)
+Index 78: Aalborg Municipality is a municipality (Danish, kommune) in Region Nordjylland on the Jutland peninsula in northern Denmark. The municipality straddles the Limfjor
+Index 79: Agnosticism is the view that the truth values of certain claims – especially metaphysical and religious claims such as whether or not God, the divine or the supernatural exist – are unknown and perhaps unknowable. According to
+Index 80: Animalia is an illustrated children's book by Graeme Base. It was originally published in 1986, followed by a tenth anniversary edition in 1996, and a 25th anniversary edition in 2012. Over three
+Index 81: This article is about communications systems in Anguilla.
+Index 82: Alcidamas (Greek: ), of Elaea, in Aeolis, Greek sophist and rhetorician, flourished in the 4th century BC.
+Index 83: Analog Brothers were an experimental hip-hop crew featuring Ice Oscillator also known as Ice-T (keyboards, drums, vocals), Keith Korg also known as Kool Keith (bass
+Index 84: A Modest Proposal for Preventing the Children of Poor People From Being a Burthen to Their Parents or Country, and for Making Them Beneficial to the Publick, commonly referred to as A Mod
+Index 85: Amalaric (Gothic: Amalareiks), or in Spanish and Portuguese, Amalarico, ( – 531) was king of the Visigoths from 526 until his
+Index 86: Andrey (Andrei) Andreyevich Markov (Russian: ндре ндрееви арков, in older works also
+Index 87: The Dodo is a fictional character appearing in Chapters 2 and 3 of the book Alice's Adventures in Wonderland by Lewis Carroll (Charles Lutwidge Dodgson). The Dodo
+Index 88: Alan Garner OBE (born 17 October 1934) is an English novelist best known for his children's fantasy novels and his retellings of traditional British folk tales.
+Index 89: Angst means fear or anxiety (anguish is its Latinate equivalent, and anxious, anxiety are of similar origin). The word angst was introduced into English from the Danish, Norwegian and Dutch word angst and
+Index 90: Aristophanes (/rstfniz/ or /rstfniz/; Greek: , pronounced [arist
+Index 91: Ambracia (/mbrei/; Greek: , occasionally , Ampracia), was a city of ancient Greece on the site of modern Arta. It was founded as 
+Index 92: Albert II (German: Albrecht; 28 March 1522 – 8 January 1557) was the Margrave of Brandenburg-Kulmbach (Brandenburg-Bayreuth) from 1527
+Index 93: Alexander (Ancient Greek: ) was tagus or despot of Pherae in Thessaly, and ruled from 369 BC to 358 BC.
+Index 94: Armenia is the second most densely populated of the former Soviet republics because of its small size. It is situated between the Black Sea and the Caspian Sea, bordered on the north and east by Georgia and A
+Index 95: Alcamenes (Ancient Greek: ) was an ancient Greek sculptor of Lemnos and Athens, who flourished in the 2nd half of the 5th century BC.
+Index 96: According to the Bible, Absalom or Avshalom (Hebrew: , Modern Avshalom, Tiberian Alôm ; "Fat
+Index 97: Allah (English pronunciation: /l/ or /l/; Arabic:  Allh, IPA: [allh]) is the Arabic word for God (al
+Index 98: Audi AG (pronounced [ad age]) is a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury automobiles. Audi oversees worldwide operations from its headquarters
+Index 99: August 21 is the 233rd day of the year (234th in leap years) in the Gregorian calendar. There are 132 days remaining until the end of the year.
+Index 100: An abbey (from Latin abbatia, from Latin abbs, derived from Aramaic abba, "father") is a Catholic or Anglican monastery or convent. Abbeys
+Index 101: Ankara (English /kr/; Turkish [a.ka.a]), formerly known as Ancyra and Angora, is the capital of Turkey, located
+Index 102: Algorithms is a peer-reviewed open access mathematics journal concerning design, analysis, and experiments on algorithms. It is published by MDPI, which is considered a predatory publisher by Jeffrey Beall; subsequent
+Index 103: Agnostida is an order of arthropod which first developed near the end of the Early Cambrian period and thrived during the Middle Cambrian. They are present in the Lower Cambrian fossil record along with
+Index 104: Absolute zero is the lower limit of the thermodynamic temperature scale, a state at which the enthalpy and entropy of a cooled ideal gas reaches its minimum value, taken as 0. The
+Index 105: Anthropology is the study of humanity. Its main subdivisions are social and cultural anthropology, which describes the workings of societies around the world, linguistic anthropology, which investigates the influence of language in social
+Index 106: August 14 is the 226th day of the year (227th in leap years) in the Gregorian calendar. There are 139 days remaining until the end of the year.
+Index 107: The Park Güell (Catalan: Parc Güell [par we]) is a public park system composed of gardens and architectonic elements located on Carmel Hill, in Barcelona (S
+Index 108: An artist is a person engaged in one or more of any of a broad spectrum of activities related to creating art, practicing the arts, and/or demonstrating an art. The common usage in both everyday speech and academic discourse
+Index 109: AWK is an interpreted programming language designed for text processing and typically used as a data extraction and reporting tool. It is a standard feature of most Unix-like operating systems.The AWK language is 
+Index 110: The ampere (SI unit symbol: A), often shortened to "amp", is the SI unit of electric current (dimension symbol: I) and is one of the seven SI base units. It is named after André
+Index 111: Athena (/in/; Attic Greek: , Athn, or , Athnaia; Epic: , Athna
+Index 112: Dame Agatha Mary Clarissa Christie, DBE (née Miller; 15 September 1890 – 12 January 1976) was an English crime novelist, short story writer and playwright.
+Index 113: An anaconda is a large snake found in tropical South America.
+Index 114: Apple Computer 1, also known retroactively as the Apple I, or Apple-1, was released by the Apple Computer Company (now Apple Inc.) in 1976. They were designed and hand-built by Steve Wozniak
+Index 115: Alcaeus of Mytilene (/lsis/; Greek: , Alkaios; c. 620 – 6th century BC), Greek lyric
+Index 116: Abraxas (Gk. , variant form Abrasax, ) was a word of mystic meaning in the system of the Gnostic Basilides, being there applied to the
+Index 117: Anatole France (French: [anatl fs]; born François-Anatole Thibault, [frswa anatl ti
+Index 118: A Clockwork Orange is a dystopian novel by Anthony Burgess published in 1962. Set in a near future English society that has a subculture of extreme youth violence, the novella has a
+Index 119: Arminianism is based on theological ideas of the Dutch Reformed theologian Jacobus Arminius (1560–1609) and his historic supporters known as the Remonstrants. His teachings held
+Index 120: An army (from Latin arma "arms, weapons" via Old French armée, "armed" (feminine)) is a fighting force that fights primarily on land. In the broadest sense,
+Index 121: Alfred Russel Wallace OM FRS (8 January 1823 – 7 November 1913) was a British naturalist, explorer, geographer, anthropologist, and biologist. He is best known for independently
+Index 122: Afro Celt Sound System is a musical group which fuses modern electronic dance rhythms (trip hop, techno, etc.) with traditional Irish and West African music. It was originally formed in 1995 by Grammy-nomin
+Index 123: Alessandro Algardi (31 July 1598 – 10 June 1654) was an Italian high-Baroque sculptor active almost exclusively in Rome, where for the latter decades of his life, he
+Index 124: The Aegean Sea (/din/; Greek:   [eeo pelaos]; Turkish: Ege Denizi or Adalar Den
+Index 125: Asterales /streliz/ is an order of dicotyledonous flowering plants that includes the large family Asteraceae (or Compositae)
+Index 126: Since its independence, Armenia has maintained a policy of complementarism by trying to have friendly relations both with Iran, Russia, and the West, including the United States and Europe. However, the dispute over the Armenian genoc
+Index 127: Art is a diverse range of human activities and the products of those activities, usually involving imaginative or technical skill. In their most general form these activities include the production of works of art, the criticism of art, the study of
+Index 128: Alexander (/lzndr/, /lzndr/) is a common male first name, and less common surname derived from the Greek "" (
+Index 129: Aberdeenshire (Scottish Gaelic: Siorrachd Obar Dheathain) is one of the 32 council areas of Scotland.It takes its name from the old County of Aberdeen which had substantially
+Index 130: The Antarctic Treaty and related agreements, collectively known as the Antarctic Treaty System (ATS), regulate international relations with respect to Antarctica, Earth's only continent without a native human population. For the purposes of the treat
+Index 131: Alain Connes (French: [al kn]; born 1 April 1947) is a French mathematician, currently Professor at the Collège de France, IHÉS
+Index 132: August 17 is the 229th day of the year (230th in leap years) in the Gregorian calendar. There are 136 days remaining until the end of the year.
+Index 133: Ambrosians are members of one of the religious brotherhoods which at various times since the 14th century have sprung up in and around Milan and also a 16th-century sect of Anabaptist Am
+Index 134: The Amber Diceless Roleplaying Game is a role-playing game created and written by Erick Wujcik, set in the fictional universe created by author Roger Zelazny for his Chronicle
+Index 135: The almond (/mnd/ or /lmnd/) (Prunus dulcis, syn. Prunus amygdalus, Amygdalus communis,
+Index 136: August 9 is the 221st day of the year (222nd in leap years) in the Gregorian calendar. There are 144 days remaining until the end of the year.
+Index 137: Aluminium (or aluminum; see different endings) is a chemical element in the boron group with symbol Al and atomic number 13. It is a silvery-white, soft, nonmagnetic, duct
+Index 138: Transport in Antarctica has transformed from explorers crossing the isolated remote area of Antarctica by foot to a more open area due to human technologies enabling more convenient and faster transport, predominantly by air and water, as well as
+Index 139: The Austroasiatic languages, in recent classifications synonymous with Mon–Khmer, are a large language family of continental Southeast Asia, also scattered throughout India, Bangladesh, Nepal and the southern border of China. The name
+Index 140: Afonso IV (Portuguese pronunciation: [fsu]; 8 February 1291 – 28 May 1357), called the Brave (Portuguese: o Bravo), was
+Index 141: Asociación Alumni, usually just Alumni, is a rugby union club located in Tortuguitas, Greater Buenos Aires, Argentina. The senior squad currently competes at Grupo I, the
+Index 142: Amethyst is a violet variety of quartz often used in jewelry. The name comes from the Ancient Greek  a- "not") and  méthystos ("intoxicated
+Index 143: The Book of Amos is a prophetic book of the Hebrew Bible, one of the Twelve Minor Prophets. Amos, an older contemporary of Hosea and Isaiah, was active c. 750 BC during the
+Index 144: An acropolis (Greek: ; from akros or akron, "highest", "topmost", "outermost" and polis, "city"; plural in English
+Index 145: Alexander of Aphrodisias (Greek:   ; fl. 200 AD) was a Peripatetic philosopher and the most celebrated of the Ancient Greek commentators on
+Index 146: Anna Sergeyevna Kournikova (Russian: нна ереевна урникова; IPA: [ann s
+Index 147: Not to be confused with Amathus, PalestineAmathus (Ancient Greek: ) was one of the most ancient royal cities of Cyprus, on the southern coast in front of Agios Tychona
+Index 148: In Greek mythology, Achilles (/kliz/; Ancient Greek: , Akhilleus, pronounced [akhiléus]) was a Greek hero
+Index 149: Apple Inc. (commonly known as Apple) is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services.
+Index 150: Apollo (Attic, Ionic, and Homeric Greek: , Apolln (GEN ); Doric: , Apelln; Arcadocypriot: 
+Index 151: Sir Sultan Muhammed Shah, Aga Khan III, GCSI, GCMG, GCIE, GCVO, PC (2 November 1877 – 11 July 1957) was the 48th Imam of the N
+Index 152: ABBA (stylised ) were a Swedish pop group formed in Stockholm in 1972. With members Agnetha Fältskog, Björn Ulvaeus, Benny
+Index 153: Arthur Aikin, FLS, FGS (19 May 1773 – 15 April 1854) was an English chemist, mineralogist and scientific writer. was a founding member of the Chemical Society (now
+Index 154: Alfonso II (759 – 20 March 842), called the Chaste, was the king of Asturias from 791 to his death, the son of Fruela I and the Bas
+Index 155: Avicenna (/vsn/; Latinate form of Ibn-Sn (Persian:   /   ; Arabic: 
+Index 156: The Atlantic Ocean is the second largest of the world's oceanic divisions, following the Pacific Ocean. With a total area of about 106,400,000 square kilometres (41,100,000 sq mi), it
+Index 157: Alexander I Jagiellon (Polish: Aleksander Jagielloczyk; Lithuanian: Aleksandras Jogailaitis) (5 August 1461 – 19 August 1506) of the
+Index 158: An architect is a person who plans, designs, and oversees the construction of buildings. To practice architecture means to provide services in connection with the design and construction of buildings and the space within the site surrounding the buildings, that have
+Index 159: Artificial intelligence (AI) is the intelligence exhibited by machines or software. It is also the name of the academic field of study which studies how to create computers and computer software that are capable of intelligent behavior. Major AI researchers and textbook
+Index 160: Abbotsford is a historic country house in the Scottish Borders, at the town of Galashiels, near Melrose, on the south bank of the River Tweed. It was formerly the residence of historical
+Index 161: Aquaculture, also known as aquafarming, is the farming of aquatic organisms such as fish, crustaceans, molluscs and aquatic plants. Aquaculture involves cultivating freshwater and saltwater populations under
+Index 162: An atomic orbital is a mathematical function that describes the wave-like behavior of either one electron or a pair of electrons in an atom. This function can be used to calculate the probability of finding any electron of
+Index 163: An astronaut (or cosmonaut) is a person trained by a human spaceflight program to command, pilot, or serve as a crew member of a spacecraft. Although generally reserved for professional space travelers
+Index 164: The anthophytes were thought to be a clade comprising plants bearing flower-like structures. The group contained the angiosperms - the extant flowering plants, such as roses and
+Index 165: Aphrodite (/frdati/ af-r-DY-tee; Greek: ) is the Greek goddess of love, beauty, pleasure, and procre
+Index 166: American Samoa has a total of 241 km of highways (estimated in 2008). Ports and harbors include Aunu‘u, Auasi, Falesao, Of
+Index 167: In the Book of Samuel, Abner (Hebrew  "Avner" meaning "father of [or is a] light"), is cousin to Saul and commander-in-chief of his army (1
+Index 168: August (/st/ AW-gst) is the eighth month of the year (between July and September) in the Julian and Gregorian calendars and one of seven months with a length
+Index 169: Vipsania Agrippina, most commonly known as Agrippina Major or Agrippina the Elder (Major Latin for the elder, Classical Latin: AGRIPPINA•GERMANICI,
+Index 170: The Apache Software Foundation /pti/ (ASF) is an American non-profit corporation (classified as 501(c)(3) in the United States) to support Apache software projects, including
+Index 171: August 16 is the 228th day of the year (229th in leap years) in the Gregorian calendar. There are 137 days remaining until the end of the year.
+Index 172: Asparagales is the name of an order of plants, used in modern classification systems such as the APG III system (which is used throughout this article). The order takes its name from the family Asparagaceae and
+Index 173: Azerbaijan is a member of the United Nations, the Non-Aligned Movement, the Organization for Security and Cooperation in Europe, NATO's Partnership for Peace, the Euro-Atlantic Partnership
+Index 174: April 13 is the 103rd day of the year (104th in leap years) in the Gregorian calendar. There are 262 days remaining until the end of the year.
+Index 175: Hercule Poirot (/rkjul pwro/; French pronunciation: [kyl pwao]) is a fictional Belgian detective
+Index 176: Alexander III of Macedon (20/21 July 356 BC – 10/11 June 323 BC), commonly known as Alexander the Great (Greek:   , Aléxandros ho Mégas [
+Index 177: Alabama (/lbm/) is a state located in the southeastern region of the United States. It is bordered by Tennessee to the north, Georgia to the east, Florida and the
+Index 178: Advanced Chemistry is a German hip hop group from Heidelberg, a scenic city in Baden-Württemberg, South Germany. Advanced Chemistry was founded in 1987 by Toni L, Linguist, Gee-One, DJ Mike
+Index 179: Acacia (/ke/ or /kesi/), known commonly as acacia, thorntree, whistling thorn, or wattle, is
+Index 180: Algol (Beta Per,  Persei,  Per), known colloquially as the Demon Star, is a bright star in the constellation Perseus. It is one of
+Index 181: Alp Arslan (Turkic; in Persian:   ; full name: Diya ad-Dunya wa ad-Din Adud ad
+Index 182: American Samoa, located within the geographical region of Oceania, is one of only two possessions of the United States in the Southern Hemisphere, the other being Jarvis Island. Its total land area is
+Index 183: August William Derleth (February 24, 1909 – July 4, 1971) was an American writer and anthologist. Though best remembered as the first book publisher of the writings of H. P.
+Index 184: Alan Curtis Kay (born May 17, 1940 ) is an American computer scientist. He has been elected a Fellow of the American Academy of Arts and Sciences, the National Academy of Engineering, and the Royal Society of Arts.
+Index 185: Autism is a neurodevelopmental disorder characterized by impaired social interaction, verbal and non-verbal communication, and restricted and repetitive behavior. Parents usually notice signs in the first two years of their child's life. These
+Index 186: Arabic /rbk/ (Arabic:  , al-arabiyyah [alarabijja] or Arabic:  , a
+Index 187: The American Revolutionary War (1775–1783), the American War of Independence, or simply the Revolutionary War in the United States, was the armed conflict between Great Britain and thirteen of its former North American colonies, which had
+Index 188: Alfons Maria Jakob (2 July 1884, Aschaffenburg/Bavaria–17 October 1931, Hamburg) was a German neurologist who worked in the field of neuropathology
+Index 189: Ailanthus (/lns/; derived from ailanto, an Ambonese word probably meaning "tree of the gods" or "tree of heaven") is
+Index 190: An affidavit (/fdevt/ A-f-DAY-vt) is a written sworn statement of fact voluntarily made by an affi
+Index 191: The economy of American Samoa is a traditional Polynesian economy in which more than 90% of the land is communally owned. Economic activity is strongly linked to the United States, with which American Samoa conducts
+Index 192: Alexander I of Epirus (Ancient Greek:  '  , 370 BC – 331 BC), also known as Alexander Molossus (  ), was
+Index 193: Andy Warhol (/wrhl/; August 6, 1928 – February 22, 1987) was an American artist who was a leading figure in the visual art movement known as pop art. His works explore the
+Index 194: Alredus, or Alfred of Beverley, (fl. 1143), English chronicler, was sacristan of the church of Beverley in the first half of the twelfth century
+Index 195: April 15 is the 105th day of the year (106th in leap years) in the Gregorian calendar. There are 260 days remaining until the end of the year.
+Index 196: An author is broadly defined as "the person who originated or gave existence to anything" and whose authorship determines responsibility for what was created. Narrowly defined, an author is the originator of any written work and can
+Index 197: Andre Kirk Agassi (/ndre si/; born April 29, 1970) is an American retired professional tennis player and former World No. 1, who was one of the game's most dominant players from
+Index 198: Alfheim (Old Norse: lfheimr, "Land Of The Fairies"), also called Ljosalfheim (Ljósálf[a]heim
+Index 199: Amines (US: /minz/ or /minz/, UK: /minz/, /mnz/ or /e
+Index 200: In the Book of Exodus, Amram (/mrm/ ; Hebrew: , Modern Amram, Tiberian Amrm ; "Friend of the most high"
+Index 201: In law, an abstract is a brief statement that contains the most important points of a long legal document or of several related legal papers.
+Index 202: Ahmed I (Ottoman Turkish:   Amed-i evvel; Turkish: I. Ahmed; April 18, 1590 – November 22, 1617) was the Sultan of the Otto
+Index 203: Algeria (Arabic:  al-Jaz'ir), officially People's Democratic Republic of Algeria, is a country in North Africa on the Mediterranean coast. Its capital and most populous city
+Index 204: An American in Paris is a jazz-influenced symphonic poem by the American composer George Gershwin, written in 1928. Inspired by the time Gershwin had spent in Paris, it evokes
+Index 205: This article is about the demographic features of the population of Antigua and Barbuda, including population density, ethnicity, religious affiliations and other aspects of the population.
+Index 206: April 16 is the 106th day of the year (107th in leap years) in the Gregorian calendar. There are 259 days remaining until the end of the year.
+Index 207: Sir Alfred Joseph Hitchcock, KBE (13 August 1899 – 29 April 1980) was an English film director and producer. Often nicknamed "The Master of Suspense", he pioneered many
+Index 208: August 1 is the 213th day of the year (214th in leap years) in the Gregorian calendar. There are 152 days remaining until the end of the year.
+Index 209: In algorithmic information theory (a subfield of computer science and mathematics), the Kolmogorov complexity (also known as descriptive complexity, Kolmogorov–Chaitin complexity, algorithmic entropy, or
+Index 210: April is the fourth month of the year in the Gregorian calendar, the fifth in the early Julian and one of four months with a length of 30 days.April (/eprl/ 
+Index 211: The Apiales are an order of flowering plants. The families are those recognized in the APG III system. This is typical of the newer classifications, though there is some slight variation, and in particular the Torric
+Index 212: Alexander I (medieval Gaelic: Alaxandair mac Mal Coluim; modern Gaelic: Alasdair mac Mhaol Chaluim; c. 1078
+Index 213: Asteroids is an arcade space shooter released in November 1979 by Atari, Inc. and designed by Lyle Rains, Ed Logg, and Dominic Walsh. The player controls a spaceship in an asteroid
+Index 214: Alain de Lille (or Alanus ab Insulis) (c. 1128 – 1202/1203) was a French theologian and poet. He was born in Lille, some time before 1128. His
+Index 215: This article is about the demographic features of the population of American Samoa, including population density, ethnicity, education level, health of the populace, economic status, religious affiliations and other aspects of the population.
+Index 216: Albedo (/lbido/), or reflection coefficient, derived from Latin albedo "whiteness" (or reflected sunlight) in turn from albus "white", is the
+Index 217: The Asteraceae or Compositae (commonly referred to as the aster, daisy, composite, or sunflower family) are an exceedingly large and widespread family of flowering plants (
+Index 218: Anarcho-capitalism (anarcho referring to the lack of a state, and capitalism referring to the corresponding liberation of capital and markets, also known as free-market anarchism,
+Index 219: An analog or analogue signal is any continuous signal for which the time varying feature (variable) of the signal is a representation of some other time varying quantity, i.e., analogous to another
+Index 220: Azincourt (French pronunciation: [azku]; historically, Agincourt /nkr/ in English) is a commune in the Pas-de-Calais department
+Index 221: Ada is a structured, statically typed, imperative, wide-spectrum, and object-oriented high-level computer programming language, extended from Pascal and other languages. It has built-in language support for design-
+Index 222: André Paul Guillaume Gide (French: [de pl ijom id]; 22 November 1869 – 19 February 1951) was a French author and winner
+Index 223: April 12 is the 102nd day of the year (103rd in leap years) in the Gregorian calendar. There are 263 days remaining until the end of the year.
+Index 224: In chemistry and physics, the atomic number of a chemical element (also known as its proton number) is the number of protons found in the nucleus of an atom of that element, and therefore
+Index 225: Casa Batlló (Catalan pronunciation: [kaz o]) is a renowned building located in the center of Barcelona and is one of Antoni Gaud’s masterpieces. A
+Index 226: August 23 is the 235th day of the year (236th in leap years) in the Gregorian calendar. There are 130 days remaining until the end of the year.
+Index 227: Apollo 8, the second human spaceflight mission in the United States Apollo space program, was launched on December 21, 1968, and became the first manned spacecraft to leave Earth orbit, reach the Earth's Moon, orbit it and
+Index 228: An alloy is a mixture of metals or a mixture of a metal and another element. Alloys are defined by metallic bonding character. An alloy may be a solid solution of metal elements (a single
+Index 229: Alfred Elton van Vogt (/vn vot/; April 26, 1912 – January 26, 2000) was a Canadian-born science fiction author regarded as one of the most popular, influential
+Index 230: Arne Kaijser (born 1950) is a professor of History of Technology at the Royal Institute of Technology in Stockholm, and the head of the university's department of History of science and technology.Kai
+Index 231: An adventure is an exciting or unusual experience. It may also be a bold, usually risky undertaking, with an uncertain outcome. Adventures may be activities with some potential for physical danger such as exploring, skydiving, mountain
+Index 232: Aries is one of the constellations of the zodiac. It is located in the northern celestial hemisphere between Pisces to the west and Taurus to the east. The name Aries is Latin
+Index 233: Azerbaijan has an economy that has completed its post-Soviet transition into a major oil based economy (with the completion of the Baku-Tbilisi-Ceyhan Pipeline), from
+Index 234: Arianism is a nontrinitarian belief that asserts that Jesus Christ is the Son of God, but is entirely distinct from and subordinate to God the Father. Arianism is defined as those teachings 
+Index 235: April 22 is the 112th day of the year (113th in leap years) in the Gregorian calendar. There are 253 days remaining until the end of the year.
+Index 236: Amos Bronson Alcott (/lkt, -kt/; November 29, 1799 – March 4, 1888) was an American teacher, writer, philosopher, and reformer. As
+Index 237: Aikido (Japanese: , Hepburn: Aikid) [a.i.ki.do] is a Japanese martial art developed by Morihei Ue
+Index 238: Azerbaijan is situated in the Caucasus region of Eurasia. Three physical features dominate Azerbaijan: the Caspian Sea, whose shoreline forms a natural boundary to the east; the Greater
+Index 239: Jane Marple, usually referred to as Miss Marple, is a fictional character appearing in 12 of Agatha Christie's crime novels and in 20 short stories. Miss Marple is an elderly spinster who lives
+Index 240: The Annales School (French pronunciation: [a'nal]) is a group of historians associated with a style of historiography developed by French historians in the 20th century to stress long-
+Index 241: Andrei Arsenyevich Tarkovsky (Russian: ндре рсеневи арковски; IPA: [n
+Index 242: In particle physics, antimatter is material composed of antiparticles, which have the same mass as particles of ordinary matter but opposite charges, as well as other particle properties such as lepton and baryon numbers and
+Index 243: Agate /t/ is a cryptocrystalline variety of silica, chiefly chalcedony, characterised by its fineness of grain and brightness of color. Although agates may be found
+Index 244: Arsenic is a chemical element with symbol As and atomic number 33. Arsenic occurs in many minerals, usually in conjunction with sulfur and metals, and also as a pure elemental crystal. Ar
+Index 245: August 12 is the 224th day of the year (225th in leap years) in the Gregorian calendar. There are 141 days remaining until the end of the year.It is the peak of the Per
+Index 246: Attila (/tl/ or /tl/; fl. 434–453), frequently referred to as Attila the Hun, was the
+Index 247: Alvin Toffler (born October 4, 1928) is an American writer and futurist, known for his works discussing the digital revolution, communication revolution and technological singularity.Toffler is a former associate editor of Fortune magazine
+Index 248: Anadyr (Russian: надр) is a river in the far northeast Siberia which flows into Anadyr Bay of the Bering Sea and drains much of the
+Index 249: All Souls' Day, in Christianity, is a day commemorating the faithful departed, particularly but not exclusively one's relatives. In Western Christianity the annual celebration is now held on 2 November and is associated with All Saint
+Index 250: "The Triumph of Time" is a poem by Algernon Charles Swinburne, published in 1866. It is in adapted ottava rima and is full of elaborate use of literary
+Index 251: Akira Kurosawa (Japanese:  , Hepburn: Kurosawa Akira, March 23, 1910 – September 6, 1998) was a Japanese filmmaker. Regarded as
+Index 252: Alfred Bernhard Nobel (/nobl/; Swedish: [alfrd nbl] About this sound listen ; 21 October 1833 – 10 December 1896)
+Index 253: An allocution or allocutus is a formal statement made to the court by the defendant who has been found guilty, prior to being sentenced.
+Index 254: August 6 is the 218th day of the year (219th in leap years) in the Gregorian calendar. There are 147 days remaining until the end of the year.
+Index 255: August 24 is the 236th day of the year (237th in leap years) in the Gregorian calendar. There are 129 days remaining until the end of the year.
+Index 256: August Wilhelm Ambros (17 November 1816 – 28 June 1876) was an Austrian composer and music historian of Czech descent.
+Index 257: April 29 is the 119th day of the year (120th in leap years) in the Gregorian calendar. There are 246 days remaining until the end of the year.
+Index 258: Albert Camus (French: [alb kamy]; 7 November 1913 – 4 January 1960) was a French Nobel Prize–winning author, journalist, and philosopher. His views contributed to the rise
+Index 259: Animism (from Latin anima, "breath, spirit, life") is the worldview that non-human entities—such as animals, plants, and inanimate objects—possess a spiritual
+Index 260: Afonso V (Portuguese pronunciation: [fsu], originally Affonso) KG (15 January 1432 – 28 August 1481), called the African (Portu
+Index 261: Ataxia (from Greek - [a negative prefix] + - [order] = "lack of order") is a neurological sign consisting of lack of voluntary coordination of muscle movements that includes ga
+Index 262: This article is about communications systems in Antigua and Barbuda.
+Index 263: The American Civil War, widely known in the United States as simply the Civil War as well as other sectional names, was a civil war fought from 1861 to 1865 to determine the survival of the Union or independence for
+Index 264: ASCII (/ski/ ASS-kee), abbreviated from American Standard Code for Information Interchange, is a character-encoding scheme (the IANA prefers the name US-ASCI
+Index 265: Alfred Habdank Skarbek Korzybski ([kpski]; July 3, 1879 – March 1, 1950) was a Polish-American independent scholar who developed a field called general semantics
+Index 266: Adobe (/dobi/, UK /dob/, Spanish pronunciation: [aoe], from Spanish: mud brick, from Arabic) is a building material made
+Index 267: Afonso VI (Portuguese pronunciation: [fsu]; English: Alphonzo or Alphonse, Old Portuguese: Affonso; 21 August 1643 
+Index 268: The politics of Antigua and Barbuda takes place in a framework of a unitary parliamentary representative democratic monarchy, wherein the Sovereign of Antigua and Barbuda is the head of
+Index 269: Augustin-Jean Fresnel (/frenl/ fray-NEL; French: [.y.st  f.nl];
+Index 270: April 30 is the 120th day of the year (121st in leap years) in the Gregorian calendar. There are 245 days remaining until the end of the year.
+Index 271: April 1 is the 91st day of the year (92nd in leap years) in the Gregorian calendar. There are 274 days remaining until the end of the year.
+Index 272: Arable land (from Latin arabilis, "able to be plowed") is, according to one definition, land capable of being ploughed and used to grow crops. In Britain, it was traditionally contraste
+Index 273: Abraham (/ebrhm, -hm/ (Hebrew:  , About this sound listen )), originally Abram, is the first of the three biblical patri
+Index 274: The alphorn or alpenhorn or alpine horn is a labrophone, consisting of a wooden natural horn of conical bore, having a wooden cup-shaped mouthpiece, used by
+Index 275: August 19 is the 231st day of the year (232nd in leap years) in the Gregorian calendar. There are 134 days remaining until the end of the year.
+Index 276: The astronomical unit (symbol au, AU or ua) is a unit of length, roughly the distance from the Earth to the Sun. However, that distance varies as the Earth orbits
+Index 277: August 13 is the 225th day of the year (226th in leap years) in the Gregorian calendar. There are 140 days remaining until the end of the year.
+Index 278: April 28 is the 118th day of the year (119th in leap years) in the Gregorian calendar. There are 247 days remaining until the end of the year.
+Index 279: Aga Khan I (Persian:    ; gh Khn-i Awwal or Persian:    ; q Khn
+Index 280: The Territory of Ashmore and Cartier Islands is an uninhabited external territory of Australia consisting of four low-lying tropical islands in two separate reefs, and the 12 nautical mile territorial sea generated by the islands. The territory
+Index 281: Alexander III (Medieval Gaelic: Alaxandair mac Alaxandair; Modern Gaelic: Alasdair mac Alasdair) (4 September 1241 – 19
+Index 282: For the abbr> HTML tag, see HTML element abbr>.An abbreviation (from Latin brevis, meaning short) is a shortened form of a word or phrase
+Index 283: In Christianity, an abbess (Latin abbatissa, feminine form of abbas, abbot) is the female superior of a community of nuns, which is often an abbey.
+Index 284: Abalone (/bloni/ or /bloni/; via Spanish abulón, from the Rumsen language aulón) is
+Index 285: In mathematics, an automorphism is an isomorphism from a mathematical object to itself. It is, in some sense, a symmetry of the object, and a way of mapping the object to
+Index 286: The Anglican Communion is an international association of churches consisting of the Church of England and of national and regional Anglican churches in full communion with it.
+Index 287: August 27 is the 239th day of the year (240th in leap years) in the Gregorian calendar. There are 126 days remaining until the end of the year.
+Index 288: Amalric of Bena (French: Amaury de Bène, Amaury de Chartres; Latin: Almaricus, Amalricus, Amauricus; died c.
+Index 289: An atom is the smallest constituent unit of ordinary matter that has the properties of a chemical element. Every solid, liquid, gas, and plasma is made up of neutral or ionized atoms. Atoms
+Index 290: In mathematics, the absolute value (or modulus) |x| of a real number x is the non-negative value of x without regard to its sign. Namely, |x| = x for 
+Index 291: Azerbaijan (/zrbadn/ AZ-r-by-JAHN; Azerbaijani: Azrbaycan [zrb
+Index 292: August 18 is the 230th day of the year (231st in leap years) in the Gregorian calendar. There are 135 days remaining until the end of the year.
+Index 293: Politics of American Samoa takes place in a framework of a presidential representative democratic dependency, whereby the Governor is the head of government, and of a pluriform multi-party system. American Samoa
+Index 294: An alphabet is a standard set of letters (basic written symbols or graphemes) which is used to write one or more languages based on the general principle that the letters represent phonemes (basic significant sounds) of
+Index 295: Amaranthus, collectively known as amaranth, is a cosmopolitan genus of annual or short-lived perennial plants. Some amaranth species are cultivated as leaf vegetables
+Index 296: The Azerbaijani Armed Forces (Azerbaijani: Azrbaycan Silahl Qüvvlri) were re-established according to the Law of
+Index 297: Agathon (/n/; Greek: , gen.: ; c. 448 – c. 400 BC) was an Athenian tragic poet whose works have been lost.
+Index 298: Amino acids (/mino, mno, mano/) are biologically important organic compounds containing amine (-NH2) and
+Index 299: This page lists some links to ancient philosophy. In Western philosophy, the spread of Christianity in the Roman Empire marked the ending of Hellenistic philosophy and ushered in the beginnings of Medieval philosophy, whereas in Eastern
+Index 300: August 7 is the 219th day of the year (220th in leap years) in the Gregorian calendar. There are 146 days remaining until the end of the year.This day marks the approximate midpoint of
+Index 301: In mathematics and statistics, the arithmetic mean (pronunciation: /rmtk min/, stress on third syllable of "a
+Index 302: Actrius (Catalan: Actresses) is a 1996 film directed by Ventura Pons. In the film, there are no male actors and the four leading actresses dubbed themselves in the Cast
+Index 303: Casa Milà (Catalan pronunciation: [kz mia], Spanish pronunciation: [kasa mila]), popularly known as La Pedrera (pronounced: [ 
+Index 304: Alismatales is an order of flowering plants including about 4500 species. Plants assigned to this order are mostly tropical or aquatic. Some grow in fresh water, some in marine habitats.
+Index 305: The demographics of Armenia is about the demographic features of the population of Armenia, including population growth, population density, ethnicity, education level, health, economic status, religious affiliations, and other aspects of the population.
+Index 306: Alan Mathison Turing, OBE, FRS (/tjr/; 23 June 1912 – 7 June 1954) was a British pioneering computer scientist, mathematician,
+Index 307: An axon (from Greek  áxn, axis), also known as a nerve fibre, is a long, slender projection of a nerve cell, or neuron
+Index 308: An argot (English pronunciation: /ro/; from French argot [ao] ‘slang’) is a secret language used by various groups—e.g. schoolmates,
+Index 309: Albert the Bear (German: Albrecht der Bär; c. 1100 – 18 November 1170) was the first Margrave of Brandenburg (as Albert I) from 1157 to his death and was
+Index 310: In common law, assault is the act of creating apprehension of an imminent harmful or offensive contact with a person.An assault is carried out by a threat of bodily harm coupled with an apparent, present
+Index 311: The Amazing Spider-Man (abbreviated as ASM) is an American comic book series published by Marvel Comics, featuring the adventures of the fictional superhero Spider-Man. Being the mainstream continuity of the franchise, it began
+Index 312: August 8 is the 220th day of the year (221st in leap years) in the Gregorian calendar. There are 145 days remaining until the end of the year.
+Index 313: The foreign relations of Angola are based on Angola's strong support of U.S. foreign policy as the Angolan economy is dependent on U.S. foreign aid.From 1975 to 1989, An
+Index 314: Actinium is a radioactive chemical element with symbol Ac (not to be confused with the abbreviation for an acetyl group) and atomic number 89, which was discovered in 1899.
+Index 315: Anatolia (from Greek , Anatol — "east" or "(sun)rise"; in modern Turkish: Anadolu), in geography known as Asia Minor (from Greek:
+Index 316: Ambrose Traversari, O.S.B. Cam., also referred to as Ambrose of Camaldoli (1386 – 20 October 1439), was an Italian monk and theologi
+Index 317: Ealdred (or Aldred; died 11 September 1069) was Abbot of Tavistock, Bishop of Worcester, and Archbishop of York in Anglo-Saxon England. He was related to a
+Index 318: An abjad is a type of writing system where each symbol always or usually stands for a consonant, leaving the reader to supply the appropriate vowel.It is a term suggested by Peter T.
+Index 319: August 3 is the 215th day of the year (216th in leap years) in the Gregorian calendar. There are 150 days remaining until the end of the year.
+Index 320: Ancient Egypt was a civilization of ancient Northeastern Africa, concentrated along the lower reaches of the Nile River in what is now the modern country of Egypt. It is one of six civilizations globally to arise independently. Egyptian
+Index 321: Antonio Agliardi (4 September 1832 – 19 March 1915) was an Italian Roman Catholic Cardinal, archbishop, and papal diplomat.
+Index 322: In abstract algebra, an algebraically closed field F contains a root for every non-constant polynomial in F[x], the ring of polynomials in the variable x with coefficients in F
+Index 323: In mathematics, the phrase "almost all" has a number of specialised uses which extend its intuitive meaning.
+Index 324: Alexios II Komnenos or Alexius II Comnenus (Greek:  ’ , Alexios II Komnnos) (10 September 1169 –
+Index 325: Agriculture is the cultivation of animals, plants, fungi, and other life forms for food, fiber, biofuel, medicinal and other products used to sustain and enhance human life. Agriculture was the key development in the rise of 
+Index 326: Kim Renard Nazel (born June 17, 1965), better known by his stage name Arabian Prince, is an American rapper and hip hop producer, best known for being an original member of the rap group N.W.A
+Index 327: Julia Agrippina, most commonly referred to as Agrippina Minor or Agrippina the Younger, and after AD 50 known as Julia Augusta Agrippina (Minor; Latin for the "
+Index 328: Cardinal Albert of Brandenburg (German: Albrecht von Brandenburg; 28 June 1490 – 24 September 1545) was Elector and Archbishop of Mainz from 1514 to 1545, and Archbishop
+Index 329: Aquarius is a constellation of the zodiac, situated between Capricornus and Pisces. Its name is Latin for "water-carrier" or "cup-carrier", and its symbol is 20
+Index 330: Amasis II (Ancient Greek: ) or Ahmose II was a pharaoh (reigned 570 B.C.E. – 526 B.C
+Index 331: Alexis (Greek: ; c. 375 BC – c. 275 BC) was a Greek comic poet of the Middle Comedy period. He was born at Thurii (in present day
+Index 332: In Greco-Roman mythology, Aeneas (/nis/; Greek: , Aineas, possibly derived from Greek  meaning "praised") was a
+Index 333: American Chinese cuisine, known in the United States as simply Chinese cuisine, is a style of food developed by Americans of Chinese descent and served in many North American Chinese restaurants. The dishes typically served in restaurants cater to American tastes and differ
+Index 334: Agrarianism has two common meanings. The first meaning refers to a social philosophy or political philosophy which values rural society as superior to urban society, the independent farmer as superior to the paid worker, and sees farming
+Index 335: The AK-47 (also known as Kalashnikov, AK, or in Russian slang, Kalash) is a selective-fire (semi-automatic and automatic), gas-
+Index 336: The Governor of Alabama is the chief executive of the U.S. state of Alabama. The governor is the head of the executive branch of Alabama's state government and is charged with enforcing state laws. The governor
+Index 337: In organic chemistry, an alkane, or paraffin (a historical name that also has other meanings), is a saturated hydrocarbon. Alkanes consist only of hydrogen and carbon atoms and all bonds
+Index 338: This article considers transport in Armenia. For Soviet transportation, see Transport in the Soviet Union.
+Index 339: The Advanced Encryption Standard (AES), also known as Rijndael (its original name), is a specification for the encryption of electronic data established by the U.S. National Institute of Standards and
+Index 340: "Alga" redirects here. For places called Alga, see Alga (disambiguation). For other uses, see Algae (disambiguation).Algae
+Index 341: Extreme poverty, or absolute poverty, was originally defined by the United Nations in 1995 as "a condition characterized by severe deprivation of basic human needs, including food, safe drinking water, sanitation facilities, health, shelter
+Index 342: Altruism or selflessness is the principle or practice of concern for the welfare of others. It is a traditional virtue in many cultures and a core aspect of various religious traditions and secular worldviews, though the concept
+Index 343: August 31 is the 243rd day of the year (244th in leap years) in the Gregorian calendar. There are 122 days remaining until the end of the year.
+Index 344: An abscess (Latin: abscessus) is a collection of pus that has built up within the tissue of the body. Signs and symptoms of abscesses include redness, pain
+Index 345: nanda (Chinese: ; pinyin: nán, Burmese:  [ànàdà]) was one of the ten principal disciples of
+Index 346: The Articles of Confederation, formally the Articles of Confederation and Perpetual Union, were an agreement among all thirteen original states in the United States of America that served as its first constitution. Its 
+Index 347: Abner Doubleday (June 26, 1819 – January 26, 1893) was a career United States Army officer and Union general in the American Civil War. He fired the first shot in defense of Fort Sumter, the
+Index 348: The terms anno Domini (AD or A.D.) and before Christ (BC or B.C.) are used to label or number years in the Julian and Gregorian calendars. The term anno
+Index 349: Corresponding to most kinds of particles, there is an associated antimatter antiparticle with the same mass and opposite charge (including electric charge). For example, the antiparticle of the electron is the positively charged posi
+Index 350: This is a list of characters in Ayn Rand's novel Atlas Shrugged.
+Index 351: Alaric II (Gothic: *Alareiks II), also known as Alarik, Alarich, and Alarico in Spanish and Portuguese or Alaricus in Latin (d.
+Index 352: An acid (from the Latin acidus/acre meaning sour) is a chemical substance whose aqueous solutions are characterized by a sour taste, the ability to turn blue lit
+Index 353: Achill Island (/kl/; Irish: Acaill, Oileán Acla) in County Mayo is the largest island off the coast of Ireland, and is situated off the west coast. It has
+Index 354: Alexander II was a king of Epirus, and the son of Pyrrhus and Lanassa, the daughter of the Sicilian tyrant Agathocles.
+Index 355: Anaximander (/nksmndr/; Greek:  Anaximandros; c. 610 – c. 546 BC) was a pre
+Index 356: In the Hebrew Bible and the Quran, Aaron  (UK /rn/, US /rn/) was the older brother of Moses (Exodus 6:16-20, 7
+Index 357: Ancylopoda is a group of browsing, herbivorous, mammals in the Perissodactyla that show long, curved and cleft claws. Morphological evidence indicates
+Index 358: An astronomer is a scientist in the field of astronomy who studies stars, planets, moons, comets, and galaxies, as well as many other celestial objects. A related
+Index 359: The Austrian School is a school of economic thought that is based on the concept of methodological individualism, that social phenomena result from the motivations and actions of individuals. It originated in the late-19th and early
+Index 360: An assembly line is a manufacturing process (most of the time called a progressive assembly) in which parts (usually interchangeable parts) are added as the semi-finished assembly moves from workstation to work station where the parts are
+Index 361: The ancient Aramaic alphabet is adapted from the Phoenician alphabet and became distinctive from it by the 8th century BCE. It was used to write the Aramaic language. The letters all represent conson
+Index 362: The meaning of the word American in the English language varies according to the historical, geographical, and political context in which it is used. American is derived from America, a term originally denoting all of the New World
+Index 363: Alyattes, king of Lydia (619–560 BC), considered to be the founder of the Lydian empire, was the son of Sadyattes, of the house of the Mermnadae.
+Index 364: The Plague (French: La Peste) is a novel by Albert Camus, published in 1947, that tells the story of a plague sweeping the Algerian city of Oran. It asks
+Index 365: Animal Farm is an allegorical and dystopian novella by George Orwell, first published in England on 17 August 1945. According to Orwell, the book reflects events leading up to the Russian Revolution of 1917 and then
+Index 366: In Greek mythology, Alcmene /lkmini/ or Alcmena /lkmin/ (Ancient Greek: 
+Index 367: In mathematics and computer science, an algorithm (/lrm/ AL-g-ri-dhm) is a self-contained step-by-step set of operations to be
+Index 368: Anah or Ana (Arabic:  , na), formerly also known as Anna, is an Iraqi town on the Euphrates river, approximately mid-way between the Gulf of Alexandretta
+Index 369: Albert Sidney Johnston (February 2, 1803 – April 6, 1862) served as a general in three different armies: the Texian (i.e., Republic of Texas) Army, the
+Index 370: Aarhus or rhus (Danish pronunciation: [hus]) is the second-largest city in Denmark and the seat of Aarhus Municipality. It is located on the
+Index 371: Analysis of variance (ANOVA) is a collection of statistical models used to analyze the differences among group means and their associated procedures (such as "variation" among and between groups), developed by statistician and evolutionary biologist
+Index 372: April 26 is the 116th day of the year (117th in leap years) in the Gregorian calendar. There are 249 days remaining until the end of the year.
+Index 373: Agnes Maria of Andechs-Merania (died 1201) was a Queen of France, the daughter of Berthold, Duke of Merania, who was Count of Andechs, a castle and
+Index 374: Politics of Armenia takes place in a framework of a presidential representative democratic republic, whereby the President is the head of government, and of a platform multi-party system. Executive power is exercised by the government.
+Index 375: Alexander Emmanuel Rodolphe Agassiz (December 17, 1835 – March 27, 1910), son of Louis Agassiz and stepson of Elizabeth Cabot Agassiz, was an American scientist and engineer.
+Index 376: The Dasyproctidae are a family of large South American rodents, comprising the agoutis and acouchis. Their fur is a reddish or dark colour
+Index 377: Abortion is the ending of pregnancy by removing a fetus or embryo from the womb before it can survive on its own. An abortion which occurs spontaneously is also known as a misc
+Index 378: The Museum of Work, or Arbetets museum, is a museum located in Norrköping, Sweden. The museum can be found in the 19th century building The Iron in the Motala ström
+Index 379: Ajax (Ancient Greek: ) was a Greek mythological hero, son of Oileus, the king of Locris. He was called the "lesser" or "L
+Index 380: "America the Beautiful" is an American patriotic song. The lyrics were written by Katharine Lee Bates, and the music was composed by church organist and choirmaster Samuel A. Ward.Bates originally wrote the words
+Index 381: Alexander Graham Bell (March 3, 1847 – August 2, 1922) was a Scottish-born scientist, inventor, engineer and innovator who is credited with inventing the first practical telephone.Bell's father,
+Index 382: The Antigua and Barbuda Defence Force is the armed force of Antigua and Barbuda.
+Index 383: Alder is the common name of a genus of flowering plants (Alnus) belonging to the birch family Betulaceae. The genus comprises about 30 species of monoec
+Index 384: Auto racing (also known as car racing, motor racing or automobile racing) is a sport involving the racing of automobiles for competition. The main aim of an individual event is to set the fastest time in a set number
+Index 385: Afroasiatic (Afro-Asiatic), also known as Afrasian and traditionally as Hamito-Semitic (Chamito-Semitic), is a large language family
+Index 386: In United States appellate procedure, an appeal is a petition for review of a case that has been decided by a court of law. The petition is made to a higher court for the purpose of overturning the
+Index 387: Afghanistan /fnstn/ (Pashto/Dari: , Afnistn), officially the Islamic Republic of Afghanistan, is a landlocked country located within
+Index 388: Asteroids are minor planets, especially those of the inner Solar System. The larger ones have also been called planetoids. These terms have historically been applied to any astronomical object orbiting the Sun that did not show the
+Index 389: Alaska (/lsk/) is a U.S. state situated in the northwest extremity of the North American continent. Bordering the state to the east are the Canadian territory of Yukon and the
+Index 390: Algorithms for calculating variance play a major role in computational statistics. A key problem in the design of good algorithms for this problem is that formulas for the variance may involve sums of squares, which can
+Index 391: The Alps (/lps/; Italian: Alpi [alpi]; French: Alpes [alp]; German: Alpen [alpm]; Slovene:
+Index 392: August 15 is the 227th day of the year (228th in leap years) in the Gregorian calendar. There are 138 days remaining until the end of the year.
+Index 393: The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. For example, the aspect ratio of a rectangle is the ratio of its longer side to its shorter side - the ratio of width to height
+Index 394: Alfred William Lawson (March 24, 1869 – November 29, 1954) was a professional baseball player, manager and league promoter from 1887 through 1916 and went on to play a pioneering role in the US aircraft industry
+Index 395: The term abdominal surgery broadly covers surgical procedures that involve opening the abdomen. Surgery of each abdominal organ is dealt with separately in connection with the description of that organ (see stomach, kidney, liver, etc.) Diseases affecting the
+Index 396: Animation is the process of creating the illusion of motion and shape change by means of the rapid display of a sequence of static images that minimally differ from each other. The illusion—as in motion pictures in general—is thought
+Index 397: Antisemitism (also spelled anti-Semitism or anti-semitism) is prejudice against, hatred of, or discrimination against Jews as an ethnic, religious, or 
+Index 398: Antigua and Barbuda (/nti nd brbjud/; an-TEE-g nd bar-BYOO-d
+Index 399: Austrian German (German: sterreichisches Deutsch), Austrian Standard German, Standard Austrian German (German: sterreichisches Standarddeutsch) or Austrian High German (German: sterreich
+Index 400: Amphibians are ectothermic, tetrapod vertebrates of the class Amphibia. Modern amphibians are all Lissamphibia. They inhabit a wide variety
+Index 401: Alternate history or alternative history, sometimes abbreviated AH, is a genre of fiction consisting of stories that are set in worlds in which one or more historical events unfolds differently from how it did in
+Index 402: "Amazing Grace" is a Christian hymn published in 1779, with words written by the English poet and clergyman John Newton (1725–1807).Newton wrote the words from personal experience. He grew
+Index 403: An anagram is a type of word play, the result of rearranging the letters of a word or phrase to produce a new word or phrase, using all the original letters exactly once; for example, the
+Index 404: Anbar () was a town in Iraq, at lat. 33 deg. 22' N., long. 43 deg. 49' E, on the east bank of the Euphrates, just south
+Index 405: In planar geometry, an angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.Angles formed by two rays
+Index 406: Alabaster is a name applied to varieties of two distinct minerals, when used as a material: gypsum (a hydrous sulfate of calcium) and calcite, a carbon
+Index 407: Ambiguity is a type of uncertainty of meaning in which several interpretations are plausible. It is thus an attribute of any idea or statement whose intended meaning cannot be definitively resolved according to a rule or process with 
+Index 408: The Angolan Armed Forces (Portuguese: Forças Armadas Angolanas) are the military in Angola that succeeded the Armed Forces for the Liberation of Angol
+Index 409: Agapanthus africanus (African lily) is a native of the Cape of Good Hope in South Africa. A. africanus is more difficult to grow in gardens than A. prae
+Index 410: Alexander Mackenzie, PC (January 28, 1822 – April 17, 1892), was a building contractor and newspaper editor, and was the second Prime Minister of Canada, from November 7, 1873 to October 8, 1878.
+Index 411: Anatomy is the branch of biology concerned with the study of the structure of organisms and their parts. In some of its facets, anatomy is related to embryology and comparative anatomy, which itself is closely related to evolutionary
+Index 412: Saint Angilbert (c. 760 – 18 February 814), sometimes known as Angilberk, was a noble Frankish poet who was educated under Alcuin and served Charlemagne
+Index 413: "American shot" is a translation of a phrase from French film criticism, "plan américain" and refers to a medium-long ("knee") film shot of a group of characters, who are
+Index 414: Anglicanism is a tradition within Christianity comprising the Church of England and churches which are historically tied to it or hold similar beliefs, worship practices and church structures. The word Anglican originates in ec
+Index 415: Amati is the last name of a family of Italian violin makers, who lived at Cremona from about 1538 to 1740. Their importance is considered equal to those of the Bergonzi, Guarneri and
+Index 416: AOL Inc. (previously known as America Online, written as AOL and styled as Aol.) is an American multinational mass media corporation based in New York City that develops, grows, and invest
+Index 417: Arraignment is a formal reading of a criminal charging document in the presence of the defendant to inform the defendant of the charges against them. In response to arraignment, the accused is expected to enter 
+Index 418: Anime (Japanese: , [anime]), also informally romanized as animé, are Japanese animated productions featuring hand-drawn or computer animation. In Japan the word refers to all
+Index 419: Anazarbus (med. Ain Zarba; mod. Anavarza) was an ancient Cilician city, situated in Anatolia in modern Turkey, in the present ukurova (or classical
+Index 420: Antoninus Pius (Latin: Titus Fulvus Aelius Hadrianus Antoninus Augustus Pius; born 19 September, 86 AD – died 7 March, 161 AD),
+Index 421: Aldine Press was the printing office started by Aldus Manutius in 1494 in Venice, from which were issued the celebrated Aldine editions of the classics (Latin and Greek masterpieces plus 
+Index 422: Alypius of Antioch was a geographer and a vicarius of Roman Britain, probably in the late 350s AD. He replaced Flavius Martinus after that vicarius' suicide
+Index 423: The American National Standards Institute (ANSI, /nsi/ AN-see) is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems
+Index 424: The alkali metals are a group (column) in the periodic table consisting of the chemical elements lithium (Li), sodium (Na), potassium (K), rubidium (Rb), ca
+Index 425: Alchemy is an influential tradition whose practitioners have, from antiquity, claimed it to be the precursor to profound powers. As described by Paul-Jacques Malouin in The Encyclopedia of Diderot, it is the
+Index 426: Analysis is the process of breaking a complex topic or substance into smaller parts in order to gain a better understanding of it.
+Index 427: Aleister Crowley (/kroli/; born Edward Alexander Crowley; 12 October 1875 – 1 December 1947) was an English occultist, ceremonial magician, poet, painter,
+Index 428: Apocrypha are works, usually written works, that are of unknown authorship, or of doubtful authenticity, or spurious, or not considered to be within a particular canon. The word is properly treated as 
+Index 429: This article is about the demographic features of the population of Angola, including population density, ethnicity, education level, health of the populace, economic status, religious affiliations and other aspects of the population.According to
+Index 430: Amber is fossilized tree resin (not sap), which has been appreciated for its color and natural beauty since Neolithic times. Much valued from antiquity to the present as a gemstone, amber is made into a
+Index 431: Aldous Leonard Huxley /hksli/ (26 July 1894 – 22 November 1963) was an English writer, philosopher and a prominent member of the Huxley family.He
+Index 432: Amplitude modulation (AM) is a modulation technique used in electronic communication, most commonly for transmitting information via a radio carrier wave. In amplitude modulation, the amplitude (signal strength
+Index 433: An annual plant is a plant that completes its life cycle, from germination to the production of seed, within one year, and then dies. Summer annuals germinate during spring or early summer and mature by autumn
+Index 434: Alexis Carrel (French: [alksi kal]; 28 June 1873 – 5 November 1944) was a French surgeon and biologist who was awarded the Nobel Prize in
+Index 435: Irwin Allen Ginsberg (/nzbr/; June 3, 1926 – April 5, 1997) was an American poet and one of the leading figures of both the Beat Generation of the 1950s
+Index 436: Since the adoption of a new constitution in 2010, the politics of Angola takes place in a framework of a presidential republic, whereby the President of Angola is both head of state and head of government, and
+Index 437: Ayn Rand (/an rnd/; born Alisa Zinov'yevna Rosenbaum, Russian: лиса инове
+Index 438: Transport in Angola comprises:
+Index 439: Abdul Alhazred is a fictional character created by American horror writer H. P. Lovecraft. He is the so-called "Mad Arab" credited with authoring the fictional book Kitab al-Az
+Index 440: André-Marie Ampère (/mpr/; French: [p]; 20 January 1775 – 10 June 1836) was a French physicist and mathema
+Index 441: In computing, an applet is any small application that performs one specific task that runs within the scope of a dedicated widget engine or a larger program, often as a plug-in. The term is frequently used to
+Index 442: In Greek mythology, Agamemnon (/mmnn/; Greek:  from * (from , "very much" and , "think on"), "
+Index 443: Applied ethics is the philosophical examination, from a moral standpoint, of particular issues in private and public life that are matters of moral judgment. It is thus the attempts to use philosophical methods to identify the morally correct course of action
+Index 444: Berthold Konrad Hermann Albert Speer (German: [pe]; March 19, 1905 – September 1, 1981) was a German architect who was, for a part of World War II, Minister of
+Index 445: An anchor is a device, normally made of metal, used to connect a vessel to the bed of a body of water to prevent the craft from drifting due to wind or current. The word derives from Latin an
+Index 446: Anguilla (/wl/ ang-GWIL-) is a British overseas territory in the Caribbean. It is one of the most northerly of the Leeward Islands in the Les
+Index 447: Abydos (Ancient Greek: ) or Abydus, an ancient city of Troad (Troas), in Asia Minor, situated at Nara Burnu or Nagara Point
+Index 448: An appellate court, commonly called an appeals court, court of appeals (American English), appeal court (British English), court of second instance or second instance court, is any court of law that is empowered to
+Index 449: Armenia is a landlocked country in the Transcaucasia region, between the Black and Caspian Seas, bordered on the north and east by Georgia and Azerbaijan and on the south and west
+Index 450: Amsterdam (English /mstrdm/ or /mstrdm/; Dutch: [mstrdm]) is the
+Index 451: An abugida /buid/ (from Ge'ez  ’äbugida), also called an alphasyllabary, is a segmental writing
+Index 452: The aardvark (/rd.vrk/ ARD-vark; Orycteropus afer) is a medium-sized, burrowing, nocturn
+Index 453: Andorra (/ndr/; Catalan: [ndor], locally: [andra]), officially the Principality of Andorra
+Index 454: Ahmed II (Ottoman Turkish:   Amed-i sn) (February 25, 1643 – February 6, 1695) was the Sultan of the Ottoman Empire from 16
+Index 455: Arachnophobia or arachnephobia (from the Greek: , aráchn, "spider" and , phóbos, "fear") is 
+Index 456: The Alan Parsons Project are a British progressive rock band, active between 1975 and 1990, consisting of Eric Woolfson and Alan Parsons surrounded by a varying number of session musicians and some relatively consistent band members
+Index 457: Ahmed III (Ottoman Turkish:   Amed-i slis) (December 30/31, 1673 – July 1, 1736) was Sultan of the Ottoman Empire
+Index 458: ALGOL (short for ALGOrithmic Language) is a family of imperative computer programming languages, originally developed in the mid-1950s, which greatly influenced many other languages and was the standard method for algorithm description
+Index 459: America's National Game is a book by Albert Spalding, published in 1911 detailing the early history of the sport of baseball. Much of the story is told first-hand, since Spalding had been involved
+Index 460: The Andaman Islands ( ) form an archipelago in the Bay of Bengal between India, to the west, and Myanmar, to the north and east. Most are part of the Andaman and
+Index 461: Anxiety is an emotion characterized by an unpleasant state of inner turmoil, often accompanied by nervous behavior, such as pacing back and forth, somatic complaints and rumination. It is the subjectively unpleasant
+Index 462: The American Film Institute (AFI) is a film organization that educates filmmakers and honors the heritage of the moving picture arts in the U.S. AFI is supported by private funding and public membership.
+Index 463: The aardwolf (Proteles cristata) is a small, insectivorous mammal, native to East Africa and Southern Africa. Its name means "earth wolf" in the
+Index 464: An amide (/mad/ or /md/ or /emad/), also known as an acid amide, is a compound with the functional group
+Index 465: Albania (/lbeni/, al-BAY-nee-, or sometimes /lbeni/, awl-BAY-n
+Index 466: Abydos /bads/ is one of the oldest cities of ancient Egypt, and also of the eighth nome in Upper Egypt, of which it was the capital city. It is located
+Index 467: The Academy Awards are the oldest awards ceremony for achievements in motion pictures. The Academy Award for Best Production Design recognizes achievement in art direction on a film. The category's original name was Best Art Direction, but was changed to
+Index 468: Alpha (uppercase , lowercase ; Greek:  lpha) is the first letter of the Greek alphabet. In the system of Greek numerals it has a value of 1. It was
+Index 469: In Norse religion, Asgard (Old Norse: ''sgarr''; "Enclosure of the sir") is one of the Nine Worlds and
+Index 470: An axiom or postulate is a premise or starting point of reasoning. As classically conceived, an axiom is a premise so evident as to be accepted as true without controversy.The
+Index 471: Amateur astronomy is a hobby whose participants enjoy watching the sky, and the abundance of objects found in it with the unaided eye, binoculars, or telescopes.
+Index 472: An android is a robot or synthetic organism designed to look and act like a human, especially one with a body having a flesh-like resemblance. Until recently, androids have largely 
+Index 473: An allegiance is a duty of fidelity said to be owed, or freely committed, by the people, subjects or citizens to their state or sovereign.
+Index 474: This article will go through a wide range of topics of the geography of the state of Alabama. It is 30th in size and borders four U.S. states: Mississippi, Tennessee, Georgia, and Florida. It also borders
+Index 475: In the ancient Greek myths, ambrosia (Greek: , "[h]aom[a]-sustenance") is sometimes the food or drink of the Greek gods
+Index 476: The geography of Antarctica is dominated by its south polar location and, thus, by ice. The Antarctic continent, located in the Earth's southern hemisphere, is centered asymmetrically around the
+Index 477: Ahenobarbus was a cognomen used by a plebeian branch of the gens Domitia in the late Roman Republic and early Empire. The name means "red-beard" (liter
+Index 478: Ammonius Hermiae (/monis/; Greek:   ; c. 440 – c. 520 AD) was a Greek
+Index 479: The Atanasoff–Berry computer (ABC) was the first automatic electronic digital computer, an early electronic digital computing device that has remained somewhat obscure. The ABC's priority is debated among historians
+Index 480: “Hymn to Proserpine” is a poem by Algernon Charles Swinburne, published in 1866. The poem is addressed to the goddess Proserpina, the Roman
+Index 481: An antipope (Latin: antipapa) is a person who, in opposition to the one who is generally seen as the legitimately elected Pope, makes a significantly accepted competing claim to be the Pope,
+Index 482: Actinopterygii /ktnptrdi.a/, or the ray-finned fishes, constitute a class or subclass
+Index 483: Alexander II (Mediaeval Gaelic: Alaxandair mac Uilliam; Modern Gaelic: Alasdair mac Uilleim) (24 August 1198 – 6 July 12
+Index 484: International Atomic Time (TAI, from the French name Temps Atomique International) is a high-precision atomic coordinate time standard based on the notional passage of proper time on Earth's geoi
+Index 485: The Alemanni (also Alamanni; Suebi "Swabians") were a confederation of Germanic tribes on the upper Rhine river. First mentioned by Cassius Dio in
+Index 486: The Armed Forces of the Republic of Armenia comprise two services: the Army, and the Air Force and Air Defense (a unified branch). It was partially formed out of the former Soviet Army forces stationed in the Armenia
+Index 487: Argon is a chemical element with symbol Ar and atomic number 18. It is in group 18 of the periodic table and is a noble gas. Argon is the third most common gas in the Earth's atmosphere, at
+Index 488: A motor neuron disease (MND) is any of five neurological disorders that selectively affect motor neurons, the cells that control voluntary muscle activity including speaking, walking, swallowing, and general movement of the body. They are neuro
+Index 489: In chemistry, an alcohol is any organic compound in which the hydroxyl functional group (–OH) is bound to a saturated carbon atom.
+Index 490: The Alabama River, in the U.S. state of Alabama, is formed by the Tallapoosa and Coosa rivers, which unite about 6 miles (10 km) north of Montgomery.The river flows west
+Index 491: An archipelago (/rkplo/ ark-i-PEL--goh), sometimes called an island group or island chain, is a chain, cluster
+Index 492: August 25 is the 237th day of the year (238th in leap years) in the Gregorian calendar. There are 128 days remaining until the end of the year.
+Index 493: Throughout history, forms of art have gone through periodic abrupt changes called artistic revolutions. Movements have come to an end to be replaced by a new movement markedly different in striking ways. See also cultural movements.
+Index 494: Ashoka Maurya (IAST: Aoka; /ok/; 304–232 BCE), commonly known as Ashoka and Ashoka the Great, was an Indian
+Index 495: Aimoin (c. 960 – c. 1010), French chronicler, was born at Villefranche-de-Longchat about 960, and in early life entered the monastery of Fleur
+Index 496: Astatine is a very rare radioactive chemical element with the chemical symbol At and atomic number 85. It occurs on Earth as the decay product of various heavier elements. All its isotopes are short-lived
+Index 497: Albert Einstein (/anstan/; German: [albrt antan]; 14 March 1879 – 18 April 1955) was 
+Index 498: Angola /nol/, officially the Republic of Angola (Portuguese: Repblica de Angola pronounced: [publik d 
+Index 499: Apollo 11 was the spaceflight that landed the first humans on the Moon, Americans Neil Armstrong and Buzz Aldrin, on July 20, 1969, at 20:18 UTC. Armstrong became the first to step onto the lunar surface
+
+Pair #1
+--------------------------------------------------
+ index: 327
+[pred] Julia Agrippina, commonly referred to as Agrippina Minor or Augusta Julia the Younger, since the early 18th century,
+[true] Julia Agrippina, most commonly referred to as Agrippina Minor or Agrippina the Younger, and after AD 50 known as Julia Augusta Agrippina (Minor; Latin for the "
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 57
+[pred] The abaci (spelled singularly as an "abacus") is a counting frame used by modern calculating tools and it is one of
+[true] The abacus (plural abaci or abacuses), also called a counting frame, is a calculating tool that was in use centuries before the adoption of the written modern numeral system and is
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 12
+[pred] Antonio Lucio Vivaldi (Italian/Vietnamese: 4 March 1786 – 4 July 179
+[true] Antonio Lucio Vivaldi (Italian: [antnjo luto vivaldi]; 4 March 1678 – 28 July 1741) was
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 379
+[pred] Ajax (; ) was a Greek hero, son of the goddess Oelius, sometimes referred to as "Loer
+[true] Ajax (Ancient Greek: ) was a Greek mythological hero, son of Oileus, the king of Locris. He was called the "lesser" or "L
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 140
+[pred] Afonso IV (Portuguese pronunciation: ""; d. 26 February 1229), called the Brave (), was
+[true] Afonso IV (Portuguese pronunciation: [fsu]; 8 February 1291 – 28 May 1357), called the Brave (Portuguese: o Bravo), was
+--------------------------------------------------
+
+
+{'eval_loss': 10.405062675476074, 'eval_model_preparation_time': 0.0194, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 46.4609375, 'eval_token_set_precision': 0.6002481749317761, 'eval_token_set_recall': 0.7812724340684952, 'eval_token_set_f1': 0.6761124123130219, 'eval_token_set_f1_sem': np.float64(0.0054732760258874615), 'eval_n_ngrams_match_1': 17.488, 'eval_n_ngrams_match_2': 10.576, 'eval_n_ngrams_match_3': 6.956, 'eval_num_true_words': 31.174, 'eval_num_pred_words': 22.424, 'eval_bleu_score': np.float64(27.567880003297688), 'eval_bleu_score_sem': np.float64(0.7883570108944742), 'eval_rouge_score': np.float64(0.6594192685232549), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.9341626167297363, 'eval_emb_cos_sim_sem': np.float64(0.008087021298706532), 'eval_emb_top1_equal': 0.5, 'eval_emb_top1_equal_sem': np.float64(0.12909944355487823), 'eval_runtime': 4021.558, 'eval_samples_per_second': 0.124, 'eval_steps_per_second': 0.008}
++++ Evaluation Metrics +++
+eval_loss: 10.405062675476074
+eval_model_preparation_time: 0.0194
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 46.4609375
+eval_token_set_precision: 0.6002481749317761
+eval_token_set_recall: 0.7812724340684952
+eval_token_set_f1: 0.6761124123130219
+eval_token_set_f1_sem: 0.0054732760258874615
+eval_n_ngrams_match_1: 17.488
+eval_n_ngrams_match_2: 10.576
+eval_n_ngrams_match_3: 6.956
+eval_num_true_words: 31.174
+eval_num_pred_words: 22.424
+eval_bleu_score: 27.567880003297688
+eval_bleu_score_sem: 0.7883570108944742
+eval_rouge_score: 0.6594192685232549
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.9341626167297363
+eval_emb_cos_sim_sem: 0.008087021298706532
+eval_emb_top1_equal: 0.5
+eval_emb_top1_equal_sem: 0.12909944355487823
+eval_runtime: 4021.558
+eval_samples_per_second: 0.124
+eval_steps_per_second: 0.008
+Time taken: 4021.851069688797
+Current memory usage: 5.88MB; Peak: 10.95MB

@@ -1,0 +1,1395 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='dbpedia-entity', beam_width=4, steps=50, batch_size=16, max_samples=500, output_csv=None, max_length=8)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: dbpedia-entity
+Original dataset size: 100000
+cut dataset at 500 samples.
+Model tokens max_length: 8
+Embedder tokens max_length: 8
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 4
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 500
+})
+
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 500
+Length of decoded_labels: 500
+
+Contents of decoded_preds:
+Index 0:            Aurelius Ambrosi 
+Index 1: The Academy Awards or The Oscars            
+Index 2:           The Economy of Angola   is
+Index 3: The northern cavefish             or northern blind
+Index 4: Adelaide (           , "Dale
+Index 5: Actaeon (            /
+Index 6: An aromatic hydrocarbon          or aren  
+Index 7:           The Apollo program, also known as  
+Index 8:            Mouthwash,   
+Index 9:          Abbot,    meaning father, is
+Index 10: Abensberg (German pronunciation          
+Index 11: Albert Schweitzer             (14 January 18
+Index 12: Antonio             Lucio Vivaldi
+Index 13:             Accordions (from 19th
+Index 14: Americium            is a radio
+Index 15: The Aare (German pronunciation:            
+Index 16:            Amyntas III ( 
+Index 17:            The Alexandrists were a 
+Index 18: Aristotle (             
+Index 19: Revich aevii Revich aevii, Alex Petro
+Index 20:            The Analytical Engine was 
+Index 21: Anacharsis (         / 
+Index 22: NYSE MKT LLC,             
+Index 23: Anarchism             is a
+Index 24: ada King, ada Augusta ada King, ad
+Index 25: Assistive technology           is an 
+Index 26: Alexander Balas (An           
+Index 27: American Sign Language (ASL)            
+Index 28: An algebraic number           is a 
+Index 29: A             (named a 
+Index 30: In religion             In mythology and philosophy
+Index 31:            The Americans with Disabilities Act 
+Index 32: APL (named after the           
+Index 33: Generally, an answer is             
+Index 34:            Area is the quantity that expresse 
+Index 35: Asphalt (US)            /s
+Index 36: Arthur Schopenhauer (German            
+Index 37:     /      Altai
+Index 38: Albolin (          530s)
+Index 39: Anaxarchus (             
+Index 40: Ahab (Hebrew:            
+Index 41: The Ashes             is a
+Index 42:              Ambiorix was,
+Index 43: The American Football Conference             (AFC
+Index 44: Alexander I            or Aleksandar 
+Index 45: Alfonso           Cuar
+Index 46: An amateur (French amateur            
+Index 47: Alger of Liège (1055            
+Index 48: The Apiaceae            or
+Index 49: Anositropy /           
+Index 50: Anatoly ygaevsk Anatoly ygaevsk 
+Index 51: Abraham Lincoln (              
+Index 52:            Albert of Prussia (17 May 14
+Index 53: Acute disseminated            
+Index 54: Aztlan Underground           is a
+Index 55: An aircraft           is a machine that 
+Index 56: In Norse mythology,            
+Index 57: The abacus            (plu
+Index 58:            The MessagePad is the first 
+Index 59: Alin of York Alin of New York      cu
+Index 60:            Ardipithecus is 
+Index 61:            Allan Dwan (3 April 18
+Index 62: Ajax            or Aia
+Index 63:           The Andes   is the longest
+Index 64: Alexander Aetolus (A            
+Index 65: Augustus (Latin:            
+Index 66: Aruba (              
+Index 67: Asia (   /  / / / /e
+Index 68: Alfonso Mal Alfonso the Magn, 
+Index 69: August              234th is
+Index 70: Antimony             is a chemical element
+Index 71:             April 6 is the 96th
+Index 72: Alan Alexander Milne (            
+Index 73: Alberta (              
+Index 74: Ames             is a city located
+Index 75: August 2 is the             214th
+Index 76: Astrometry              is the branch
+Index 77: An assembled assembly language An assemble language (        ) or assembly
+Index 78: Alaborg Municipality Alaborg Municipality (    ) is 
+Index 79:           Agnosticism is the view  
+Index 80: Animalia             is an illustrated children
+Index 81: This article is             about communications systems in
+Index 82: Alcidamas           (Gr
+Index 83: Analog Brothers       were an experimental hip 
+Index 84: A Modest Proposal for            
+Index 85: Amalaric            (Goth
+Index 86: Andrey (Andrei          
+Index 87: The Dodo             is a
+Index 88:             Alan Garner OBE (born
+Index 89:            Angst means fear or anxiety  (ang
+Index 90: Aristophanes (            
+Index 91:               (Ambra
+Index 92: Albert II            (German: Albrecht 
+Index 93: Alexander (Ancient Greek            
+Index 94:           Armenia is the second most densely  
+Index 95: Alcamenes           (A
+Index 96: According to the Bible,             Absal
+Index 97: Allah (English pronunciation:             /
+Index 98: Audi AG (pronounced    [a         
+Index 99: August 21             is the 233r
+Index 100:          An abbey (from Latin   
+Index 101: Ankara (English)            
+Index 102:             Algorithms is 
+Index 103: Agnostida           is an order 
+Index 104:            Absolute zero is the lower limit 
+Index 105:            Anthropology is the study of humanity 
+Index 106: August             226 is the 14th
+Index 107:            The Park Güell (Cat 
+Index 108: An artist is a person engaged            
+Index 109:             AWK is an interpreted
+Index 110:           The ampere (SI  
+Index 111: Athena (           /i
+Index 112:             Dame Agatha Mary
+Index 113: An anaconda             is
+Index 114: Apple Computer 1            , also known retro
+Index 115:            Alcaeus of mytile
+Index 116: Abraxas             (Gk
+Index 117: Anatole France             (Fre
+Index 118:             A Clockwork Orange is 
+Index 119: Arminianism             is based
+Index 120: An army (from Latin             arma
+Index 121: Alfred Russel Wallace             OM F
+Index 122:         Afro Celt  Sound System is 
+Index 123: Alessandro algari Alessandro algari, a.k.a Algard
+Index 124: The Aegean Sea (            
+Index 125: Asterales /           /s
+Index 126: Since its independence             , Armenia
+Index 127: Art             is a diverse range of
+Index 128:              (Alexander of L
+Index 129:             Aberdeenshire (Scottish Ga
+Index 130: The Antarctic Treaty         and related agreements 
+Index 131: Alain Connes             (F
+Index 132:              August 17th is 29
+Index 133: Ambrosians           are members of
+Index 134: The Amber Diceless Role            
+Index 135: The almond (     /      /m
+Index 136: August 9 is the 221s            
+Index 137: Aluminium             (see aluminum or different 
+Index 138: Transport in Antarctica             has transformed from
+Index 139: The Austroasiatic languages,            
+Index 140: Afonso IV (           
+Index 141:            Asociación Alumni, usually 
+Index 142: Amethyst             is
+Index 143:             The Book of Amos is 
+Index 144:            An acropolis  (G
+Index 145: Alexander of Aphrodisi            
+Index 146: Anna Sergeyevna            
+Index 147:             Not to be confused with Amat
+Index 148:             In Greek mythology, Achilles
+Index 149: Apple Inc. (commonly            
+Index 150: Apollo             (Attic, I
+Index 151:             Sir Sultan Muhammed Shah,
+Index 152:             ABBA (sty
+Index 153: Arthur Aikin,            FLS
+Index 154: Alfonso II           (7
+Index 155: Avicenna (            
+Index 156:           The Atlantic Ocean is the second largest  
+Index 157: ako Jogatini ako Alexander I (ako Joga
+Index 158: An architect            is a person who 
+Index 159: Artificial intelligence (AI)             is the
+Index 160: Abbotsford             is a
+Index 161: Aquaculture             , also known
+Index 162: An             atomic orbital is 
+Index 163: An astronaut (           ), or cosmo
+Index 164: The anthophytes were            
+Index 165: Aphrodite (            /f
+Index 166: American Samoa             has a
+Index 167: In the Book of Samuel,             Ab
+Index 168:              (August/St
+Index 169: Vipina Srpania Vipina Srpania Agrippin
+Index 170:             The Apache Software Foundation /
+Index 171:             August 16 is the 228th
+Index 172:           Asparagales is the name  
+Index 173: Azerbaijan             is a
+Index 174: April 13 is             the 103r
+Index 175: Hercule Poirot (            
+Index 176: Alexander III of Macedon (20/21            
+Index 177: Alabama (Alabama:           lb
+Index 178: Advanced Chemistry             is a German hip
+Index 179: Acacia (             
+Index 180: Algol           (Beta Per 
+Index 181: Al Arslan Al Arslan      Alp
+Index 182: American Samoa, located within            
+Index 183: August William Derleth             (February
+Index 184:            Alan Curtis Kay (born 
+Index 185: Autism and Autism Autism is a neurodevelopmental  
+Index 186: Arabic/Arabic:            (Ré
+Index 187:            The American Revolutionary War  
+Index 188: Alfons             Maria Ja
+Index 189: Ailanthus (            
+Index 190: An affidavit            
+Index 191: The economy of American Samoa            
+Index 192: Alexander I of Epirus             (A
+Index 193: Andy Warhol (           /w
+Index 194:           Alredus, or   of
+Index 195:             April 15 is the 105th
+Index 196: An author             is broadly defined as "
+Index 197: Andre Kirk Agassi (            
+Index 198: Alfheim (Old         
+Index 199: Amines (US:             
+Index 200:            In the Book of Exodus 
+Index 201:             In law, an abstract is 
+Index 202: Ahmed I (Ottoman           
+Index 203: Algeria (Arabic:             
+Index 204: An American in Paris             is a
+Index 205:            This article is about the demographic features 
+Index 206:             April 16 is the 106th
+Index 207: Sir Alfred Joseph Hitchcock,          
+Index 208: August 1            is the 213th 
+Index 209: In algorithmic information theory             (a
+Index 210:            April is the fourth month of the 
+Index 211: The Apiales           are an order 
+Index 212:             Alexander I (medieval Ga
+Index 213: Asteroids             is an arcade space
+Index 214: Alain de Lille (or          
+Index 215:            This article is about the demographic features 
+Index 216: Albedo (            l
+Index 217: The Asteraceae or            
+Index 218: Anarcho-capitalism            
+Index 219:             An analogue or analog signal
+Index 220: Azincourt (French            
+Index 221:           Ada is a structured,  
+Index 222: André             Paul Guillaume Gide (F
+Index 223:             April 12 is the 102nd
+Index 224: In chemistry and physics,            
+Index 225:             Casa Batlló (Cata
+Index 226: August 23rd             is the 
+Index 227: Apollo 8,            the second human spacef 
+Index 228: An alloy             is a mixture of
+Index 229: elit Vuelton elit Vuelton  Alfred van 
+Index 230: Kaje ainser Kaje ainser, Ar
+Index 231: An adventure          is an exciting or unusual 
+Index 232: Arys   Arys    is one of the zodiac
+Index 233: Azerbaijan             has an economy
+Index 234: Arianism            is a non 
+Index 235:             April 22 is the 112th
+Index 236:           Amos Bronson   Alcott
+Index 237: Aikido           (Japa 
+Index 238: Azerbaijan             is situated in
+Index 239:             Jane Marple, usually referred
+Index 240: Anales School The Anales Fra (Prep), 
+Index 241: Andrei Arsenyev            
+Index 242: In particle physics,            antim
+Index 243: Agate (          / /t
+Index 244: Arsenic             is a
+Index 245: August 12th             is the 224
+Index 246: Attila (            
+Index 247: Alvin Toffler             (born
+Index 248: Anadyr (Russian          
+Index 249:             All Souls' Day, in
+Index 250:            "The Triumph of Time" is 
+Index 251: Akira Kurosawa (            
+Index 252: Alfred Bernhard Nobel (/n           
+Index 253: An allocution           or all
+Index 254:             August 6 is the 218th
+Index 255: August             236th is the 24
+Index 256:             August Wilhelm Ambros (17
+Index 257:              April 29th is 11
+Index 258: Albert Camus (French          
+Index 259:           Animism (from Latin  
+Index 260: Afonso V (          
+Index 261: Ataxia (from Greek          
+Index 262: This article is             about communications systems in
+Index 263:           The American Civil War, widely known  
+Index 264:               (ASCI
+Index 265:          Alfred Skardank   Habbe
+Index 266: Adobe /             (Do
+Index 267: Afonso VI (           
+Index 268: The politics of Antigua             and
+Index 269:             Augustin-Jean Fres
+Index 270: April 30 is the 120th day            
+Index 271: April 1            is the 91s
+Index 272: Arable land           (from Latin ar 
+Index 273:             (Abraham, Abraham 
+Index 274:          The alphorn or    alpen
+Index 275: August 19 is the 231s            
+Index 276:            The astronomical unit (s 
+Index 277:             August 13 is the 225th
+Index 278: April 28 is            the 118th 
+Index 279:            Aga Khan I (Persian 
+Index 280: The Territory of Ashmore             and Car
+Index 281:             Alexander III (Medieval
+Index 282: For the             (abbr.)
+Index 283: In Christianity            , an abbes
+Index 284:            /Abalone (ba
+Index 285:            In mathematics, an automorphis 
+Index 286: The Anglican Communion             is
+Index 287: August             239th is the 27
+Index 288: Amalric of Bena (         
+Index 289:           An atom is the smallest  
+Index 290:            In mathematics, the absolute value ( 
+Index 291: Azerbaijan (             
+Index 292: August 18 is the 230th            
+Index 293: Politics of American Samoa            
+Index 294: An alphabet             is a standard set
+Index 295: Amaranthus, collectively            
+Index 296:           The Azerbaijani   Arme
+Index 297: Agathon (an exonym:        /   
+Index 298: Amino acids (             
+Index 299:            This page lists some links to ancient 
+Index 300:             August 7 is the 219th
+Index 301: In mathematics and statistics, the             
+Index 302:             Actrius: (Cata
+Index 303: Casa Milà (Catalan          
+Index 304:            Alismatales is an order 
+Index 305: The demographics of Armenia             is about
+Index 306: Alan Mathison,             Turing
+Index 307: An axon (           from
+Index 308: An argot (English pronunciation:            
+Index 309: Albert the Bear            (German: Alb 
+Index 310:            In common law, assault is the 
+Index 311: The Amazing Spider-Man             (abb
+Index 312:             August 8 is the 220th
+Index 313:           The foreign relations of Angola  
+Index 314:            Actinium is a radio 
+Index 315: Anatolia            (from Greek 
+Index 316:            Ambrose Traversari, 
+Index 317: Eadld Eadld (     ), or Al
+Index 318: An abjad          is a 
+Index 319:              August 215th is
+Index 320: Ancient Egypt            was a civilization of 
+Index 321: Antonio Agliardi             (4
+Index 322:            In abstract algebra, an algebraically 
+Index 323: In mathematics, the phrase             "al
+Index 324: ako II ako II ako II ako Kom
+Index 325: Agriculture            is the cultivation of animals,
+Index 326: Kim Renard          (born 
+Index 327: Julia Agrippina, most            
+Index 328: Cardinal Albert of Brandenburg (German            
+Index 329: Aquarius            is a constellation of 
+Index 330: Amasis II            (A
+Index 331: Alexis (Greek:            
+Index 332: In Greco-Roman mythology            
+Index 333: American Chinese cuisine, known in the            
+Index 334:            Agrarianism has two common 
+Index 335:           The AK-47 (also  
+Index 336:           The Governor of Alabama is the chief  
+Index 337:             In organic chemistry, an al
+Index 338:             This article considers transport in Armenia
+Index 339: The Advanced Encryption             Standard
+Index 340:           "Alga"   redirect
+Index 341: Extreme poverty,             or absolute poverty
+Index 342: Altruism           or selflessness  
+Index 343: August 31             is the 243r
+Index 344: An Abscess (Laca de los empeos) An Abscess 
+Index 345:              (NandaCh
+Index 346: The Articles of Confederation            
+Index 347: Abner Doubleday             (June
+Index 348:             Terms "anno domini" (
+Index 349:            Corresponding to most kinds of 
+Index 350: This is a list of characters            
+Index 351: Alaric II (Goth           
+Index 352: An acid An acid (from acid, the Latin
+Index 353: Achill Island (             
+Index 354: Alexander II was a king            
+Index 355: Anaximander (            /
+Index 356: In the Hebrew Bible           and the Qu  
+Index 357: Ancylopoda            is
+Index 358: An astronomer is a            
+Index 359:            The Austrian School is a 
+Index 360: An assembly line             is a manufacturing
+Index 361: The ancient Aramaic alphabet             is
+Index 362: The meaning of the word             American in
+Index 363: Alyattes,            king
+Index 364: The Plague (French            
+Index 365: Animal Farm             is an allegorical
+Index 366:            In Greek mythology, Alc 
+Index 367:            In mathematics and computer science, an 
+Index 368: Anah (Arabic            or Ana
+Index 369:            Albert Sidney Johnston ( 
+Index 370: Aarhus r           or 
+Index 371: Analysis of variance (ANOVA)            
+Index 372:              April 26 is the 
+Index 373: Mages abech Mages abech Maria of Andries,
+Index 374: Politics of Armenia             takes place in
+Index 375:             Alexander Emmanuel Rodolphe Ag
+Index 376:           The Dasyprocti  
+Index 377: Abortion            is the ending of 
+Index 378:           The Museum of Work, or Ar  
+Index 379: Anjax            (Ac
+Index 380: "America the Beautiful"             is an
+Index 381: Alexander Graham Bell (March 3,             18
+Index 382:          Antigua and    The Barbud
+Index 383: Alder          is the common name of 
+Index 384: Auto racing             (also known as car
+Index 385: Afroasiatic             (Afro
+Index 386:            In United States appellate procedure, 
+Index 387: Afghanistan (           /fôn
+Index 388: Asteroids are minor planets            
+Index 389: Alaska (              
+Index 390: Algorithms for             
+Index 391: The Alps (             
+Index 392:             August 15 is the 227th
+Index 393: The aspect ratio          of a geometric   
+Index 394: Alfred William Lawson             (March 24,
+Index 395:           The term abdominal surgery broadly covers surgical  
+Index 396: Animation is the process of creating the            
+Index 397: Antisemitism (            
+Index 398: Antigua            and Barbuda 
+Index 399: Austrian German (German:             
+Index 400: Amphibians             are e
+Index 401: Alternate history            or alternative history 
+Index 402:            "Amazing Grace" is 
+Index 403:            An anagram is a 
+Index 404: Anbar (          ) was 
+Index 405:           In planar geometry, an angle  
+Index 406: Alabaster           is a name 
+Index 407:            Ambiguity is a type 
+Index 408: The Angolan Armed Force            
+Index 409: Agapanthus             african
+Index 410: Alexander Mackenzie, PC (           
+Index 411: Anatomy            is the branch of 
+Index 412: Saint Angilbert            (c
+Index 413:            "American shot"  is a
+Index 414: Anglicanism             is 
+Index 415: Amati            is the last name of 
+Index 416: AOL Inc.             (previous
+Index 417:             Arraignment is 
+Index 418: Anime (Hawaii)          (Japanes
+Index 419: Anazarbus            (med. A
+Index 420: anius Pi (Latina) anius Pi (    
+Index 421: Aldine Press           was the printing 
+Index 422: Alypius of Anti           
+Index 423:           The American National Standards Institute (ANS  
+Index 424:            The alkali metals are 
+Index 425: Alchemy is an influential tradition            
+Index 426: Analysis              is the process of
+Index 427: Aleister Crowley (             
+Index 428:            Apocrypha are works, 
+Index 429:            This article is about the demographic features 
+Index 430: Amber           is fossilized tree resin (
+Index 431: Aldous             Leonard Huxley
+Index 432: Amplitude modulation             (AM
+Index 433: An annual plant             is a plant
+Index 434:            Alexis Carrel (F
+Index 435: Irwin             Allen Ginsberg
+Index 436: Since the adoption of a new            
+Index 437: Ayn Rand (             
+Index 438: Transport in Angola comprises:            
+Index 439: Abdul Alhazred           is a
+Index 440: André-Marie Ampère (           
+Index 441: In computing,            an applet is 
+Index 442:             In Greek mythology, Agame
+Index 443: aka ethics The aka ethics examination is applied philosophy
+Index 444:            Berthold Konrad  Hermann Albert
+Index 445: An anchor             is a device,
+Index 446: Anguilla (             
+Index 447: Abydos           (A
+Index 448:           An appellate court, commonly called  
+Index 449: Araian Araian Araia is a landlocked country 
+Index 450: Amsterdam (English:            /m
+Index 451: An abugida /          
+Index 452: The aardvark (          
+Index 453: Andorra (             
+Index 454: Ahmed II (Ottoman           
+Index 455: Arachnophobia or             
+Index 456:             The Alan Parsons Project are 
+Index 457: Ahmed III            (Ottoman 
+Index 458: ALGOL (short for            
+Index 459: America's National Game             
+Index 460: The Andaman Islands (            
+Index 461: Anxiety is an emotion             
+Index 462: The American Film Institute             (AFI
+Index 463: The aardwolf (Pro           
+Index 464:             An amide (/m
+Index 465: Albania (           ), lbe
+Index 466: Abydos /           
+Index 467: The Academy Awards             are the oldest awards
+Index 468: Alpha (uppercase:             
+Index 469: In Norse religion,             As
+Index 470:           An axiom or post  
+Index 471: Amateur astronomy is             
+Index 472: An android is a robot or            
+Index 473: An allegiance             is a
+Index 474: This article will go through a            
+Index 475: In the ancient Greek myths,            
+Index 476: The geography of Antarctica is             
+Index 477: Ahenobarbus             was 
+Index 478:      Ammonius Hermia       
+Index 479:            – The Atanasoff
+Index 480:             “Hymn to Pro
+Index 481: An antipope (Lat            
+Index 482:            Actinopterygii 
+Index 483: Alexander II             (Mediaeval Ga
+Index 484: International Atomic Time             (TAI
+Index 485: Al aemanni The Al aemanni, or the Al
+Index 486: The Armed Forces of the            
+Index 487:  Argon           is a chemical element 
+Index 488:            A motor neuron disease (M 
+Index 489:            In chemistry, an alcohol is 
+Index 490: The Alabama River           , in U
+Index 491: An archipelago (            
+Index 492: August 25th is             The 237
+Index 493: Throughout history,             forms of art
+Index 494:             Ashoka Maurya (
+Index 495: Aimoin            (c.
+Index 496: Astatine             is a very rare
+Index 497: Albert Einstein (a             
+Index 498: Angola /            
+Index 499:            Apollo 11 was the spaceflight 
+
+Contents of decoded_labels:
+Index 0: Aurelius Ambrosi
+Index 1: The Academy Awards or The Oscars
+Index 2: The Economy of Angola is
+Index 3: The northern cavefish or northern blind
+Index 4: Adelaide (/dle
+Index 5: Actaeon (/
+Index 6: An aromatic hydrocarbon or aren
+Index 7: The Apollo program, also known as
+Index 8: Mouthwash, mouth rinse,
+Index 9: Abbot, meaning father, is
+Index 10: Abensberg (German pronunciation
+Index 11: Albert Schweitzer (14 January 18
+Index 12: Antonio Lucio Vivaldi
+Index 13: Accordions (from 19th
+Index 14: Americium is a radio
+Index 15: The Aare (German pronunciation:
+Index 16: Amyntas III (
+Index 17: The Alexandrists were a
+Index 18: Aristotle (/
+Index 19: Alexei Petrovich Roma
+Index 20: The Analytical Engine was 
+Index 21: Anacharsis (/
+Index 22: NYSE MKT LLC, 
+Index 23: Anarchism is a
+Index 24: Augusta Ada King, 
+Index 25: Assistive technology is an
+Index 26: Alexander Balas (An
+Index 27: American Sign Language (ASL)
+Index 28: An algebraic number is a
+Index 29: A (named a 
+Index 30: In philosophy, religion, mythology
+Index 31: The Americans with Disabilities Act
+Index 32: APL (named after the
+Index 33: Generally, an answer is 
+Index 34: Area is the quantity that expresse
+Index 35: Asphalt (US /s
+Index 36: Arthur Schopenhauer (German
+Index 37: Altaic /l
+Index 38: Alboin (530s 
+Index 39: Anaxarchus (/
+Index 40: Ahab (Hebrew:
+Index 41: The Ashes is a
+Index 42: Ambiorix was, together with
+Index 43: The American Football Conference (AFC
+Index 44: Alexander I or Aleksandar
+Index 45: Alfonso Cuar
+Index 46: An amateur (French amateur
+Index 47: Alger of Liège (1055
+Index 48: The Apiaceae or
+Index 49: Anisotropy /
+Index 50: Anatoly Yevgeny
+Index 51: Abraham Lincoln /e
+Index 52: Albert of Prussia (17 May 14
+Index 53: Acute disseminated
+Index 54: Aztlan Underground is a
+Index 55: An aircraft is a machine that
+Index 56: In Norse mythology,
+Index 57: The abacus (plu
+Index 58: The MessagePad is the first
+Index 59: Alcuin of York (La
+Index 60: Ardipithecus is
+Index 61: Allan Dwan (3 April 18
+Index 62: Ajax or Aia
+Index 63: The Andes is the longest
+Index 64: Alexander Aetolus (A
+Index 65: Augustus (Latin:
+Index 66: Aruba (/ru
+Index 67: Asia (/e/
+Index 68: Alfonso the Magn
+Index 69: August 22 is the 234th
+Index 70: Antimony is a chemical element
+Index 71: April 6 is the 96th
+Index 72: Alan Alexander Milne (/
+Index 73: Alberta (/lb
+Index 74: Ames is a city located
+Index 75: August 2 is the 214th
+Index 76: Astrometry is the branch of 
+Index 77: An assembly language (or assemble
+Index 78: Aalborg Municipality is 
+Index 79: Agnosticism is the view
+Index 80: Animalia is an illustrated children
+Index 81: This article is about communications systems in
+Index 82: Alcidamas (Gr
+Index 83: Analog Brothers were an experimental hip
+Index 84: A Modest Proposal for
+Index 85: Amalaric (Goth
+Index 86: Andrey (Andrei
+Index 87: The Dodo is a
+Index 88: Alan Garner OBE (born
+Index 89: Angst means fear or anxiety (ang
+Index 90: Aristophanes (/
+Index 91: Ambracia (/m
+Index 92: Albert II (German: Albrecht
+Index 93: Alexander (Ancient Greek
+Index 94: Armenia is the second most densely
+Index 95: Alcamenes (A
+Index 96: According to the Bible, Absal
+Index 97: Allah (English pronunciation: /
+Index 98: Audi AG (pronounced [a
+Index 99: August 21 is the 233r
+Index 100: An abbey (from Latin
+Index 101: Ankara (English /
+Index 102: Algorithms is 
+Index 103: Agnostida is an order
+Index 104: Absolute zero is the lower limit
+Index 105: Anthropology is the study of humanity
+Index 106: August 14 is the 226th
+Index 107: The Park Güell (Cat
+Index 108: An artist is a person engaged
+Index 109: AWK is an interpreted
+Index 110: The ampere (SI
+Index 111: Athena (/i
+Index 112: Dame Agatha Mary
+Index 113: An anaconda is
+Index 114: Apple Computer 1, also known retroactive
+Index 115: Alcaeus of Mytile
+Index 116: Abraxas (Gk
+Index 117: Anatole France (Fre
+Index 118: A Clockwork Orange is 
+Index 119: Arminianism is based
+Index 120: An army (from Latin arma
+Index 121: Alfred Russel Wallace OM F
+Index 122: Afro Celt Sound System is
+Index 123: Alessandro Algardi
+Index 124: The Aegean Sea (
+Index 125: Asterales /s
+Index 126: Since its independence, Armenia has maintained
+Index 127: Art is a diverse range of
+Index 128: Alexander (/lz
+Index 129: Aberdeenshire (Scottish Ga
+Index 130: The Antarctic Treaty and related agreements
+Index 131: Alain Connes (F
+Index 132: August 17 is the 229th
+Index 133: Ambrosians are members of
+Index 134: The Amber Diceless Role
+Index 135: The almond (/m
+Index 136: August 9 is the 221s
+Index 137: Aluminium (or aluminum; see different
+Index 138: Transport in Antarctica has transformed from
+Index 139: The Austroasiatic languages,
+Index 140: Afonso IV (
+Index 141: Asociación Alumni, usually
+Index 142: Amethyst is
+Index 143: The Book of Amos is 
+Index 144: An acropolis (G
+Index 145: Alexander of Aphrodisi
+Index 146: Anna Sergeyevna
+Index 147: Not to be confused with Amat
+Index 148: In Greek mythology, Achilles
+Index 149: Apple Inc. (commonly
+Index 150: Apollo (Attic, I
+Index 151: Sir Sultan Muhammed Shah,
+Index 152: ABBA (sty
+Index 153: Arthur Aikin, FLS
+Index 154: Alfonso II (7
+Index 155: Avicenna (/
+Index 156: The Atlantic Ocean is the second largest
+Index 157: Alexander I Jagiellon (
+Index 158: An architect is a person who
+Index 159: Artificial intelligence (AI) is the
+Index 160: Abbotsford is a
+Index 161: Aquaculture, also known as aqua
+Index 162: An atomic orbital is 
+Index 163: An astronaut (or cosmo
+Index 164: The anthophytes were
+Index 165: Aphrodite (/f
+Index 166: American Samoa has a
+Index 167: In the Book of Samuel, Ab
+Index 168: August (/st/
+Index 169: Vipsania Agrippin
+Index 170: The Apache Software Foundation /
+Index 171: August 16 is the 228th
+Index 172: Asparagales is the name
+Index 173: Azerbaijan is a
+Index 174: April 13 is the 103r
+Index 175: Hercule Poirot (
+Index 176: Alexander III of Macedon (20/21
+Index 177: Alabama (/lb
+Index 178: Advanced Chemistry is a German hip
+Index 179: Acacia (/ke
+Index 180: Algol (Beta Per
+Index 181: Alp Arslan (T
+Index 182: American Samoa, located within
+Index 183: August William Derleth (February
+Index 184: Alan Curtis Kay (born
+Index 185: Autism is a neurodevelopmental
+Index 186: Arabic /rb
+Index 187: The American Revolutionary War (1775
+Index 188: Alfons Maria Jak
+Index 189: Ailanthus (/
+Index 190: An affidavit
+Index 191: The economy of American Samoa
+Index 192: Alexander I of Epirus (A
+Index 193: Andy Warhol (/w
+Index 194: Alredus, or Alfred of
+Index 195: April 15 is the 105th
+Index 196: An author is broadly defined as "
+Index 197: Andre Kirk Agassi (/
+Index 198: Alfheim (Old
+Index 199: Amines (US: /
+Index 200: In the Book of Exodus
+Index 201: In law, an abstract is 
+Index 202: Ahmed I (Ottoman
+Index 203: Algeria (Arabic: 
+Index 204: An American in Paris is a
+Index 205: This article is about the demographic features
+Index 206: April 16 is the 106th
+Index 207: Sir Alfred Joseph Hitchcock,
+Index 208: August 1 is the 213th
+Index 209: In algorithmic information theory (a
+Index 210: April is the fourth month of the
+Index 211: The Apiales are an order
+Index 212: Alexander I (medieval Ga
+Index 213: Asteroids is an arcade space
+Index 214: Alain de Lille (or
+Index 215: This article is about the demographic features
+Index 216: Albedo (/l
+Index 217: The Asteraceae or
+Index 218: Anarcho-capitalism
+Index 219: An analog or analogue signal
+Index 220: Azincourt (French
+Index 221: Ada is a structured,
+Index 222: André Paul Guillaume Gide (F
+Index 223: April 12 is the 102nd
+Index 224: In chemistry and physics,
+Index 225: Casa Batlló (Cata
+Index 226: August 23 is the 235th
+Index 227: Apollo 8, the second human spacef
+Index 228: An alloy is a mixture of
+Index 229: Alfred Elton van Vogt
+Index 230: Arne Kaijser
+Index 231: An adventure is an exciting or unusual
+Index 232: Aries is one of the constellation
+Index 233: Azerbaijan has an economy
+Index 234: Arianism is a non
+Index 235: April 22 is the 112th
+Index 236: Amos Bronson Alcott
+Index 237: Aikido (Japa
+Index 238: Azerbaijan is situated in
+Index 239: Jane Marple, usually referred
+Index 240: The Annales School (Fre
+Index 241: Andrei Arsenyev
+Index 242: In particle physics, antim
+Index 243: Agate /t/
+Index 244: Arsenic is a
+Index 245: August 12 is the 224th
+Index 246: Attila (/
+Index 247: Alvin Toffler (born
+Index 248: Anadyr (Russian
+Index 249: All Souls' Day, in
+Index 250: "The Triumph of Time" is
+Index 251: Akira Kurosawa (
+Index 252: Alfred Bernhard Nobel (/n
+Index 253: An allocution or all
+Index 254: August 6 is the 218th
+Index 255: August 24 is the 236th
+Index 256: August Wilhelm Ambros (17 November
+Index 257: April 29 is the 119th
+Index 258: Albert Camus (French
+Index 259: Animism (from Latin
+Index 260: Afonso V (
+Index 261: Ataxia (from Greek 
+Index 262: This article is about communications systems in
+Index 263: The American Civil War, widely known
+Index 264: ASCII (/ski
+Index 265: Alfred Habdank Skarbe
+Index 266: Adobe (/do
+Index 267: Afonso VI (
+Index 268: The politics of Antigua and
+Index 269: Augustin-Jean Fres
+Index 270: April 30 is the 120th day
+Index 271: April 1 is the 91s
+Index 272: Arable land (from Latin ar
+Index 273: Abraham (/eb
+Index 274: The alphorn or alpen
+Index 275: August 19 is the 231s
+Index 276: The astronomical unit (s
+Index 277: August 13 is the 225th
+Index 278: April 28 is the 118th
+Index 279: Aga Khan I (Persian
+Index 280: The Territory of Ashmore and Car
+Index 281: Alexander III (Medieval
+Index 282: For the abbr>
+Index 283: In Christianity, an abbes
+Index 284: Abalone (/b
+Index 285: In mathematics, an automorphis
+Index 286: The Anglican Communion is
+Index 287: August 27 is the 239th
+Index 288: Amalric of Bena (
+Index 289: An atom is the smallest
+Index 290: In mathematics, the absolute value (
+Index 291: Azerbaijan (/
+Index 292: August 18 is the 230th
+Index 293: Politics of American Samoa
+Index 294: An alphabet is a standard set
+Index 295: Amaranthus, collectively
+Index 296: The Azerbaijani Arme
+Index 297: Agathon (/n/
+Index 298: Amino acids (/
+Index 299: This page lists some links to ancient
+Index 300: August 7 is the 219th
+Index 301: In mathematics and statistics, the 
+Index 302: Actrius (Catalan:
+Index 303: Casa Milà (Catalan
+Index 304: Alismatales is an order
+Index 305: The demographics of Armenia is about
+Index 306: Alan Mathison Turing,
+Index 307: An axon (from
+Index 308: An argot (English pronunciation:
+Index 309: Albert the Bear (German: Alb
+Index 310: In common law, assault is the
+Index 311: The Amazing Spider-Man (abb
+Index 312: August 8 is the 220th
+Index 313: The foreign relations of Angola
+Index 314: Actinium is a radio
+Index 315: Anatolia (from Greek
+Index 316: Ambrose Traversari,
+Index 317: Ealdred (or Al
+Index 318: An abjad is a
+Index 319: August 3 is the 215th
+Index 320: Ancient Egypt was a civilization of
+Index 321: Antonio Agliardi (4 September
+Index 322: In abstract algebra, an algebraically
+Index 323: In mathematics, the phrase "al
+Index 324: Alexios II Komn
+Index 325: Agriculture is the cultivation of animals,
+Index 326: Kim Renard Nazel (born
+Index 327: Julia Agrippina, most
+Index 328: Cardinal Albert of Brandenburg (German
+Index 329: Aquarius is a constellation of
+Index 330: Amasis II (A
+Index 331: Alexis (Greek:
+Index 332: In Greco-Roman mythology
+Index 333: American Chinese cuisine, known in the
+Index 334: Agrarianism has two common
+Index 335: The AK-47 (also
+Index 336: The Governor of Alabama is the chief
+Index 337: In organic chemistry, an al
+Index 338: This article considers transport in Armenia
+Index 339: The Advanced Encryption Standard
+Index 340: "Alga" redirect
+Index 341: Extreme poverty, or absolute poverty
+Index 342: Altruism or selflessness
+Index 343: August 31 is the 243r
+Index 344: An abscess (La
+Index 345: nanda (Ch
+Index 346: The Articles of Confederation
+Index 347: Abner Doubleday (June
+Index 348: The terms anno Domini (
+Index 349: Corresponding to most kinds of
+Index 350: This is a list of characters
+Index 351: Alaric II (Goth
+Index 352: An acid (from the Latin acid
+Index 353: Achill Island (/k
+Index 354: Alexander II was a king
+Index 355: Anaximander (/
+Index 356: In the Hebrew Bible and the Qu
+Index 357: Ancylopoda is
+Index 358: An astronomer is a
+Index 359: The Austrian School is a
+Index 360: An assembly line is a manufacturing
+Index 361: The ancient Aramaic alphabet is
+Index 362: The meaning of the word American in
+Index 363: Alyattes, king
+Index 364: The Plague (French
+Index 365: Animal Farm is an allegorical
+Index 366: In Greek mythology, Alc
+Index 367: In mathematics and computer science, an
+Index 368: Anah or Ana (Arab
+Index 369: Albert Sidney Johnston (
+Index 370: Aarhus or r
+Index 371: Analysis of variance (ANOVA)
+Index 372: April 26 is the 116th
+Index 373: Agnes Maria of Andechs
+Index 374: Politics of Armenia takes place in
+Index 375: Alexander Emmanuel Rodolphe Ag
+Index 376: The Dasyprocti
+Index 377: Abortion is the ending of
+Index 378: The Museum of Work, or Ar
+Index 379: Ajax (Anc
+Index 380: "America the Beautiful" is an
+Index 381: Alexander Graham Bell (March 3, 18
+Index 382: The Antigua and Barbud
+Index 383: Alder is the common name of
+Index 384: Auto racing (also known as car
+Index 385: Afroasiatic (Afro
+Index 386: In United States appellate procedure,
+Index 387: Afghanistan /fn
+Index 388: Asteroids are minor planets
+Index 389: Alaska (/ls
+Index 390: Algorithms for 
+Index 391: The Alps (/
+Index 392: August 15 is the 227th
+Index 393: The aspect ratio of a geometric
+Index 394: Alfred William Lawson (March 24,
+Index 395: The term abdominal surgery broadly covers surgical
+Index 396: Animation is the process of creating the
+Index 397: Antisemitism (
+Index 398: Antigua and Barbuda
+Index 399: Austrian German (German: 
+Index 400: Amphibians are e
+Index 401: Alternate history or alternative history
+Index 402: "Amazing Grace" is
+Index 403: An anagram is a
+Index 404: Anbar () was 
+Index 405: In planar geometry, an angle
+Index 406: Alabaster is a name
+Index 407: Ambiguity is a type
+Index 408: The Angolan Armed Force
+Index 409: Agapanthus african
+Index 410: Alexander Mackenzie, PC (
+Index 411: Anatomy is the branch of
+Index 412: Saint Angilbert (c
+Index 413: "American shot" is a
+Index 414: Anglicanism is 
+Index 415: Amati is the last name of
+Index 416: AOL Inc. (previous
+Index 417: Arraignment is 
+Index 418: Anime (Japanes
+Index 419: Anazarbus (med. A
+Index 420: Antoninus Pius (La
+Index 421: Aldine Press was the printing
+Index 422: Alypius of Anti
+Index 423: The American National Standards Institute (ANS
+Index 424: The alkali metals are
+Index 425: Alchemy is an influential tradition
+Index 426: Analysis is the process of breaking 
+Index 427: Aleister Crowley (/
+Index 428: Apocrypha are works,
+Index 429: This article is about the demographic features
+Index 430: Amber is fossilized tree resin (
+Index 431: Aldous Leonard Huxley
+Index 432: Amplitude modulation (AM
+Index 433: An annual plant is a plant
+Index 434: Alexis Carrel (F
+Index 435: Irwin Allen Ginsberg
+Index 436: Since the adoption of a new
+Index 437: Ayn Rand (/
+Index 438: Transport in Angola comprises:
+Index 439: Abdul Alhazred is a
+Index 440: André-Marie Ampère (
+Index 441: In computing, an applet is
+Index 442: In Greek mythology, Agame
+Index 443: Applied ethics is the philosophical examination
+Index 444: Berthold Konrad Hermann Albert
+Index 445: An anchor is a device,
+Index 446: Anguilla (/
+Index 447: Abydos (A
+Index 448: An appellate court, commonly called
+Index 449: Armenia is a landlocked country
+Index 450: Amsterdam (English /m
+Index 451: An abugida /
+Index 452: The aardvark (
+Index 453: Andorra (/
+Index 454: Ahmed II (Ottoman
+Index 455: Arachnophobia or 
+Index 456: The Alan Parsons Project are 
+Index 457: Ahmed III (Ottoman
+Index 458: ALGOL (short for
+Index 459: America's National Game is 
+Index 460: The Andaman Islands (
+Index 461: Anxiety is an emotion 
+Index 462: The American Film Institute (AFI
+Index 463: The aardwolf (Pro
+Index 464: An amide (/m
+Index 465: Albania (/lbe
+Index 466: Abydos /
+Index 467: The Academy Awards are the oldest awards
+Index 468: Alpha (uppercase ,
+Index 469: In Norse religion, As
+Index 470: An axiom or post
+Index 471: Amateur astronomy is 
+Index 472: An android is a robot or
+Index 473: An allegiance is a
+Index 474: This article will go through a
+Index 475: In the ancient Greek myths,
+Index 476: The geography of Antarctica is 
+Index 477: Ahenobarbus was 
+Index 478: Ammonius Hermia
+Index 479: The Atanasoff–
+Index 480: “Hymn to Pro
+Index 481: An antipope (Lat
+Index 482: Actinopterygii
+Index 483: Alexander II (Mediaeval Ga
+Index 484: International Atomic Time (TAI
+Index 485: The Alemanni (also Al
+Index 486: The Armed Forces of the
+Index 487: Argon is a chemical element
+Index 488: A motor neuron disease (M
+Index 489: In chemistry, an alcohol is
+Index 490: The Alabama River, in the U
+Index 491: An archipelago (
+Index 492: August 25 is the 237th
+Index 493: Throughout history, forms of art
+Index 494: Ashoka Maurya (
+Index 495: Aimoin (c.
+Index 496: Astatine is a very rare
+Index 497: Albert Einstein (/a
+Index 498: Angola /n
+Index 499: Apollo 11 was the spaceflight
+
+Pair #1
+--------------------------------------------------
+ index: 327
+[pred] Julia Agrippina, most            
+[true] Julia Agrippina, most
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 57
+[pred] The abacus            (plu
+[true] The abacus (plu
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 12
+[pred] Antonio             Lucio Vivaldi
+[true] Antonio Lucio Vivaldi
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 379
+[pred] Anjax            (Ac
+[true] Ajax (Anc
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 140
+[pred] Afonso IV (           
+[true] Afonso IV (
+--------------------------------------------------
+
+
+{'eval_loss': 3.7157633304595947, 'eval_model_preparation_time': 0.0207, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 8.0, 'eval_token_set_precision': 0.9196380952380951, 'eval_token_set_recall': 0.9281976190476187, 'eval_token_set_f1': 0.9202141969141969, 'eval_token_set_f1_sem': np.float64(0.008234234875220028), 'eval_n_ngrams_match_1': 4.186, 'eval_n_ngrams_match_2': 3.06, 'eval_n_ngrams_match_3': 2.138, 'eval_num_true_words': 4.482, 'eval_num_pred_words': 4.62, 'eval_bleu_score': np.float64(66.36652935162076), 'eval_bleu_score_sem': np.float64(1.990425362291317), 'eval_rouge_score': np.float64(0.9302412309912311), 'eval_exact_match': np.float64(0.0), 'eval_exact_match_sem': np.float64(0.0), 'eval_emb_cos_sim': 0.9793319702148438, 'eval_emb_cos_sim_sem': np.float64(0.013899209909141064), 'eval_emb_top1_equal': 0.875, 'eval_emb_top1_equal_sem': np.float64(0.08539125323295593), 'eval_runtime': 4010.3475, 'eval_samples_per_second': 0.125, 'eval_steps_per_second': 0.008}
++++ Evaluation Metrics +++
+eval_loss: 3.7157633304595947
+eval_model_preparation_time: 0.0207
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 8.0
+eval_token_set_precision: 0.9196380952380951
+eval_token_set_recall: 0.9281976190476187
+eval_token_set_f1: 0.9202141969141969
+eval_token_set_f1_sem: 0.008234234875220028
+eval_n_ngrams_match_1: 4.186
+eval_n_ngrams_match_2: 3.06
+eval_n_ngrams_match_3: 2.138
+eval_num_true_words: 4.482
+eval_num_pred_words: 4.62
+eval_bleu_score: 66.36652935162076
+eval_bleu_score_sem: 1.990425362291317
+eval_rouge_score: 0.9302412309912311
+eval_exact_match: 0.0
+eval_exact_match_sem: 0.0
+eval_emb_cos_sim: 0.9793319702148438
+eval_emb_cos_sim_sem: 0.013899209909141064
+eval_emb_top1_equal: 0.875
+eval_emb_top1_equal_sem: 0.08539125323295593
+eval_runtime: 4010.3475
+eval_samples_per_second: 0.125
+eval_steps_per_second: 0.008
+Time taken: 4010.4961247444153
+Current memory usage: 4.47MB; Peak: 9.81MB

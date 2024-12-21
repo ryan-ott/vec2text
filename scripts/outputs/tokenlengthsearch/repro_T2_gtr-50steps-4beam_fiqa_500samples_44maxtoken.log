@@ -1,0 +1,1395 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='fiqa', beam_width=4, steps=50, batch_size=16, max_samples=500, output_csv=None, max_length=44)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: fiqa
+Original dataset size: 57638
+cut dataset at 500 samples.
+Model tokens max_length: 44
+Embedder tokens max_length: 44
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 4
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 500
+})
+
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 500
+Length of decoded_labels: 500
+
+Contents of decoded_preds:
+Index 0: Such inequalities only exist for very short periods of time, precisely because people make money exploiting them. Read up on the subject of arbitrage
+Index 1: "How are individual stocks affected by price fluctuations and all kinds of market investments. So that's sort of like asking about the overall growth of the average
+Index 2: "I used to work for some senior ratings. The bulk of the ratings are for finance and public debt. So there are three different ratings agencies. S
+Index 3: If you are now looking to open an NRE Account, the banks have made the process so easy.This is a quick and detailed look at account
+Index 4: This is not the case. "Generally, transfers within transactions are instantaneous. This is why it is uncommon for banks to draw out the money
+Index 5: point. Why don’t you tax jobs like cargo companies using computers? I’m going to go for it. Trains have been done charging anyone
+Index 6: "And yes, I've done that job a couple of times. The first part was that I kept asking if I did something more that
+Index 7: Another option to consider is FDIC insured deposit certificates (CDs) at a small bank or credit union for short-term investments. There are few
+Index 8: don't know if it's wise to have your checking auto draft so the credit and your checking do so at the same institution, but it
+Index 9: company: The CEO of Canada’s largest grocery chain notes that it will take Alberta and Ontario $1 billion in costs and minimum wage hikes for his previous
+Index 10: he had heard from a staff member at his office that Singaporeans have so many GFC acronyms. He went on to say, "They
+Index 11: The US federal gift tax doesn't really kick in until the start of each year. So a couple can give $14,000 to a single person
+Index 12: "I do have a bachelor's degree in finance management. But a lot of my flags are turned to analysis and project-related topics
+Index 13: shortfall. Foreclosure allows the borrower to be responsible for paying back the full amount of the property. Just as the bank is selling it
+Index 14: has to be made by a company that purchases 100% chicken from that source. The definition of "chicken and soy protein" does not eliminate confusion
+Index 15: There is no answer to global warming, especially if one wishes to abolish air travel and shipping. Obama's EPA estimates $300 trillion to lower earth
+Index 16: I have 401(b) credit card debt. I don’t know what that would match. The next highest priority could be the $500 in debt
+Index 17: "[a] crazy case of attorneys and lawyers behind the award. They're going to ask for $650,000 in fees and expenses. We got to
+Index 18: that's where we're going to be looking at Frankfurt and London. Of course, Europe isn't on the finance side, so guess
+Index 19: "[If] an individual wants insurance then this argument should be: It's not the question. If you're looking at the wrong way of
+Index 20: that could be either Target employees who weren't trained properly or didn't care at all. There's a plethora of free
+Index 21: most US banks don't have the ability to draft foreign currency checks in USD. However, for instance, you can do this from a TD
+Index 22: says that PV uses tellurium, but that is "not an uncommon element in thin film cells". There is no indication that rare earths use silicon
+Index 23: The risk is generally the same. In the US, if your FDIC balance is 100% covered, your account is currently $250,000. In case of
+Index 24: 20% is likely to be too high. My average is as follows. Each industry has its own set of guidelines, depending on the prior 2-3 working years,
+Index 25: But this really does not matter unless kids are born in places where the most expensive baby care products are because the majority of people have less used them.
+Index 26: "there are some advantages to renting vs buying: When you buy, the cash is gone. If you don't have money to buy,
+Index 27: "I'm from north Jersey and not a normal gambler customer. But they're pretty young so I think they've got some extra
+Index 28: But in the guise of Uncle Sam, he is not borrowing money but printed money from other people. The purpose of Operation QE
+Index 29: going to be at a point when it's already a blisson and the government is going to get miserable and it will get worse
+Index 30: I can make a habit out of that as well. As far as I approach meditation, I've taken only ten months. So I believe
+Index 31: easy to do. Another reason people would find a way to make them for themselves would be to buy some in colour and print some card stock. sentiment
+Index 32: you don't. You're developing an equation for a stochastic process that wants to model a distribution. The actual source of this
+Index 33: the following requirements: The Federal securities law (SEC) Regulation D defines an accredited investor as: A registered insurance company, small business development company, bank
+Index 34: MBs is a generalization of the term "Backed Securities". "Mortgage Through" is a type of "S
+Index 35: US government bonds are where money goes when the market is turbulent and investors are fleeing the risk of a credit rating downgrade, but this is
+Index 36: That is your bill. However, you will negotiate with the doctor because the services were performed for you. You can't pay the full share that you
+Index 37: to read the remark, disputing a remark probably doesn't make it possible to move the scores. However, some models
+Index 38: girlfriend. I am not irafbitcher. I believe Walmart doesn't tolerate strikes because the majority of irafbit
+Index 39: If you sell your shares for more than the value they received (i.e. you make a profit) you will be liable for capital gains
+Index 40: Cato. "[I]t says Article 1-8 of the Constitution says Congress shall have the power to establish Post Offices and Roads" The
+Index 41: After letting you exit with a promissory note of your lender, are we now the only option for using this sound real estate selling strategy
+Index 42: The contracts were asked at a later date. This can be because there is a more recent asking price (BUY AND CUEST $1.00
+Index 43: again. "Not only does Rand's fantasy work never translate into reality, it's hard to find economic teams that aren't that relevant
+Index 44: Tax treaties will cover double taxation (tax will be paid in one jurisdiction and taxes paid in another jurisdiction). Typically you have an accountant and attorney
+Index 45: this is too hard to think about. If 300 people create $1 billion then 70% of his wealth increases by a new asset. In a stock market
+Index 46: a storage system for monitoring and processing operating parameters in a boiler room. A thermocouple gauge to measure levels of liquid fuel, sonar,
+Index 47: In my mind, the most important thing is to love the business itself and do what it's doing. Family business tends to have their own aptitude
+Index 48: "I would like to cut that picture and give it to you later on". So top down income created here is taken into control who then decides "
+Index 49: "Obviously you don't know that US banks have any way to access your credit rating, especially in France, because there is not one in the US
+Index 50: "I am very impressed. She has a substantial income and must agree to some kind of $500/month car payment, which would make sense when that
+Index 51: Suppose there's a scenario in which nobody wants you to sell? Will you sell your stocks, or get stuck to the brokerage site? I
+Index 52: credit card fees, credit card fraud protection (provided by law), and the debit programs that are offered by the holder. Hence the crux
+Index 53: Big Jack could want to convey to the HCCO that the check is owned by himself. If the check is written as the sale of the company not
+Index 54: if you know the amounts (see Google spreadsheet, for example) you can combine these totals with an online "payment schedule" ($15,000 loan
+Index 55: One of the simplest actions that can be quickly remedied is to see he has deposited the check. "It may take 72 days
+Index 56: The problem with putting a group of people in charge of something is that man is corrupt. And the corruptible individuals will change into something substantial.
+Index 57: "I have a long-term addiction issue and I think the pragmatic first step would be the best solution. However, we need to take immediate actions
+Index 58: for your everyday habits Vitamin C offered an accompanying blessing, coming from virtually every source of hydration at night, decreasing the need for skin and bodi
+Index 59: they did. Turnover was high for this tech company. Management expects to be one of the strong people. But when it comes to layoffs
+Index 60: no. An employer is legally obliged to deduct tax from their pay cheques and send them to the IRS to show to you that tax you are
+Index 61: "Yeah, the investor is responsible for the debts? No, they are protected from being sued by a company if their partner
+Index 62: the downside risk of accepting pension plans. "You don't understand how it's the worker mindset that you have to be part of an investment over
+Index 63: "Do all tax forms ask how many people you have in your house?" you don't know which dependants you are referring to as living
+Index 64: always has an analogy to how greedy banks spoofed on greedy education. When I talked about the housing bubble crash and my professors
+Index 65: permits, bad planning, lack of incentives, and local government blasphemy. Inspectors need to be needed more and more. Pers
+Index 66: Pot addiction also exists, and there have been car accidents and other similar effects. So even if the drug is used to physically kill you, it might
+Index 67: "This is a very specific principle of how dividend payments work. In a more general case you are the part of a corporation that own shares
+Index 68: there are a number of reasons why a company may choose to pay dividends rather than holding the share cash value. Elsewhere there are
+Index 69: an investment scheme, and money accounts and short-term t-bills are the only options that will work here. There is no loss of
+Index 70: Supplier of Quartz Grit in India from http://www.qzgraspowder.com/Manufacturers of Quartz Grit
+Index 71: is a bit erroneous. However, compound long interest returns does not converge with the expected rate of asset growth, so it is
+Index 72: does not know if a tenant is lying. "All that money lost in your mailbox is probably late and will miraculously cover your rent. So
+Index 73: "not necessarily. The abbreviation "ESOP" is ambiguous. There are 8 variations, some of which you might find at Google
+Index 74: Retail brokers of most exchanges are not members of discount brokers and are thus considered retail brokers unless they are routing orders or if they are charging $7
+Index 75: I'm saying parents don't have any self control and they buy toys that kids demand so they can spend time and get things for themselves. That
+Index 76: "Try and see if you still have a credit card that has a lower FICO score. The first thing you did was call up
+Index 77: (SE) website. "Buying a house will be wise if, in general, the overall cost of ownership is less than the ongoing cost to
+Index 78: so much of our society wins when it starts by removing all risk and not letting kids play during recesses. Now it's been all
+Index 79: "Yes, your tax bracket will be 25%. But that does not mean that it is 75% of your take home salary. There are many different ways
+Index 80: you can't expect on-the-job training to be their job. That's not the idea of a company. Training workers, it
+Index 81: It's easy to pick out when you've worked with large companies that want to use Gsuite over Excel and PowerPoint. Thank you for collaboration
+Index 82: from WePayGoMe, will I receive (form 1099-K) of Gifts or donations? As of May 2015, the IRS stated
+Index 83: try it with Compustat at my work? It's so lame that it's expensive. I haven't used CapIQ since
+Index 84: "I think you should carefully evaluate the value of these so-called madbid auctions" randomly. Going to "penny.com" website
+Index 85: a given IPO day. Underwriters then sell IPOs freely to the company's investors and employees. When a certain percentage is
+Index 86: When I have high-deductible plans, I used http://healthinsurance.ehealth.com to do a comparison. Comparing procedures across different providers
+Index 87: implication is irrationality. It doesn’t make sense when market prices climb as much as $600 and then CMG does. "
+Index 88: it. ""This is the thing that is competing for Foxconn's advantage when there are states that are working on it"" The problem
+Index 89: I have been using AirBnb frequently throughout the area. Although there are some regulations regarding it, it seems easier to hire your maid and enjoy
+Index 90: I made the best I could out of the original [NBER]736-torn elaboration: [https://www.
+Index 91: says: Operating in a country that allows you to make a fair profit, I think establishes legislators' duty to pay you taxes,
+Index 92: [http://www.electro-vehicle.com/chevy-bolt-ev 226 miles range it can
+Index 93: thin skiff. I don't know what you're saying. It's logical and true that hard work is not necessary enough
+Index 94: "That's not the game analogy for choosing assholes disqualifying winners and losers. They're going to be f
+Index 95: You may know exactly what you are talking about.          I like 
+Index 96: "Warren Buffet isn't looking for value. He buys whatever is available. He uses special sauce and fear, hype, and greed,
+Index 97: a state that hasn't been built without taxation. People won't pay for 20 minutes unless they didn't. Nobody survive
+Index 98: "Sometimes, debt can be differentiated between unsecured debt and mortgage debt. Secured debt is something that you have heard of as a
+Index 99: world can discover the most effective ways of ordering. Checking our online ordering website, CheckOrder.net, it will be easier and more useful for
+Index 100: It’s never been a pleasure to pick a mattress store that’s been so overwhelming over the past couple of months. We will help you
+Index 101: if there's any other country in the world or the economy is sizable enough to start war like we are. You are repta
+Index 102: Answers for electricity. As for natural gas, it is generally a better thing to lock in to fixed price contracts since, in the long run,
+Index 103: It becomes far less of a game when you allow penny and ultra cheap stocks. Because the stocks never change, people make plays until it comes to an
+Index 104: in the past. The usual way to do this would be to pick up a cash advance interest that will buy the wire transfer quickly. If the card
+Index 105: and http://economy.el/what's it? 3 giant companies and monopoly industry compete with each other It never used to
+Index 106: (as you'd think of it in the name of stock exchange). Stock exchanges are a place where people exchange more. I.e
+Index 107: This is one of those things Econome requires submissions to be titled like 'True State Anteprice' that I would have
+Index 108: Inflation is bad for people with lots of cash assets. It's good for debtors, particularly debtors with unsecured debt.
+Index 109: to. So I try to do the next test after every chapter I read so I can go back into the practice as good as I can. What on
+Index 110: and a lot of people don't. If it cost more they would just like to go with the gas instead of making it ugly. Still,
+Index 111: They'll be largely fine. It's all about securing business plans and determining long term risk for these types of firms to figure
+Index 112: he had "wanted 13 years of data at market close. If he wants all the attributes the file will be larger than usual – you
+Index 113: "I've got a bunch of hypothetical straws. I mean, why keep those cows feeding for weeks? If you could do nothing,
+Index 114: this is a must for investors to be skeptical about shareholder value creation. Notes: Notes: Notes: S&P Global Quantitative
+Index 115: if glass-steal legislation had any impact on bank behaviour? What would minimisation be inevitable if a recession sprang up
+Index 116: Good time to move on and if you don't end up with a bad decision like this, go back and live with your net profits and
+Index 117: you can use one of the retail stores to paypal directly. In some stores, you just pick up your debit card and bill it. In the US
+Index 118: Yes, as long as you own the shares before the ex-dividend date, you will get dividends. Depending on how the broker can
+Index 119: There are a number of local motoring departments that do this. It usually depends on signing over title and transferring ownership of your vehicle (see section
+Index 120: "It's possible, obviously, for certain transfers (partial or not at all) that you can find on this site and find nothing out
+Index 121: "seems to be just a scholarly opinion. Why isn't there any reference to the articles? Apparently he's
+Index 122: "Is it the best way to get an FD to buy property? Is one to set up an investment house in a bank and return
+Index 123: On the other hand, it's going to be a lot more happy if you're going to work without allowing another person to block
+Index 124: since TK didn't lose earnings investor over tens of billions of dollars. A lot of growth in the market helped Musk and Kalnick
+Index 125: Bitcoin is backed by math and the ability to exist in a valueless state. I don't need a quintasing
+Index 126: I was complaining about this thing a couple of times over the years. It seems like the RA is the only way I go if you have
+Index 127: be businesses and they don't have to feel whatever they're doing. So profit is for the best. There's no way of auster
+Index 128: If you don't need to use a credit counselor, it's their main role to pay off debts and negotiate with creditors. In fact
+Index 129: 750 inquiries that have been using your credit in the past 8 years? How much of your hard limit score is currently spread? The second negative factor is
+Index 130: is "People should borrow less and spend less and save more. If that's the fundamental problem, isn't this demand really correct, supply
+Index 131: "Definitely it helps, and being a good leader has to be when you're not just putting together a team with the right technology vision
+Index 132: :"Interest rate swaps are now holding about $59.8 trillion of them and JPMorgan derivatives are much more massive today. It
+Index 133: The Hong Kong Dollar is based on the US dollar. The Hong Kong central bank keeps the US dollar as its reserve currency. The main central bank recognize
+Index 134: https://www.tacnews.co.uk/longer-versions/best-I-should-make_17/2017/the
+Index 135: "if you don't want the money to be liquid then the best place to "invest" is in some kind of insured bank deposit, such as
+Index 136: It is unmistakably that this is Argentina's eighth default, because the naive and inept policymakers are left out paying
+Index 137: be followed by a safe tour. You’ve learned to drive by following the rules and passing the exam. If you don’t follow the rules
+Index 138: I did everything I could to maximize my chances. There is no random element of chance and you credit me for mistaking luck for that. I think it
+Index 139: This might be done in response to comments compiled by Edmunds in the [https://www.tsla.com/2013/long-
+Index 140: "but it seems WhatsApp and Facebook owned chat started up after Google had acquired and they were looking for an untapped market for their devices. But their plan
+Index 141: It is also a question of why the kWh cost is twice as high in New York as it is in Washington. Although regulation and US tax compliance
+Index 142: So far, I've had empirical evidence. My fiancé is working for an undergraduate finance degree at an American bank for U of T.
+Index 143: The comparison does not explain why one considers investing in a non-qualified account is better than a traditional 401K. However, rot
+Index 144: A few tops of thoughts off: Advantages of more than 20% down: Disadvantages of more than 20% down:  
+Index 145: yes. When exercising a stock option as a buy you will lose the money even if you put it up at the strike price you can declare
+Index 146: "It's apparent to the average consumer that there are actually two stages to collecting a payment and the ways to undo it. And long
+Index 147: "sovereign immunity" is the state's ultimate "get out of bankruptcy for free." Thus, when it comes to a bankruptcy card
+Index 148: have to look into both of these factors individually. Distribution costs in NY are ridiculously high. There are different markets, different fuel mixes, different generation etc
+Index 149: I would like to consider in the future when it comes to closing the account, both in terms of what to split the money, and if he
+Index 150: "horse from the mouth" that he "isn't the alt-right... all truth is painted by his political interests...
+Index 151: Essentially, what is described here is a leveraged investment. If you're as confident that the returns that you're going to exceed will
+Index 152: you are acting inconsistent. "I think bitcoin's price is primarily due to Chinese money that were being moved outside China. You can't comment
+Index 153: "For a dedicated 'small trades', FXCM.com is easily able to beat even tighter and wider shops but
+Index 154: think they could actually sell the product if they decided to repackage it. But instead of looking at the shape of the squeable
+Index 155: Aside from money laundering, there is the possibility of buying gold which is currency. There are several electronic companies like the International Business Union (IDE), Swift
+Index 156: Typically she lives by herself. Depending on whether or not her monthly income is below the threshold, she might be eligible for a household of one
+Index 157: common at Accenture). Whereas 20k or above is not a bonus at the starting level (unless you have 6 year experience with it,
+Index 158: them and you’ll also see a lot of millennial smokers. "[A]lthough they don’t go to work high every
+Index 159: Amazon is still experimenting with a private label called Wickedly Prime. It's not going to be great unless WFM gets through
+Index 160: The top feature of these stacking doors and windows is that one can make a lot of savings because the design and construction help to flow with the out
+Index 161: show that "[sprint's] network can support 2x their current subscriber base without much of a slowdown. Luckily the data
+Index 162: The trick is that the minimum payment you send will be applied over to that purchase first, not the check balances. If you don't use all
+Index 163: you would need to do this either by purchasing an Amazon gift card from another online site that accepts PayPal. There are dozens of Amazon sites that offer
+Index 164: before you enroll in a financial school that will manage a stock portfolio. Even TD Bank of America is a good site. If you want
+Index 165: I don’t know, but Rajan wrote a great book called Fault Lines that linked entrenching class disparity in the U.
+Index 166: "economic hardship is not so misleading as slavery." But how can you really "better yourself?" If you are intelligent and only working on two rents
+Index 167: that. No one in the industry checks what coursework you took and assumes the BS is more impressive. Some programs have a vastly different set
+Index 168: insists that "although plant-based processed foods [such as meats] may not be as chemically unhealthy as we are here with, the best
+Index 169: I think this is just specific to student loans. I think debt is becoming a bigger thing in recent years, partly due to wage gaps and the increasing
+Index 170: way, but Android is really behind in getting up-to-date. So you just have to root your phone and third party utility and stick to it
+Index 171: (as Rex explained it to a five-year-old at the time): "Well, all of these abstract concepts are on actual
+Index 172: If you make a capital contribution for the company it is not taxable, and lending just makes sense as the owner's interest event. If you
+Index 173: "Xero and WaveAccounting can be easy to use, but both also have their limitations. I haven't been there many times since
+Index 174: give you a lot of argumentation and honestly don't know how to articulate those points. For me the majority of them seem like incomplete union understanding
+Index 175: I have been able to find a way to search old stock in Google archives. Unfortunately, no newspaper date information seems to have been refined until recently
+Index 176: welcome the Adriana Fine Jewelry where you get 15% discount on Adriana Fine Gems, buy your customized jewelry from our online store, select your first items
+Index 177: It is thought that this argument is most often used when considering a debt to pay back first, so there are other options such as purchasing an emergency fund
+Index 178: (The TWRR calculation will work even with negative values): (1 + 0.29) - (1 + 0.29) - (1 + 
+Index 179: it would make sense to repay your marginal tax faster by borrowing more money at this time. But this will not always be the case if the HBP
+Index 180: "For many small farmers, the price that 'foaler farms' have to be high when it comes to maintaining their hig
+Index 181: Therefore, all the losses are probably because of expenses made by Starbucks expanding into the market. It has also been suggested that, in the management of the UK
+Index 182: a government is to serve the people with a lower tax. This logic is further dissipated by the belief that there is corment
+Index 183: think he should do two things. Stay at home just one night, stay in a rising market household, or just get trapped when a car
+Index 184: with such an extremely high price, there's no point in insurability. On the other hand, if the person is going to buy another
+Index 185: best job you could get was working for the government. Pension is now as good as it once was. If you're on healthcare and you sacrifice yourself
+Index 186: During Graham's career, as Graham advised investments in stocks and bonds, "money and gold were not the same thing for the same reasons". Graham
+Index 187: Stanley & Morgan "had a lot to say when it came up to 'Buy Buy Buy' I guess." Stanley & Morgan All
+Index 188: I don't understand. What the article is talking about is circulating money indiscriminately to the more rich. It asked "how
+Index 189: "it has value. It’s a semantic point, because we believe gold is valuable. There are many other important cultural coinmetals
+Index 190: [and] I don't think you're going to say that certain countries still have their [royal] classes. They are figureheads
+Index 191: Normally when you are looking for outdoor master clocks that show bells, buzz and sound clocks in needed time settings, Admoveo Solutions
+Index 192: I might say that prices might go up to 1:1. I don't think it would be unreasonable to say that prices wouldn't rise and labor demand
+Index 193: "Freehold and leasehold are in the strictest sense of the word and in leasehold means you own it outright in a rental situation.
+Index 194: are many times that tax is deducted against the PAN even though it does not reflect as credit to your employer or submitted to a company despite
+Index 195: "Perhaps I expect you to pay me that check, rather than on a product purchase order. If the company wanted a contract re
+Index 196: Budget the amount you put into your budget. There will be minimum income categories. Earmarks set up. Pay bills and debts. Once left
+Index 197: "Insurance companies make money on average by selling insurance. This is literal in that when the insurance is not gambling against you, you lose the money
+Index 198: "there's an elephant in the room where a lot of people are not aware that there is a bubble. "Suckers"
+Index 199: It is not 78% of an original home mortgage. Instead it is read according to that document. For example, if the original home valued at $100
+Index 200: is that credit bureaus exist and why they blame for incorrect data? Maybe the author does not want credit bureaus to understand exactly how they work and why
+Index 201: But I've got anecdote to say that if you work boringly, you turn down payment. If problems are encountered
+Index 202: This is not common when multiple jobs have reached the yearly limit. An employer can stop when they don't know that you have reached a maximum
+Index 203: I live in another state where I have an existing RRSP. In the United States, Canadian brokerage may be able to sell through TD Water
+Index 204: You can never use a health insurance FSA for individual health plan premiums. But while sponsors may limit which FSAs they can reimburse, they
+Index 205: "and the only thing you'll have to do right now is to work a higher trade instead of one of the numerous fields". "Les
+Index 206: Schools are going to count all my retirement saved on my EFC by calculating my assets over the last 20 years as 15.5%. And yes, yes
+Index 207: I'd be pretty hopeful I wouldn't be either. But it's just a lot of fun to have the uncheap and
+Index 208: way they shop making a big difference. Other saves which may or may not include: use of carts, cash only, low clearance and private
+Index 209: Absolutely no. It is a scam. You must beware, especially strangers who give your bank passwords. If you want to lose your money
+Index 210: I've been a "poor grad student" full-time for many years, but post graduate work would consider $50-50% per month
+Index 211: formula_27. Another issue is how to adjust the return equity for the Legged beta. This means that the kORS is 0.0
+Index 212: P/E is the number of years it would take for the company to earn its share price. You then take share earnings per share divided quarterly from annual
+Index 213: "A warrant is similar to the right to buy call shares, with the option being filled by the company at a certain price, and a limited
+Index 214: So the share price should go down because many companies just issue new shares instead of buying back existing ones which would only be diluted in employee compensation. Since
+Index 215: you think that’s the “big man” idea? Why don’t you think the game is fair? Finish high school, you know? And
+Index 216: it seems like their main problem is not hiring at all. New platforms have come along and the iPhone and Android didn't convince me that the technical management
+Index 217: "Yeah, yes, Facebook may have overpriced their IPO retention. I mean, they have to renegoti
+Index 218: If the stock is not up to sell then you would have to start looking at the stock to determine if it is falling. As long term investor,
+Index 219: Wire transfers usually run through either the Clearing House Interbank Payment System (CHIPS) or the Fedwire. This process involves asking a system
+Index 220: - аарска p25 PaCapromax? - аарска
+Index 221: I'm talking about this to myself. 300 a month sounds like something commonplace, especially if you're looking for a friend where
+Index 222: This is essentially a reimbursement of your home office expense. Since the reimbursement can be deductible it does not affect the expense. If you tax your
+Index 223: "One of the best case studies of the dangers of sacrificing product quality for profit (Schlitz Brewing Company, a.k.a
+Index 224: answered first. The benefit of a 401k is that you don't have to pay the income tax or the capital gains tax that you contribute
+Index 225: "As long as it's optional and the tip drivers are paid, I don't think it's an issue of the fair. I
+Index 226: I never went back to broadcasts where cable TV costs as much money as it did a long time ago. That's why there are no commercial
+Index 227: Yes, it's a risk. But if you look at S&P data in 2013, the returns would have been 12.2% CAGR since
+Index 228: it the tablet form factor. It's not something that Nintendo used to be a "refreshing" thing. It's not an anticipation
+Index 229: All things are safer or less likely to be backed by your paper account. But the whole society does not know how to deal with retirement (a way
+Index 230: travel perk you might be looking for. You can buy this as a credit card insurance but it has never been offered separately. There seems to be
+Index 231: you think maybe 1... or maybe 5 were just not a good fit for some reason at all. And then you start to think, if there
+Index 232: "they have a policy impact long after Roman adoption before the scripture was written by republicans. I don't know if this research is objective
+Index 233: of the best Golf Homes of Fort Lee. Golf Homes offers buyers the opportunity to enjoy one of the most prominent cities in the County of Myers, Florida
+Index 234: VPN service allows for secure data surfing. You may also enjoy accessing the VPN service on your Android phone. You can also invite and register for a
+Index 235: When PEG makes a stock look overpriced, analysts may resort to other fundamental metrics such as, for example, the growth ratio for P
+Index 236: If the book is incomplete and the characters are made up as nonfiction then one should probably consider this review as one of the biggest flaw. According to
+Index 237: Vikasmarg.com offers huge list of products and services to buy. The portal has huge classified section which makes it easy to avail of all
+Index 238: [Original version: http://www.manualmoney.com/best-to-make/shell-in-tr/Prepar
+Index 239: different, you can check-in in different ways, like in early afternoon. That's exactly what I'm talking about on Airbnb. It sometimes
+Index 240: why I'm not a hoarder of wealth. One of the many proponents of this argument is that, if higher capital taxes
+Index 241: this is a very common and normal use of the IRS SSN. The trustees of your estate can get into some trouble when they disburs
+Index 242: I think it might be a nice goal to start off with a little Oxford Review. I'm going to make contact with 100 professors and
+Index 243: US, just like modernizing the Internet because money is still lagging in Europe. When it comes to tax filing, one of the biggest issues for
+Index 244: it’s definitely going to stay along as well. I received a lot of positive feedback from him, saying that cryptocurrency in general is good over fi
+Index 245:             Google Finance gives you this information.
+Index 246: when you are shorting a stock you are trying to sell. The ask prices represent those people who want to buy the stock and therefore you need brokers
+Index 247: Your money is not yours. The withdrawal will be subject to a full tax at 10%, not a marginal penalty. I don't think
+Index 248: don't think you're going to have any idea that the top 4 seems to have as little as 2.3 million jobs between them. Mathe
+Index 249: It is logical to take on those things and maintain debt. There are two explanations for this. One is that when your choice is initially clear,
+Index 250: have a lot to give, but the answer is shariah: 5–10 cents per unit per month (as remembering
+Index 251: Many partnership agreements include a shotgun clause: one person sets a price, and you can either buy that or sell that. It's brutal
+Index 252: If you are going to put your employer's matching fund in your 401(k) account, you can afford to get enough money. If you
+Index 253: I just said it's icky that it's gross. And that's my opinion. And there is no food safety issue, not
+Index 254: NYC ban is completely different and the state wide ban is the same. Again you are not interested in the city as a whole. Again you're
+Index 255: might expect SNS to rekindle their media services niche as Snap. Snap investors should note though that device seems to be different depending on the model
+Index 256: "I think #2 entry is the wrong way. I’m tracking my journal debit and everything else in that order. For the most part,
+Index 257: you don't care why you execute your transaction and it's worth 14 cents of money if you don't try it all the time
+Index 258: safe and clean dating service, AusAlienSites provides you the opportunity to find new friends and girlfriends for single men. We are grateful to help
+Index 259: this is exactly why I would like to drive my self-driving car when we don't have to surf the internet. We will work five
+Index 260: This Short Date Diagonal Put Spread. Generally you're writing the calender and buying one out of a few. The maximum amount
+Index 261: "It seems like with a debit card, they are not lending money. It is really bad for them to get out of the game. True
+Index 262: be that when fixed rates are lower than the variable rates, it might just be an indication that the banks will look for something to move down. When down
+Index 263: Another option is a Roth 401k. It is similar to the Roth IRA in that you pay taxes in front, but withdrawals are free
+Index 264: I don't know what that fee is. I take it as an example that Comcast is charging $20. I just don't mind that I
+Index 265: keep your mind open and read every day. If you are only 16, you will have the chance to do one thing in your life like Investing on
+Index 266: futures contracts are a member of a larger class of financial assets called derivatives. Derivatives are called because they depend on payoff
+Index 267: and that would be too trivial to decipher. However, a shareholder of a very large company doesn't necessarily experience loss. Model
+Index 268: if he wants to maintain the premium for shorter periods of time, hybrid life insurance may be an option. The uncle may also purchase universal life insurance
+Index 269: no. Flash drives are more simple floppy disks that you could make in your basement. They contain magnetic code to control your launch system. If
+Index 270: / If you're a craftsman, go to Sears where nothing else is tools, and that's where the U.S
+Index 271: a couple of days ago, while I was sitting with my cousin, I was reading [Levine's article]. http://bloombergview
+Index 272: you expect interest because you forgo the risk of losing the money and you do not have the opportunity to repay it. This can be seen with using gold
+Index 273: ... Making wealth is something that we need but it is not simply something that you need to think emphatically but it is also something that is trouble
+Index 274: Put bluntly, if you do a few extra lines of code, the salesman won't notice a difference in revenue. If R
+Index 275: employees pay more for the risks? How will companies cover up the personal risks? The problem will be that if someone cannot live with the employees anymore they
+Index 276: " https://www.moneystack7137.com/exchange/moneystack7137.com/?id=7
+Index 277: pretty much the same regret when it comes to MBAs and HARvard GPAs, they usually hire top tier kids instead of
+Index 278: It can vary depending on personal circumstances. I have no kids and were short on cash. When it came time to decide if to leave tipping 25%
+Index 279: you were getting a 5-7 5% commission on a product that was gross... That's incredible. And yet, that's how high
+Index 280: well. To some extent some companies use some of their shares as loan securitisation. This would mean that the loan security for the company decreases
+Index 281: ya, the F-150 has been the top selling vehicle for 40 years. Farmers actually dump some of their leftover cash from the government each December
+Index 282: lines "(the stock isn't going anywhere soon in the universe)". This is when all these analysts get fortune cookie advice for anyone to speak
+Index 283: par telefonio24 - elektronivo mobili te irkutiijoyantse specialised
+Index 284: "There is no equation, but whatever data you have ingrained into the 401(k) fund will help you make the correct decision. If
+Index 285: my reasoning. Now it seems to me that if the shitiness of people is a constant then the solution would be to give everyone guns
+Index 286: money they paid out. It's money left in their bank accounts. What is profit if you don't know? Is st
+Index 287: don't wear a suit/attache, and/or you don't have to bring when attending big clients. Note: Past interns
+Index 288: They are one of many smaller companies pushing for more power, faster software, and 10G gear, but don't think it's wise. Don
+Index 289: I used Yelp I would be wary of getting screwed over. For example, the company reports having two 5 and 10 star reviews by
+Index 290: at Bank B they only care about the maximum limit of credit that Bank A will grant you. One way of determining this is by cancelling the other
+Index 291: You can contribute to a Roth IRA instead of a Traditional IRA. The difference is that after taxes you can withdraw the money from the Roth
+Index 292: didn't his parents hand the job to him when he was born with enough money to live up to it. Anyone who has hated the
+Index 293: You're right. The IRR is the discount rate at which the project breaks even. It could then be visualized in ROIs and ERP numbers
+Index 294: is it food? Aid? Currency? Yes. And if we're going to send them what makes them. And if we could make real
+Index 295: "Most of the things that people buy in retail today are commodity priced, but there are marts that have thinned over the years
+Index 296: life postwar massimation NIH 3. You're just quoting me. [...] I don't know. [...] I don't
+Index 297: "There are so many comments on this article about comparing Europe society to the US. But now it's for the better part of why some people
+Index 298: While looking for the best brain-building activities in LEGO bricks, there has been much anticipation among parents and educators in recent years towards these little learning opportunities
+Index 299: Yeah, what's the best solution possible for parents is for the government to pay people to raise their children at home. We're playing in Western
+Index 300: uses Punchencity.com and then I first calculate everything I do to keep my paycheck at exactly what I'm holding to my actual paycheck value.
+Index 301: We write them off as cheap knock-offs because they are no match to the superior technology of the US and her allies. And when they are
+Index 302: the belief that you wouldn't be able to hold on to your money. Treasury Bonds are often considered safe investments and there are several reasons why
+Index 303: you're going to be very happy with what you're doing now that you are investing at very low risk rates. No CDs, Prime pays
+Index 304: - do you only pay for the pages you read when you read a publication? I always thought it would be a very innovative pricing mechanism;
+Index 305: I should shop for any good advisor. See what you have to do to understand the strategies they seek. Consider considering the time it takes for an investor to
+Index 306: / Amazon's share of new book unit purchases reached 41% by dominating the huge percentage of all new print and online units. The company that
+Index 307: "if we just don't like taxes, you can't. You're so stupid and so young that you insist on going to Somalia
+Index 308: There is, however, much less regulation as measured by the federal register. In 1950 that period was significantly sized up to [[http://www.
+Index 309: would consider Bitcoin as a hybrid. Currency: Accepted as a category by businesses and vultures. Commodity: a chart
+Index 310: up to RS50,000 is exempt from gift taxes. In the US, one may be a dependent for half the expenses. If a relative
+Index 311: thinking of mixing FDs & ELSS. However, these options vary depending on whether or not they are right for me and tax savings and
+Index 312: Yes, if you are owning the stock, it is a good way to generate cash that will pay to buy it. But the downside comes
+Index 313: why should those wealthy be subpoised to rent more expensive properties? Or, someone who buys a 500k home in a high tax
+Index 314: I’d like to say that terms for credit would be better post-bankruptcy than immediately pre-filing. [http://www.
+Index 315: Consultant comments when writing about a company seemed odd as to whether the companies were business singular plural...It seems to have been a problem. As
+Index 316: Clinical infertility can only further enhance pregnancy. It also helps ensure that one doesn’t worry about how the procedure, condition, and odds calculator
+Index 317: There are many options for enhancing your ability to gain profits in binary trading. But I do not feel that you truly desire binary today. It is something
+Index 318: immigration, and the Kraemer Panama have a wide range of residency programs and visas offering full and perpetual citizenship in Panama. The Kraemer
+Index 319: use a "Qualifying" 529 plan for 2015. While there are only 236 international schools, there are also situations where you can get "
+Index 320: I'm not sure what's going on with your situation. "If your finances get so complicated that your accountant goes under, your personal failings
+Index 321: named. For example, an apartment heat pump system could rely on the water source to provide both air and water at the same time. This relieves
+Index 322: to be "bullshit": "July 2011 and July 2014 the working age population grew about 88 million people in this kind of
+Index 323: normally receive a check. Dividends are paid 'cash', meaning they have little to no impact on your portfolio, although your broker
+Index 324: This is just a CPA statement that you can and should check, but as a numerical result would seem to be a general friend of whether
+Index 325: so long as you do not "loss" your business. Passive activity can be considered to be an abbreviation for activities that are actively
+Index 326: One should look into an inventory service that comes in and counts your bottles and kegs once a month. This keeps the bartenders
+Index 327: issue here is that Sears is taking money from the pension. Just as pension is underfunded and not asking to make any additional payments, Sear
+Index 328: I think the only way to have an idea of what's going on seems to be to snuffle half false propaganda lies and gran
+Index 329: "if you have significant value, these hard assets should be insured and you have them appraised as part of the art work, adding that this process would
+Index 330: Gregory "G.R." Page Gregory "G.R." Page (born 1952) is an American businessman, serving as executive chairman of Carg
+Index 331: all these empty middle states like Florida. Half go to blue land while the majority went to red. Vote so many Democrats at the bottom of the
+Index 332: itself, but Italy cannot turn to money printing so will not make a decision to the European Central Bank (ECB). The ECB will decide
+Index 333: adding: "The fact that even when their clients claim they have a higher net worth doesn't make you any more confident about using an investment professional
+Index 334: I am writing an article, along with some friends, about how to maximize one's Social Security benefit analysis. This chart shows you at the start of
+Index 335: yes he has operated two companies doing the course and, in the early years of his career he would have had a good time teaching and consulting
+Index 336: as Hull puts it, the basic valuation on bonds depends on the chance of entities defaulting. Now, if you are observing from the US
+Index 337: and how in 2010, when I asked him what he was doing with Netflix and other traditional DVD distributors like Lovefilm, I was surprised to see that
+Index 338: how your employer can force employees to make contributions. However, they found that mandatory contributions do not count against the 402(g) limit. This $1
+Index 339: "It's certainly worth seeing these movies every now and again, even if I could get 224 movies in a month and I would
+Index 340: if someone offers a high risk low return they would surely be scammed and stupid to buy and invest in it. These high return repack
+Index 341: Grocery coupon sites I use: http://www.smartcouples.com http://www.redplum.com http://source
+Index 342: that depends on their support culture. What happens would be the quickest though, since paying company staff to give answers gets emailed to their manager pre
+Index 343: Robinhood question. They do offer premium products for some to charge but that does not change as the bid spread has become more and more apparent in the coming
+Index 344: the problem, adding that "while diehard tea-partiers want to curb the government, they've got to go for the DOD
+Index 345: noting: "No one is sure what happened. It has been speculated that Accenture and Procter & Gamble stock got ham
+Index 346: is investing in a strategy you believe you're going to have a bad business? I don't think I'm judging wrong.
+Index 347: Yahoo geeks. Yahoo is actually a successful sports media company outside of its popular "women's magazine", but it does have some attractive
+Index 348: You only own a 217-foot yacht as an investment. If you want to own a yacht, you 'lease' and rent
+Index 349: I would like to see how this would apply to the USA and Australia. Generally speaking, what determines the prices of houses/apartments both
+Index 350: high the expense of the 401(k). The details within the 401(k) would be critical to my decision to deposit. If the match
+Index 351: "you will make a profit in nominal dollars. Depending on whether you will make a profit in nominal currency (or the units of the token
+Index 352: whenever you withdraw funds from your account, paypal takes 3% or 4% of the current currency value of the funds. If you then pay any unit
+Index 353: does the Revenue Agency Canada have a guide that really lets you do what you want it to do. Available at http://www.crarc.
+Index 354: "I keep yahoo spreadsheets to verify the distribution versus shares owned. Historical data, like the number of mutual funds, will sometimes be used during
+Index 355: You consider the loan based on the financial information you have about it. When banks create additional loans at a high level of risk to your own money
+Index 356: One related question is: How can you directly invest in Uber? Given that Uber is a privately held company, the average investor would not normally buy stock
+Index 357: As stated above, walking away or raising numbers may be the best option. Your ideas are as follows: If cash is available to help you earn to live
+Index 358: Samsung created the flat screen technology like OLED. I think a lot of LCD screens come from other Samsung factories that have been rebranded. 2008
+Index 359: you think that’s how you get CFA and all the targets you’re looking for. Unfortunately, I am part of this non-intel
+Index 360: possible having a large credit balance. However, this question has changed in recent years and (as of July 2017) has become an available credit scoring
+Index 361: in a "bull market": secular investors drive higher prices as sentiment shifts towards a wider market as well as strong national and demographic events.
+Index 362: It is exactly the same situation that happened with the crash when people took on debt themselves without means to pay. Credit records are terrible, but the US follows
+Index 363: I can't even think seriously of anyone who uses LinkedIn as a definitive source to find personnel. On the other hand, some down-voting
+Index 364: Alternatively, you might go through the first step of the utilized car chase. If you are searching for an inexpensive second hand dealer that is trustworthy enough to
+Index 365: "couldn't mean taking advantage of an act when it came into being. Just like when you knowingly called it on the highway there
+Index 366: Raising money from real property has an ancient tradition which persists throughout history. Delaware, situated in the eastern region of USA today is one of the good
+Index 367: you forget "" and they are broadcasting is media. I don't want to get anything different from that. This is not a company and
+Index 368: and that's not what I'm arguing about. Someone who is making the sacrifice of making a lower percentage is going to be receiving less
+Index 369: they have credited Person B with a Million digits, and for the US government, they're intangible and haven't
+Index 370: reads: Here you see how socialism defines this part of capitalism. Don't forget that it's the actual workers controlling production and you
+Index 371: this article is gruesome. I have no problem with venture capitalists. They give you the attunement, not the tools hardware
+Index 372: the author is using the simple Dietz method, in which the time-modified net cash flow occurs halfway through the period. However, the assumption
+Index 373: There are seven options for this: Firstly, put the cash in your savings account. Secondly, use student loans to pay off your stock. Spend
+Index 374: I have tried machine learning to see what it is applied to trading, but I haven't done so yet. There are some platforms and other strategies
+Index 375: that ""Horror professionals are the enemy of everyone in the workplace. It's always a joke or a clue for an HR
+Index 376: "your affiliate site suggests that you probably did it here" and that the "code" was removed so that the "friend" will view the site,
+Index 377: The problem also goes with budgets, the budgets have spread the channels even more thinly. This is in combination with the growth in the quality of
+Index 378: definitely check if they are regulated by Finnish financial regulation. If they are regulated off-shore, check the FSA.com for more
+Index 379: As noted above, "Certainly you can roll over multiple 401(k) into a single account. The benefit of doing so is that the tracking
+Index 380: I will be unable to communicate with you below. [[10:29:34:34:34:2016|2018]] WUTCE
+Index 381: However, this lacks guidance and neglects the fact that the human body continues to fight against weight loss long after dieting has stopped. In a
+Index 382: "call paper trading because that’s how you do it. Just write down things like YZ100 and buy for $99.99 and you’ll
+Index 383: "http://www.yawatch.com/add-finance/stock-alerts-alert you will have "
+Index 384: "Yes. But since it is our duty to give aid to children when their parents make bad choices, we know that our society could solve that problem.
+Index 385: all public companies buy up their shares in order to go private? Sometimes, something like this is going on. [[https://thearticle.r
+Index 386: in a "post" that they "only read what they said...It seems to me to be "avilable to the members of Florida
+Index 387: next option is getting IB to become a fleeting career when you end up at PE/M/A/Advisory at an accounting shop. If
+Index 388: they call it competition. It's the Reddit revolution where everyone hates bookstores and games. It's the doom for electronic
+Index 389: explained: "One of the downsides is that if you put a ding on your score and close out your cards, that is loan
+Index 390: perspective. Many employers offer IRAs or tax deferred investments so you can contribute to 401(k) depending on growth options. In US
+Index 391: It depends on whether you want a career as a fund manager or analyst/trader. A fund manager may have constraints that a private investor
+Index 392: "There are books like "The Millionaire Mind" that you might be interested in when it comes to saving, living, or investing, but common sense
+Index 393: OTAs actually put out an auto update on their vehicles, without reversing their recommendation. Other consumer vehicle manufacturers have accepted the Model S report
+Index 394: yes, but the usual attraction for a vegan-based fast food diet would be to get a plant-style meal. A new term has been
+Index 395: have you come to industrial photography in Melbourne? If you’re looking for Glenn Hester Photography, the experienced and successful industrial photographer service company here,
+Index 396: You get a free defuser when you join Scentsy! This month it is announced that spring/summer kit and test will come
+Index 397: get advice from Ben Miller if he or she is available. However, it is true that if you were to negotiate this you would sue
+Index 398: "You need to be a license or register to be a "conventional" financial planner, but budgets and cash flow analysis are limited
+Index 399: et ne doute que d'entreprise en vér de la restauration équipement pour nous indiscrivonce et
+Index 400: To buy the stock the preferred stock symbol is a ticker and then a dash followed. Preferred stocks can be traded in the same way
+Index 401: It’s great to have that saving. I am waiting for a company that does match to the 401(k) Roth. Comment I’
+Index 402: We do actually have to wait for Costco to build in richer areas. (Davenport, Iowa and the Quad Cities are the biggest ones
+Index 403: even if you think that debt isn't discounted as a cash flow instrument, but if you're paying for those 5 years you
+Index 404: the 'classic' option has now been removed from the 'Publ' website and you will not be able to charge till
+Index 405: they go to the amortization table at the first site. A P = Principal Period Forula it is simple to use a monthly amount of interest
+Index 406: "Forbes is merely a content farm. It's a "poorly written Forbes doesn't do coherent argumentation."
+Index 407: Chinese suppliers can quote their price in CNY rather than USD, thus avoiding the exchange volatility risk that has persisted over US dollars. As has been
+Index 408: I do worry about who gets subsidies or who gets debt. But I think Feds get 'out' and 'baiting'. The economist
+Index 409: bribery that you'll never go on doing business with me again if you pay me.'" And being morally righteous
+Index 410: The point of co-signing for your friend is that they believe you're going to do something for them. So, if you're
+Index 411: "Well, you might forget that the conflict costed so much now that we didn't have that much money left. Maintaining that variable debt
+Index 412: were wrong. Lifetime Learning Credit is not a refund credit. Instead, it says you cannot get refundable if it reduces your tax liability
+Index 413: "Many of this has been repurposed to oversupply". However, the future of retail includes brick and mortar "showrooms"
+Index 414: lot of data. It has also been suggested that online sales would increase if you buy it back. There are also brand awareness benefits that come with delivery
+Index 415: Companies are required by the IRS to try to get everyone to contribute minimally to 401Ks. In the past there have been abuses by the
+Index 416: The answer is, "What do you want to do?" Any amount that may be acceptable from as low as $100. There is a certain tree in
+Index 417: Various networking companies use 192.1680.1 IP address to access their admin page. For solving these problems related to 192.1680.1 IP address
+Index 418: "You will be filing a form called "Sched" that's exactly the same as now. But I'm going to have that additional
+Index 419: and they didn't prove anything wrong and therefore fraud is not an easy criminal process to prosecute or go to jail time on multiple occasions. But I
+Index 420: be doing this. They were going to build a new factory some years ago in PA, but nothing came of it. It's embarrassing to Trump
+Index 421: various guides and other experts have stated that "it's probably a bit too short for one year to be any real "investment". However,
+Index 422: How do I withdraw a large sum to a money management firm? Answer this question and wire the money management account to the bank along with some other
+Index 423: wondering if one can trust Page or Zuckerberg visions. Sometimes good managers deserve to burn resources and save long-term money, but bad companies use
+Index 424: the HSA money is yours to spend for a medical tax deduction. You can't keep new money, but you will add to the account
+Index 425: So does a post-dated check provide any legal or financial protections? Does it have a valid use in a personal business? No,
+Index 426: have the original deed and have a copy of it and look it over with a lawyer, or your sister, for additional information. You
+Index 427: "Yes, I'm talking to some business like enabling local banks to make deposits and withdraw accounts. You don't need certain employees to be
+Index 428: did he have a plan? check bro for what should you expect from nuclear terrorism to come in now and see what happens to your parents?
+Index 429: is that reward-slapping banks are "evil" and I think it's too much of an offshoot to explain how governments
+Index 430: Nobody paid the ridiculous tax rates of the time. People exploit those loopholes, and now the actual tax rates would be irrelevant. So back then there
+Index 431: "It is the share of NAV that you can take at any given moment. All these numbers are a result of the market value, math
+Index 432: in the article. The price floor for a cellular phone plan is $40 per month. However, there has been little competition in terms of product offerings
+Index 433: There is no certainty about the details of your plans beforehand, but it is a general case that you must know everything of your providers. Therefore, consider
+Index 434: point out. However, I do feel it's a duty to do what you can to do regarding misleading statements and not contradicting them for average
+Index 435: I read my comment, and I said, 'He'. And all the other melodramas I referred to you did not
+Index 436: and this isn't how it works because the world didn't know he was. You don't get recruited before you graduate, you
+Index 437: Yeah, Casual restaurants have a dining business model that is slowly becoming outdated and we're trying to excuse ourselves for that. It's our kids
+Index 438: http://www.rtfc.edu/best-can-create-an-op-ed/2016/q-context
+Index 439: how can I buy VUSA from my brokerage account, do I sell it to a different exchange? So, if one exchange is tied to both
+Index 440: "If you want to start a 529 account, it doesn't matter how big the state is. Certain fees can make one unnecessary compared
+Index 441: Negotiation is a very practical topic so I learned more about it in the real world. This book: How to Achieve Your MBA Goals
+Index 442: Contact Amex. They might have a       or the only ones who have a current list
+Index 443: planning for outdoor event, we can work with the best portable restrooms, toilets and other clean air outdoor events to make it an all success. Contact
+Index 444: "it's only going to happen now because of McDonald's. Where else did their minimum wage rise. "Longing to be more competitive
+Index 445: in Amazon and spend money in the US. The best would be to buy something you don't care about (e.g. USD service
+Index 446: Most mutual funds perform to overperform the stock market. Most mutual funds, however, perform for various reasons. The greatest number of fees can come from
+Index 447: a number of different names. Your accrued benefit is a monthly retirement benefit payable at the normal age of life. It may be at 65
+Index 448: I might do both, I'm also considering doing an additional single sided, I'm already having a 2 sided card that I had
+Index 449: If you pay off those loans as a priority you will find lots of extra money going to sell houses and make work for those things you can offer.
+Index 450: one such place where you can be and sell your photos is iStockPhoto. They tend to have good photography equipment, so they may allow
+Index 451: "a majority of employers view it as, 'You weren't good enough for a 'there were no jobs'.'" In
+Index 452: there is no evidence for this. Many people do beat the market, either because you earn or fail to achieve certain rates of return. However, there is
+Index 453: you just don't believe you're either wrong or wrong. Rather go to every website on the internet that cites mytvr
+Index 454: one might try to find an implementation of 'lovemoney.com'. https://www.yodlee.co.uk https
+Index 455: This is a very simple idea for how to keep a lot straight away until it is really me. This is a very simple idea. 
+Index 456: suffers a "fucking tantrum" when they are called by Oronomortin a poor baby rant: "You
+Index 457: there, you could avoid capital gains tax altogether. However, while capital gains are used for determining the tax rate for that situation, they do not bracket
+Index 458: well. But he also got a lot of upvote. If you know people read an article, it will be a k
+Index 459: any bank will never tell you how much it made off to their shareholders. Most of the info you get from a customer can be seen in P/
+Index 460: but that's a misinterpretation of what constitutes charity. If you're trying to validate the Christian Bible values, let's
+Index 461: "ambiguously clear that the founders "owe" the income tax on rent, whereas the corporation does not appear to be amongst those
+Index 462: investing in only one industry may be problematic as it is highly correlated and it affects all industries. If you are outside the knowledgeliness of someone
+Index 463: (where there is no significant difference in interest rates) and pay it first. So one approach is to look at both the student loan and the mortgage mathematical
+Index 464: read the news, WSJW. If that's what I'd like to do, I'd go right and focus on the financial
+Index 465: it won't do at all. Even if your kids didn't care about the wind dialing someone you'd have to ring through
+Index 466: "A key fact is that annual revenue to annual debt expenses at this time is a change dynamically from one tax model to another. If the optimal
+Index 467: as false ratings can prevent banks or other institutions from doing the same. Other new controls have been put in place, though there is currently no DFA scrutiny
+Index 468: Doctors, however, aren't over-worked unless they spend their hard time doing their residency studies and put their medications on display
+Index 469: end your search for Sydney Handyman services. With Sydney Handyman Hire we have grown to produce clients with a long-standing relationship and a trust
+Index 470: "https://www.realestates.com/index.php/mortgage-tax-deductible-canada/index.
+Index 471: kayaks for sale. Click on paddlescorve.com – another ocean kayaking shop featuring your favorite kayaks, fishing accessories, used kayak
+Index 472: It is wonderful to have our carpet cleaners in service that respond to our customers whenever they are in urgent need of cleaning and upholstery. Bermon Carpet Cleaning
+Index 473: income. This is exactly what the 2017 tax rates discussed on that page started with. So, if you currently have at least $20k worth of taxes
+Index 474: моно и омура и омура и омурара", a
+Index 475: These ten years of slave slumlords have been a blessing. Sadly I can't help but rebuild my credit my dog
+Index 476: no, just like I've seen Spain's banks going to need tens of Bn euros to be rescued. Those huge numbers
+Index 477: "There are many reasons why people just make the best decisions possible without actually seeing what they are doing (or buying) and running a 'num
+Index 478: I had been short for the euro for some time, bought into it at 62/70 and bounced back at 62/70. Another USD
+Index 479: really enjoyed my blog post recently and I hope you just start analyzing my blog and discovering what makes it all so good. ingar ja bra
+Index 480: like to have interviews with regional buyers and their managers at major stores. That’s the only way I ever got to source paper: Mackey was pretty
+Index 481: Yes, this extra income would be taxed at the marginal rate because it is increasing your total income. Capital gains are subjected to the same
+Index 482: "" instead of just using "" (as in "Now we'll go forward from here on"). "Will you use touch base
+Index 483: It's safe to say that for mature companies that are growing over time, a steady multiple of earnings can come into play and profits are not identical
+Index 484: My fund give you one free option to switch from one of the many super strategies. However, there have been suggestions that higher growth balances should be 15
+Index 485: Being a lawyer in London comes with a higher level of prominence and responsibility in its various fields. This distinction makes the city a perfect verit
+Index 486: "These are a lot of reasons for these virtual meetings. The best people are simply too busy and proactive, but they are all in fire fighting mode
+Index 487: what is essential when you are selling is that it will provide transparency to that company. In this case, you will add additional liquidity price. Liquid
+Index 488: When I ran with a boat, I was adamant that if things go well then I'll get the car first. I'
+Index 489: If the IRA is going to cost you $100 a year, you can probably transfer it to a cheaper provider instead of withdrawing it. If
+Index 490: I can't help but believe the US has lower quality healthcare than the highest healthcare the 3rd world has ever given me. People seem to try
+Index 491: mechanical body parts are about the same as in many other cars. It doesn't have to be available for many years, but once I've owned
+Index 492: it depends on whether or not it is going against an asset or a liability, but what type of accounting you are performing. An "Investopedia
+Index 493: accounting services offer Actuit to help you carry out all your key business activities without neglecting those critical areas. These online services will ensure you do not
+Index 494: if you're going for a math or science TA you don't disagree. Its research and graduate salaries are basically identical after GA
+Index 495: I tried Aldi one day and hated its Aldi-owned brands. Very little meat selection is the same as Kroger's.
+Index 496: As to whether it goes through the credit card network, this would be essentially the same thing as if the purchases had been returned on a banking
+Index 497: don't know if you can get away with that. Unfortunately, I'm home 12 hours every day, but I'm not sure we
+Index 498: "Citation: Who was blamed as anti-science propaganda? You're dressed as liberal president." The fact has been quoted by "
+Index 499: The principal of the loan is the amount you borrow. Therefore, capitalized interest is added to the loan when it does not begin to be paid. This
+
+Contents of decoded_labels:
+Index 0: Such inequalities only exist for very short periods of time, precisely because people make money exploiting them. Read up on arbitrage.
+Index 1: "So you're basically saying that average market fluctuations have an affect on individual stocks, because individual stocks are often priced in relation to the growth of the market as a whole? Also, what kinds of investments
+Index 2: "I used to work for one of the three ratings agencies. Awhile ago. First: There are lots of different ratings. The bulk of ratings are for corporate debt and public finance. So senior d
+Index 3: If you are looking to open an NRE Account, the banks have now made the process very simple and quick.Here, we will have a detailed look at what NRE Account is and how to open
+Index 4: "For most banks this is not the case. Transfers within the bank are usually instantaneous. It is not uncommon for banks to draw out the length of transactions because while the money is ""transferring
+Index 5: Do you also want to start charging companies and people for using computers? Excel? What about any machines? Surely trains took jobs away as they can carry a ton of cargo. Point is, taxing
+Index 6: "To answer the first part of your question: yes, I've done that! I did even a bit more. I once had a job that I wasn't sure I'd keep and
+Index 7: Just to offer another alternative, consider Certificates of Deposit (CDs) at an FDIC insured bank or credit union for small or short-term investments. If you don't need access to the money,
+Index 8: It probably doesn't matter since your credit and your checking are at the same institution, but I don't like to let my credit auto draft my checking. I always do it the other way around (and
+Index 9: &gt; The CEO of Canada’s largest grocery and drugstore chain has warned his shareholders that minimum wage hikes across Ontario and Alberta will cost his company an additional $190 million in expenses next year
+Index 10: "We had an Aussie who works in Singapore in our office telling us that he couldn't believe how many acronyms Singaporeans have, and GFC was one of them. He said ""they
+Index 11: As I understand it, US federal gift tax doesn't kick in at all until one person gives more than about $14,000 in a single year. (So a couple can give someone $28,000.)
+Index 12: "&gt; I have a bachelor's degree in management, but for the most part, we skimmed through several finance-related subjects like investments, project analysis. I wish I could flag
+Index 13: Yes, the borrower is responsible for paying back the full amount of the loan. Foreclosure gives the bank possession of the property, which they can (and do) sell. Any shortfall is still
+Index 14: "Right. The definition of ""made with 100% chicken"" changes depending on whether that particular company sources soy protein and chicken separately and mixes them, vs purchasing it already mixed. The consumer
+Index 15: There is no answer to Global warming, unless you would like to quadruple energy prices, abolish air travel and international shipping. Obama's EPA estimates 700 trillion dollars to lower earth's temp
+Index 16: I have credit card debt of about $5000 That's the answer right there. You told us the 401(b) has no match. The next highest priority would be credit card debt that's cost
+Index 17: "&gt;the attorneys behind the case plan to ask for ""an award of up to $16,500,000 in attorneys' fees and expenses. Fucking lawyers. They get crazy fees and we get
+Index 18: Yeah, I instinctively knew that the Middle East probably wouldn't be it, even without knowing jack about finance. So, Europe-wise, we're looking at Frankfurt and London, then? As
+Index 19: "&gt; If an individual wants insurance My argument is that this is the wrong way of looking at the issue. It isn't a question of wanting insurance. Instead, the question should be
+Index 20: More likely employees that were either never trained, trained improperly, or just don't give a fuck. I'm sure there was plenty of Target employees raking in free money but it
+Index 21: Most US banks don't allow you the ability to draft a foreign currency check from USD. Though, I know Canadian banks are more workable. For instance, TD allows you to do this from 
+Index 22: Nowhere does that say PV uses rare earths. It says some thin film cells use tellurium, but that's not a rare earth element. The only substantial use of an uncommon element in silicon
+Index 23: In the US, I would say the risk is exactly the same. If your accounts are withing the FDIC amount (currently $250,000) your balance is 100% covered in case of a failure. You
+Index 24: 20% is almost certainly too high. I agree with 2%, as a very rough rule. It will vary significantly depending on the industry. I generally calculate an average of the previous 2-3 years working capital, and
+Index 25: Nonsense. In places where people have most kids, it doesn't matter how expensive baby care products are because most babies are born where they aren't used nearly as much, or at all.
+Index 26: "Some pros and cons to renting vs buying: Some advantages of buying: When you rent, the money you pay is gone. When you buy, assuming you don't have the cash to buy
+Index 27: "I'm from north jersey and not much of a gambler, so I'm def not their normal customer. But I'm young(ish) and have some extra cash - they
+Index 28: But Uncle Sam isn't just borrowing money from other people/countires. He's borrowing money from himself..... with printed money. The ostensible purpose of QE, Operation
+Index 29: Either way the govt is going to get to a breaking point and it's going to be shitty and miserable until they get there (and obviously when they get there it will get worse before
+Index 30: Cool, I think if you can do that you can make anything a habit. As much as I believe in meditation I probably only mange about ten months out of twelve. I've also taken
+Index 31: Why do people buy them when they would be cheap to make for themselves? Convenience. While you could easily find some pictures and lay them out with a sentiment, buy some card stock, print in colour
+Index 32: Of fucking course you do. It's a model. Your trying to develop an equation that represents the distribution of data for a stochastic process. I have a random source,
+Index 33: Here are the SEC requirements: The federal securities laws define the term accredited investor in Rule 501 of Regulation D as: a bank, insurance company, registered investment company, business development company, or small business
+Index 34: "MBS is a fairly general term ""Mortgage Backed Securities"" which simply means that the bond is collateralized with mortgages. Pass throughs are a type of M
+Index 35: US government bonds are where money goes when the markets are turbulent and investors are fleeing from risk, and that applies even if the risk is a downgrade of the US credit rating, because there'
+Index 36: That is your bill because the services were performed for you. You still can negotiate with the doctor however. Suggest that while you aren't willing to pay the full share, you will pay the 
+Index 37: Disputing the remark seems unlikely to move your score, since it is just that -- a remark. It's hard to say whether the scoring models can/do read the remarks
+Index 38: Apologies, I agree with Iamchrisbrown209, girlfriend-beating fuckmunch that he may be. Walmart does not tolerate strikes because the majority of Walmart
+Index 39: If you sell your shares for more than their value at the time you received them (i.e. you make a profit) then you will be liable for capital gains tax - but only if
+Index 40: "From the Cato Institute: &gt; Article 1, Section 8 of the Constitution says that Congress shall have the power ""to establish Post Offices and post Roads."" Thus, the Constitution
+Index 41: If you are tired of acting as the bank after selling your Real Estate and owner-financing the loan with a promissory note, we can offer a sound and painless exit strategy
+Index 42: It could be that the contracts were bought at cheaper prices such as $.01 earlier in the day. What you see there with the bid and ask is the CURRENT bid and CURRENT ask
+Index 43: "Only relevant to those with fantasy economy teams. Seriously, Rand's fictional works never translate well into reality because, no matter how hard people try, that ""fiction"" element just can't
+Index 44: Typically tax treaties will cover double taxation (taxes paid in one jurisdiction are deducted in the other jurisdiction so there is no double tax). You'll need an accountant and attorney with experience in
+Index 45: I think you are thinking too hard about this. If a billionaire's assets increase 70% in the stock market, he created $700M in new wealth. If 300 people each create a million
+Index 46: A system for monitoring, processing and storing operating parameters of a boiler room. A sonar gauge for measuring the level of liquid fuel in a storage tank, thermocouples to measure temperatures at varous
+Index 47: The most important thing, IMO is to love the business itself. Love what you are doing. Some people in a family business have aptitudes/attitudes better suited for somewhere else, they are
+Index 48: "1. So who created the income noted in the photo to give to ""you""? 2. Cut it any way you want but this is top down control that decides how much and who get goods and
+Index 49: "I'm not aware that any US bank has any way to access your credit rating in France (especially as you basically don't have one!). In the US, banks are not the only way to
+Index 50: "I'm impressed. She must have a substantial income to agree to a $500/month car payment. I imagine her income is about 20K per month for that to make sense. What kind of
+Index 51: Will there be a scenario in which I want to sell, but nobody wants to buy from me and I'm stuck at the brokerage website? Similarly, if nobody wants to sell their stocks, I
+Index 52: Credit card fraud protection (by law), credit card cash back programs (provided by most CC issuers), and debit card fees (commonly imposed by the merchant). The crux is that
+Index 53: If the check is written as a check to BigCo, it is less clear how Jack can compensate himself for the equity sale. It is as if the equity was owned by the corporation, not by Jack
+Index 54: If you know the amounts that were combined ($5,000 and $7,500 in your example) -- NOT the original loan amounts necessarily -- then you can calculate a payment schedule (in Excel, Google Sheets, online
+Index 55: "There's nothing you can do. If he has indeed deposited the check, it would appear on your account fairly quickly - I've never seen it taking more than 2-3 business days. However
+Index 56: Well, the problem with putting a group of people in charge of something so substantial is that man is corruptible. The individuals in charge will change over time and eventually corrupt people will be in charge. It
+Index 57: "Based on the conversations in the comments, I believe a pragmatic solution would be the best immediate course of action, while still working on the long term addiction issues. The first step is to get your husband to
+Index 58: When brought for your every day habitual, vitamin C offers quite a number blessings, from nighttime out your skin tone, shielding skin from the visible influences of pollutants, substantially improving hydration,
+Index 59: They did. This was a tech company. Turnover's high especially for strong employees. Management expects this so that doesn't really change their approach. One of the layoffs was open ended
+Index 60: No. An employer is legally obliged to deduct taxes from your pay cheque and send them to the IRS. The only way round that is to either provide evidence of deductions that would reduce your tax bill to
+Index 61: "&gt; You do realize that investors are protected from being sued right? Not usually, no. If the investor is a partner in the company then they're just as responsible for the debts
+Index 62: "I don't understand the worker mentality of accepting to be part of pension plans. The downside risk to you is ridiculously high -- you're basically making an investment that the next 30 years of corporate
+Index 63: "I am not aware of any place that the tax forms ask, ""How many people live in your house?"" They ask how many dependants you have, and not everyone who lives in your house
+Index 64: I love when my professors would shit on greedy bankers during the housing market crash. One time, I made analogy of greedy banks to greedy education and the next bubble to pop which
+Index 65: Inspectors, permits, poor planning, and a lack of incentives/consequences. If inspectors are needed for so much bs, local government needs to hire more of them. Per
+Index 66: Physical addiction also exists, which exists for pot. I'm sure some car accidents and other accidents have happened, so the drug may not kill you, but the effects can when used in high amounts. &
+Index 67: "What you are describing is a very specific case of the more general principle of how dividend payments work. Broadly speaking, if you own common shares in a corporation, you are a part
+Index 68: There are quite a few reasons that a company may choose to pay dividends rather than hold cash [increasing the share value]. Of couse there are equally other set of reasons why 
+Index 69: For this scheme to work, you would require an investment with no chance of a loss. Money market accounts and short-term t-bills are about your only options. The other thing is that
+Index 70: Manufacturer of Quartz Grit in India http://quartzpowdermanufacturers.com/supplier-of-quartz-grit-in-india.php Supplier of Quartz Gr
+Index 71: I researched quite a bit around this topic, and it seems that this is indeed false. Long ter asset growth does not converge to the compound interest rate of expected return. While it is true that standard
+Index 72: "I don't have a crystal ball but chances are your tenant is definitely lying. Rent was late and now the money intended to cover the rent; miraculously is lost in the mailbox. Anyhow,
+Index 73: "Not necessarily. The abbreviation ""ESOP"" is ambiguous. There are at least 8 variations I know of: You'll find references on Google to each of those, some
+Index 74: Retail brokers and are generally not members of exchanges and would generally not be members of exchanges unless they are directly routing orders to those exchanges. Most retail brokers charging $7 are considered discount brokers and such brokers
+Index 75: I'm saying children have no self-control in the things they demand. Parents typically buy their kids toys so they can have fun and keep themselves busy and most parents see it as time they earn for themselves so
+Index 76: "The first thing I'd do is to find out your credit (FICO) score. If you have a good one, try to get another card with a lower rate. Then call up
+Index 77: "Welcome to Money.SE, and thank you for your service. In general, buying a house is wise if (a) the overall cost of ownership is less than the ongoing cost to
+Index 78: I love how our society has spent the last few decades removing risk from everything. It starts by not allowing kids to play during recess, everyone is a winner! Now we have a lot
+Index 79: "Yes, your tax bracket is 25%. However, that doesn't mean that your take home pay will be 75% of your salary. There is much more that goes into figuring out what your take home
+Index 80: I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they'
+Index 81: Thank you! I've worked for two big companies that made the change and I now cringe when asked to use PowerPoint, Outlook or Excel. The level of collaboration with Gsuite is unparalleled. Plus
+Index 82: From WePay (GoFundMe's payment processor) support. I received only gifts and donations. Will I receive a Form 1099-K? As of 2015, the IRS has clarified
+Index 83: Good god it's that expensive for CapIQ? Its pretty lame, I have to use it at work (large val shop), but its hit and miss. Have you tried Compustat or
+Index 84: "I think you should evaluate the value of these so-called ""penny auction"" websites very carefully. Going to a random site, madbid .com, (which is British with
+Index 85: When a company IPOs the underwriters sell a given percentage on IPO day and shortly thereafter. Whatever is sold on IPO day trades freely. Insiders, employees and investors who
+Index 86: When I had a high-deductible healthcare plan, I used http://www.ehealthinsurance.com/ to do comparisons among the plans. As far as comparing the costs of specific procedures across providers
+Index 87: "The implication is market irrationality is stronger than market rationality. Aka nothing makes sense when TSLA climbs to $400 or when CMG rises to $750. I wouldn
+Index 88: "&gt; ""The thing that is working to Foxconn's advantage here is that there were several states competing for this"", thats exactly it. This is the problem. It'
+Index 89: I have loved using AirBnB. I have found it easier to hire a maid to clean and it has been extremely financially advantageous for me. Be sure to check out out regulations in your area regarding
+Index 90: "This is the best tl;dr I could make, [original](http://www.nber.org/papers/w23371) reduced by 72%. (I'
+Index 91: &gt; Operating in a country that allows you to make profit, in my opinion, establishes a duty to pay one's fair share of taxes. Paying legislators to make
+Index 92: [Chevy Bolt](http://www.chevrolet.com/bolt-ev-electric-vehicle) 238 miles range. You can buy it 
+Index 93: Well, I'm sorry that you're so thin-skinned. Here's a simple logical relation that I think absolutely holds true: hard work is neither necessary nor sufficient for success
+Index 94: "They aren't choosing winners and losers, if you want to use the game analogy then they are disqualifying assholes who flount an attitude of ""fuck
+Index 95: I know exactly what you are talking about. You may like
+Index 96: "Warren Buffet isn't using any special sauce. He looks for value and ignores hype, greed, and fear. He buys what he knows and looks for companies that generate cash and/
+Index 97: Name one nation state that has survived more than 20 minutes without taxation. People won't pay if they don't have to, things don't get built if people don't pay.
+Index 98: "From what I've heard in the past, debt can be differentiated between secured debt and unsecured debt. Secured debt is a debt for which something stands good such as a mortgage on your
+Index 99: Thanks to the online world, check ordering is much easier and less expensive.On our CheckOrdering.net website, we will show you the most effective way to check ordering. You’ll be able
+Index 100: We know picking a mattress can overwhelm – particularly since it's presumably been a while since your last outing to the mattress store. We're here to help comprehend it all and give you
+Index 101: Are you fucking stupid or just retarded? There isn't another country in the world remotely with the size of economy we have or that are starting wars like we are. Do you
+Index 102: I can only speak to natural gas but I imagine the answer for electricity is the same. In general, yes, it is better to lock into a fixed price contract as in the long run, natural gas prices
+Index 103: It becomes a different game when you allow penny and ultra cheap stocks. People make much less plays, because the price of the stock doesn't change hardly ever, and when it does change you can end
+Index 104: The only way I can think of to do this would be to take a cash advance against the card, then buy the wire transfer with that cash. Of course cash advances typically start accumulating interest immediately,
+Index 105: &gt; monopoly &gt; names 3 giant companies who compete with each other in almost every industry possible What happened to /economy :(. It used to be
+Index 106: You seem to think that stock exchanges are much more than they actually are. But it's right there in the name: stock exchange. It's a place where people exchange (i.e.
+Index 107: I wish that /r/economy had Submission Statement requirements like /r/TrueReddit so that when someone posts an antagonistic title like this would be forced to at least state
+Index 108: Inflation is bad for people with lots of cash assets. It's good for debtors, particularly debtors with unsecured debt.
+Index 109: That's what I have been trying to do. I do every practice test after each chapter and if I do great then on tot he next. If not, back to reading it again. What
+Index 110: And if it costed 50% more they wouldn't either. I bet you a majority of these people just want to save money on gas. I even thought about it, but its too ugly
+Index 111: They'll largely be fine. They're to the point where it's all about business plans and securing financing. Determining long term risk for these types of firms are the main hold
+Index 112: "I presumed he wanted 13 years of data at market close. Of course the more frequently he wants the data and the more attributes he wants the larger the file will be. I'm all
+Index 113: "I could keep a couple of cows fed for weeks with all that straw. But seriously, we could come up with hypotheticals all day about why we should do nothing. ""I've got
+Index 114: This is a good reminder for investors to be skeptical of M&amp;A with respect to shareholder value creation. &gt; S&amp;P Global Market Intelligence Quantamental Research
+Index 115: If glass steagall had minimal impact on bank behaviour, that means the great recession was unavoidable. What sort of legislation would it take to ensure shitfests like this *will*
+Index 116: Okay bad decisions, time to move on: Then move on with your life and don't fall for this kind of thing again. In the end you can probably end this with a net profit, or
+Index 117: In the US you can walk into some retail stores and use your paypal to pay directly. Some of them sell prepaid debit card. By one and use it to pay your bill. If you're not
+Index 118: Yes, as long as you own the shares before the ex-dividend date you will get the dividends. Depending on your instructions to your broker, you can receive cash dividends or you can have
+Index 119: This depends in part on where you are. Sometimes signing over the title is all it takes to transfer ownership, sometimes more is involved. Contact your local department of motor vehicles (or equivalent) and ask them about how
+Index 120: "Yes it's entirely possible; see below. If you can't find anything on transfers out (partial or otherwise) on anyone's site it's because they don't want to give
+Index 121: "Yeah, so where are the scholarly articles? I don't see any being referenced in the article. Seems to me like it's just his opinion. Explains why
+Index 122: "What is the best way that I can invest money so that I can always get returns? Would it be to set up an FD in a bank, to buy land, to buy a rental house
+Index 123: While that's more true, I find as a person you're going to be much more happy and successful if you find a way to work without allowing another to be the block over you
+Index 124: TK didnt lose investor tens of billions of dollars. Also, for the past several years the whole market rewards growth over earnings, so that helped guys like Musk and Kalanick quite a
+Index 125: Bitcoin is backed by math and the ability to exist in a trustless state. That has value. I don't need to care about double spends, or worry about Quantative Easing
+Index 126: It's funny, I was complaining about this very same phenomenon in a different thread maybe a week ago. It seems like the RA is the only way to go if you have any sort of
+Index 127: &gt; Businesses aren't a charity - they pay for work and exist for profit. They aren't supposed to have feelings. So austerity and getting the most out
+Index 128: If you can pay it then there's no need to involve a credit counselor. After all, their main role when you use them is to negotiate payments with creditors so you can pay off your debts.
+Index 129: 8 hard inquiries spread over two years is not a negative factor, with a score of 750. Real question #1: How much of your credit limits are you currently using? Less than 30% of your
+Index 130: "People should borrow and spend less, and save more. Is this truly correct? Isn't the fundamental problem high supply and no demand? Shouldn't it be ""borrow less
+Index 131: "Ya it definitely helps, however it's not a must. Being a good leader is more about getting the right team together than being a visionary in technology or something of that sort.
+Index 132: "&gt;Interest rate swaps are now over 80 percent of the massive derivatives market, and JPMorgan holds about $57.5 trillion of them. Without the protective JPMorgan swaps,
+Index 133: The Hong Kong Dollar is based on the US dollar. The Hong Kong central bank recognizes the US dollar as its reserve currency. That is, the Hong Kong central bank keeps US dollars as its main reserve.
+Index 134: "This is the best tl;dr I could make, [original](https://www.theguardian.com/business/2017/aug/27/should-the-
+Index 135: "If you don't want to take any risk and you want your money to be liquid, then the best place to ""invest"" such money is in an insured bank deposit, such as a
+Index 136: Left out, of course, is the fact that this is Argentina's eighth default, because its policymakers are complete nincompoops, and the fact that, instead of not paying anybody by comply
+Index 137: *Follow the rules. You’ve learned and passed driving exam by knowing and following the rules so just keep on doing and practicing it for a safe tour. *Don’t drive as 
+Index 138: You're mistaking random chance with luck. I did absolutely everything I could think of to maximize my chances and I deserve the credit for it. There may have been some element of random chance, but I'
+Index 139: I suspect this is done at least in part in response to [this review by Edmunds](http://www.edmunds.com/tesla/model-s/2013/long-
+Index 140: "But WhatsApp started up after FB and Google owned chat. They just saw an untapped market in crappy hand held devices and went after it. I suspect their plan all along was for acquisition and they
+Index 141: The bigger question in the US is perhaps why the cost per kWh is twice as high in New York as it is in Washington state. It may have quite a bit to do with taxes and regulation compliance and
+Index 142: Well, as far as anecdotal evidence goes, my SO is working on a undergraduate finance degree at U of T, and has been hired at the Canadian office of a large American bank
+Index 143: Your analysis is not comparing apples to apples which is why it looks like investing money in a non-qualified account is better than a 401k (traditional or Roth). For the non-qual you
+Index 144: A few thoughts off the top of my head: Advantages of more than 20% down: Disadvantages of more than 20% down:
+Index 145: Yes When exercising a stock option you will be buying the stock at the strike price so you will be putting up your money, if you lose that money you can declare it as a loss like any
+Index 146: "It's not usually apparent to the average consumer, but there's actually two stages to collecting a payment, and two ways to undo it. The particular combination that occurs may lead to long
+Index 147: "Sovereign immunity is the state's ultimate ""get out of bankruptcy free"" card. After all, the state has a hand in defining what bankruptcy even is in their state.
+Index 148: I'm in both markets and there are a lot of factors. Distribution costs in NY are ridiculously high. Different states have different generation mixes, access to fuel, different regulatory costs, different taxes, different
+Index 149: I am not a lawyer, but the big thing to consider would be how you would split the money should either of you decide you want to close the account (or, at least her/his portion of the
+Index 150: "the truth from the 'horse mouth"" - and no he's NOT alt-right, as he's painted by political interests from all sides.... Well, updates
+Index 151: Essentially, what you're describing is a leveraged investment. As others noted, the question is how confident you can be that (a) the returns on the investment will exceed what you're
+Index 152: "You're acting like my comments are inconsistent. They're not. I think bitcoin's price is primarily due to Chinese money being moved outside of China. I don't think you can point
+Index 153: "For ""smaller trades"", I'm not sure you can beat FXCM.com, a large, dedicated FX trading shop with extremely tight spreads, and a "
+Index 154: If they really believed in their product, the juice, they should have just reorganized their structure to idk repackage it slightly. So then we can buy the squeezable
+Index 155: Beside standard Swift (which may be registered and checked for money laundering) there are the money transfer companies (Western Union) and the electronic currencies like bitcoin. Besides that is buying something very expensive (gold
+Index 156: If she lives by herself, my guess would be that she qualifies as a household of one. Either way, her monthly income is below the threshold, so she should be eligible. Per the linked
+Index 157: Your point is that 20k is very common as bonus *at what level*? With 6 or more years experience at Accenture it's also a common bonus, just not at entry-level
+Index 158: "&gt;Yeah but they don't go to work high. Exactly. &gt;The millennial smokers I see often smoke a few times a day
+Index 159: Amazon is already experimenting with a private label called Wickedly Prime. It's not that great. Expecting that to disappear if the WFM deal goes through. I'm still waiting
+Index 160: The top feature of these stacking windows and doors is that you can make considerable savings with their help because their design and make creates a kind of airtight construction that reduces the flow of outgoing
+Index 161: &gt;Sprint's network can support at least 2x their current subscriber base before exhibiting any kind of slowdown. Good thing, because if if their current data speeds were
+Index 162: The trick is that any payment you send over the minimum required will be applied to the check balance first, not your main purchases. I guess if you don't use that card for anything else at all it
+Index 163: In order to do this, you would need to purchase an Amazon gift card from another online vendor that accepts PayPal and then use the Amazon gift card on the Amazon site. There are dozens (if not hundreds
+Index 164: Before you even enroll in a good financial school, register for an account with a bank that allows you to manage a stock portfolio. I prefer TD Ameritrade. You do have to be
+Index 165: I'm not so sure I buy this article, but for anyone who doesn't know, Rajan wrote a great book called Fault Lines that linked entrenching class disparity in the U
+Index 166: "Economic hardship is just as misleading as ""economic slavery"". If you are working two jobs and can't afford rent... How can you better yourself? Sure, if you are exceptionally intelligent
+Index 167: That's the tragedy. No one in industry checks what coursework you took they just assume that the BS is more quantitative and impressive. There is certainly enough variation amongst programs such that some BAs have
+Index 168: "While I agree that highly processed foods, including plant based meat substitutes, are probably not the best things we could be eating, damning them with scare words like ""chemicals"" is
+Index 169: I wouldn't say that this is specific to student loans. I think nowadays debt is just becoming a bigger and bigger thing. Partially due to the increasing wage gap, as the standard of life moves
+Index 170: Android is kinda behind as well honestly. If you really want to be up-to-date with your phone, rooting and installing third-party utility and apps is the way to do it. But yeah
+Index 171: "(relix already hit on some of this) It's hard to explain this to a five-year-old, because there are some fairly abstract concepts involved, but here goes... All actual "
+Index 172: If you just make a capital contribution to the company it is not a taxable event. If you're the owner, lending only makes sense if you want the company to pay you interest (if
+Index 173: "Xero and WaveAccounting can make things easy, but they also have their limitations. I've used both for short periods of time but found both of them to be lacking. While the ""
+Index 174: &gt;I appreciate the detailed responses, truthfully however I feel like at least half of your points are either just argumentative for its sake alone, display a deep lack of understanding of unions
+Index 175: I've had luck finding old stock information in the Google scanned newspaper archives. Unfortunately there does not appear to be a way to search exactly by date, but a little browsing /experimenting should get
+Index 176: Get 15% off on your first request with Adriana Fine Jewelry, Welcome to the Adriana Fine Jewelry, purchase the customized gems gathering from our online gems store, where you can look at different rich gold accessory
+Index 177: I believe this argument is most often used when considering which debts to pay back first, or when there are other options available such as investment options, building up an emergency fund, or saving for a large purchase
+Index 178: "The TWRR calculation will work even with negative values: TWRR = (1 + 0.10) x (1 + (-0.191) ) x (1 + 0.29)  (1/
+Index 179: It would only make sense to repay the HBP faster if you knew your marginal tax rate would be increasing in the future. It sounds like that is not the case. By repaying it sooner with borrowed money
+Index 180: "For a lot of small beef farmers (""hobby"" farms like ours) the price of fertilizer is already high enough that it's proving effective in maintaining or possibly 
+Index 181: But now you're suggesting that the losses made by Starbucks are all because of expenses made by expanding into the market. If that were the case, then, well, I doubt the management would think the UK branch
+Index 182: A government is there to serve the people. Under this logic, a government is doing a disservice to its people by allowing a corportation to have a signicantly lower tax
+Index 183: Before everyone says he should just stay home, think of a one car household, much more likely in a rising market. Be trapped at home all night, or do one or two things you don'
+Index 184: This person could buy another car at any moment without any money problems, so I don't really see any point in insuring, especially with such a ridiculously high price compared to the extremely low
+Index 185: Best job you could get was working for the government. Pension isn't as good now, but they still have one. And your healthcare is covered. Sacrifice some money while working to pay into
+Index 186: "During Graham's career, gold and currency were the same thing because of the gold standard. Graham did not advise investing in currencies, only in bonds and stocks, the latter only for intelligent speculation. Graham died
+Index 187: "So I guess Morgan &amp; Stanley was talking out of its ass when it was like all ""Buy Buy Buy"" So I guess Morgan &amp; Stanley must have quite 
+Index 188: I don't understand your question. What the article is talking about is a bit more than circulating money indiscriminately. It is saying that by circulating more of it to rich and
+Index 189: "It has semantic value (because we culturally believe gold is valuable). There is a very important point here. Gold and many other coin metals. This ""semantic value""
+Index 190: &gt; hat being said, I don't believe that a group of countries where several still have their royal and noble classes They're figureheads, period. &gt
+Index 191: If you are looking for stunning outdoor clocks, master clocks showing accurate time schedules and bell system needed to play buzzer sounds, alarm,etc. then find the same at Admoveo Solutions.
+Index 192: I mentioned in other posts that it's not unreasonable that prices might rise slightly. Demand would go up and some labor costs would as well. To your point, I can say that prices would not go up 1:1
+Index 193: "In the strictest sense of the words, Freehold and leasehold mean what you think they do. Freehold is that you own it outright and leasehold is a rental situation. That being said
+Index 194: Many a time even if the tax is deducted and paid by the company it does not reflect as a credit against your PAN for various reasons like, you not submitting it to your employer in
+Index 195: "I expect the company wanted to pay you for a product (on a purchase order) rather than as a contract laborer. Whatever. Would they be willing to re-issue the check to
+Index 196: Set up budget categories. Earmark your income as it is paid, for your budget categories. Pay your bills and expenses. For debts, pay the minimum on everything. There will be an amount left once
+Index 197: "Insurance companies on average make money by selling insurance, which means you lose money on average by dealing with them. The insurance is not gambling where the house always wins. This expression is literal in gambling,
+Index 198: "There's an elephant in the room that no one is addressing: Suckers. Usually when there's a bubble, many people are fully aware that its a bubble. ""
+Index 199: First, you are reading that document correctly, but it's not 78% of original mortgage. It is actually 78% of original home value. For example, if the home was valued at $100K when
+Index 200: I dont think the author really understands why or how credit bureaus work, why they exist, and therefore where the blame exists for incorrect data. No credit bureau wants incorrect data, for obvious reasons, but it
+Index 201: I suppose that is true. If we take me anecdotally, i turn down down boring work. If I have some decent problems to solve, I perform. Payment isn't
+Index 202: This is a common occurrence when somebody has multiple jobs in one year. The employer can't know if you have reached the annual limit. They know to stop when you have hit the maximum for their
+Index 203: Depending on what state you live in in the United States, your Canadian brokerage may be able to sell products within the existing RRSP. I have an RRSP in Canada through TD Waterhouse
+Index 204: You can never use a health FSA for individual health insurance premiums. Moreover, FSA plan sponsors can limit what they are will to reimburse. While you can't use a health FSA
+Index 205: "He's pretty much correct now though. You either have to pick one of the few fields that will guarantee high pay in the future, or work a trade instead. Any ""lesser""
+Index 206: Are the schools going to count all my retirement I've saved over the last 20 years as assets and calculate my EFC on 5.x% of that?! Yes.
+Index 207: I wouldn't be either but here's to hoping. I think a part of me just really wants that not to be true so I don't have to uninstall all my easy/chea
+Index 208: Couple of ways they save money which doesn't seem significant but actually makes a big difference * debit and cash only * shoppers get and put away their own carts * low shop size * private label and high
+Index 209: Yes, it is a scam. There is no doubt about it. Never give your bank password to anyone, especially strangers. You will lose your money if you fall for this.
+Index 210: "While I haven't experienced being ""grad student poor"" myself (I went to grad school at night and worked full-time), I would shoot for 10-20% per month ($150
+Index 211: I think what's screwing up my calculation is the (reL), return on equity levereged figure. The beta for KORS apparently is -0.58, so when I use the formula re
+Index 212: P/E is the number of years it would take for the company to earn its share price. You take share price divided by annual earnings per share. You can take the current reported quarterly earnings per share times 4,
+Index 213: "A warrant is similar to a call option (the right to buy stock at a certain price), with the difference that warrants are filled by the issuing company with new shares, diluting the
+Index 214: Many companies actually just issue new shares for employee compensation instead of buying back existing ones. So actually, the share price should go down because the same value is now diluted over more shares. In addition, this would
+Index 215: LOL. You think the game is fair, big man? You think its all about that one big idea, and then you're gonna be rich? Why don't you finish high school, and get
+Index 216: It seems like their main problem is not hiring - clearly they've hired some bright technical people. It just seems like the iPhone and Android came along and management refused to admit that the new platforms were going to
+Index 217: "I really don't understand. Yes, facebook overpriced their IPO. I suppose they may have to renegotiate some of their retention deals. On the other hand, they
+Index 218: I would not sell unless the stock is starting to fall in price. If you are a long term investor you can review the weekly chart on a weekly basis to determine if the stock is still up
+Index 219: Wire transfers normally run through either the Fedwire system or the Clearing House Interbank Payments System (CHIPS). The process generally works like this: You approach a bank or other financial institution and ask
+Index 220: &gt;[**ов инвест роект Cpamaxpro ! е 25 $ ! нвести
+Index 221: Why is this on r/finance lol. But of course that's a common thing. 300 a month sounds extremely cheap depending on where you are. Sounds like your friend is trying to
+Index 222: This is essentially a reimbursement of your expense. Since you can deduct the expense, the fact that the reimbursement is taxable doesn't affect you much. You deduct your home office expenses on your
+Index 223: "One of the very best case studies of the dangers of sacrificing product quality for profit, [Schlitz Brewing Company](http://en.wikipedia.org/wiki/Josep
+Index 224: First, to answer the question. The benefit of a 401k is that you don't have to pay income tax on the money contributed nor do you pay capital gains tax on the money that accumulates
+Index 225: "As long as it's optional and the drivers are paid as part of the fair I don't think a tip option is a big deal. Again, it has to be optional as 
+Index 226: This is why I have gone back to broadcast TV, because cable TV costs a lot of money for something that is no better. It doesn't seem that long ago that there were no commercials on cable
+Index 227: Yes, it's a risk. To put it in perspective, If we look at the data for S&P returns since 1871, we get a CAGR of 10.72%. But,
+Index 228: I meant the form factor - it's a tablet form factor. It's not something new, or refreshing... something that Nintendo used to be great with - the anticipation built for it's
+Index 229: All of our paper ways are safe; if they go away this society has much bigger problems than what your retirement account is worth. I more or less understand the idea of being backed by the full faith of
+Index 230: What you are looking for is travel insurance. I have never heard of this being offered as a credit card perk, but there might be something out there. You can buy this separately, but only you can
+Index 231: Hmmmm, 1 or 2, yeah, maybe they were not a good fit for one reason or another. but 5?? Really, you gotta start thinking that maybe, just maybe, there's 
+Index 232: "I mean the scripture was written and incorporated long after Roman adoption by Constantine. Just because the republicans say that is their motivation doesn't mean it is objective. Policy research, the impact of Re
+Index 233: Golf Home Guru offers the best selection of Fort Myers Golf Homes for Sale, including some of the most appealing golf homes on the market today. As one of the most wonderful cities in the County of Lee, Florida
+Index 234: VPN service allows access to secure data surfing. With many added features you can register for the service on your android phone as well. Invite and earn referal also available on the VPN service. Feel free to visit our
+Index 235: When fundamentals such as P/E make a stock look overpriced, analysts often point to other metrics. The PEG ratio, for example, can be applied to cast growth companies in a
+Index 236: If the biggest flaw in the review is that one of the characters is probably made up and the book should therefore be considered fiction instead of nonfiction, then this is an incomplete review. The author points out many
+Index 237: Vikasmarg.com offers huge list of products and services to avail as well as buy. The portal is very user-friendly and anyone can use it easily. Free classified ads section has made us the
+Index 238: "This is the best tl;dr I could make, [original](http://www.msn.com/en-us/money/companies/shell-prepar
+Index 239: I see what you mean, we are talking about different things. You are talking about early check-in. Which you can on Airbnb sometimes, usually though it's similar to hotel times in the afternoon. I
+Index 240: I got down voted for my comment. But, this is exactly what a lot proponents of higher capital taxes argue. That, if you are not a hoarder of wealth; then
+Index 241: Yes, this is common and a perfectly normal use of your ssn#. The trustees of the estate can get in a lot of trouble with the IRS if they disburse
+Index 242: Oxford Review makes a lot of sense. You're right - I should start off with a small goal. I am planning to do a reach out to about 100 professors and kind of take
+Index 243: Why is the US still working with paper checks when Europe went digital about a decade ago? Tax filing is just another area in which the US is lagging. Modernizing it costs money, and the US
+Index 244: It's definitely something to keep on top of. Who knows if he's right, in the long run. I'm 100% positive cryptocurrency in general is here to stay and will complement fiat
+Index 245: Google Finance gives you this information.
+Index 246: When you want to short a stock, you are trying to sell shares (that you are borrowing from your broker), therefore you need buyers for the shares you are selling. The ask prices represent people who are trying
+Index 247: It's not your money. What does your wife think of this? You know, the withdrawal is subject to full tax at your marginal rate as well as a 10% penalty. That's quite a
+Index 248: I think your math is off but I don't have time to work it out. It seems like the top 4 could conceivably have less than 2.2 million jobs between them. Your math appears to leave
+Index 249: Whether or not it is logical probably depends on individual circumstance. When you take on (or maintain) debt, you are choosing to do two things: The first is clear. This is what you describe very
+Index 250: @sharam - big question. I am going to answer part of it, but not as directly as you might like. You mention 4-6 cents per unit per month, but fail to give 
+Index 251: Many partnership agreements include a shotgun clause: one person sets a price, the other can either buy at that price or sell at it. It's rather brutal. You can make offers that you know
+Index 252: If you can afford to put money in your 401(k) account, I would say at least you should invest enough to get your employer's matching fund. It's free money, why not get
+Index 253: I already said there's no food safety concern. The issue is it's gross. So yes, as I said, it is just my opinion that I think it's icky. That'
+Index 254: NYC ban is not the same as the state wide ban. Sorry you can't comprehend the difference between a state and a city. Also, you might find this interesting as once again your completely and 
+Index 255: Minor blip for Snap but their investors should take note that SNS services different than devices. Snap might find a niche device to supplement their media model but careful before betting to much on it. Snap probably
+Index 256: "I think you're on the right track. Your #2 journal entry is incorrect. It should be (I usually put the debit entry on top, but I followed your formatting) I'm assuming your
+Index 257: It's not worth the effort - executing a transaction costs time and money,and if you get only back your 14 cent, why'd you care? Same reason why some people don'
+Index 258: AuDatingSites provides safe and clean dating and friendship service for the Austraila's single men and women. Finding a new girlfriend is your own challenge, We want to help you and back
+Index 259: This is the exact reason why I think we will have self driving cars really soon. I would love to just surf the internet on my way to work and not have to drive. Of course I only work 6 blocks
+Index 260: This is a Short Diagonal Calender Put Spread Generally, you're writing that long dated one at the money, and buying the short dated one out of the money. The maximum amount
+Index 261: "As i see it, with a debit card, they are taken kinda out of the game. They are not lending money, it seems really bad for them. Not exactly. It is true
+Index 262: Usually that is the case that when fixed rates are lower than the variable rates, it is an indication that the banks feel the next movement in rates could be down. You also need to look at the fixed rates
+Index 263: Another option if it is available is a Roth 401k. It is similar to a Roth IRA in that you pay taxes up front, but the withdrawals are tax free.
+Index 264: I don't know what the fee is, I just made up $5 as an example. It doesn't surprise me at all that Comcast is charging $20. I don't really mind that I don
+Index 265: Since you are only 16, you still have time to mature what you will do with your life, always keep your mind opend. If you are really passionated about investement : read 1 book every week about
+Index 266: Futures contracts are a member of a larger class of financial assets called derivatives. Derivatives are called such because their payoffs depend on the price of other assets (financial
+Index 267: Nominal. What you say is true, but I'm guessing it would be too complicated to modelate. Plus, a shareholder of a very large company would not necessarily experience said loss 
+Index 268: If your uncle is looking to maintain life insurance coverage for specific shorter period of time he may want to look into hybrid life insurance. If you buy a hybrid universal life policy, the premium and death benefit can
+Index 269: No. Floppy disks are simple magnetic media you could make yourself in your basement. FLASH memory, hard drives, etc have more code in their embedded controllers than that entire launch control system. If the
+Index 270: &gt;If nothing else, Sears is where you go for tools. No tools that are not made in the U.S., and nothing that isn't Craftsman 
+Index 271: The other day, I was catching up on some saved articles while sitting next to my girlfriend on the couch. I was reading [Levine's article](http://www.bloombergview.
+Index 272: You expect interest because you forgo the opportunity of using the money as well as the risk of losing the money if the borrower can not pay you back. This is true also with gold - you would
+Index 273: Wealth is something that we as a whole need, yet the question is how? Making wealth is not something that is troublesome but rather it is something that you need to think emphatically, as it is
+Index 274: Put bluntly, if you do a couple extra lines of code, the company isn't going to notice a difference in revenue. If a salesman sells a few more R
+Index 275: Why would the companies pay more to cover personal risks of the employee? The employees will just have to suck it up and live with more risks. Employees who cannot work anymore because of that are the problem
+Index 276: "https://money.stackexchange.com/a/79252/41349 https://money.stackexchange.com/a/79261/41349 Adding to
+Index 277: thats my main regret - similar to cfa vs. mba they only hire kids right out of top tier schools with inflated gpas (harvard im looking at
+Index 278: I would consider it a personal decision based on your individual situation. When I was younger and short on cash tipping sucked. On a 6 figure income with no kids, I can leave 25%
+Index 279: Hold on a moment - you were getting 5-7.5% commission on a product that only had a 40% gross margin? That's.... amazingly high. Really. Considering that you are
+Index 280: from what i understand, which is not much, some companies use some of their own company shares as securitisation for loans. If the share price decreases, the security in the loan decreases,
+Index 281: Yeah, the Ford F-150 has been the top selling vehicle for over 30 years. Fun fact, farmers who receive money from the government usually burn excess cash in December. A lot of them just replace their fleet
+Index 282: "This is analyst speak for ""the stock isn't going anywhere anytime soon"". Remember these guys are offering advice to the entire universe in a few lines, so the advice gets fortune cookie-
+Index 283: Mobile24.lt yra specializuota elektronikos parduotuv, teikianti telefono ir mobiliojo
+Index 284: "There is no equation. Only data that would help you come to the decision that's right for you. Assuming the 401(k) is invested in a stock fund of one sort or
+Index 285: Your reasoning has completely broken down now. So if I have this straight, given that shittiness is a constant in people, your solution is to give a few people all the guns and
+Index 286: Go google their bank accounts. What the fuck do you think 'profit' is? It's left over money after you pay out. Money NOT spent. The fuck? Money stacked
+Index 287: as a past intern: * don't bring an attache * don't wear a suit, unless you're expected to, or for certain events (clients/big meetings/e
+Index 288: They are one of the bigger companies pushing for more 10G gear as well as lower power consumption; they have the size, cash, and the need for better, faster and cheaper software and hardware. But don'
+Index 289: I would be weary using Yelp. I've read several stories of people being screwed over by them. For example, a company would have 10 five star reviews and one 2 star review
+Index 290: Bank A only care about the credit limit at Bank B when determining the maximum amount of credit they will grant you. In theory you might be able to convince them that by cancelling the other card they should
+Index 291: You can contribute to a Traditional IRA instead of a Roth. The main difference is a contribution to a Roth is made with after tax money but at retirement you can withdraw the money tax free.
+Index 292: His parents did not hand the job to him at all. What is it with Reddit hating every person who lucked into being born with more money than they did? Does that mean he
+Index 293: You're 100% right! The IRR is the rate at which the project breaks even. You project cash flow/profitability metrics, and then you see what, under your projections, is the discount rate
+Index 294: Lol...going on a real tangent here, but why not. 1st: Do we send them aid? If so is it food, currency, or something else? Food MIGHT make
+Index 295: "Most of the consumer products that you buy at retail these days are commodity priced, and have been for a long time. Margins are thin, so if there are retail salespeople milling about
+Index 296: Don't quote me on this, but... Half-Life 3. r/nocontext +/u/User_Simulator PostNationalism 12pm UTC Really like the
+Index 297: "I always enjoy reading the comments on these articles talking about how great Europe is compared to US. And maybe for some portion of society it is better, but there has to be a reason why so many
+Index 298: Looking for the best in brain-building activities has most likely seen the excitement around LEGO Bricks in recent years. An increasing number of parents and educators are recognizing the learning opportunities these little interlocking bricks
+Index 299: We're not talking about what's good for the parents, dude. Obviously the best possible solution is for the government to pay people to raise their kids at home but sadly the western economies are
+Index 300: I use paycheckcity.com and first punch in my paycheck and make sure it calculates within a few pennies the value of my actual paycheck. Then I fiddle with withholding values, etc.
+Index 301: We write them off as cheap knock offs because that's what they are. They are no match when they come up against the superior technology of the US and her allies - they are only a
+Index 302: The only reason I can think of would be if you were convinced that you couldn't hold on to your money. Treasury Bonds are often viewed as very safe investments, and often used in some situations
+Index 303: Congratulations on being in such good financial state. You have a few investment choices. If you want very low risk, you are talking bonds or CDs. With the prime rate so low, nobody is paying anything
+Index 304: &gt;When reading a publication, do you only pay for the pages you read? No, but many would consider this an innovative and wonderful pricing mechanism. &gt;It'
+Index 305: Given what you state you should shop around for an advisor. Think of the time required to pursue your strategies that you list? They already have studied much of what you seek to learn about. Any good investor should understand
+Index 306: &gt; Amazon's share of new book unit purchases was 41%, dominating 65% of all online new book units, print and digital. The company achieved that percentage by not only being the
+Index 307: "I can't tell if you're just very stupid, young, or trolling. You insist that if we don't like taxes we can just, ""go to Somalia."
+Index 308: That period was also significantly less regulated as measured by the size of the federal register. As of 2013, there is 18x as much regulation as in 1950 ([source](https://www.mercat
+Index 309: I would classify Bitcoin as a hybrid. Currency : It is accepted by e-businesses as a form of payment Commodity : Chart illustrating the volatility and specul
+Index 310: Up to RS50,000 is exempt from gift taxes. In the US, if one provides more than half the expenses for a relative, they may be a dependent. I don't know the
+Index 311: I was thinking to do mix of ELSS and Tax Saving FDs. But is my choice correct? Also what other options I am left with? This depends on individual's choice and risk appetite.
+Index 312: Yes -- If you are prepared to own the stock and have the cash to buy it, it can be a good way to generate income. The downside is really no more than buying a stock and it goes
+Index 313: Why should the rich who buy more expensive homes be subisdized by those who pay less, or from those who rent? A person who buys a 500k home in a high property tax area
+Index 314: &gt;Actually, I would imagine the terms for credit are better post-bankruptcy filing, than immediately pre-filing. From what I see that's true. Pre
+Index 315: Consultant included a passing comment about whether companies were singular or plural. ... Writing about them as a Businesses plural entity seems oddly formal and doesn't look right at all. ... I had this
+Index 316: Clinical infertility can additionally confound the procedure and make additional worry as you attempt to consider, so it's essential to know how to enhance the pregnancy calculator and odds of pregnancy by keeping up perfect conditions
+Index 317: Are you one who cannot invest high efforts and time to enhance the profit in trading? However, you have strong desire to gain profits in trading binary options. Then, binary today is just for you. It encompass
+Index 318: The Kraemer and Kraemer Panama has a wide range of sorts of immigration in panama visas and residency programs offering perpetual residency, and by and large, full citizenship with an identification. Panama
+Index 319: "I'm in a similar situation. First, a 529 plan can be use for ""qualifying"" international schools. There are 336 for 2015, which includes many well known schools
+Index 320: "Not knowing anything about your situation or what makes it so complex, I would have to agree with the other commenters. If your accountant screws up your business goes under, but at least your personal finances are safe
+Index 321: For example, the apartment complex could’ve relied on a water source heat pump system which can provide both warm and cool air at the same time. As the name implies, this system relies on water
+Index 322: "&gt; What kind of bullshit is this? &gt;&gt; Between October 2008 and July 2014 the working age population grew by 13.4 million persons I'll
+Index 323: Dividends are normally paid in cash, so don't generally affect your portfolio aside from a slight increase to 'cash'. You get a check for them, or your broker would deposit
+Index 324: This is a purely numerical statement that you should be able to check (and you CPA friend should be able to prove, if true). The general advice, I think, is that you
+Index 325: "As long as the losing business is not considered ""passive activity"" or ""hobby"", then yes. Passive Activity is an activity where you do not have to actively
+Index 326: You should look into an inventory service that comes in and counts/weighs the bottles and kegs once a month. This keeps of inventory and keeps the bartenders accountable. Some restaurants
+Index 327: The issue here is not that Sears is taking money from the pension. The pension is underfunded and Sear is asking to not make additional payments towards the underfunding. Pensioners are still getting screw
+Index 328: I think the only way to have an idea of whats going on is to take a sip of all the propaganda lies misinformation half-truths and of course the ever coveted granul
+Index 329: "If the value of these hard assets is significant you probably have them insured, and for significant art work you should have had them appraised as part of getting them insured. Therefore the process of adding them into the
+Index 330: "**Gregory R. Page** Gregory ""Greg"" R. Page (born 1952) is an American businessman. He serves as executive chairman of Cargill, Inc. of Min
+Index 331: Funny most of those states almost half voted blue. Take the bottom quarter of Florida and go to the Middle red states. More democrats than the entire population combined. Empty land my friend no one
+Index 332: Italy on its own cannot decide to turn to money printing, only the European Central Bank (ECB) can make this decision. I'm assuming that the ECB will not turn to printing money for
+Index 333: "Even if we accept these claims as being true, neither the fact that their clients are more confident, nor the fact that people who use an investment professional have a higher net worth tells you anything
+Index 334: I am in the process of writing an article about how to maximize one's Social Security benefits, or at least, how to start the analysis. This chart, from my friends at the Social Security office shows the
+Index 335: Yes, he has done a few companies over the course of his career and done fairly well, at the time of his teaching the course he had two companies operating under him and would also consult (for
+Index 336: As I'm sure you are reading in Hull's classic, the basic valuation of bonds depends on the chance of entity defaulting on those bonds. Let's start with just looking at the US.
+Index 337: So you asked him in 2010 how he was gong to compete with DVD rental distributors like Netflix (which is what Netflix primarily was at the time) and Lovefilm and you were surprised that he
+Index 338: So I learned that your employer CAN force you to make employee contributions. However, this source seems to think that the mandatory employee contributions do not count against the 402(g) limit of $18,000.
+Index 339: "Don't get me wrong. If I could consistently see 2 movies a month with this, it would be worth it. And there are almost certainly 24 movies I'd enjoy seeing in cinemas in
+Index 340: If some one ever offers High returns and low risk they are either extremely stupid or scamming you. If they did find a high return low risk investment a smart person would buy it then repack
+Index 341: Grocery coupon sites I use: http://www.coupons.com http://www.smartsource.com http://www.redplum.com
+Index 342: What happens would depend on company culture. At the very least they could pass it on to their manager. Or maybe the company just pays support staff by number of answered emails in which case you get the quickest pre
+Index 343: Robinhood does offer premium products that they charge for-I suspect we will see more of that in the future. They do not change the bid/ask spread as some have said because they have to give
+Index 344: &gt; The problem as I see it, is that the die-hard Tea Partiers who want to curb gov't spending, bristle whenever you add the DOD to the equation
+Index 345: "No one is quite sure what happened (yet). Speculation includes: The interesting thing is that Procter & Gamble stock got hammered, as did Accenture. Both
+Index 346: ...is investing in a business you believe in a bad strategy? I'm not saying you're going to be right with your investment (obviously your judgment is coming into play),
+Index 347: Yahoo is actually a successful media company outside of the geek set. Yahoo Sports and some of their women's mag content are quite popular. It just looks awful to geeks because we remember it being a
+Index 348: You only OWN a 217-foot yacht as an investment. If you want to yacht, lease rent. If you own one you're going to lease rent
+Index 349: I am from Australia, so my answer is based on my experience over here, however it should be similar for the USA. Generally, what determines both the price of houses/apartments and the
+Index 350: The details of the 401(k) are critical to the decision. A high cost (the expenses charged within the) 401(k) - I would deposit only to the match, and I'
+Index 351: "You will make a profit in nominal dollars (or nominal units of whatever currency you used to buy the token). Whether you'll make a profit in real dollars depends on inflation, and in practice
+Index 352: Whenever you pay or withdraw some fund from your account, paypal takes approx 3% of the current currency value along with the fees. i.e. If you are paying/withdraw 100 unit
+Index 353: The Canada Revenue Agency does indeed put out just the guide you want. It's at http://www.cra-arc.gc.ca/E/pub/tg/rc4070/
+Index 354: "I keep spreadsheets that verify each $ distribution versus the rate times number of shares owned. For mutual funds, I would use Yahoo's historical data, but sometimes shows up late (a few days,
+Index 355: You must consider the different levels of risk associated with each loan. When the bank loans you money, it does so based on a high degree of information about your financial situation (through your credit report + additional
+Index 356: The answer to this question is related to another question: How would I invest in Uber? Given that Uber is a privately-held company, the average investor cannot directly buy stock. However, there are some indirect
+Index 357: To littleadv's comment, walking away may be the best option. If your numbers are as described, any ideas we could offer on earning or raising cash would be best to use as money to live
+Index 358: Samsung created the LCD and other flat screen technology like OLED. a few years ago every flat screen came from Samsung factories and were reshelled. I think the 21 Hanns screen I am looking
+Index 359: &gt;If you're a non-target like me this is how it is. With hard work and intelligence we will get what we want though. I suggest looking into the CFA program
+Index 360: Credit scoring has changed recently and the answer to this question will have slightly changed. While most points made here are true: But now (as of July 2017) it is possible having a large available credit balance
+Index 361: In a secular bull market, strong investor sentiment drives prices higher, as participants, over time, are net buyers. Secular markets are typically driven by large-scale national and worldwide events... demographic/ population shift
+Index 362: It is basically the same situation what US was when the crash happened. People took on debt without the means to pay, even with awful credit records. But the problem isn't the debt people take on themselves
+Index 363: I can't think of anyone who seriously uses LinkedIn as a definitive source to find personnel. Maybe some bottom feeding firms in India, but that's about it. Judging by the downvotes LinkedIn
+Index 364: On the off chance that you have thoughts to purchase an utilized car, the initial step includes endeavoring to locate the trustable second hand car dealer that fits your funds. You can sift through the chase
+Index 365: "I just can't come around to calling it ""taking advantage of"" when the means to act on them was put into existence knowingly. It's like saying you took advantage of the highway
+Index 366: Raising money from real property is an ancient tradition which is prevalent throughout the world even today. Delaware, situated in the north- eastern region of USA is no exception to this. Delaware has a lot of good
+Index 367: "&gt;I am not forgetting anything. You don't seem to get a broadcasting is media and part of media. Like I said they are a media company. No different from
+Index 368: Okay, so? You were arguing that I wouldn't like to be on the receiving end making the sacrifice. Clearly someone who is earning more money but paying a lower percentage is making much less of
+Index 369: For the US government, they've just credited Person B with a Million USD and haven't gained anything (afterall, those digits are intangible and don't really have
+Index 370: &gt;This is actual socialism, you understand that, right? Did you forget to read the part of socialism that defines it as workers controlling the means of production? This is not
+Index 371: Agreed, this article is crap. I have no problem with venture capitalists. They give you the oppurtunity to attian: the capital, the tools, the hardware
+Index 372: The author is using the simple Dietz method, (alternatively the modified Dietz), with the assumption that the net cash-flow occurs halfway through the time period. Let's say the
+Index 373: Basically you have 4 options: Use your cash to pay off the student loans. Put your cash in an interest-bearing savings account. Invest your cash, for example in the stock market. Spend
+Index 374: Machine learning is definitely applied to trading, but I have not tried it myself. For now I've been focused on figuring out the platforms and how they work; I have not been trying out other strategies 
+Index 375: "Oh, so you are a HR ""professional"". Everybody knows and its a source for a lot of jokes and essays that HR people are the enemy of employees, clueless about
+Index 376: "The link you originally included had an affiliate code included (now removed). It is likely that your ""friend"" suggested the site to you because there is something in it for your ""friend""
+Index 377: There is also the problem of budgets. The budgets haven't kept pace with the growth in channels, therefore it's spread a lot more thinly. Combine that with the quality of the
+Index 378: Definitely, check if they are regulated by the Finnish financial regulatory board. Google FIN-FSA regulation. It can also be that they are regulated off-shore, no matter just find it
+Index 379: "As other responders said, you can certainly roll over multiple 401(k) into a single account. An added benefit of such rollover (besides the ease of tracking) is that you can
+Index 380: I will be messaging you on [**2017-10-06 17:57:23 UTC**](http://www.wolframalpha.com/input/?i=2017-10-06
+Index 381: &gt;While there is truth to this guidance, it fails to take into account that the human body continues to fight against weight loss long after dieting has stopped. But isn't that the
+Index 382: "It's called paper trading because you do it on paper. So just do literally that for a little while. Write things down like ""buy 100 XYZ at $49.99 on 9
+Index 383: "http://finance.yahoo.com/stock-alerts/stock-watch/add/?.done=/stock-alerts/ You will have to have 
+Index 384: "Yes. Since it is our duty to give aid to helpless children, even when their parents make ""bad"" choices. As a society we combat this situation with education so that people will understand
+Index 385: Public companies sometimes buy up all their shares in order to go private(1). Is that the sort of thing you're talking about? If so, [this article](http://www.investo
+Index 386: "I read the post. I read what **they said** about it. Yet, that part makes **no sense**. They keep talking about ""only avilable to members of the Florida
+Index 387: Another route if IB becomes a fleeting career for you would be to go into M&amp;A/Advisory at an accounting shop and steer towards the PE side of the business. Then when
+Index 388: It's called competition. Reddit is funny, they love the electronic revolution when it comes to music, games, TV, piracy, etc. but hate that it will doom bookstores
+Index 389: "The question asked in your last paragraph (what's the downside) is answered simply; if you take out a loan and close the cards, that's a ding on your score
+Index 390: My perspective is from the US. Many employers offer 401(k)s and you can always contribute to an IRA for either tax deferred or tax free investment growth. If you're company offers
+Index 391: It depends on whether you want a career as a fund manager/ analyst or if you want to be an investor/ trader. A fund manager will have many constraints that a private investor doesn’
+Index 392: "There are books like, ""The Millionaire Mind"" that could be of interest when it comes to basics like living below your means, investing what you save, etc. that while it is common sense
+Index 393: Consumer Reports actually reverted their stance on the Model S and gave back their recommendation after Tesla performed an automatic update to their vehicles. I don't know any other car manufacturers that perform OTA updates
+Index 394: Yes but the trendy new term is plant-based diet, and I think the attraction for a vegan fast food would be to get a quick, healthy meal that is reminiscent of typical fast food. The
+Index 395: Have you been looking for industrial photographer in Melbourne? If so, how about getting in touch us at Glenn Hester Photography, an industrially successful and age experienced industrial photography service company in Melbourne? Well, it
+Index 396: This month when you join Scentsy you get a free defuser with your kit! This has never been done before. You also get spring / summer and Fall / Winter testers plus
+Index 397: Ben Miller offers you sounds advice. However, if it comes down to it I would reach out to a lawyer to negotiate this for you. If what you are presenting is true then you could easily su
+Index 398: "You need a license/registration to be a ""conventional"" financial planner. But as long as your work is limited to budgets, and cash flow analysis, it may be
+Index 399: Il y a tellement d'entreprises qui vendent des équipements de restauration en ligne et vous devez vérifier si les critiques de l'entreprise sont bonnes ou non
+Index 400: Preferred stock is traded on the market, so you can just buy it like any other. The symbol for a preferred stock is the ticker symbol followed by a dash and a letter for each
+Index 401: Too long for a comment - It's great that you are saving to the match on the 401(k). Does your company offer a Roth 401(k)? If so, you
+Index 402: You have to remember that Costco only builds in richer areas too. I live near the Quad Cities (Davenport, Iowa is the biggest of those cities) and we are just getting our first Cost
+Index 403: I'll have to think it through, but at the very least unless your debt is a pure discount instrument and you are using cash flows, some if that money IS getting paid during those 5 years
+Index 404: The Paypal 'classic' site option has now been removed and you will not know what you will be charged UNTIL YOU COMMIT TO BUY. Paypal told me today ( brex
+Index 405: They use an amortization table like can be found Here. The Forumula is not that complex where: A = payment Amount per period P = initial Principal (loan amount) r = interest
+Index 406: "Forbes is simply a well-distrubted content farm. Forbes doesn't write articles to ""inform the reader"" or ""make a coherent argument."" Forbes
+Index 407: Chinese suppliers can quote their price in CNY rather than USD (as has been typical), and thus avoid the exchange risk from US dollar volatility- the CNY has been generally appreciating so committing to
+Index 408: Big topic but I worry much more about who gets debt and who gets subsidies (bailouts) as those are both inefficient and unfair. -- one economist. Ps. I think the Fed should print
+Index 409: &gt;But you go ahead and keep saying that bribery and dishonesty pay, and i'll just never do business with you. Being morally righteous is
+Index 410: The point of co-signing for a friend is that they're your friend. You signed for them in the belief that your friendship would ensure they didn't burn you. If your friend has 
+Index 411: "Well, the one variable you're forgetting is that we didn't have as much debt hanging over our heads as we do now. As I understand it, maintaining that conflict cost so much money,
+Index 412: You were told wrong. Lifetime Learning Credit is not a refundable credit. I.e.: it reduces your tax liability, but you cannot get refund if it exceeds your tax liability.
+Index 413: "&gt; We may have an oversupply of retail square footage True, but many will be repurposed into ""showrooms"". The future of retail still includes brick and mortar
+Index 414: &gt; I don't have any data for this, but I believe online sales would increase as brand awareness increases. There are also benefits where you can buy online and have it delivered, but return
+Index 415: Companies are required BY THE IRS to try to get everybody to contribute minimal amounts to the 401K's. In the past, there were abuses and only the execs could contribute and the
+Index 416: "I'd answer it this way: What do you want to do? I'd say any amount is acceptable from as low as $100. When you look at the specific ""tree"" of
+Index 417: Various networking Companies use 192.168.0.1 IP address to access their admin page. We solve issues related to this IP address such as 192.168.0.1 login my account issue, 192.
+Index 418: "You will be filing the exact same form you've been filing until now (I hope...) which is called form 1040. Attached to it, you'll add a ""Sched
+Index 419: I didn't say they didn't do anything wrong. I said that criminal fraud is both difficult to prove and expensive to prosecute and therefore jail time was never a real possibility. They could have other
+Index 420: They did this before. Said they were building a new factory in PA a few years ago. Have yet to do anything. This will be really embarrassing if they don't deliver after Trump made
+Index 421: "I'm not an expert by any means, but pretty much every source I've seen says that one year is far too short for any sort of real ""investment"". Most guides suggest that
+Index 422: How do I withdraw a large sum from my bank and give it to a money management firm? Either write a check to the Money Management firm or wire transfer the funds to the account mentioned.
+Index 423: Sure, you're happy to trust Page or Zuckerberg to put money to good use. But sometimes bad managers burn through company resources, desperately trying to save their jobs. Great managers with long term visions deserve
+Index 424: The HSA money is yours to keep. You can't add new money into the account and get a tax deduction for the new money, but you can spend the old money on medical expenses. First
+Index 425: So does a post-dated check have any valid use in a business or personal transaction? Does it provide any financial or legal protections at all? Yes, most definitely. You're writing a
+Index 426: If you have a copy of the deed, or the original deed itself, take it to a lawyer and have them look it over with you and your other sister. Mention all the
+Index 427: "Yes, kinda. Talk to local banks about a business account, and tell them you want to enable certain employees to make deposits but not withdrawals. They don't need to know you're
+Index 428: like he had anything to do with that.. when did you check out bro? did you just say you expect a plan for nuclear terrorism? actually? maybe your parents should handle your posts for you
+Index 429: Calling banks 'evil' seems sensationalist. I think it's better to say that their reward-punishment tradeoff is skewed very heavily partly driven by governments being held
+Index 430: Nobody actually paid the ridiculous tax rates of the time. People exploited loopholes like they do now. Back then, there were more. So the actual tax rate is irrelevant, and the actual tax rate
+Index 431: "At any given moment, one can tally the numbers used for NAV. It's math, and little more. The Market Cap, which as you understand is a result of share value
+Index 432: Well, the article requires a login, so the only input I have is that the floor for cell phone plans is about $25 per month. There's no reason to price a product way below competition 
+Index 433: It's impossible to be definite without knowing the details of your plans, so you should make sure you consult the providers. However there are some general principles: However all that is the general case, and your
+Index 434: Fair enough and I appreciate the advice. But I think in some cases we have a duty to point out contradictory statements, especially if they could be misleading to the average person. I don't
+Index 435: "I did read your comment, and all the other ones that referred to me as ""he."" Believe it or not, the melodrama you see is imagined. I didn't
+Index 436: That's not how the world works. That's not how any of this works. They knew he didn't have a degree. You don't get recruited before you graduate because you'
+Index 437: No no - Casual dining restaurants have a business model that is increasingly obsolete, and rather than trying to adapt to changing market conditions, they're just blaming those dang kids. Sorry
+Index 438: "This is the best tl;dr I could make, [original](https://www.richmondfed.org/publications/research/econ_focus/2016/q
+Index 439: If I buy VUSA from one exchange, can I sell it in a different exchange, assuming my brokerage account lets me trade in both exchanges? Or is it somehow tied to the exchange I bought it
+Index 440: "If you're ready to start a 529 account, it makes a big difference which state you choose (some states have excessive fees). It doesn't have to be your own state, but
+Index 441: Negotiation is a very practical topic, and I learned more about it from this book then my MBA classes. Getting More: How to Negotiate to Achieve Your Goals in the Real World Hard
+Index 442: Contact AmEx. They are the only ones who might have a current list.
+Index 443: Planning for outdoor event, we can make it clean &amp; success by our best portable toilets, portable restrooms, bathrooms perfect all outdoor events. If you are planning for any open air event, contact
+Index 444: "It was bound to happen, it's just happening sooner because they can use the excuse of minimum wage rising. After McD's does it other places are soon to follow to ""stay competitive
+Index 445: The best would be to spend the money in US dollars. Order something from eBay/Amazon, even for resale, or pay someone in the US for services that you don't care
+Index 446: Most mutual funds underperform the stock market. Of those that over-perform, much of the performance can be attributed to dumb luck. Most mutual funds exist to generate fees from you, rather than make
+Index 447: First let's define some terms. Your accrued benefit is a monthly benefit payable at your normal retirement age (usually 65). It is usually a life-only benefit but may have a number
+Index 448: I was actually thinking of doing both, I already have a one sided card, I was thinking of doing an additional 2 sided, however, the single sided that I already have is more of 
+Index 449: If you make paying off those loans a priority, you will find money where you can and also look for stuff to sell around your home and also look for as much extra work as you can stand.
+Index 450: One such place where you can sell your photos is iStockPhoto. They are pretty picky about the photos they allow, so you should be a pretty good photographer and have good equipment. It
+Index 451: "A majority of employers view the: &gt;""there weren't any jobs"" excuse as *""you weren't good enough for a job""*. I
+Index 452: No such evidence exists, because many people do beat the market. And many people fail to earn market rate of return. The way you achieve the former is generally to take risks that also increase the likelihood of the latter
+Index 453: Nah I just don't believe anything I see on TV or read on the internet. Anyone can go onto www.imrightyourewrong.com and find whatever data supports they're argument.
+Index 454: You could try looking for a UK implementation of http://www.yodlee.com/ : Google tells me that http://www.lovemoney.com/ ( http://www
+Index 455: This seems really simple to me.
+Index 456: "Oh Dear, our poor Oranagenottan is having a temper tantrum, poor baby, being called a ""Fucking Moron"" must really sting when all your
+Index 457: Yes, you could avoid capital gains tax altogether, however, capital gains are used in determining your tax bracket even though they are not taxed at that rate. This would only work in situations where your total
+Index 458: Yeah, but he got a lot of karma as well. If a lot of people go read an article and like it some will give an upvote. Someone told me that only
+Index 459: A bank will never tell you how much they made off you when you are a customer. That level of information can be gleaned somewhat from the P&L it posts to its shareholders every FY. 
+Index 460: Ok, but I wasn't trying to validate the Bible, merely pointing out OP's mischaracterization of Christian values in regards to what constitutes charity. It's almost as if you
+Index 461: "The founders almost certainly owe tax on the ""income"" represented by the rent they aren't being charged. It isn't clear whether the corporation also owes
+Index 462: Investing only in one industry may be problematic as it is highly correlated. There are factor outside your (or anyones) knowledge which may affect all the industry: If you are familiar with the industry it
+Index 463: So one approach would be purely mathematical: look at whichever has the higher interest rate and pay it first. Another approach is to ignore the math (since the interest savings difference between a mortgage and student loan
+Index 464: It's not clear exactly what you're after, but I'd echo /u/avarachen93 and say read the news. I'd focus on the WSJ, Financial
+Index 465: It does. Your kids won't care that at one point you had to wind a ring past numbers to dial someone on the phone or that the internet didn't exist or that no one had air
+Index 466: "The fact is that the annual debt expenses to annual revenue is the key figure at any point in time (as well as a model of how these change dynamically). Since optimal annual tax revenue is roughly
+Index 467: So nothing preventing false ratings besides additional scrutiny from the market/investors, but there are some newer controls in place to prevent institutions from using them. Under the DFA banks can no longer sole
+Index 468: After their residency, doctors aren't OVERWORKED, they just work hard, like most other professions, and don't have time to perform their own clinical studies to vet the medications that are
+Index 469: Your search for Sydney Handyman ends with Sydney Handyman Hire. Our growth in the last few years has come by earning the trust and building good relationships with clients. We have a track record of providing excellent services
+Index 470: "http://www.investopedia.com/articles/mortgages-real-estate/08/tax-deductible-mortgage-canada.asp &
+Index 471: kayaks on sale --Looking for top fishing kayaks or kayak accessories? Visit paddlerscove.com - your one stop shop featuring an exclusive selection of kayaks for sale, used ocean kayaks
+Index 472: It is amazing to see the fantastic customer service offered by our carpet rug and upholstery cleaners who make sure that the customer pleased. If emergency cleaning need arises, they respond quickly. In Bermon Carpet Cleaning cleaner
+Index 473: From my blog's discussion on 2017 tax rates. This is the final set of numbers. So, if you currently have, say $120K taxable income, every dollar above that starts getting taxe
+Index 474: оманита редлаа на-дорите  родукти. ие даваме ра
+Index 475: This slave rents from slumlords now. They suck, but at least I was able to keep my dog. The 10 years that it will take to rebuild my credit is daunting
+Index 476: well, no, i just see some really huge numbers been thrown around, like Spain's banks will need several tens of Bn euros to be rescued... that's a huge
+Index 477: "Two reasons: Many people make lots of financial decisions (and other kinds of decisions) without actually running any numbers to see what is best (or even possible). They just go with their gut and buy
+Index 478: I've been short the Euro for several months now against the USD (could be various others as well). I got in at 1.42, sold on a bounce up to 1.36, bought back
+Index 479: pretty good post. i just stumbled upon your blog and wanted to say that i have really enjoyed reading your blog posts. ganska bra inlägg. Jag har bara sn
+Index 480: &gt; Nothing quite like having interviews with regional buyers and store managers as a primary source on a paper or project. &gt; Quite frankly, I think Mackey was pretty
+Index 481: Yes, this extra income would be taxed at your marginal rate because it is increasing your total income. This does not necessarily apply to all income, however. Capital gains are taxed at a different
+Index 482: "&gt; And what the hell would you use instead of ""going forward""? ""From now on?"" As in: ""Going forward, we will only touch base via
+Index 483: It's safe to say that for mature companies, with profits that have been steady, and steadily growing, that a multiple of earnings can come into play. It's not identical between companies or even
+Index 484: My super fund and I would say many other funds give you one free switch of strategies per year. Some suggest you should change from high growth option to a more balance option once you are say about 10 to 15
+Index 485: Being a lawyer in London comes with a higher level of prominence and responsibility, given the prominence of the place itself in various fields, including law and justice. This distinction has made the city a verit
+Index 486: "These are all virtual meetings. The reasons are varied. For a lot of the best people, they are simply too busy to be that proactive - they are constantly in fire fighting mode, but want to
+Index 487: What is essential is that company you are selling is transparent enough. Because it will provide additional liquidity to market. When I decide to sell, I drop all volume once at a time. Liquidation price
+Index 488: When I was in that boat a few years ago, I went for the car first. My thoughts: If I get the car first, I'm guaranteed to have a car that runs well. That
+Index 489: If the IRA is costing you $100 a year, you should almost certainly transfer it to a cheaper provider, regardless of whether you're going to withdraw anything. You can transfer the IRA to
+Index 490: I can't believe anyone in their right mind would put US health care above most 3rd world healthcare. The lowest quality care I ever receive is in the US. It feels like hospitals are constantly trying to
+Index 491: I've never needed body parts in the 7 years I've owned it, so I don't know. But mechanical parts are the same as any other car; nearly all are available within a few
+Index 492: Based on the definitions I found on Investopedia, it depends on whether or not it is going against an asset or a liability. I am not sure what type of accounting you are performing, but
+Index 493: Actuit offer accounting services to help you in carry out non key activities of your business. Our accounting and online bookkeeping services not only will reduces your cost but also enables you to focus on more critical
+Index 494: You really need to back that up. If you are talking about graduate degrees it is a way different ballgame as math and science researchers generally pay similar tuition's after GA and TA stipend
+Index 495: I tried Aldi the other day...hated it. Very little brand selection (everything is Aldi-owned brands) and meat prices were about the same as Kroger's. I
+Index 496: I would presume this goes entirely through the credit card network rather than the banking network. I am guessing that it's essentially the same operation as if you had returned something purchased on a card to
+Index 497: I'm not sure what can be done about that unless you happen to be home every day? I'm gone 12 hours a day but fortunately (knock wood) we don't have
+Index 498: "&gt; This is horse shit. You're citing liberal propaganda as fact. ""Cited as the anti scientist president."" By whom? Just liberals with their dress
+Index 499: The principal of the loan is the amount you borrow. The capitalized interest is added to the principal of the loan, because you are not paying this interest as it accrues. So when you begin payments,
+
+Pair #1
+--------------------------------------------------
+ index: 327
+[pred] issue here is that Sears is taking money from the pension. Just as pension is underfunded and not asking to make any additional payments, Sear
+[true] The issue here is not that Sears is taking money from the pension. The pension is underfunded and Sear is asking to not make additional payments towards the underfunding. Pensioners are still getting screw
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 57
+[pred] "I have a long-term addiction issue and I think the pragmatic first step would be the best solution. However, we need to take immediate actions
+[true] "Based on the conversations in the comments, I believe a pragmatic solution would be the best immediate course of action, while still working on the long term addiction issues. The first step is to get your husband to
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 12
+[pred] "I do have a bachelor's degree in finance management. But a lot of my flags are turned to analysis and project-related topics
+[true] "&gt; I have a bachelor's degree in management, but for the most part, we skimmed through several finance-related subjects like investments, project analysis. I wish I could flag
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 379
+[pred] As noted above, "Certainly you can roll over multiple 401(k) into a single account. The benefit of doing so is that the tracking
+[true] "As other responders said, you can certainly roll over multiple 401(k) into a single account. An added benefit of such rollover (besides the ease of tracking) is that you can
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 140
+[pred] "but it seems WhatsApp and Facebook owned chat started up after Google had acquired and they were looking for an untapped market for their devices. But their plan
+[true] "But WhatsApp started up after FB and Google owned chat. They just saw an untapped market in crappy hand held devices and went after it. I suspect their plan all along was for acquisition and they
+--------------------------------------------------
+
+
+{'eval_loss': 10.691216468811035, 'eval_model_preparation_time': 0.0194, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 43.5546875, 'eval_token_set_precision': 0.5209630725503351, 'eval_token_set_recall': 0.6723493301272929, 'eval_token_set_f1': 0.5847643710107547, 'eval_token_set_f1_sem': np.float64(0.006479365556819038), 'eval_n_ngrams_match_1': 17.646, 'eval_n_ngrams_match_2': 8.094, 'eval_n_ngrams_match_3': 4.5, 'eval_num_true_words': 36.306, 'eval_num_pred_words': 26.314, 'eval_bleu_score': np.float64(17.465927792308996), 'eval_bleu_score_sem': np.float64(0.6168591577839889), 'eval_rouge_score': np.float64(0.5880061237636801), 'eval_exact_match': np.float64(0.002), 'eval_exact_match_sem': np.float64(0.002), 'eval_emb_cos_sim': 0.9066287875175476, 'eval_emb_cos_sim_sem': np.float64(0.010608887299895287), 'eval_emb_top1_equal': 0.3125, 'eval_emb_top1_equal_sem': np.float64(0.11967839300632477), 'eval_runtime': 4068.8721, 'eval_samples_per_second': 0.123, 'eval_steps_per_second': 0.008}
++++ Evaluation Metrics +++
+eval_loss: 10.691216468811035
+eval_model_preparation_time: 0.0194
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 43.5546875
+eval_token_set_precision: 0.5209630725503351
+eval_token_set_recall: 0.6723493301272929
+eval_token_set_f1: 0.5847643710107547
+eval_token_set_f1_sem: 0.006479365556819038
+eval_n_ngrams_match_1: 17.646
+eval_n_ngrams_match_2: 8.094
+eval_n_ngrams_match_3: 4.5
+eval_num_true_words: 36.306
+eval_num_pred_words: 26.314
+eval_bleu_score: 17.465927792308996
+eval_bleu_score_sem: 0.6168591577839889
+eval_rouge_score: 0.5880061237636801
+eval_exact_match: 0.002
+eval_exact_match_sem: 0.002
+eval_emb_cos_sim: 0.9066287875175476
+eval_emb_cos_sim_sem: 0.010608887299895287
+eval_emb_top1_equal: 0.3125
+eval_emb_top1_equal_sem: 0.11967839300632477
+eval_runtime: 4068.8721
+eval_samples_per_second: 0.123
+eval_steps_per_second: 0.008
+Time taken: 4069.1558203697205
+Current memory usage: 5.80MB; Peak: 10.88MB

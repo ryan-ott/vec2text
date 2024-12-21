@@ -1,0 +1,621 @@
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='dbpedia-entity', beam_width=8, steps=50, batch_size=16, max_samples=120, output_csv=None, max_length=40)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading BEIR dataset: dbpedia-entity
+Original dataset size: 100000
+Randomly selected 120 samples from the dataset.
+Model tokens max_length: 40
+Embedder tokens max_length: 40
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 8
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 120
+})
+
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 120
+Length of decoded_labels: 120
+
+Contents of decoded_preds:
+Index 0: the Battle of Mohács (pronounced Mohácsiat; Turkish: Mohácsiat; Hungarian
+Index 1: Avondale Estates is a city in DeKalb County, Georgia, United States. The population was 110 at the 2010 census of Atlanta
+Index 2: Avon is a city in Bon Homme County, South Dakota, United States. The population was 590 at the 2010 census .
+Index 3: The 77s (rock) The 77s (also spelled Seventy Sevens) are an American vocal band consisting of Michael
+Index 4: Judith Mavis Durham AO (born Judith Mavis Cock; 3 July 1943) is an Australian singer who became lead vocalist for folk
+Index 5: A jazz band (jazz ensemble or jazz combo) is a musical ensemble that plays jazz. The variety of jazz bands among its members varies but
+Index 6: System Shock is a 1994 first person action role-playing video game developed by Looking Glass and published by Origin Technologies. It was directed by Doug
+Index 7: Brooks is a town in Fayette County, Georgia, USA. As of the 2010 census, the city had a population of 5,123
+Index 8: The Maltese Falcon is a 1929 detective novel by Dashiell Hammett, originally serialized in Black Mask magazine. The story began September
+Index 9: Artur Gavazzi (October 14, 1900March 11, 1983) was an Italian geographer of Croatian ancestry.Gavazzi was born
+Index 10: Forrest City is a city in Francis Forrest County, Arkansas, United States, and the county seat. It was named for General Nathan Bedford St
+Index 11: Aarschot (Dutch: ""; English: "") is a city and municipality in the province of Flemish Bra
+Index 12: This is a list of notable events in music that took place in       the year 1958. 
+Index 13: politics of El Salvador takes place in a representative democratic framework where the President of El Salvador is both a head of state, the government of land and
+Index 14: Military (), no special services force branch. Regular military units are under the command of the Coast Guard and Royal Saint Lucia Police.Manpower available for
+Index 15: Richmond Hill is a city in Bryan County, Georgia, United States. James Oglethorpe began to search for a colony in Savannah when
+Index 16: Forest City, now called "Burnt Chimney," is a town in Ruth County, North Carolina, United States. The population was
+Index 17: Barton is a town in Allegany County, Maryland, United States. It is located along the Cumberland Creek, part of George
+Index 18: New Hartford is a town in Litchfield County, Connecticut, United States. The population was 3,003 at the 2010 census and at the center
+Index 19: (Caramel) (or "kmál-mál-mál") is a beige to dark-brown confection
+Index 20: Lê Duàn (7 April 1910 – 5 July 1985) was a Vietnamese communist politician. He rose through the ranks and became General Secretary
+Index 21: West  Union is a city in Todd County, Minnesota, United States. The population was 111 at the 2010 census.  
+Index 22: Hidden Hills is a gated community in Los Angeles County, California. It is located west of the city of Banabasas near the Sacramento
+Index 23: An arc lamp or arc light is a lamp that produces light by an electric arc (also called voltaic arc). A
+Index 24: Lanesboro is a borough in Susquehanna County, Pennsylvania, United States. The population was 506 at the 2010 census.
+Index 25: Lumberton is a city in Hardin County, Texas, United States. The population was 415 at the 2010 census. Lumberton Creek
+Index 26: Card games, particularly poker games, may contain one or more cards designated as wild. These may be either normal ranked or suited as jokers
+Index 27: Pymatuning South is a census-designated place (CDP) in Crawford County, Pennsylvania, the population was 379 at the 2010
+Index 28: "Sekhmis" (Greek: "Sekhm"), also called Shammet (Greek: Sak
+Index 29: A convoy is a group of vehicles, often motor vehicles or ships, traveling together for defensive support and protection. Typically a convoy organized
+Index 30: Year 210 (CCX) was a Monday at the start of the Julian calendar. The Directory states that it was commonly known as the Year of
+Index 31: The Nashville sound originated during the 1950s as a subgenre of honky tonk country music which replaced American popular music charting in
+Index 32: an MUD (Multi-User, Multi-Dimension, Multi Domain), originally "Multi-User Dungeon",
+Index 33: Udo Jürgens Udo Jürgens (born Bockelmann; 12 September 1934 – 2014) was an Swiss composer
+Index 34: Hong Kong (People's Republic of China) Hong Kong (also known as "Frantong Harbour") is designated as a Special Administrative Region of
+Index 35:        This article presents a list of the historical events and publications of literature during 1929.
+Index 36: Lasara is a census-designated place (CDP) in Willacy County, Texas, United States. The population was 1,400 in 2006.
+Index 37: Anne Baxter (May 21, 1923 – December 7, 1985) was an American actress of stage and screen. She won the Academy Award for Best
+Index 38: Holt is a city in Marshall County, Minnesota, United States. The population was 88 at the 2010 census  .
+Index 39: Cheboygan County is a county in the U.S. state of Michigan. As of the 2010 census the county seat population is 23,143.
+Index 40: The Democratic Republic of the Congo is by the Congo River Basin, which covers an area of almost 1,000,000 square kilometres (3000 sq mi).
+Index 41: Chino Valley is a town in Yavapai County, Arizona, United States. The population of the town was 11,176 at the 2010 census
+Index 42: Montville is a town in Waldo County, Maine, United States. The population was 1,032 at the 2010 census.  
+Index 43: Alma is a town in Jackson County, Wisconsin in the United States. The population was 500 at the 2000 census. The township center is located Alma
+Index 44: Athelbert (ethelberht) Athelbert (also ethelberht) (c. 5e
+Index 45: Addison is a borough in Somerset County, Pennsylvania, United States. It is part of the Johnstown Metropolitan Area. The population was
+Index 46: Sacred Heart Township is a township in Renville County, Minnesota, United States. The population was 130 at the 2000 census. Sacred Heart
+Index 47: In photography and optics, depth of field (often called focus range, or DOF), is the distance between the focal point and the nearest effective
+Index 48: Murder in the Cathedral is a verse drama by Thomas Becket portraying the assassination of Archbishop Eliot in
+Index 49: Hans Schaffner (16 December 1909 in Interlaken – 26 July 2004)was a Swiss politician and member of the Federal Council.He
+Index 50: All This, and Heaven Too is a 1940 American drama film made by Warner Bros. Pictures with production first directed by Hal Lerner-Annva
+Index 51: Full Throttle is a computer adventure game published by LucasArts. It was designed by Tim Schaffer, who would later develop Psycho and Grim
+Index 52: The national anthem of Thailand was adopted on 31 December 1939. The melody was composed by Russian composer Phrit Feicheng (P
+Index 53: The term speculative fiction refers to any fiction story that includes characters, settings and features that are created out of elements of human imagination rather than
+Index 54: a useful construction is sometimes viewed as relating to a category of problems. In mathematics, the universal property is “the most efficient solution”
+Index 55: Earl Eugene Scruggs (November 30, 1940 – April 7, 2012) was an American musician notable for popularizing a three-banjo
+Index 56: The American chestnut, Castanea dentata, is a large mono deciduous tree of the beech family native to North America once
+Index 57: Raymond Merrill Smullyan (or ""; born May 23, 1919) is an American mathematician, concert pianist, logici
+Index 58: This article is about the demographic features of the population of Puerto Rico, including ethnicity, health status, economic density, education level and religious affiliation among others
+Index 59: Frank J. Gaffney, Jr. (born April 5, 1953) is an American conspiracy theorist and the founder of the Center for Security Policy
+Index 60: James Walter Carter (December 21, 1923 in Aiken, SC – 1993) was a world lightweight boxing champion. Inducted into Hall
+Index 61: Blanche of Castile (28 March 1396 – 4 November 1434) was Queen of France as the wife of Louis VIII. This acted
+Index 62: Kate trio Negrete del Castillo trillo is a Mexican actress
+Index 63: Maharashtra (Marathi: ', locally transliteration: "mahr"; abbreviation: "MH")
+Index 64: Bridgewater is a town in Aroostook County, Maine, United States. Carrie Bradbury is mayor at the 2010 census. Population
+Index 65: Brier is a city in Snohomish County, Washington, United States. It is bordered to the east by Mountlake Terrace and Lynn
+Index 66: Yosemite Falls is the highest waterfall in the Yosemite National Park, dropping 2,478 feet from the top of the total
+Index 67: The term Groovebox was originally used by Roland corporation for its MC-303 released in 1996. It has since been used to refer to an
+Index 68: Postal cards are stationery or imprinted with an indicium stamp signifying the prepayment of postal mail. They are sold on January 28, 17
+Index 69: Styrene, also known as phenethylbenzene and vinylethylene, is an organic compound with the formula
+Index 70: Belvidere Township is a township in Goodhue County, Minnesota, United States. Belvidere had a population 2000
+Index 71: Ohatchee (c. 1956) is a town in Calhoun County, Alabama, United States. The population at the 2000 census was
+Index 72: "Logic of Empire" is a science fiction novella by Robert A. Heinlein. Part of the Fantastic Future History series, it appeared
+Index 73: Stupid White Men...and Other Sorry Excuses for the State of the Nation! is a book by Michael Moore published in 2001. Although
+Index 74: Guinevere (), often written simply as Gwenevere (), was the consort-queen of King Arthur in Arthurian
+Index 75: Sir Thomas Wyatt (1596 – 30 October 1662) was a 16th-century English ambassador and lyricist introducing son
+Index 76: Dinah Washington (born Ruth Lee Jones; December 14, 1958 – c. 1993) was an American pianist and recording artist considered perhaps the most popular
+Index 77: An electrode is an electrical conductor used to make contact with a nonmetallic part of a circuit (e.g. a semiconductor or
+Index 78: William Gary Busey        (born June 29, 1944) is an American actor. 
+Index 79: Earth and Sun is an album by Australian rock group, Midnight Oil which was released on 22 April 1994 on Columbia Records. The album peaked at number
+Index 80: Creature from the Black Lagoon is a 1954 monster horror film in 3-D and white starring Jack Arnold and Richard Carlisle,
+Index 81: Montgomery College (MC) is a public, open access community college located in Montgomery County, Maryland just outside Washington, D.C. The four campuses
+Index 82: The San Francisco Peninsula is a peninsula in the San Francisco Bay Area which separates San Francisco from the Pacific Ocean. At its northern tip is the city
+Index 83: Foxglove (Donna Cavanagh) is a fictional character in the Sandman comic books, written by Neil Gaiman. She appears
+Index 84: Aksel Schietz (1 April 1914 – 7 July 1991) was a leading Danish-European baritone of the late
+Index 85: Troy is a town in St. Croix County, Wisconsin, United States. The population was 1,167 at the 2000 census. Glover is the
+Index 86: A killer application (commonly shortened to killer app) is a marketing term in which a particular computer program is considered necessary beyond the traditional
+Index 87: Aurskog-Hakerland is a municipality in the region of Rous county, Norway. The administrative centre of the municipality lies
+Index 88: Washington Township is a township in Erie County, Pennsylvania in the United States. At the 2010 census the population comprised the city of Edboro
+Index 89: Duckman: Private Dick/Family Man is an American adult animated sitcom that aired on the USA Network from April 10, 1996 to September
+Index 90:         The year 1991 in film   involved some significant events. 
+Index 91: Denison is a city in Crawford County, Iowa, United States, along the Boyer River. The population was 496 at the 2010 census
+Index 92: Lotus Symphony was an integrated software package for developing and editing documents, charts and spreadsheets for the MS-DOS operating system. This was released by Lotus
+Index 93: Salma Hayek Pinault (born September 2, 1966) is a Mexican and American film actress, director, and producer. 
+Index 94: Sir Arthur Stanley Eddington, OM, FRS (11 December 1882 – 5 March 1944) was a British astronomer and math
+Index 95: Morrison is a town in Warren County, Tennessee, United States. The population was 694 at the 2000 census and 684 at the 2010 census
+Index 96: USS Abraham Lincoln (CVN-72), is the fifth Nimitz-class aircraft carrier in the United States Navy. It has been named after
+Index 97: Procyon () (Mi: "Canis Minoris", KI: "Canis Alpha Minoris", BrE: "Pro
+Index 98: Calhoun is a city in and the county seat of Calhoun County, Georgia, United States. At the 2010 census, the population was
+Index 99: Keno (ki-no; ) is a lottery-like gambling game often played at modern casinos and offered at various lotteryteries.
+Index 100: A cluster munition is a form of air-dropped or ground-launched explosive weapon that releases smaller submunitions. Commonly,
+Index 101: Esbjerg Municipality (Latin: ‘Danish’) is a municipality (komune-region) in municipality of Southern
+Index 102: The year 1906 in film involved some significant events.           
+Index 103: Magnus Olafsson (Old Norse: Magnus Oláfsson; Norwegian: Magnus Dávnes
+Index 104: Steinfurt is a town in North Rhine-Westphalia, Germany. It is the capital of the district of Steinfurt.
+Index 105: Jérôme Napoléon Bonaparte (London, July 5, 1875 - Baltimore in 1896) was son of Elizabeth Patterson
+Index 106: Pope Felix III (died 4 March 491) was Pope in 483. His death is considered the beginning of repudiation of the Hen on
+Index 107: Meconium aspiration syndrome (MAS) also known as neonatal aspiration is a medical condition affecting newborn infants that occurs
+Index 108: In mathematics, Clifford algebras are a type of associative algebra. For K-algebra they generalize the real numbers,
+Index 109: Anthracite is a hard, compact variety of coal that has few impurities. It has the highest carbon content, and theluster
+Index 110: A skyscraper is a tall, continuously habitable building of over 40 floors, mostly designed for residential and office usage. It can also be
+Index 111: Lieutenant Commander Data (or DAY-det-t) is a character in the science fiction universe of Star Trek portrayed by actor Brent Spin
+Index 112: The Gallic Empire (or Galliarum del Imperium) is the modern Roman name that functioned as a breakaway part
+Index 113: 2002 was a common year (MMII) starting on the Wednesday of the second week of the Gregorian calendar era as "F
+Index 114: Imperial Beach is a residential beach city in southernmost San Diego County, California. As of the 2010 census, the city has a population of 26,
+Index 115: Nikephoros Nicephorus Callos Kallistus (Latinized as Greek: Xanthopoulos Xanthopo
+Index 116: Stage lighting is the craft of lighting as it applies to theatre, opera and dance production. Many different types of lighting instruments are used in this discipline. In
+Index 117: Stirling (Scottish: "Stórlea"; Scottish Gaelic: "Stighlin", sub-S
+Index 118: Sergio Domenech Aragonés (born September 8, 1937) is a Spanish cartoonist and writer best known for contributing to Mad Magazine of
+Index 119: Bear Creek is a town in Waupaca County, Wisconsin, United States. The population was 350 at the 2000 census. Bear Creek and Ni
+
+Contents of decoded_labels:
+Index 0: The Battle of Mohács (pronounced [mohat]; Hungarian: Mohácsi csata, Turkish: Mo
+Index 1: Avondale Estates is a city in DeKalb County, Georgia, United States. The population was 2,960 at the 2010 census. It is part of the Atlanta metropolitan area
+Index 2: Avon is a city in Bon Homme County, South Dakota, United States. The population was 590 at the 2010 census.
+Index 3: The 77s (alternatively spelled The Seventy Sevens or The 77's) are an American rock band consisting of Michael Roe on vocals
+Index 4: Judith Mavis Durham AO (born Judith Mavis Cock; 3 July 1943) is an Australian singer and musician who became the lead vocalist for the Australian popular folk music group
+Index 5: A jazz band (jazz ensemble or jazz combo) is a musical ensemble that plays jazz music. Jazz bands vary in the quantity of its members and the style of jazz that they play but
+Index 6: System Shock is a 1994 first-person action role-playing video game developed by Looking Glass Technologies and published by Origin Systems. It was directed by Doug Church with Warren Spector serving
+Index 7: Brooks is a town in Fayette County, Georgia, USA. As of the 2010 census, the city had a population of 524. The city should not be confused with
+Index 8: The Maltese Falcon is a 1929 detective novel by Dashiell Hammett, originally serialized in the magazine Black Mask beginning with the September 1929 issue. The story has been 
+Index 9: Artur Gavazzi (October 14, 1861 – March 12, 1944) was a Croatian geographer of Italian ancestry.Gavazzi was born in Split (th
+Index 10: Forrest City is a city in St. Francis County, Arkansas, United States, and the county seat. It was named for General Nathan Bedford Forrest, who used the location as 
+Index 11: Aarschot (Dutch pronunciation: [arsxt]) is a city and municipality in the province of Flemish Brabant,
+Index 12: This is a list of notable events in music that took place in the year 1958.
+Index 13: Politics of El Salvador takes place in land a framework of a presidential representative democratic republic, whereby the President of El Salvador is both head of state and head of government, and of
+Index 14: Military branches:No regular military force; the Special Service Unit, and the Coast Guard, are both under the command of the Royal Saint Lucia Police.Manpower available for military service: Male
+Index 15: Richmond Hill is a city in Bryan County, Georgia, United States. James Oglethorpe, only a year after the founding of the Georgia colony at Savannah, awarded grants of
+Index 16: Forest City, formerly known as "Burnt Chimney," is a town in Rutherford County, North Carolina, United States. The population was 7,476 as
+Index 17: Barton is a town in Allegany County, Maryland, United States, located along the Georges Creek Valley. It is part of the Cumberland, MD-WV
+Index 18: New Hartford is a town in Litchfield County, Connecticut, United States. The population was 6,970 at the 2010 census. The town center is also defined by the U.S
+Index 19: Caramel (/krml/ or /krml/) is a beige to dark-brown confectionery product
+Index 20: Lê Dun (7 April 1907 – 10 July 1986) was a Vietnamese communist politician. He rose in the party hierarchy in the late 1950s and became General Secretary of
+Index 21: West Union is a city in Todd County, Minnesota, United States. The population was 111 at the 2010 census.
+Index 22: Hidden Hills is a city and gated community in Los Angeles County, California. It is located next to the city of Calabasas and is located in the west San Fernando Valley
+Index 23: An arc lamp or arc light is a lamp that produces light by an electric arc (also called a voltaic arc). The carbon arc light, which
+Index 24: Lanesboro is a borough in Susquehanna County, Pennsylvania, United States. The population was 506 at the 2010 census.
+Index 25: Lumberton is a city in Hardin County, Texas, United States. The population was 11,943 at the 2010 census. Lumberton is home of the Village Creek State Park
+Index 26: Card games, particularly poker games, may contain one or more cards designated as wild. These may be jokers, or they may be normal ranked and suited cards pressed into wild
+Index 27: Pymatuning South is a census-designated place (CDP) in Crawford County, Pennsylvania, United States. The population was 479 at the 2010 census.
+Index 28: In Egyptian mythology, Sekhmet /skmt/ or Sachmis (/skms/; also spelled Sak
+Index 29: A convoy is a group of vehicles, typically motor vehicles or ships, traveling together for mutual support and protection. Often, a convoy is organized with armed defensive support.
+Index 30: Year 210 (CCX) was a common year starting on Monday (link will display the full calendar) of the Julian calendar. At the time, it was known as the Year of
+Index 31: The Nashville sound originated during the late 1950s as a subgenre of American country music, replacing the chart dominance of honky tonk music which was most popular in the
+Index 32: A MUD (/md/; originally Multi-User Dungeon, with later variants Multi-User Dimension and Multi-User Domain),
+Index 33: Udo Jürgens (born Udo Jürgen Bockelmann; 30 September 1934 – 21 December 2014) was an Austrian-Swiss composer and
+Index 34: Hong Kong (; "Fragrant Harbour"), traditionally Hongkong, officially known as Hong Kong Special Administrative Region of the People's Republic of China, is a Special Administrative
+Index 35: This article presents a list of the historical events and publications of literature during 1929.
+Index 36: Lasara is a census-designated place (CDP) in Willacy County, Texas, United States. The population was 1,024 at the 2000 census.Lasara was
+Index 37: Anne Baxter (May 7, 1923 – December 12, 1985) was an American actress of stage and screen. She won the Academy Award for Best Supporting Actress for her role as
+Index 38: Holt is a city in Marshall County, Minnesota, United States. The population was 88 at the 2010 census.
+Index 39: Cheboygan County is a county in the U.S. state of Michigan. As of the 2010 census, the population was 26,152. The county seat is Cheboygan. The
+Index 40: The Democratic Republic of the Congo is by the Congo River Basin, which covers an area of almost 1,000,000 square kilometres (390,000 sq mi).
+Index 41: Chino Valley is a town in Yavapai County, Arizona, United States. According to the 2010 census, the population of the town is 10,817.
+Index 42: Montville is a town in Waldo County, Maine, United States. The population was 1,032 at the 2010 census.
+Index 43: Alma is a town in Jackson County, Wisconsin in the United States. The population was 983 at the 2000 census. The Village of Alma Center is located within the town. The ghost town
+Index 44: thelberht (also thelbert, Aethelberht, Aethelbert, or Ethelbert) (c. 5
+Index 45: Addison is a borough in Somerset County, Pennsylvania, United States. It is part of the Johnstown, Pennsylvania Metropolitan Statistical Area. The population was 214 at the
+Index 46: Sacred Heart Township is a township in Renville County, Minnesota, United States. The population was 277 at the 2000 census.Sacred Heart Township was organized in 1869.
+Index 47: In optics, particularly as it relates to film and photography, depth of field (DOF), also called focus range or effective focus range, is the distance between the nearest and farth
+Index 48: Murder in the Cathedral is a verse drama by T. S. Eliot that portrays the assassination of Archbishop Thomas Becket in Canterbury Cathedral in
+Index 49: Hans Schaffner (16 December 1908 in Interlaken – 26 November 2004) was a Swiss politician and member of the Swiss Federal Council (1961–1970).He was elected
+Index 50: All This, and Heaven Too is a 1940 American drama film made by Warner Bros.-First National Pictures, produced and directed by Anatole Litvak with Hal B. Wall
+Index 51: Full Throttle is a computer adventure game developed and published by LucasArts. It was designed by Tim Schafer, who would later go on to design Grim Fandango, Psycho
+Index 52: The national anthem of Thailand was adopted on 10 December 1939. The melody was composed by Russian composer Phra Chenduriyang (Peter Feit) and the
+Index 53: The term speculative fiction refers to any fiction story that includes elements, settings and characters whose features are created out of human imagination and speculation rather than based on attested reality
+Index 54: In various branches of mathematics, a useful construction is often viewed as the “most efficient solution” to a certain problem. The definition of a universal property uses the language of category
+Index 55: Earl Eugene Scruggs (January 6, 1924 – March 28, 2012) was an American musician noted for perfecting and popularizing a three-finger banjo-pick
+Index 56: The American chestnut, Castanea dentata, is a large, monoecious deciduous tree of the beech family native to eastern North America. Before the species
+Index 57: Raymond Merrill Smullyan (/smli.n/; born May 25, 1919) is an American mathematician, concert pianist, logici
+Index 58: This article is about the demographic features of the population of Puerto Rico, including population density, ethnicity, education level, health of the populace, economic status, religious affiliations and other aspects
+Index 59: Frank J. Gaffney, Jr. (born April 5, 1953) is an American conspiracy theorist and the founder and president of the Center for Security Policy.
+Index 60: James Walter Carter (December 15, 1923 in Aiken, SC – September 21, 1994) was a world lightweight boxing champion. He was inducted into the International Boxing Hall
+Index 61: Blanche of Castile (Spanish: Blanca; 4 March 1188 – 27 November 1252) was Queen of France as the wife of Louis VIII. She acted as reg
+Index 62: Kate del Castillo Negrete Trillo is a Mexican actress.
+Index 63: Maharashtra (/mhrtr/; Marathi pronunciation: locally: [mharar], abbr. MH) is
+Index 64: Bridgewater is a town in Aroostook County, Maine, United States. Carrie Bradbury is the mayor of the town. The population was 610 at the 2010 census
+Index 65: Brier is a city in Snohomish County, Washington, United States. It is bordered by Mountlake Terrace to the west, Lynnwood to the north, Bothell to
+Index 66: Yosemite Falls is the highest waterfall in Yosemite National Park, dropping a total of 2,425 feet (739 m) from the top of the upper
+Index 67: The term Groovebox was originally used by Roland corporation to refer to its MC-303 released in 1996, but the term has since entered general use. It refers to a
+Index 68: Postal cards are postal stationery with an imprinted stamp or indicium signifying the prepayment of postage. They are sold by postal authorities. On January 26, 1869, Dr
+Index 69: Styrene, also known as ethenylbenzene, vinylbenzene, and phenylethene, is an organic compound with the chemical formula
+Index 70: Belvidere Township is a township in Goodhue County, Minnesota, United States. The population was 458 at the 2000 census.Belvidere Township was
+Index 71: Ohatchee (inc. 1956) is a town in Calhoun County, Alabama, United States. At the 2010 census the population was 1,170. It is included
+Index 72: "Logic of Empire" is a science fiction novella by Robert A. Heinlein. Part of his Future History series, it originally appeared in Astounding Science Fiction (
+Index 73: Stupid White Men ...and Other Sorry Excuses for the State of the Nation! is a book by Michael Moore published in 2001. Although the publishers were convinced it would be
+Index 74: Guinevere /wnvr/, often written as Gwenevere, was the queen consort of King Arthur in the Arthurian Legend
+Index 75: Sir Thomas Wyatt (1503 – 11 October 1542) was a 16th-century English ambassador and lyrical poet. He is credited with introducing the son
+Index 76: Dinah Washington (born Ruth Lee Jones; August 29, 1924 – December 14, 1963), was an American singer and pianist, who has been cited as "the most popular black female recording
+Index 77: An electrode is an electrical conductor used to make contact with a nonmetallic part of a circuit (e.g. a semiconductor, an electrolyte, a
+Index 78: William Gary Busey (born June 29, 1944) is an American actor.
+Index 79: Earth and Sun and Moon is an album by Australian rock group, Midnight Oil, that was released on 20 April 1993 under the Columbia Records label. It peaked at No.2 on the
+Index 80: Creature from the Black Lagoon is a 1954 monster horror 3-D film in black-and-white, directed by Jack Arnold and starring Richard Carlson, Julia Adams,
+Index 81: Montgomery College (MC) is a public, open access community college located in Montgomery County, Maryland, just outside Washington, D.C.. The college has three campuses, the largest of
+Index 82: The San Francisco Peninsula is a peninsula in the San Francisco Bay Area that separates San Francisco Bay from the Pacific Ocean. On its northern tip is the City and County of San Francisco. It
+Index 83: Foxglove (Donna Cavanagh) is a fictional character from the Sandman graphic novels, written by Neil Gaiman. She first appears in Sandman #32 (November
+Index 84: Aksel Schitz (1 September 1906 – 19 April 1975) was a Danish tenor and later baritone, who was considered one of Europe's leading
+Index 85: Troy is a town in St. Croix County, Wisconsin, United States. The population was 3,661 at the 2000 census. The unincorporated community of Glover is located in the
+Index 86: In marketing terminology, a killer application (commonly shortened to killer app) is any computer program that is so necessary or desirable that it proves the core value of some larger technology
+Index 87: Aurskog-Hland is a municipality in Akershus county, Norway. It is part of the Romerike traditional region. The administrative centre of the municipality is
+Index 88: Washington Township is a township in Erie County, Pennsylvania, United States. The population was 4,526 at the 2000 census. The township surrounds the Borough of Edinboro
+Index 89: Duckman: Private Dick/Family Man is an American adult animated sitcom that aired on the USA Network from March 5, 1994 to September 6, 1997. It was created and developed
+Index 90: The year 1991 in film involved some significant events.
+Index 91: Denison is a city in Crawford County, Iowa, United States, along the Boyer River. The population was 8,298 at the 2010 census. It is the county seat of
+Index 92: Lotus Symphony was an integrated software package for creating and editing text, spreadsheets, charts and other documents on the MS-DOS operating systems. It was released by Lotus Development as a follow
+Index 93: Salma Hayek Pinault (born September 2, 1966) is a Mexican and American film actress, director, and producer.
+Index 94: Sir Arthur Stanley Eddington, OM, FRS (28 December 1882 – 22 November 1944) was a British astronomer, physicist, and mathe
+Index 95: Morrison is a town in Warren County, Tennessee, United States. The population was 684 at the 2000 census and 694 at the 2010 census.
+Index 96: USS Abraham Lincoln (CVN-72), is the fifth Nimitz-class aircraft carrier in the United States Navy. It is the second Navy ship to have been named after former President
+Index 97: Procyon ( CMi,  Canis Minoris, Alpha Canis Minoris; BrE /prosi.n/; PRO-
+Index 98: Calhoun is a city in Gordon County, Georgia, United States. As of the 2010 census, the city had a population of 15,650. Calhoun is the county seat
+Index 99: Keno /kino/ is a lottery-like gambling game often played at modern casinos, and also offered as a game in some state lotteries. A
+Index 100: A cluster munition is a form of air-dropped or ground-launched explosive weapon that releases or ejects smaller submunitions. Commonly, this is 
+Index 101: Esbjerg Municipality (Danish pronunciation: [sbja]) is a municipality (Danish, kommune) in Region of Southern
+Index 102: The year 1906 in film involved some significant events.
+Index 103: Magnus Olafsson (Old Norse: Magns láfsson, Norwegian and Danish: Magnus Olavsson; 
+Index 104: Steinfurt is a town in North Rhine-Westphalia, Germany. It is the capital of the district of Steinfurt.
+Index 105: Jérôme Napoléon Bonaparte (London, 5 July 1805 – Baltimore, 17 June 1870) was a son of Elizabeth Patterson and Jér
+Index 106: Pope Felix III (died 1 March 492) was Pope from 13 March 483 to his death in 492. His repudiation of the Henoticon is considered the beginning of the
+Index 107: Meconium aspiration syndrome (MAS) also known as neonatal aspiration of meconium is a medical condition affecting newborn infants. It occurs when mecon
+Index 108: In mathematics, Clifford algebras are a type of associative algebra. As K-algebras, they generalize the real numbers, complex numbers, quatern
+Index 109: Anthracite is a hard, compact variety of coal that has a high luster. It has the highest carbon content, the fewest impurities, and the highest
+Index 110: A skyscraper is a tall, continuously habitable building of over 40 floors, mostly designed for office, commercial and residential uses. A skyscraper can also be called 
+Index 111: Lieutenant Commander Data (/det/ DAY-t) is a character in the fictional Star Trek universe portrayed by actor Brent Spiner.
+Index 112: The Gallic Empire (Latin: Imperium Galliarum) is the modern name for a breakaway part of the Roman Empire that functioned de facto as
+Index 113: 2002 (MMII)was a common year starting on Tuesday of the Gregorian calendar (dominical letter F), the 2002nd year of the Common Era (CE
+Index 114: Imperial Beach is a residential beach city in San Diego County, California, with a population of 26,324 at the 2010 census. The city is the southernmost beach city in Southern California
+Index 115: Nikephoros Kallistos Xanthopoulos, Latinized as Nicephorus Callistus Xanthopulus (Greek:   
+Index 116: Stage lighting is the craft of lighting as it applies to the production of theatre, dance, opera and other performance arts. Several different types of stage lighting instruments are used in this discipline. In
+Index 117: Stirling (/strl/; Scots: Stirlin; Scottish Gaelic: Sruighlea [str
+Index 118: Sergio Aragonés Domenech (born September 6, 1937) is a Spanish/Mexican cartoonist and writer best known for his contributions to Mad Magazine and creator of
+Index 119: Bear Creek is a town in Waupaca County, Wisconsin, United States. The population was 838 at the 2000 census. The unincorporated communities of Bear Creek Corners and Ni
+
+Pair #1
+--------------------------------------------------
+ index: 63
+[pred] Maharashtra (Marathi: ', locally transliteration: "mahr"; abbreviation: "MH")
+[true] Maharashtra (/mhrtr/; Marathi pronunciation: locally: [mharar], abbr. MH) is
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 50
+[pred] All This, and Heaven Too is a 1940 American drama film made by Warner Bros. Pictures with production first directed by Hal Lerner-Annva
+[true] All This, and Heaven Too is a 1940 American drama film made by Warner Bros.-First National Pictures, produced and directed by Anatole Litvak with Hal B. Wall
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 113
+[pred] 2002 was a common year (MMII) starting on the Wednesday of the second week of the Gregorian calendar era as "F
+[true] 2002 (MMII)was a common year starting on Tuesday of the Gregorian calendar (dominical letter F), the 2002nd year of the Common Era (CE
+--------------------------------------------------
+
+
+{'eval_loss': 10.96509838104248, 'eval_model_preparation_time': 0.0188, 'eval_pred_num_tokens': 31.000001907348633, 'eval_true_num_tokens': 37.88333511352539, 'eval_token_set_precision': 0.7610902545264795, 'eval_token_set_recall': 0.864562403290462, 'eval_token_set_f1': 0.8074083123906933, 'eval_token_set_f1_sem': np.float64(0.011583748795365691), 'eval_n_ngrams_match_1': 19.775, 'eval_n_ngrams_match_2': 15.075, 'eval_n_ngrams_match_3': 12.325, 'eval_num_true_words': 27.341666666666665, 'eval_num_pred_words': 22.958333333333332, 'eval_bleu_score': np.float64(52.428152020723154), 'eval_bleu_score_sem': np.float64(2.1717838840935517), 'eval_rouge_score': np.float64(0.7945134445138866), 'eval_exact_match': np.float64(0.016666666666666666), 'eval_exact_match_sem': np.float64(0.011735491270876315), 'eval_emb_cos_sim': 0.9784336090087891, 'eval_emb_cos_sim_sem': np.float64(0.005806851200759411), 'eval_emb_top1_equal': 0.6875, 'eval_emb_top1_equal_sem': np.float64(0.11967839300632477), 'eval_runtime': 2943.163, 'eval_samples_per_second': 0.041, 'eval_steps_per_second': 0.003}
++++ Evaluation Metrics +++
+eval_loss: 10.96509838104248
+eval_model_preparation_time: 0.0188
+eval_pred_num_tokens: 31.000001907348633
+eval_true_num_tokens: 37.88333511352539
+eval_token_set_precision: 0.7610902545264795
+eval_token_set_recall: 0.864562403290462
+eval_token_set_f1: 0.8074083123906933
+eval_token_set_f1_sem: 0.011583748795365691
+eval_n_ngrams_match_1: 19.775
+eval_n_ngrams_match_2: 15.075
+eval_n_ngrams_match_3: 12.325
+eval_num_true_words: 27.341666666666665
+eval_num_pred_words: 22.958333333333332
+eval_bleu_score: 52.428152020723154
+eval_bleu_score_sem: 2.1717838840935517
+eval_rouge_score: 0.7945134445138866
+eval_exact_match: 0.016666666666666666
+eval_exact_match_sem: 0.011735491270876315
+eval_emb_cos_sim: 0.9784336090087891
+eval_emb_cos_sim_sem: 0.005806851200759411
+eval_emb_top1_equal: 0.6875
+eval_emb_top1_equal_sem: 0.11967839300632477
+eval_runtime: 2943.163
+eval_samples_per_second: 0.041
+eval_steps_per_second: 0.003
+Time taken: 2943.2446718215942
+Current memory usage: 3.96MB; Peak: 9.87MB

@@ -367,7 +367,7 @@ class BaseTrainer(transformers.Trainer):
 
     def eval_generation_metrics(
         self, dataloader: torch.utils.data.DataLoader
-    ) -> Dict[str, float]:
+        ) -> Dict[str, float]:
         # Get decoded text. Note that this is different than `preds`, which
         # is used to compute the loss.
         preds_sample_list, preds_sample_labels_list = self._get_decoded_sequences(
@@ -397,10 +397,18 @@ class BaseTrainer(transformers.Trainer):
             return {}
         print("\n=== Prediction-Label Pairs ===")
 
-        # Randomly select 200 indices without replacement
-        num_samples = 200 # You can adjust this number as needed
+        num_samples = 100 # You can adjust this number as needed
         random_indices = random.sample(range(len(decoded_preds)), num_samples)
+        print(f"Length of decoded_preds: {len(decoded_preds)}")
+        print(f"Length of decoded_labels: {len(decoded_labels)}")
 
+        print("\nContents of decoded_preds:")
+        for i, pred in enumerate(decoded_preds):
+            print(f"Index {i}: {pred}")
+        print("\nContents of decoded_labels:")
+        for i, label in enumerate(decoded_labels):
+            print(f"Index {i}: {label}")
+            
         # Loop through the random indices
         for i, idx in enumerate(random_indices):
             print(f"\nPair #{i+1}")
