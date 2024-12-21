@@ -1,16 +1,28 @@
+# Compiled Python files
 __pycache__/
+*.pyc
 
+# Output files
 *.out
+
+# Cache directories
 *cache/
+
+# Pickle files
 *.p
+
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-*cache/
+
+# Virtual environment (partial, see note below)
 venv/*
 
+# Build and distribution directories
 build/
 dist/
 vec2text.egg-info/
 
+# Project-specific directories
 embeddings/
 logs/
 notebook*/
