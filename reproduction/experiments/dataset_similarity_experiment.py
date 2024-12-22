@@ -1,11 +1,14 @@
-from sentence_transformers import SentenceTransformer, util
-import torch
 import argparse
+import ijson
+import logging
+import os
 import random
+import torch
 from beir import util as beir_util
 from beir.datasets.data_loader import GenericDataLoader
-import datasets
-import os
+from datasets import Dataset
+from sentence_transformers import SentenceTransformer, util
+from vec2text import data_helpers
 
 def get_document_embeddings(dataset, model):
     document_texts = [example["text"] for example in dataset]
@@ -37,7 +40,7 @@ def load_beir_dataset(dataset_name, data_dir="datasets"):
     corpus, queries, qrels = GenericDataLoader(data_folder=data_path).load(split="test")
     documents = [{"text": corpus[doc_id]['text'], "title": corpus[doc_id].get("title", "")} for doc_id in corpus]
 
-    dataset = datasets.Dataset.from_dict({
+    dataset = Dataset.from_dict({
         "text": [doc["text"] for doc in documents] + [queries[q_id] for q_id in queries],
         "data_type": ["document"] * len(documents) + ["query"] * len(queries)
     })
@@ -97,9 +100,9 @@ def main(args):
 
     else:
         if args.dataset_B == "bioasq":
-        dataset_A = data_helpers.load_beir_dataset(args.dataset_A)
-        dataset_B = load_bioasq_dataset(
-             "/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json",
+            dataset_A = data_helpers.load_beir_dataset(args.dataset_A)
+            dataset_B = load_bioasq_dataset(
+                 "/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json",
              encoding='Windows-1252',
              max_samples=args.max_samples,
         )
