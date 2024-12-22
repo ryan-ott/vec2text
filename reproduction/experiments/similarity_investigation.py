@@ -212,7 +212,7 @@ def create_combined_plot(similarity_df, bleu_df, output_dir):
     plt.legend(fontsize=14)
 
     # Customize the plot
-    plt.title("Dataset Similarity to NQ vs. BLEU Score", fontsize=16)
+    # plt.title("Dataset Similarity to NQ vs. BLEU Score", fontsize=16)
     plt.xlabel("Cosine Similarity to NQ", fontsize=16)
     plt.ylabel("BLEU Score", fontsize=16)
     plt.xticks(fontsize=14)
