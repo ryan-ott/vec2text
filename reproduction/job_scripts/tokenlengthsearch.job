@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
 #SBATCH --time=20:00:00
-#SBATCH --output=/home/scur0989/vec2text/scripts/outputs/slurms/token_length_search_%j.out
+#SBATCH --output=/home/scur0989/vec2text/reproduction/outputs/slurms/token_length_search_%j.out
 
 module purge
 module load 2022
@@ -16,13 +16,14 @@ source /home/scur0989/v2t-env/bin/activate
 cd /home/scur0989/vec2text/
 
 # --- Configuration ---
-dataset="fiqa"  # CHANGE HERE: Dataset to use
+dataset="webis-touche2020"  # CHANGE HERE: Dataset to use
 start_len=32
 step_size=4
-error_threshold=5.0  # Threshold for stopping the search
+error_threshold=20.0  # Threshold for stopping the search
 beam_width=4
 steps=50
-max_samples=500
+max_samples=10
+overwrite=false  # Set to true to overwrite existing output files
 
 # Dataset-specific maximum lengths
 declare -A max_lengths=(
@@ -47,16 +48,8 @@ declare -A max_lengths=(
     ["trec-news"]=128
 )
 
-# Define output directories
-slurm_output_dir="/home/scur0989/vec2text/scripts/outputs/slurms"
-log_output_dir="/home/scur0989/vec2text/scripts/outputs/logs"
-
-# Create output directories if they don't exist
-mkdir -p "$slurm_output_dir"
-mkdir -p "$log_output_dir"
-
 # --- Helper Functions ---
-# Function to extract BLEU score from log file (updated for new log location)
+# Function to extract BLEU score from log file
 get_bleu_score() {
     local log_file=$1
     # Wait for the log file to be created and populated
@@ -75,24 +68,32 @@ get_bleu_score() {
     echo "$bleu_score"
 }
 
-# Function to run the experiment for a given max_length (updated for new log location)
+# Function to run the experiment for a given max_length
 run_experiment() {
     local max_len=$1
 
     # Check if length is within valid range
-    if [ $max_len -lt 0 ] || [ $max_len -gt $max_allowed_len ]; then
+    if [ $max_len -lt 4 ] || [ $max_len -gt $max_allowed_len ]; then
         echo "INVALID"
         return
     fi
     
-    local log_file="$log_output_dir/repro_T2_gtr-${steps}steps-${beam_width}beam_${dataset}_${max_samples}samples_${max_len}maxtoken.log"
+    local log_file="/home/scur0989/vec2text/reproduction/outputs/tokenlengthsearch/repro_gtr_tokenlengthsearch-${steps}steps-${beam_width}beam_${dataset}_${max_samples}samples_${max_len}maxtoken.log"
+    
+    # Check if the experiment has already been run and skip if overwrite is false
+    if [ -f "$log_file" ] && [ "$overwrite" = false ]; then
+        echo "Experiment for max_length=$max_len already exists. Skipping..."
+        bleu_score=$(get_bleu_score "$log_file")
+        echo "$bleu_score"
+        return
+    fi
 
     echo "Running experiment with max_length=$max_len..."
-    echo "SLURM output: ${slurm_output_dir}/token_length_search_%j.out"
+    echo "SLURM output: /home/scur0989/vec2text/reproduction/outputs/slurms/token_length_search_%j.out"
     echo "Log file: ${log_file}"
 
-    # Run the Python script
-    python token_len_exp.py \
+    # Run the Python script with the correct path
+    python reproduction/experiments/reproduce_token_length_search.py \
         --model jxm/gtr__nq__32__correct \
         --steps $steps \
         --beam-width $beam_width \
@@ -115,14 +116,16 @@ fi
 max_allowed_len=${max_lengths[$dataset]}
 
 # Create dataset-specific results file in log directory
-results_file="$log_output_dir/experiment_results_${dataset}.csv"
-echo "max_length,bleu_score,dataset" > "$results_file"
+results_file="/home/scur0989/vec2text/reproduction/outputs/tokenlengthsearch/seq_length_results/experiment_results_${dataset}.csv"
+if [ "$overwrite" = true ] || [ ! -f "$results_file" ]; then
+    echo "max_length,bleu_score,dataset" > "$results_file"
+fi
 
 # Run initial experiment at start_len
 echo "Starting initial experiment at $start_len tokens..."
 initial_bleu=$(run_experiment $start_len)
 
-# If initial bleu is invalid, stop here
+# If initial bleu is invalid, stop here 
 if [[ "$initial_bleu" == "INVALID" ]]; then
     echo "Invalid initial BLEU score at $start_len, exiting"
     exit 1
@@ -139,8 +142,8 @@ search_up=true
 # Main loop
 while true; do
     if $search_down; then
-        # Add minimum token check
-        if [ $current_len -le 3 ]; then
+        # Check if we've reached the minimum token length
+        if [ $current_len -lt 4 ]; then
             echo "Reached minimum 4 tokens, switching to upward search..."
             search_down=false
             if ! $search_up; then
@@ -155,7 +158,7 @@ while true; do
         bleu_score=$(run_experiment $current_len)
 
         if [[ "$bleu_score" == "INVALID" ]]; then
-            echo "Reached minimum length, switching to upward search..."
+            echo "Invalid BLEU score, switching to upward search..."
             search_down=false
             if ! $search_up; then
                 break
@@ -165,10 +168,9 @@ while true; do
             continue
         fi
 
-        # Check if BLEU score is approximately 0 or below the error threshold
-        if [ $(echo "$bleu_score <= $(echo "0 + $error_threshold" | bc -l)" | bc -l) -eq 1 ] || \
-           [ $(echo "$bleu_score >= $(echo "100 - $error_threshold" | bc -l)" | bc -l) -eq 1 ]; then
-            echo "Reached threshold at length $current_len"
+        # Check if BLEU score is below the error threshold
+        if [ $(echo "$bleu_score <= $error_threshold" | bc -l) -eq 1 ]; then
+            echo "Reached lower threshold at length $current_len"
             search_down=false
             if ! $search_up; then
                 break
@@ -180,9 +182,9 @@ while true; do
         echo "$current_len,$bleu_score,$dataset" >> "$results_file"
         current_len=$((current_len - step_size))
     elif $search_up; then
-        # Add maximum token check
-        if [ $((current_len + step_size)) -gt $max_allowed_len ]; then
-            echo "Next step would exceed maximum allowed length of $max_allowed_len, ending search..."
+        # Check if we've reached the maximum allowed token length
+        if [ $current_len -ge $max_allowed_len ]; then
+            echo "Reached maximum allowed length of $max_allowed_len, ending search..."
             break
         fi
 
@@ -190,13 +192,13 @@ while true; do
         bleu_score=$(run_experiment $current_len)
 
         if [[ "$bleu_score" == "INVALID" ]]; then
-            echo "Reached maximum length, ending search..."
+            echo "Invalid BLEU score, ending search..."
             break
         fi
 
         # Check if BLEU score is approximately 100 or above the error threshold
         if [ $(echo "$bleu_score >= $(echo "100 - $error_threshold" | bc -l)" | bc -l) -eq 1 ]; then
-            echo "Reached 100% threshold at length $current_len"
+            echo "Reached upper threshold at length $current_len"
             break
         fi
         echo "$current_len,$bleu_score,$dataset" >> "$results_file"

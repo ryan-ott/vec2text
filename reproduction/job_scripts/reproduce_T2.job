@@ -2,24 +2,58 @@
 
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
-#SBATCH --job-name=Reproduce
+#SBATCH --job-name=DatasetSimilarity
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=18
-#SBATCH --time=09:00:00
-#SBATCH --output=/home/scur2845/vec2text/scripts/outputs/repro_T2_%A.out
+#SBATCH --cpus-per-task=6
+#SBATCH --time=08:00:00  # Increased time for multiple comparisons
+#SBATCH --output=/home/scur0989/vec2text/reproduction/outputs/slurms/T2_%j.out
 
 module purge
 module load 2022
 module load Anaconda3/2022.05
 
-conda activate vec2text
-cd /home/scur2845/vec2text/
+source /home/scur0989/v2t-env/bin/activate
+cd /home/scur0989/vec2text/
 
-# model options:  jxm/gtr__nq__32__correct  or  jxm/vec2text__openai_ada002__msmarco__msl128__corrector
-# python reproduce.py --model jxm/gtr__nq__32__correct --steps 0 --beam-width 1 > scripts/outputs/repro_T1_gtr-0steps-1beam.log
-# python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 1 --beam-width 1 --beir_dataset quora --max_samples 10000 > scripts/outputs/repro_T2_gtr-1steps-1beam.log
-# python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 20 --beam-width 1 --beir_dataset quora --max_samples 1000 > scripts/outputs/repro_T2_gtr-20steps-1beam.log
-# python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 1 --beir_dataset quora --max_samples 1000 > scripts/outputs/repro_T2_gtr-50steps-1beam.log
-# python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 2 --beir_dataset quora --max_samples 1000 > scripts/outputs/repro_T2_gtr-50steps-2beam.log
-# python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 4 --beir_dataset quora --max_samples 1000 > scripts/outputs/repro_T2_gtr-50steps-4beam.log
-python reproduce_T2.py --model jxm/gtr__nq__32__correct --steps 50 --beam-width 8 --beir_dataset quora --max_samples 1000 > scripts/outputs/repro_T2_gtr-50steps-8beam.log
+# --- Configuration ---
+dataset="quora"
+steps=50
+beam_width=8
+max_samples=10
+overwrite=true # Set to true to overwrite existing output files
+
+# --- Helper Functions ---
+# Function to check if a log file already exists and whether to overwrite
+check_existing_log() {
+    local log_file=$1
+    if [ -f "$log_file" ] && [ "$overwrite" = false ]; then
+        echo "Log file $log_file already exists. Skipping..."
+        return 1
+    fi
+    return 0
+}
+
+# --- Main Script ---
+# Set log file path
+log_file="/home/scur0989/vec2text/reproduction/outputs/T2/repro_T2_${steps}steps-${beam_width}beam_${dataset}_${max_samples}samples.log"
+
+# Check if we need to overwrite existing log file
+check_existing_log "$log_file"
+if [ $? -eq 1 ]; then
+    # Skip the experiment if not overwriting
+    echo "Skipping experiment for $dataset with $steps steps and $beam_width beam width."
+    exit 0
+fi
+
+echo "Running experiment with model jxm/gtr__nq__32__correct..."
+echo "Log file: $log_file"
+
+# Run the Python script with the specified parameters
+python reproduction/experiments/reproduce_T2.py --model jxm/gtr__nq__32__correct \
+    --steps $steps \
+    --beam-width $beam_width \
+    --beir_dataset $dataset \
+    --max_samples $max_samples > "$log_file" 2>&1
+
+# Log completion message
+echo "Experiment complete. Results saved in $log_file"
