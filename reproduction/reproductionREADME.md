@@ -46,7 +46,7 @@ python experiments/data_similarity_experiement.py
 #### Sequence Length Experiment
 To reproduce the sequence length experiment, run the following command:
 ```bash
-python tokenlength_investition.py
+python tokenlength_investigation.py
 ```
 
 ## Plots
