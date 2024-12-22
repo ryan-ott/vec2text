@@ -1,8 +1,11 @@
 accelerate
+beir
 bert_score
 datasets
 einops
 evaluate
+halo
+ijson
 openai
 optimum
 pre-commit
@@ -13,6 +16,4 @@ tenacity
 tokenizers
 tqdm
 transformers
-halo
-beir
-ijson
+vec2text
