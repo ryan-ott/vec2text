@@ -66,7 +66,7 @@ def main(args):
     print(f"Loading BEIR dataset: {args.beir}")
     if args.beir == "bioasq":
         dataset = load_bioasq_dataset(
-            "/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json",
+            "datasets/bioasq/allMeSH_2020.json",
             encoding='Windows-1252',
             max_samples=args.max_samples,
         )
@@ -207,5 +207,3 @@ if __name__ == "__main__":
     print("+++ Arguments Passed +++")
     print(args)
     main(args)
-    # detect_file_encoding("/home/scur2868/IR2/datasets/bioasq/sample.json")
-    # inspect_json_structure("/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json")
