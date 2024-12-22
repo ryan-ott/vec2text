@@ -11,10 +11,10 @@ def main(args):
     except LookupError:
         nltk.download('punkt_tab')
     
-    
     experiment, trainer = analyze_utils.load_experiment_and_trainer_from_pretrained(
         args.model,
     )
+    
     train_datasets = experiment._load_train_dataset_uncached(
         model=trainer.model,
         tokenizer=trainer.tokenizer,
@@ -26,6 +26,9 @@ def main(args):
         tokenizer=trainer.tokenizer,
         embedder_tokenizer=trainer.embedder_tokenizer
     )
+    
+    print("+++ Model details +++")
+    print(trainer.model)
 
     print("+++ Training datasets +++")
     print(train_datasets)

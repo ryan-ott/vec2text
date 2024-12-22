@@ -5,7 +5,7 @@
 #SBATCH --job-name=DatasetSimilarity
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=6
-#SBATCH --time=08:00:00  # Increased time for multiple comparisons
+#SBATCH --time=00:59:00  # Increased time for multiple comparisons
 #SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/slurms/dataset_similarity_%j.out
 
 module purge
@@ -22,28 +22,30 @@ sample_size=1000  # Sample size (use "None" for full datasets)
 
 # List of datasets to compare against dataset_A
 datasets_to_compare=(
-     "bioasq"
-     "cquadupstack")
-    #  "arguana"
-    #  "climate-fever"
-    #  "fever"
-    #  "fiqa"
-    #  "hotpotqa"
-    #  "msmarco"
-    #  "nfcorpus"
-    #  "nq"
-    #  "quora"
-    #  "scidocs"
-    #  "scifact"
-    #  "trec-covid"
-    #  "webis-touche2020"
+    # "arguana"
+    # "bioasq"
+    "cqadupstack"
+    # "climate-fever"
+    # "dbpedia-entity"
+    # "fever"
+    # "fiqa"
+    # "hotpotqa"
+    # "msmarco"
+    # "nfcorpus"
+    # "nq"
+    # "quora"
+    # "scidocs"
+    # "scifact"
+    # "trec-covid"
+    # "webis-touche2020"
+)
 
 # Output directories
 slurm_output_dir="/home/scur2868/IR2/vec2text/reproduction/outputs/slurms"
 log_output_dir="/home/scur2868/IR2/vec2text/reproduction/outputs/similarities"
 
 # Flag to overwrite existing log files (set to true to overwrite)
-overwrite=false
+overwrite=true
 
 # Create output directories if they don't exist
 mkdir -p "$slurm_output_dir"
@@ -66,7 +68,7 @@ log_file_exists() {
 # Loop through the datasets to compare
 for dataset_B in "${datasets_to_compare[@]}"; do
     # Create the log file name
-    log_file="$log_output_dir/similarity_between_${dataset_A}_${dataset_B}_samplesize${sample_size}.out"
+    log_file="$log_output_dir/similarity_between_${dataset_A}_${dataset_B}_samplesize${sample_size}.log"
 
     # Check if the log file exists and handle based on overwrite flag
     if log_file_exists "$log_file" && [ "$overwrite" = false ]; then

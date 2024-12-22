@@ -36,14 +36,33 @@ def load_beir_dataset(dataset_name, data_dir="datasets"):
     else:
         data_path = dataset_dir
 
-    
-    corpus, queries, qrels = GenericDataLoader(data_folder=data_path).load(split="test")
-    documents = [{"text": corpus[doc_id]['text'], "title": corpus[doc_id].get("title", "")} for doc_id in corpus]
-
-    dataset = Dataset.from_dict({
-        "text": [doc["text"] for doc in documents] + [queries[q_id] for q_id in queries],
-        "data_type": ["document"] * len(documents) + ["query"] * len(queries)
-    })
+    if dataset_name == "cqadupstack":
+        full_corpus = []
+        for folder in [
+            "android", "english", "gaming", "gis", "mathematica", 
+            "physics", "programmers", "stats", "tex", "unix", 
+            "webmasters", "wordpress"
+        ]:
+            corpus, queries, qrels = GenericDataLoader(
+                data_folder=os.path.join(data_path, folder)
+            ).load(split="test")
+            documents = [{"text": doc["text"], "title": doc.get("title", "")} for doc in corpus.values()]
+            full_corpus.extend(documents)
+        
+        random.shuffle(full_corpus)
+        dataset = Dataset.from_dict({
+            "text": [doc["text"] for doc in full_corpus],
+            "data_type": ["document"] * len(full_corpus)
+        })
+    else:
+        corpus, queries, qrels = GenericDataLoader(data_folder=data_path).load(split="test")
+        documents = [{"text": corpus[doc_id]['text'], "title": corpus[doc_id].get("title", "")} 
+                    for doc_id in corpus]
+        
+        dataset = Dataset.from_dict({
+            "text": [doc["text"] for doc in documents] + [queries[q_id] for q_id in queries],
+            "data_type": ["document"] * len(documents) + ["query"] * len(queries)
+        })
 
     return dataset
 
@@ -56,6 +75,7 @@ def load_bioasq_dataset(file_path, encoding='Windows-1252', max_samples=None):
     :param max_samples: Maximum number of samples to load.
     :return: Hugging Face Dataset object with a 'text' column.
     """
+    print(f"Loading BioASQ dataset from: {file_path}")
     texts = []
     try:
         with open(file_path, 'r', encoding=encoding, errors='replace') as f:
@@ -90,25 +110,29 @@ def load_bioasq_dataset(file_path, encoding='Windows-1252', max_samples=None):
         logging.error(f"Failed to load BioASQ dataset: {e}")
         return Dataset.from_dict({'text': []})  # Return empty dataset on failure
 
+def get_filtered_embeddings(dataset, model, dataset_name):
+    if dataset_name == "bioasq":
+        # BioASQ contains only documents, no need to filter
+        return get_document_embeddings(dataset, model)
+    else:
+        # BEIR datasets need filtering for documents
+        return get_document_embeddings(dataset.filter(lambda example: example["data_type"] == "document"), model)
+
 
 def main(args):
+    dataset_A = load_beir_dataset(args.dataset_A)
+    
     if args.dataset_A == args.dataset_B: # Load only once if datasets are identical
         print("Datasets are identical. Loading only once.")
-        dataset = load_beir_dataset(args.dataset_A)
-        dataset_A = reduce_dataset(dataset, args.sample_size, random_seed=42)
-        dataset_B = reduce_dataset(dataset, args.sample_size, random_seed=43) #Different seed for different samples to account for randomness
-
+        dataset_A = reduce_dataset(dataset_A, args.sample_size, random_seed=42)
+        dataset_B = reduce_dataset(dataset_A, args.sample_size, random_seed=43) #Different seed for different samples to account for randomness
     else:
         if args.dataset_B == "bioasq":
-            dataset_A = data_helpers.load_beir_dataset(args.dataset_A)
             dataset_B = load_bioasq_dataset(
-                 "/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json",
-             encoding='Windows-1252',
-             max_samples=args.sample_size,
-        )
+                "/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json",
+                encoding='Windows-1252',
+                max_samples=args.sample_size)
         else:
-            print(f"Loading BEIR dataset: {args.dataset_A} for dataset A")
-            dataset_A = load_beir_dataset(args.dataset_A)
             dataset_B = load_beir_dataset(args.dataset_B)
 
         if args.sample_size:
@@ -118,9 +142,9 @@ def main(args):
     # Load Sentence-BERT model
     model = SentenceTransformer(args.model_name)
 
-    # Generate embeddings (only for documents, not queries)
-    embeddings_A = get_document_embeddings(dataset_A.filter(lambda example: example["data_type"] == "document"), model)
-    embeddings_B = get_document_embeddings(dataset_B.filter(lambda example: example["data_type"] == "document"), model)
+    # Generate embeddings
+    embeddings_A = get_filtered_embeddings(dataset_A, model, args.dataset_A)
+    embeddings_B = get_filtered_embeddings(dataset_B, model, args.dataset_B)
 
     # Calculate average embeddings
     average_embedding_A = calculate_average_embedding(embeddings_A)
