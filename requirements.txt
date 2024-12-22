@@ -16,3 +16,5 @@ transformers
 halo
 beir
 ijson
+seaborn
+adjustText

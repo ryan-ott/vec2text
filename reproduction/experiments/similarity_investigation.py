@@ -24,7 +24,7 @@ def extract_dataset_and_tokens(filename):
     Returns:
         A tuple containing the dataset name and max tokens, or (None, None) if not found.
     """
-    match = re.search(r"similarity_between_nq_(.+?)_samplesize(\d+)\.out", filename)
+    match = re.search(r"similarity_between_nq_(.+?)_samplesize(\d+)\.log", filename)
     if match:
         dataset = match.group(1)
         max_tokens = int(match.group(2))
@@ -66,9 +66,9 @@ def create_similarity_dataframe(log_dir):
     print(f"Checking files in directory: {log_dir}")
     
     all_files = os.listdir(log_dir)
-    print(f"All files found in directory: {all_files}")
+    print(f"All files found in directory: {all_files}\n")
 
-    files = [f for f in all_files if f.endswith(".out") and f.startswith("similarity_between_")]
+    files = [f for f in all_files if f.endswith(".log") and f.startswith("similarity_between_")]
     print(f"Filtered files: {files}")
 
     data = []
@@ -199,37 +199,45 @@ def create_combined_plot(similarity_df, bleu_df, output_dir):
     # Create the scatter plot using Seaborn
     ax = sns.scatterplot(x='SimilarityScore', y='BLEU', data=merged_df, s=100, color='#348ABD')
 
-    # Plot the regression line
-    sns.regplot(x='SimilarityScore', y='BLEU', data=merged_df, scatter=False, color='red', ci=None)  # Remove confidence interval
+    # Plot the regression line with dashed style
+    line = sns.regplot(x='SimilarityScore', y='BLEU', data=merged_df, 
+                      scatter=False, color='red', ci=None, 
+                      line_kws={'linestyle': '--'})
+    
+    # Add legend with correlation coefficient
+    line.get_lines()[0].set_label(f'Linear Regression (r = {r_value:.2f})')
+    plt.legend(fontsize=14)
 
     # Customize the plot
-    plt.title(f"Dataset Similarity to NQ vs. BLEU Score (Pearson's R = {r_value:.2f})", fontsize=16, fontweight='bold')
-    plt.xlabel("Cosine Similarity to NQ", fontsize=12)
-    plt.ylabel("BLEU Score", fontsize=12)
-    plt.xticks(fontsize=10)
-    plt.yticks(fontsize=10)
+    plt.title("Dataset Similarity to NQ vs. BLEU Score", fontsize=16)
+    plt.xlabel("Cosine Similarity to NQ", fontsize=16)
+    plt.ylabel("BLEU Score", fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
 
     # Set both axis limits to 0-1
     plt.xlim(0, 1)
     plt.ylim(0, 1)
 
-    # Add annotations with collision avoidance using adjust_text
+    # Add annotations and collect text objects for adjustText
     texts = []
     for i, row in merged_df.iterrows():
-        t = ax.text(row['SimilarityScore'], row['BLEU'], f"{row['Dataset']}",
-                    ha='center', va='center', fontsize=9)
-        texts.append(t)
-
-    adjust_text(texts,
-                x=merged_df['SimilarityScore'].values,
-                y=merged_df['BLEU'].values,
-                expand_points=(1.2, 1.2),
-                arrowprops=dict(arrowstyle="-", color='black', lw=0.5),
-                only_move={'points':'xy', 'text':'xy'},
-                autoalign='xy')
+        texts.append(plt.text(row['SimilarityScore'], row['BLEU'], f"{row['Dataset']}",
+                            ha='center', va='bottom', fontsize=13))
 
     # Add grid lines
     ax.grid(True, linestyle='--', alpha=0.7)
+
+    # Use adjustText to prevent label overlap
+    adjust_text(
+        texts, 
+        arrowprops=dict(arrowstyle='->', color='black', lw=0.5),
+        force_text=(0.2, 0.3),  # Increase the repel force for labels
+        # force_pull=(0.01, 0.01),  # Keep pulling back to original position
+        # expand=(1.1, 1.2),  # Slightly expand bounding box for better spacing
+        ensure_inside_axes=True,  # Keep annotations inside axes
+        avoid_self=True,  # Prevent overlapping labels
+    )
 
     # --- Save the plot ---
     output_path = os.path.join(output_dir, 'similarity_vs_bleu_with_regression_and_correlation.png')
@@ -237,6 +245,7 @@ def create_combined_plot(similarity_df, bleu_df, output_dir):
     plt.savefig(output_path, dpi=300)
     plt.close()
     print(f"Scatter plot with regression and correlation saved to: {output_path}")
+
 
 def main():
     log_dir = OUTPUTS_DIR / "similarities"
