@@ -49,3 +49,5 @@ To reproduce the sequence length experiment, run the following command:
 python tokenlength_investition.py
 ```
 
+## Plots
+Our plots were generated using the scripts under `reproduction/experiments/` that end with `_investigation.py` as well as the notebook `reproduction/analysis.ipynb`.
