@@ -23,17 +23,20 @@ dist/
 vec2text.egg-info/
 
 # Project-specific directories
-embeddings/
-logs/
-notebook*/
-msmarco_msl128_hypotheses/
-saves/
-slurm-scripts/
-wandb/
-datasets/
+embeddings
+logs
+notebooks/
+msmarco_msl128_hypotheses
+saves
+slurm-scripts
+wandb
+datasets
 
 # Ignore files in specific directory
-/reproduction/outputs/slurms/
+reproduction/outputs/slurms
+
+#Ignore outputs folder
+outputs/*
 
 # Ignore all other unnecessary files by default
 *.tmp
