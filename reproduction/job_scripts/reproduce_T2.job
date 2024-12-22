@@ -1,0 +1,59 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gpus=1
+#SBATCH --job-name=DatasetSimilarity
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=6
+#SBATCH --time=08:00:00  # Increased time for multiple comparisons
+#SBATCH --output=/home/scur0989/vec2text/reproduction/outputs/slurms/T2_%j.out
+
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source /home/scur0989/v2t-env/bin/activate
+cd /home/scur0989/vec2text/
+
+# --- Configuration ---
+dataset="quora"
+steps=50
+beam_width=8
+max_samples=10
+overwrite=true # Set to true to overwrite existing output files
+
+# --- Helper Functions ---
+# Function to check if a log file already exists and whether to overwrite
+check_existing_log() {
+    local log_file=$1
+    if [ -f "$log_file" ] && [ "$overwrite" = false ]; then
+        echo "Log file $log_file already exists. Skipping..."
+        return 1
+    fi
+    return 0
+}
+
+# --- Main Script ---
+# Set log file path
+log_file="/home/scur0989/vec2text/reproduction/outputs/T2/repro_T2_${steps}steps-${beam_width}beam_${dataset}_${max_samples}samples.log"
+
+# Check if we need to overwrite existing log file
+check_existing_log "$log_file"
+if [ $? -eq 1 ]; then
+    # Skip the experiment if not overwriting
+    echo "Skipping experiment for $dataset with $steps steps and $beam_width beam width."
+    exit 0
+fi
+
+echo "Running experiment with model jxm/gtr__nq__32__correct..."
+echo "Log file: $log_file"
+
+# Run the Python script with the specified parameters
+python reproduction/experiments/reproduce_T2.py --model jxm/gtr__nq__32__correct \
+    --steps $steps \
+    --beam-width $beam_width \
+    --beir_dataset $dataset \
+    --max_samples $max_samples > "$log_file" 2>&1
+
+# Log completion message
+echo "Experiment complete. Results saved in $log_file"

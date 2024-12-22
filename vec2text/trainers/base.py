@@ -397,7 +397,7 @@ class BaseTrainer(transformers.Trainer):
             return {}
         print("\n=== Prediction-Label Pairs ===")
 
-        num_samples = 100 # You can adjust this number as needed
+        num_samples = 8 # You can adjust this number as needed
         random_indices = random.sample(range(len(decoded_preds)), num_samples)
         print(f"Length of decoded_preds: {len(decoded_preds)}")
         print(f"Length of decoded_labels: {len(decoded_labels)}")

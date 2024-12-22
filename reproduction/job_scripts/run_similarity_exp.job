@@ -1,0 +1,98 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gpus=1
+#SBATCH --job-name=DatasetSimilarity
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=6
+#SBATCH --time=00:59:00  # Increased time for multiple comparisons
+#SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/slurms/dataset_similarity_%j.out
+
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source /home/scur2868/IR2/v2t-env/bin/activate
+cd /home/scur2868/IR2/vec2text/
+
+# --- Configuration ---
+dataset_A="nq"  # Fixed dataset for comparison
+model_name="all-mpnet-base-v2"
+sample_size=1000  # Sample size (use "None" for full datasets)
+
+# List of datasets to compare against dataset_A
+datasets_to_compare=(
+    # "arguana"
+    # "bioasq"
+    "cqadupstack"
+    # "climate-fever"
+    # "dbpedia-entity"
+    # "fever"
+    # "fiqa"
+    # "hotpotqa"
+    # "msmarco"
+    # "nfcorpus"
+    # "nq"
+    # "quora"
+    # "scidocs"
+    # "scifact"
+    # "trec-covid"
+    # "webis-touche2020"
+)
+
+# Output directories
+slurm_output_dir="/home/scur2868/IR2/vec2text/reproduction/outputs/slurms"
+log_output_dir="/home/scur2868/IR2/vec2text/reproduction/outputs/similarities"
+
+# Flag to overwrite existing log files (set to true to overwrite)
+overwrite=true
+
+# Create output directories if they don't exist
+mkdir -p "$slurm_output_dir"
+mkdir -p "$log_output_dir"
+
+# --- Helper Functions ---
+# Function to check if the log file already exists
+log_file_exists() {
+    local log_file=$1
+    if [ -f "$log_file" ]; then
+        echo "Log file already exists: $log_file"
+        return 0  # File exists
+    else
+        return 1  # File does not exist
+    fi
+}
+
+# --- Main Script ---
+
+# Loop through the datasets to compare
+for dataset_B in "${datasets_to_compare[@]}"; do
+    # Create the log file name
+    log_file="$log_output_dir/similarity_between_${dataset_A}_${dataset_B}_samplesize${sample_size}.log"
+
+    # Check if the log file exists and handle based on overwrite flag
+    if log_file_exists "$log_file" && [ "$overwrite" = false ]; then
+        echo "Skipping dataset comparison between ${dataset_A} and ${dataset_B} as log file already exists."
+        echo "Use 'overwrite=true' to overwrite existing log files."
+        continue  # Skip this dataset pair and move to the next
+    fi
+
+    echo "----------------------------------------"
+    echo "Running dataset similarity experiment..."
+    echo "Dataset A: ${dataset_A}"
+    echo "Dataset B: ${dataset_B}"
+    echo "Model: ${model_name}"
+    echo "Sample Size: ${sample_size}"
+    echo "SLURM output: ${slurm_output_dir}/dataset_similarity_%j.out"
+    echo "Log file: ${log_file}"
+    echo "----------------------------------------"
+
+    # Run the Python script
+    python /home/scur2868/IR2/vec2text/reproduction/experiments/dataset_similarity_experiment.py \
+        --dataset_A "$dataset_A" \
+        --dataset_B "$dataset_B" \
+        --model_name "$model_name" \
+        --sample_size "$sample_size" > "$log_file" 2>&1
+
+    echo "Experiment finished. Check ${log_file} for results."
+done

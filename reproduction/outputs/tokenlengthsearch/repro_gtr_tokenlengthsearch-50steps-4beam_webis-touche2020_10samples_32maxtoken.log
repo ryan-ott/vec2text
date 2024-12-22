@@ -1,0 +1,449 @@
+/gpfs/home6/scur0989/v2t-env/lib64/python3.9/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/gpfs/home6/scur0989/v2t-env/lib64/python3.9/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Project Root: /gpfs/home6/scur0989
+Outputs Directory: /gpfs/home6/scur0989/reproduction/outputs
+Vec2Text Directory: /gpfs/home6/scur0989/vec2text
++++ Arguments Passed +++
+Namespace(model='jxm/gtr__nq__32__correct', beir_dataset='webis-touche2020', beam_width=4, steps=50, batch_size=16, max_samples=10, output_csv=None, max_length=32, max_seq_length=512)
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=False, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=jxm/gtr__nq__32,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=6250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=gtr_corrector,
+exp_name=,
+experiment=corrector,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.00282842712,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct/runs/Nov05_04-29-22_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=50,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=200.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32__correct,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=256,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32-correct,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=25000,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32__correct
+Set num workers to 1
++++ model_args +++
+ModelArguments(model_name_or_path='t5-base', embedder_model_name='gtr_base', embedder_model_api=None, embedder_gaussian_noise_level=0.0, embedder_torch_dtype='float32', embedding_transform_strategy='repeat', encoder_dropout_disabled=False, decoder_dropout_disabled=False, model_type=None, config_overrides=None, config_name=None, tokenizer_name=None, cache_dir=None, model_revision='main', max_seq_length=32, torch_dtype=None, num_repeat_tokens=16, embedding_zero_except_topk=None, embedder_no_grad=True, use_lora=False, embedder_fake_with_zeros=False, use_frozen_embeddings_as_input=True, corrector_ignore_hypothesis_embedding=False, embeddings_from_layer_n=None, freeze_strategy='none')
+
++++ data_args +++
+DataArguments(dataset_name='nq', max_eval_samples=500, use_less_data=1000)
+
++++ training_args +++
+TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-06,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=0,
+bf16_full_eval=False,
+cheat_on_train_hypotheses=False,
+corrector_model_alias=None,
+corrector_model_from_pretrained=None,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1250,
+eval_strategy=steps,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+exp_group_name=oct-gtr32,
+exp_name=,
+experiment=inversion,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=False,
+group_by_length=True,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=['inputs'],
+include_inputs_for_metrics=True,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=-1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/wentingz/vec2text/saves/gtr-nq-msl32/runs/Nov01_18-00-43_mosaic-cirrascale-03.reviz.ai2.in,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=25,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=constant_with_warmup,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=nq_loss,
+mock_embedder=False,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=True,
+num_train_epochs=300.0,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=saves/jxm__gtr__nq__32,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=256,
+per_device_train_batch_size=512,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/home/wentingz/vec2text/saves/gtr-nq-msl32,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=125,
+save_strategy=steps,
+save_total_limit=2,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+steps_per_epoch=500000,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+use_wandb=False,
+warmup_ratio=0.0,
+warmup_steps=625,
+weight_decay=0.0,
+)
+
+Experiment output_dir = saves/jxm__gtr__nq__32
+Loading datasets with TOKENIZERS_PARALLELISM = False
+loading train dataset from path: /home/scur0989/.cache/inversion/dd0d97ad14fd6897b0d31cecc2e14d13.arrow
+loaded dict of val datasets from /home/scur0989/.cache/inversion/8a11157c2dba245e22bfdea7946e149e.arrow
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:01,  5.29it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:01,  4.93it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:01,  4.72it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:00<00:00,  4.55it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:01<00:00,  4.87it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:01<00:00,  5.14it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:01<00:00,  4.96it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  5.49it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  5.11it/s]
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:00<00:01,  4.93it/s]Loading checkpoint shards:  33%|███▎      | 2/6 [00:00<00:00,  4.48it/s]Loading checkpoint shards:  50%|█████     | 3/6 [00:00<00:00,  4.32it/s]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:00<00:00,  4.34it/s]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:01<00:00,  4.65it/s]Loading checkpoint shards: 100%|██████████| 6/6 [00:01<00:00,  5.39it/s]Loading checkpoint shards: 100%|██████████| 6/6 [00:01<00:00,  4.89it/s]
+Loading BEIR dataset: webis-touche2020
+Original dataset size: 100000
+cut dataset at 10 samples.
+Tokenizing dataset:   0%|          | 0/10 [00:00<?, ? examples/s]Tokenizing dataset: 100%|██████████| 10/10 [00:00<00:00, 357.02 examples/s]
+Model tokens max_length: 32
+Embedder tokens max_length: 32
++++ Trainer Args Passed +++
+trainer.num_gen_recursive_steps: 50
+trainer.sequence_beam_width: 4
+Model name: jxm/gtr__nq__32__correct
+max_seq_length: 512
+Dataset({
+    features: ['text'],
+    num_rows: 10
+})
+generating from val:   0%|          | 0/1 [00:00<?, ?it/s]generating from val: 100%|██████████| 1/1 [01:33<00:00, 93.53s/it]                                                                  
+=== Prediction-Label Pairs ===
+Length of decoded_preds: 10
+Length of decoded_labels: 10
+
+Contents of decoded_preds:
+Index 0: We are Americans and we invented amazing things (Google Maps, Polymer Bank Notes, WiFi, if you didn't know how to do
+Index 1: Schools have no compelling interest in providing contraceptives to students. The purpose of schools is not to provide healthcare nor to provide any other service except ins
+Index 2: Australia has always been put in the shadow behind countries like America, England and sometimes Canada, I feel as though Australia should not be put into the darkness when
+Index 3: The resolution used by Pro! to 'presume' that Australia isn't already a 'significant' country, but if
+Index 4: how to fund the school program before handing them out. Condoms cost money An opt-out list and checking for them takes time and "pro
+Index 5:              and then anything else.
+Index 6: I accept.              
+Index 7: I won every round by default. My arguments aren’t answered. I don’t like the idea of my opponent forfeiting. We didn’
+Index 8: As a senior at a school I'm focusing on teen pregnancy. Our group are determined to have high school districts provide contraceptive
+Index 9: why there is such a thing as a "christian" that there is serious trouble as so-called Christians do not have any Christians for
+
+Contents of decoded_labels:
+Index 0: First of all we invented amazing things like WiFi, Google Maps, Polymer bank notes (if you are American and do not know what they are,
+Index 1: Schools have no compelling interest in providing contraceptives to students. The purpose of schools is not to provide healthcare nor to provide any other service except ins
+Index 2: Australia has always been put into the shadow behind countries like America, Canada and even England sometimes, I feel Australia should not be put in the darkness and in
+Index 3: The resolution used by Pro *assumes* that Australia isn't already a 'significant' country - however, in
+Index 4: How do you propose the school will fund your program? Condoms cost money and checking an "opt out" list before handing them out takes time
+Index 5: Alright then.
+Index 6: I accept.
+Index 7: My opponent forfeited every round. None of my arguments were answered. I don’t like the idea of winning by default, but here we are
+Index 8: As a senior at my school. My group and I are focusing on teenage pregnancy; we are determined to have high school districts provide contraceptive
+Index 9: Why is it that so-called christians, Because there is no such a thing as a christian, Have serious trouble as
+
+Pair #1
+--------------------------------------------------
+ index: 1
+[pred] Schools have no compelling interest in providing contraceptives to students. The purpose of schools is not to provide healthcare nor to provide any other service except ins
+[true] Schools have no compelling interest in providing contraceptives to students. The purpose of schools is not to provide healthcare nor to provide any other service except ins
+--------------------------------------------------
+
+Pair #2
+--------------------------------------------------
+ index: 0
+[pred] We are Americans and we invented amazing things (Google Maps, Polymer Bank Notes, WiFi, if you didn't know how to do
+[true] First of all we invented amazing things like WiFi, Google Maps, Polymer bank notes (if you are American and do not know what they are,
+--------------------------------------------------
+
+Pair #3
+--------------------------------------------------
+ index: 4
+[pred] how to fund the school program before handing them out. Condoms cost money An opt-out list and checking for them takes time and "pro
+[true] How do you propose the school will fund your program? Condoms cost money and checking an "opt out" list before handing them out takes time
+--------------------------------------------------
+
+Pair #4
+--------------------------------------------------
+ index: 9
+[pred] why there is such a thing as a "christian" that there is serious trouble as so-called Christians do not have any Christians for
+[true] Why is it that so-called christians, Because there is no such a thing as a christian, Have serious trouble as
+--------------------------------------------------
+
+Pair #5
+--------------------------------------------------
+ index: 6
+[pred] I accept.              
+[true] I accept.
+--------------------------------------------------
+
+Pair #6
+--------------------------------------------------
+ index: 5
+[pred]              and then anything else.
+[true] Alright then.
+--------------------------------------------------
+
+Pair #7
+--------------------------------------------------
+ index: 8
+[pred] As a senior at a school I'm focusing on teen pregnancy. Our group are determined to have high school districts provide contraceptive
+[true] As a senior at my school. My group and I are focusing on teenage pregnancy; we are determined to have high school districts provide contraceptive
+--------------------------------------------------
+
+Pair #8
+--------------------------------------------------
+ index: 2
+[pred] Australia has always been put in the shadow behind countries like America, England and sometimes Canada, I feel as though Australia should not be put into the darkness when
+[true] Australia has always been put into the shadow behind countries like America, Canada and even England sometimes, I feel Australia should not be put in the darkness and in
+--------------------------------------------------
+
+
+{'eval_loss': 5.8811750411987305, 'eval_model_preparation_time': 0.0197, 'eval_pred_num_tokens': 31.0, 'eval_true_num_tokens': 26.5, 'eval_token_set_precision': 0.765945868945869, 'eval_token_set_recall': 0.7610133948177426, 'eval_token_set_f1': 0.7587201596462515, 'eval_token_set_f1_sem': np.float64(0.05470345829691066), 'eval_n_ngrams_match_1': 16.4, 'eval_n_ngrams_match_2': 10.9, 'eval_n_ngrams_match_3': 7.9, 'eval_num_true_words': 22.1, 'eval_num_pred_words': 21.8, 'eval_bleu_score': np.float64(35.48492122078982), 'eval_bleu_score_sem': np.float64(9.014199630964333), 'eval_rouge_score': np.float64(0.780022149225194), 'eval_exact_match': np.float64(0.1), 'eval_exact_match_sem': np.float64(0.09999999999999999), 'eval_emb_cos_sim': 0.9077219367027283, 'eval_emb_cos_sim_sem': np.float64(0.05577616651399199), 'eval_emb_top1_equal': 0.6000000238418579, 'eval_emb_top1_equal_sem': np.float64(0.16329931451750404), 'eval_runtime': 95.7654, 'eval_samples_per_second': 0.104, 'eval_steps_per_second': 0.01}
++++ Evaluation Metrics +++
+eval_loss: 5.8811750411987305
+eval_model_preparation_time: 0.0197
+eval_pred_num_tokens: 31.0
+eval_true_num_tokens: 26.5
+eval_token_set_precision: 0.765945868945869
+eval_token_set_recall: 0.7610133948177426
+eval_token_set_f1: 0.7587201596462515
+eval_token_set_f1_sem: 0.05470345829691066
+eval_n_ngrams_match_1: 16.4
+eval_n_ngrams_match_2: 10.9
+eval_n_ngrams_match_3: 7.9
+eval_num_true_words: 22.1
+eval_num_pred_words: 21.8
+eval_bleu_score: 35.48492122078982
+eval_bleu_score_sem: 9.014199630964333
+eval_rouge_score: 0.780022149225194
+eval_exact_match: 0.1
+eval_exact_match_sem: 0.09999999999999999
+eval_emb_cos_sim: 0.9077219367027283
+eval_emb_cos_sim_sem: 0.05577616651399199
+eval_emb_top1_equal: 0.6000000238418579
+eval_emb_top1_equal_sem: 0.16329931451750404
+eval_runtime: 95.7654
+eval_samples_per_second: 0.104
+eval_steps_per_second: 0.01
+Time taken: 95.7938904762268
+Current memory usage: 3.39MB; Peak: 9.58MB
+I1222 01:56:04.817926 2708635 torch/_dynamo/utils.py:399] TorchDynamo compilation metrics:
+I1222 01:56:04.817926 2708635 torch/_dynamo/utils.py:399] Function    Runtimes (s)
+I1222 01:56:04.817926 2708635 torch/_dynamo/utils.py:399] ----------  --------------

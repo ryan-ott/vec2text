@@ -1,4 +1,5 @@
 accelerate
+adjustText
 beir
 bert_score
 datasets
@@ -11,6 +12,7 @@ optimum
 pre-commit
 rouge_score
 sacrebleu
+seaborn
 sentence_transformers
 tenacity
 tokenizers

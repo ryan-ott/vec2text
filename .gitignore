@@ -1,21 +1,41 @@
+# Compiled Python files
 __pycache__/
+*.pyc
 
+# Output files
 *.out
+
+# Cache directories
 *cache/
+
+# Pickle files
 *.p
+
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-*cache/
+
+# Virtual environment (partial, see note below)
 venv/*
 
+# Build and distribution directories
 build/
 dist/
 vec2text.egg-info/
 
-embeddings/
-logs/
-notebook*/
-msmarco_msl128_hypotheses/
-saves/
-slurm-scripts/
-wandb/
-datasets/
+# Project-specific directories
+embeddings
+logs
+notebooks/
+msmarco_msl128_hypotheses
+saves
+slurm-scripts
+wandb
+datasets
+
+# Ignore files in specific directory
+reproduction/outputs/slurms
+
+
+# Ignore all other unnecessary files by default
+*.tmp
+*.bak
