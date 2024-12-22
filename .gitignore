@@ -35,8 +35,6 @@ datasets
 # Ignore files in specific directory
 reproduction/outputs/slurms
 
-#Ignore outputs folder
-outputs/*
 
 # Ignore all other unnecessary files by default
 *.tmp
