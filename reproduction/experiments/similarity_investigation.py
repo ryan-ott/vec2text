@@ -9,10 +9,13 @@ from adjustText import adjust_text
 from scipy.stats import pearsonr, linregress
 from pathlib import Path
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from settings import PROJECT_ROOT, OUTPUTS_DIR, PLOTS_DIR
 
-
+current_dir = Path(__file__).resolve().parent
+project_root = current_dir.parent.parent
+print("Project Root:", project_root)
+sys.path.insert(0, str(project_root))
+# Now import settings
+from reproduction.settings import PROJECT_ROOT, OUTPUTS_DIR
 
 def extract_dataset_and_tokens(filename):
     """
@@ -240,7 +243,7 @@ def create_combined_plot(similarity_df, bleu_df, output_dir):
 
 def main():
     log_dir = OUTPUTS_DIR / "similarities"
-    output_dir = PLOTS_DIR / "similarities"
+    output_dir = OUTPUTS_DIR / "similarities" / "plots"
     os.makedirs(output_dir, exist_ok=True) # Ensure that the plots dir exists
     similarity_df = create_similarity_dataframe(str(log_dir))
 

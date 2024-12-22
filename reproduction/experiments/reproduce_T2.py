@@ -1,3 +1,25 @@
+import sys
+from pathlib import Path
+import os
+# Get the directory of the current script
+current_script_dir = Path(__file__).resolve().parent
+# Add the root directory to sys.path
+sys.path.append(str(current_script_dir.parent))
+# Construct the path to settings.py (ONE level up)
+settings_path = current_script_dir.parent / "settings.py" 
+# Load settings.py using exec(open(...).read())
+# Load settings.py using exec(open(...).read())
+with open(settings_path, 'r') as f:
+    exec(f.read())
+
+# Now you can access variables from settings.py directly
+sys.path.insert(0, str(VEC2TEXT_DIR))
+
+print("Project Root:", PROJECT_ROOT)
+print("Outputs Directory:", OUTPUTS_DIR)
+print("Vec2Text Directory:", VEC2TEXT_DIR)
+
+
 import argparse
 import nltk
 import time
@@ -132,7 +154,7 @@ if __name__ == "__main__":
             "trec-covid",
             "webis-touche2020",
             # "signal1m",
-            # "trec-news",
+            # "trec-news", not available all 3
             # "robust04",
             "bioasq",
         ],
