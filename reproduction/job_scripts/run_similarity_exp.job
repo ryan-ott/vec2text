@@ -22,23 +22,21 @@ sample_size=1000  # Sample size (use "None" for full datasets)
 
 # List of datasets to compare against dataset_A
 datasets_to_compare=(
-     "arguana"
-     "climate-fever"
-     "cquadupstack"
-     "dbpedia-entity
-     "fever"
-     "fiqa"
-     "hotpotqa"
-     "msmarco"
-     "nfcorpus"
-     "nq"
-     "quora"
-     "scidocs"
-     "scifact"
-     "trec-covid"
-     "webis-touche2020"
      "bioasq"
-)
+     "cquadupstack")
+    #  "arguana"
+    #  "climate-fever"
+    #  "fever"
+    #  "fiqa"
+    #  "hotpotqa"
+    #  "msmarco"
+    #  "nfcorpus"
+    #  "nq"
+    #  "quora"
+    #  "scidocs"
+    #  "scifact"
+    #  "trec-covid"
+    #  "webis-touche2020"
 
 # Output directories
 slurm_output_dir="/home/scur2868/IR2/vec2text/reproduction/outputs/slurms"

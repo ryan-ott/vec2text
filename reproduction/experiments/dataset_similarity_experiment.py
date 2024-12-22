@@ -104,7 +104,7 @@ def main(args):
             dataset_B = load_bioasq_dataset(
                  "/home/scur2868/IR2/datasets/bioasq/allMeSH_2020.json",
              encoding='Windows-1252',
-             max_samples=args.max_samples,
+             max_samples=args.sample_size,
         )
         else:
             print(f"Loading BEIR dataset: {args.dataset_A} for dataset A")
