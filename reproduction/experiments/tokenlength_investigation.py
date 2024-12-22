@@ -11,7 +11,7 @@ from bert_score import BERTScorer
 
  # Add the root directory to sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from settings import PROJECT_ROOT, OUTPUTS_DIR, PLOTS_DIR
+from settings import PROJECT_ROOT, OUTPUTS_DIR
 
 # --- Helper Functions ---
 def clean_line(line):

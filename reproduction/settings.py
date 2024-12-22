@@ -1,11 +1,10 @@
+# /home/scur0989/vec2text/reproduction/settings.py
 from pathlib import Path
 
-# This points to the directory containing settings.py.
-# which is vec2text/reproduction
-PROJECT_ROOT = Path(__file__).resolve().parent  
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent 
+OUTPUTS_DIR = PROJECT_ROOT / "reproduction" / "outputs"
+VEC2TEXT_DIR = PROJECT_ROOT 
 
-# Define other directories relative to the root
-EXPERIMENTS_DIR = PROJECT_ROOT / "experiments"
-JOB_SCRIPTS_DIR = PROJECT_ROOT / "job_scripts"
-OUTPUTS_DIR = PROJECT_ROOT / "outputs"
-PLOTS_DIR = PROJECT_ROOT / "plots"
+print("Project Root:", PROJECT_ROOT)
+print("Outputs Directory:", OUTPUTS_DIR)
+print("Vec2Text Directory:", VEC2TEXT_DIR)

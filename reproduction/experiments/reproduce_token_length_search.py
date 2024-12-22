@@ -4,15 +4,12 @@ import time
 import tracemalloc
 import os
 import random
-import sys
 from pathlib import Path
 
-# Get path to current directory and to project root
+import sys
 current_dir = Path(__file__).resolve().parent
-project_root = current_dir.parent
+project_root = current_dir.parent.parent
 sys.path.insert(0, str(project_root))
-
-# Now import settings
 from reproduction.settings import PROJECT_ROOT, OUTPUTS_DIR
 
 from vec2text import analyze_utils, data_helpers
@@ -121,8 +118,8 @@ def main(args):
     if args.output_csv:
         df = pd.DataFrame([metrics])
         # Use a relative path for saving the CSV.
-        csv_output_path = str(OUTPUTS_DIR / "csv" / f"reproduce_token_length_search_{args.beir_dataset}_results.csv")
-        os.makedirs(os.path.dirname(csv_output_path), exist_ok=True) # Create the folder if it doesnt exist
+        csv_output_path = str(OUTPUTS_DIR / "tokenlengthsearch" / "seq_length_results" / f"experiment_results_{args.beir_dataset}.csv")
+        os.makedirs(os.path.dirname(csv_output_path), exist_ok=True) # Ensure folder exists
         df.to_csv(csv_output_path, index=False)
         print(f"Metrics saved to {csv_output_path}")
 
