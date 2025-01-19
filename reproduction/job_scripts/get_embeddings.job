@@ -1,0 +1,40 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gpus=1
+#SBATCH --job-name=GetEmbeddings
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --time=06:00:00
+#SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/get_embeddings/%A.out
+
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source /home/scur2868/IR2/v2t-env/bin/activate
+cd /home/scur2868/IR2/vec2text
+
+# List the datasets you want to process:
+DATASETS=(
+#   "arguana"
+#   "climate-fever"
+#   "cqadupstack"
+#   "dbpedia-entity"
+#   "fever"
+#   "fiqa"
+#   "hotpotqa"
+#   "msmarco"
+#   "nfcorpus"  #done
+  "nq"
+  "quora"
+  "scidocs"
+  "scifact"
+  "trec-covid"
+  "webis-touche2020"
+)
+
+for DS in "${DATASETS[@]}"; do
+  echo "Processing dataset: $DS"
+  python experiment_scripts/misc/create_embeddings_dataset_openai.py "$DS"
+done

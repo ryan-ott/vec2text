@@ -2,11 +2,12 @@ import argparse
 import functools
 import math
 from typing import Dict
-
+import logging
 import datasets
 import openai
 import tiktoken
 from tenacity import retry, stop_after_attempt, wait_fixed
+from huggingface_hub import HfApi
 
 from vec2text.data_helpers import (
     load_beir_datasets,
@@ -73,6 +74,19 @@ def embed_openai_ada2(example: Dict) -> Dict:
     return example
 
 
+def ds_exists_on_hub(full_name: str) -> bool:
+    """
+    Returns True if the dataset exists on the Hugging Face Hub.
+    """
+    api = HfApi()
+    ds_name = f"ryanott/{full_name}"
+    try:
+        api.dataset_info(ds_name)  # e.g. username/dataset_name
+        return True
+    except Exception as e:
+        logging.info(f"error checking if dataset exists: {e}")
+        return False
+
 def main():
     datasets.disable_caching()
     args = parse_args()
@@ -83,6 +97,10 @@ def main():
             "openai_ada2",
         )
     )
+    
+    if ds_exists_on_hub(full_name):
+        print(f"dataset {full_name} already exists on Hugging Face, skipping")
+        return
 
     all_datasets = {
         **load_standard_val_datasets(),

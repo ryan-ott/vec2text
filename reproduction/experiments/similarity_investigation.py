@@ -114,7 +114,7 @@ def create_similarity_bar_plot(df, output_dir):
     dataset_order = [
         "hotpotqa", "nq", "dbpedia-entity", "nfcorpus", "climate-fever",
         "fever", "scifact", "scidocs", "arguana", "msmarco", "quora",
-        "trec-covid", "fiqa", "webis-touche2020", "cquadupstack", "bioasq"
+        "trec-covid", "fiqa", "webis-touche2020", "cqadupstack", "bioasq"
     ]
 
     # Filter out datasets with missing or zero similarity scores
