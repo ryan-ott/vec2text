@@ -34,13 +34,19 @@ DATASETS=(
   "webis-touche2020"
 )
 
-# Set the beam width and number of steps
+# Set the beam width and number of steps during decoding as well as number of samples to generate inversions for
 BW=4
-STEPS=20
+STEPS=5
+SAMPLES=1000
 
 for DS in "${DATASETS[@]}"; do
   echo "Inverting embeddings for dataset: $DS"
-  python reproduction/experiments/invert_embeddings_openai.py --dataset "$DS" --beam_width "$BW" --num_steps "$STEPS" --push_to_hub
+  python reproduction/experiments/invert_embeddings.py \
+    --dataset "$DS" \
+    --beam_width "$BW" \
+    --num_steps "$STEPS" \
+    --num_samples "$SAMPLES" \
+    --push_to_hub
 done
 
 echo "All done!"

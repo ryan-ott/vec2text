@@ -3,16 +3,13 @@ import time
 import torch
 import nltk
 import numpy as np
+import random
 
 from datasets import load_dataset
 import evaluate
 import vec2text
 from vec2text import load_pretrained_corrector
 from tqdm import tqdm
-
-import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning)
-
 
 nltk.download("punkt", quiet=True)
 
@@ -45,37 +42,63 @@ def main():
                         help="Number of correction steps")
     parser.add_argument("--push_to_hub", action="store_true",
                         help="If set, push updated dataset back to Hugging Face")
+    parser.add_argument("--num_samples", type=int, default=0,
+                        help="If set to a positive integer, randomly sample that many rows from the dataset instead of inverting all.")
+    parser.add_argument("--seed", type=int, default=42,
+                        help="Random seed for reproducibility")
     args = parser.parse_args()
+    
+    # Seed for reproducibility
+    random.seed(args.seed)
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(args.seed)
 
-    # Load corrector
-    print("Loading vec2text corrector for 'text-embedding-ada-002'...")
-    corrector = load_pretrained_corrector("text-embedding-ada-002")
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-
-    # Prepare lists to store new data
-    inversions = []
-    times = []
-    gpu_allocated_diffs = []  # difference in allocated memory
-    gpu_peaks = []            # difference in peak memory
-    bleu_scores = []
-    f1_scores = []
-    orig_lens = []
-    inv_lens = []
-
-    # Load your dataset from Hugging Face
+    # Loading dataset from Hugging Face
     full_name = f"ryanott/{args.dataset}__openai_ada2"
     print(f"Loading dataset: {full_name}")
     ds = load_dataset(full_name)
 
-    # We'll iterate over the TRAIN split; adjust if you have other splits
+    # Use the 'train' split, or default to the first available
     split_name = "train"
     if split_name not in ds:
-        # If the dataset does not have a 'train' split, just pick the first split
         split_name = list(ds.keys())[0]
-
     dataset_split = ds[split_name]
 
-    for i, example in tqdm(enumerate(dataset_split), total=len(dataset_split), desc="Processing examples"):
+    # If 'inversion' column already exists, warn that it will be overwritten
+    existing_columns = dataset_split.column_names
+    if "inversion" in existing_columns:
+        print(
+            "WARNING: An 'inversion' column already exists in this dataset. "
+            "The new values for inverted text will overwrite existing entries."
+        )
+
+    # Choose how many rows to process. If num_samples <= 0, do all.
+    n = len(dataset_split)
+    if args.num_samples > 0 and args.num_samples < n:
+        sampled_indices = random.sample(range(n), args.num_samples)
+        print(f"Randomly sampling {args.num_samples} out of {n} rows.")
+    else:
+        sampled_indices = list(range(n))
+        print(f"No valid --num_samples specified, or too large; processing all {n} rows.")
+
+    print("Loading vec2text corrector for 'text-embedding-ada-002'...")
+    corrector = load_pretrained_corrector("text-embedding-ada-002")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    # Prepare place-holders for results (None for unprocessed rows)
+    inversions = [None] * n
+    bleu_scores = [None] * n
+    f1_scores = [None] * n
+    orig_lens = [None] * n
+    inv_lens = [None] * n
+    gpu_allocated_diffs = [None] * n
+    gpu_peaks = [None] * n
+    times = []
+
+    for idx in tqdm(sampled_indices, desc="Processing samples", unit="sample"):
+        example = dataset_split[idx]
         text = example["text"]
         emb_list = example["embeddings_A"]  # The embedding array
         embeddings = torch.tensor(emb_list, dtype=torch.float).unsqueeze(0).to(device)
@@ -96,7 +119,7 @@ def main():
             sequence_beam_width=args.beam_width,
         )[0]  # invert_embeddings returns a list
 
-        # Synchronise again to measure end time, allocated, and peak usage
+        # Measure end time, allocated, and peak usage
         if device == "cuda":
             torch.cuda.synchronize(device=device)
         end_time = time.time()
@@ -104,6 +127,7 @@ def main():
         peak_alloc = torch.cuda.max_memory_allocated(device=device) if device == "cuda" else 0
 
         elapsed = end_time - start_time
+        times.append(elapsed)
         alloc_diff_mb = (end_alloc - start_alloc) / (1024**2)  # MB
         peak_diff_mb = (peak_alloc - start_alloc) / (1024**2)  # MB
 
@@ -111,53 +135,62 @@ def main():
         ref_tokens = nltk.word_tokenize(text.lower())
         hyp_tokens = nltk.word_tokenize(inverted_text.lower())
         f1 = token_f1_score(ref_tokens, hyp_tokens)
-        f1_scores.append(f1)
 
-        # Compute SacreBLEU
+        # Compute sacreBLEU
         sacrebleu_result = sacrebleu.compute(
             predictions=[inverted_text.lower()],
             references=[[text.lower()]]
         )
         bleu = sacrebleu_result["score"]
-        bleu_scores.append(bleu)
 
-        times.append(elapsed)
-        gpu_allocated_diffs.append(alloc_diff_mb)
-        gpu_peaks.append(peak_diff_mb)
-        orig_lens.append(len(ref_tokens))
-        inv_lens.append(len(hyp_tokens))
-        inversions.append(inverted_text)
+        # Store results
+        inversions[idx] = inverted_text
+        bleu_scores[idx] = bleu
+        f1_scores[idx] = f1
+        orig_lens[idx] = len(ref_tokens)
+        inv_lens[idx] = len(hyp_tokens)
+        gpu_allocated_diffs[idx] = alloc_diff_mb
+        gpu_peaks[idx] = peak_diff_mb
 
-        if (i + 1) % 1000 == 0:
-            print(f"Processed {i+1} samples...")
+    # Calculate final averages only over the processed rows
+    processed_count = len(times)
+    if processed_count > 0:
+        avg_time = np.mean(times)
+        # Filter out None values in these columns
+        valid_alloc = [x for x in gpu_allocated_diffs if x is not None]
+        valid_peak = [x for x in gpu_peaks if x is not None]
+        valid_bleu = [x for x in bleu_scores if x is not None]
+        valid_f1 = [x for x in f1_scores if x is not None]
+        avg_alloc = np.mean(valid_alloc) if len(valid_alloc) > 0 else 0
+        avg_peak = np.mean(valid_peak) if len(valid_peak) > 0 else 0
+        avg_bleu = np.mean(valid_bleu) if len(valid_bleu) > 0 else 0
+        avg_f1 = np.mean(valid_f1) if len(valid_f1) > 0 else 0
 
-    # Print average stats
-    avg_time = np.mean(times)
-    total_time = np.sum(times)
-    avg_alloc = np.mean(gpu_allocated_diffs)
-    avg_peak = np.mean(gpu_peaks)
-    avg_bleu = np.mean(bleu_scores)
-    avg_f1 = np.mean(f1_scores)
+        print(f"\n===== Results for {args.dataset} =====")
+        print(f"Processed {processed_count} out of {n} rows.")
+        print(f"Average per-phrase time (s): {avg_time:.4f}")
+        print(f"Avg GPU allocated diff (MB): {avg_alloc:.4f}")
+        print(f"Avg GPU peak usage (MB): {avg_peak:.4f}")
+        print(f"Average BLEU: {avg_bleu:.4f}")
+        print(f"Average token F1: {avg_f1:.4f}")
+        total_time = np.sum(times)
+        print(f"Total time (s): {total_time:.4f}")
+    else:
+        print("No rows were processed, skipping stats.")
 
-    print(f"\n===== Results for {args.dataset} =====")
-    print(f"Average per-phrase time (s): {avg_time:.4f}")
-    print(f"Total time (s): {total_time:.4f}")
-    print(f"Avg GPU allocated diff (MB): {avg_alloc:.4f}")
-    print(f"Avg GPU peak usage (MB): {avg_peak:.4f}")
-    print(f"Average BLEU: {avg_bleu:.4f}")
-    print(f"Average token F1: {avg_f1:.4f}")
+    # Add / Overwrite columns in the dataset
+    ds_split_modified = (
+        ds[split_name]
+        .add_column("inversion", inversions)
+        .add_column("orig_len", orig_lens)
+        .add_column("inv_len", inv_lens)
+        .add_column("bleu_score", bleu_scores)
+        .add_column("token_f1", f1_scores)
+        .add_column("gpu_alloc_diff", gpu_allocated_diffs)
+        .add_column("gpu_peak_diff", gpu_peaks)
+    )
 
-    # Add columns to the dataset
-    ds_new = ds[split_name].add_column("inversion", inversions)
-    ds_new = ds_new.add_column("orig_len", orig_lens)
-    ds_new = ds_new.add_column("inv_len", inv_lens)
-    ds_new = ds_new.add_column("bleu_score", bleu_scores)
-    ds_new = ds_new.add_column("token_f1", f1_scores)
-    ds_new = ds_new.add_column("gpu_alloc_diff", gpu_allocated_diffs)
-    ds_new = ds_new.add_column("gpu_peak_diff", gpu_peaks)
-
-    # Replace the split in the original dataset
-    ds[split_name] = ds_new
+    ds[split_name] = ds_split_modified
 
     # Optionally push updated dataset back to Hub
     if args.push_to_hub:
