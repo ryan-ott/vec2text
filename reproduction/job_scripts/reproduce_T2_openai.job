@@ -2,20 +2,20 @@
 
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
-#SBATCH --job-name=GetEmbeddings
+#SBATCH --job-name=InvertEmbeddings
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
 #SBATCH --time=06:00:00
-#SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/get_embeddings/%A.out
+#SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/invert_embeddings/%A.out
 
 module purge
 module load 2022
 module load Anaconda3/2022.05
 
 source /home/scur2868/IR2/v2t-env/bin/activate
+
 cd /home/scur2868/IR2/vec2text
 
-# List the datasets you want to process:
 DATASETS=(
   "arguana"
   "climate-fever"
@@ -34,7 +34,13 @@ DATASETS=(
   "webis-touche2020"
 )
 
+# Set the beam width and number of steps
+BW=4
+STEPS=20
+
 for DS in "${DATASETS[@]}"; do
-  echo "Processing dataset: $DS"
-  python experiment_scripts/misc/create_embeddings_dataset_openai.py "$DS"
+  echo "Inverting embeddings for dataset: $DS"
+  python reproduction/experiments/invert_embeddings_openai.py --dataset "$DS" --beam_width "$BW" --num_steps "$STEPS" --push_to_hub
 done
+
+echo "All done!"
