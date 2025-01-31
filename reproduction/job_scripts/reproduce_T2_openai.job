@@ -35,17 +35,23 @@ DATASETS=(
 )
 
 # Set the beam width and number of steps during decoding as well as number of samples to generate inversions for
+MODEL="text-embedding-ada-002"  # or "gtr-base"
 BW=4
 STEPS=5
-SAMPLES=1000
+SAMPLES=2
+SEED=42
+RUN_NAME="${MODEL}_beam${BW}_steps${STEPS}_samples${SAMPLES}_seed${SEED}"
 
 for DS in "${DATASETS[@]}"; do
   echo "Inverting embeddings for dataset: $DS"
   python reproduction/experiments/invert_embeddings.py \
+    --model "$MODEL" \
     --dataset "$DS" \
     --beam_width "$BW" \
     --num_steps "$STEPS" \
     --num_samples "$SAMPLES" \
+    --seed "$SEED" \
+    --run_name "$RUN_NAME" \
     --push_to_hub
 done
 
