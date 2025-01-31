@@ -52,7 +52,6 @@ def main(args):
     # -------------------------------------------------------------------------
     wandb.init(
         project="Vec2Text-Repro",
-        entity="ryanott",
         name=args.run_name,
         config={
             "dataset": args.dataset,
@@ -122,7 +121,7 @@ def main(args):
     inv_lens_col = [None] * n
     gpu_alloc_diffs_col = [None] * n
     gpu_peaks_col = [None] * n
-
+    time_per_sample_col = [None] * n
     times = []
 
     for idx in tqdm(sampled_indices, desc="Processing samples", unit="sample"):
@@ -147,7 +146,6 @@ def main(args):
             sequence_beam_width=args.beam_width,
         )[0]
 
-        # End memory/time
         if device == "cuda":
             torch.cuda.synchronize(device=device)
         end_time = time.time()
@@ -156,10 +154,10 @@ def main(args):
 
         elapsed = end_time - start_time
         times.append(elapsed)
+
         alloc_diff_mb = (end_alloc - start_alloc) / (1024**2)  # MB
         peak_diff_mb = (peak_alloc - start_alloc) / (1024**2)  # MB
 
-        # F1 & BLEU
         ref_tokens = nltk.word_tokenize(text.lower())
         hyp_tokens = nltk.word_tokenize(inverted_text.lower())
         f1_score_val = token_f1_score(ref_tokens, hyp_tokens)
@@ -178,6 +176,7 @@ def main(args):
         inv_lens_col[idx] = len(hyp_tokens)
         gpu_alloc_diffs_col[idx] = alloc_diff_mb
         gpu_peaks_col[idx] = peak_diff_mb
+        time_per_sample_col[idx] = elapsed
 
     # -------------------------------------------------------------------------
     # 6. Summarise & Log Results
@@ -191,7 +190,9 @@ def main(args):
     }
 
     if num_samples > 0:
-        avg_time = np.mean(times)
+        valid_times = [t for t in time_per_sample_col if t is not None]
+        avg_time = np.mean(valid_times)
+
         valid_alloc = [x for x in gpu_alloc_diffs_col if x is not None]
         valid_peak = [x for x in gpu_peaks_col if x is not None]
         valid_bleu = [x for x in bleu_col if x is not None]
@@ -201,10 +202,10 @@ def main(args):
         avg_peak = np.mean(valid_peak) if len(valid_peak) > 0 else 0
         avg_bleu = np.mean(valid_bleu) if len(valid_bleu) > 0 else 0
         avg_f1 = np.mean(valid_f1) if len(valid_f1) > 0 else 0
-        total_time = np.sum(times)
+        total_time = np.sum(valid_times)
 
         result_dict.update({
-            "avg_time": avg_time,
+            "avg_time_per_sample": avg_time,
             "avg_gpu_alloc": avg_alloc,
             "avg_gpu_peak": avg_peak,
             "avg_bleu": avg_bleu,
@@ -215,17 +216,17 @@ def main(args):
         # Print to console
         print(f"\n===== Results for {args.dataset} / run: {run_suffix} =====")
         print(f"Processed {num_samples} out of {n} rows.")
-        print(f"Average per-phrase time (s): {avg_time:.4f}")
+        print(f"Average time per sample (s): {avg_time:.4f}")
         print(f"Avg GPU allocated diff (MB): {avg_alloc:.4f}")
         print(f"Avg GPU peak usage (MB): {avg_peak:.4f}")
         print(f"Average BLEU: {avg_bleu:.4f}")
         print(f"Average token F1: {avg_f1:.4f}")
         print(f"Total time (s): {total_time:.4f}")
 
-        # Log metrics to wandb
+        # Log final aggregate metrics to wandb
         wandb.log({
             "num_samples": num_samples,
-            "avg_time": avg_time,
+            "avg_time_per_sample": avg_time,
             "avg_gpu_alloc_mb": avg_alloc,
             "avg_gpu_peak_mb": avg_peak,
             "avg_bleu": avg_bleu,
@@ -248,16 +249,13 @@ def main(args):
     wandb.log_artifact(artifact)
 
     # -------------------------------------------------------------------------
-    # 7. Add inverted text to dataset & push to hub
+    # 7. Add inverted text to dataset & push
     # -------------------------------------------------------------------------
     if args.push_to_hub:
-        ds[split_name].add_column(f"inversion_{run_suffix}", inversions_col)
+        ds[split_name] = ds[split_name].add_column(f"inversion_{run_suffix}", inversions_col)
         ds.push_to_hub(f"ryanott/{args.dataset}__openai_ada2")
         print(f"Saved updated dataset to hub: ryanott/{args.dataset}__openai_ada2")
-
-    # -------------------------------------------------------------------------
-    # 8. Finish wandb run
-    # -------------------------------------------------------------------------
+    
     wandb.finish()
 
 
