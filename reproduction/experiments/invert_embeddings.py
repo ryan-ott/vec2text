@@ -1,8 +1,9 @@
 import argparse
 import json
+import os
 import random
 import time
-from typing import Dict, List
+from typing import List
 
 import evaluate
 import nltk
@@ -211,10 +212,11 @@ def main(args):
             "avg_bleu": avg_bleu,
             "avg_token_f1": avg_f1,
             "total_time": total_time,
+            "seed": args.seed,
         })
 
         # Print to console
-        print(f"\n===== Results for {args.dataset} / run: {run_suffix} =====")
+        print(f"\n===== Results for run: {run_suffix} =====")
         print(f"Processed {num_samples} out of {n} rows.")
         print(f"Average time per sample (s): {avg_time:.4f}")
         print(f"Avg GPU allocated diff (MB): {avg_alloc:.4f}")
@@ -232,6 +234,7 @@ def main(args):
             "avg_bleu": avg_bleu,
             "avg_token_f1": avg_f1,
             "total_time": total_time,
+            "seed": args.seed,
         })
 
     else:
@@ -239,12 +242,13 @@ def main(args):
         wandb.log({"num_samples": 0})
 
     # Write run metrics to JSON
-    out_filename = f"results_{args.dataset}_{run_suffix}.json"
+    os.makedirs(args.out_dir, exist_ok=True)
+    out_filename = os.path.join(args.out_dir, f"run_metrics_{run_suffix}.json")
     with open(out_filename, "w") as f:
         json.dump(result_dict, f, indent=2)
     print(f"Saved run metrics to {out_filename}")
     
-    artifact = wandb.Artifact(f"results_{args.dataset}_{run_suffix}", type="results")
+    artifact = wandb.Artifact(f"run_metrics_{run_suffix}.json", type="results")
     artifact.add_file(out_filename)
     wandb.log_artifact(artifact)
 
@@ -252,7 +256,15 @@ def main(args):
     # 7. Add inverted text to dataset & push
     # -------------------------------------------------------------------------
     if args.push_to_hub:
-        ds[split_name] = ds[split_name].add_column(f"inversion_{run_suffix}", inversions_col)
+        new_col_name = f"inversion_{run_suffix}"
+
+        # If the column already exists, remove it first to overwrite
+        if new_col_name in ds[split_name].column_names:
+            print(f"Overwriting values for column {new_col_name}")
+            ds[split_name] = ds[split_name].remove_columns(new_col_name)
+
+        # Add inverted text to dataset
+        ds[split_name] = ds[split_name].add_column(new_col_name, inversions_col)
         ds.push_to_hub(f"ryanott/{args.dataset}__openai_ada2")
         print(f"Saved updated dataset to hub: ryanott/{args.dataset}__openai_ada2")
     
@@ -272,13 +284,15 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42,
                         help="Random seed for reproducibility")
     parser.add_argument("--run_name", type=str, default="",
-                        help="Label so columns don't overwrite each other, e.g. 'runA' => 'inversion_runA'.")
-    parser.add_argument("--model", type=str, choices=["text-embedding-ada-002", "gtr-base"],
+                        help="Label for the experiment run")
+    parser.add_argument("--model", type=str, choices=["text-embedding-ada-002"], # "gtr-base" doesn't work yet, need gtr embeddings
                         default="text-embedding-ada-002",
                         help="Which model to use in load_pretrained_corrector.")
     parser.add_argument("--push_to_hub",
                         action="store_true",
                         help="Push updated dataset to Huggingface Hub")
+    parser.add_argument("--out_dir", type=str,
+                        help="Directory to save output files to")
     args = parser.parse_args()
 
     main(args)

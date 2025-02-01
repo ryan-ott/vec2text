@@ -5,7 +5,7 @@
 #SBATCH --job-name=InvertEmbeddings
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
-#SBATCH --time=06:00:00
+#SBATCH --time=12:00:00
 #SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/invert_embeddings/%A.out
 
 module purge
@@ -34,15 +34,15 @@ DATASETS=(
   "webis-touche2020"
 )
 
-# Set the beam width and number of steps during decoding as well as number of samples to generate inversions for
-MODEL="text-embedding-ada-002"  # or "gtr-base"
+# Set parameters
+MODEL="text-embedding-ada-002"  # or "gtr-base" later on
 BW=4
 STEPS=5
-SAMPLES=2
+SAMPLES=1000
 SEED=42
-RUN_NAME="${MODEL}_beam${BW}_steps${STEPS}_samples${SAMPLES}_seed${SEED}"
 
 for DS in "${DATASETS[@]}"; do
+  RUN_NAME="${DS}_${MODEL}_beam${BW}_steps${STEPS}_samples${SAMPLES}_seed${SEED}"
   echo "Inverting embeddings for dataset: $DS"
   python reproduction/experiments/invert_embeddings.py \
     --model "$MODEL" \
@@ -52,6 +52,7 @@ for DS in "${DATASETS[@]}"; do
     --num_samples "$SAMPLES" \
     --seed "$SEED" \
     --run_name "$RUN_NAME" \
+    --out_dir "reproduction/outputs/invert_embeddings/$RUN_NAME" \
     --push_to_hub
 done
 
