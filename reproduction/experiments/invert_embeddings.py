@@ -9,6 +9,7 @@ import evaluate
 import nltk
 import numpy as np
 import openai
+import spacy
 import torch
 import wandb
 from datasets import load_dataset
@@ -17,11 +18,14 @@ from tqdm import tqdm
 import vec2text
 from vec2text import load_pretrained_corrector
 
+
 nltk.download("punkt", quiet=True)
 sacrebleu = evaluate.load("sacrebleu")
+nlp = spacy.load("en_core_web_trf")
 
 
 def get_embeddings_openai(text_list: List[str], model: str = "text-embedding-ada-002") -> torch.Tensor:
+    """Get embeddings from OpenAI API for a list of texts."""
     client = openai.OpenAI()
     response = client.embeddings.create(
         input=text_list,
@@ -45,6 +49,49 @@ def token_f1_score(ref_tokens: List[str], hyp_tokens: List[str]) -> float:
         return 0.0
     f1 = 2 * (precision * recall) / (precision + recall)
     return f1
+
+
+def extract_entities(text: str) -> dict:
+    """Extract named entities from a text using spaCy."""
+    doc = nlp(text)
+    entities = {}
+    for ent in doc.ents:
+        if ent.label_ not in entities:
+            entities[ent.label_] = []
+        entities[ent.label_].append(ent.text)
+    return entities
+
+
+def jaccard_similarity(set1: set, set2: set) -> float:
+    """Compute Jaccard similarity between two sets."""
+    intersection = len(set1.intersection(set2))
+    union = len(set1.union(set2))
+    return intersection / union if union != 0 else 0
+
+
+def calculate_entity_overlap(original_entities, reconstructed_entities):
+    results = {}
+    all_jaccard = []
+    all_f1 = []
+    entity_types = set(original_entities.keys()).union(reconstructed_entities.keys())
+    for entity_type in entity_types:
+        set1 = set(original_entities.get(entity_type, []))
+        set2 = set(reconstructed_entities.get(entity_type, []))
+        jaccard = jaccard_similarity(set1, set2)
+        # Simple F1: treat membership as binary classification per entity in the union
+        union_entities = set1.union(set2)
+        f1 = (
+            2 * len(set1.intersection(set2)) / (len(set1) + len(set2))
+            if (len(set1) + len(set2)) > 0 else 0
+        )
+        results[entity_type] = {"jaccard": jaccard, "f1": f1}
+        all_jaccard.append(jaccard)
+        all_f1.append(f1)
+    results["overall"] = {
+        "jaccard": sum(all_jaccard) / len(all_jaccard) if all_jaccard else 0,
+        "f1": sum(all_f1) / len(all_f1) if all_f1 else 0
+    }
+    return results
 
 
 def main(args):
@@ -123,6 +170,8 @@ def main(args):
     gpu_alloc_diffs_col = [None] * n
     gpu_peaks_col = [None] * n
     time_per_sample_col = [None] * n
+    entity_jaccard_col = [None] * n
+    entity_named_f1_col = [None] * n
     times = []
 
     for idx in tqdm(sampled_indices, desc="Processing samples", unit="sample"):
@@ -159,15 +208,24 @@ def main(args):
         alloc_diff_mb = (end_alloc - start_alloc) / (1024**2)  # MB
         peak_diff_mb = (peak_alloc - start_alloc) / (1024**2)  # MB
 
+        # Compute Token F1
         ref_tokens = nltk.word_tokenize(text.lower())
         hyp_tokens = nltk.word_tokenize(inverted_text.lower())
         f1_score_val = token_f1_score(ref_tokens, hyp_tokens)
 
+        # Compute BLEU score
         sacrebleu_result = sacrebleu.compute(
             predictions=[inverted_text.lower()],
             references=[[text.lower()]]
         )
         bleu_val = sacrebleu_result["score"]
+
+        # Compute entity overlap metrics
+        orig_entities = extract_entities(text)
+        inv_entities = extract_entities(inverted_text)
+        entity_overlap = calculate_entity_overlap(orig_entities, inv_entities)
+        entity_jaccard_col[idx] = entity_overlap["overall"]["jaccard"]
+        entity_named_f1_col[idx] = entity_overlap["overall"]["f1"]
 
         # Store results
         inversions_col[idx] = inverted_text
@@ -198,11 +256,15 @@ def main(args):
         valid_peak = [x for x in gpu_peaks_col if x is not None]
         valid_bleu = [x for x in bleu_col if x is not None]
         valid_f1 = [x for x in f1_col if x is not None]
+        valid_entity_jaccard = [x for x in entity_jaccard_col if x is not None]
+        valid_entity_named_f1 = [x for x in entity_named_f1_col if x is not None]
 
         avg_alloc = np.mean(valid_alloc) if len(valid_alloc) > 0 else 0
         avg_peak = np.mean(valid_peak) if len(valid_peak) > 0 else 0
         avg_bleu = np.mean(valid_bleu) if len(valid_bleu) > 0 else 0
         avg_f1 = np.mean(valid_f1) if len(valid_f1) > 0 else 0
+        avg_entity_jaccard = np.mean(valid_entity_jaccard) if valid_entity_jaccard else 0
+        avg_entity_named_f1 = np.mean(valid_entity_named_f1) if valid_entity_named_f1 else 0
         total_time = np.sum(valid_times)
 
         result_dict.update({
@@ -211,6 +273,8 @@ def main(args):
             "avg_gpu_peak": avg_peak,
             "avg_bleu": avg_bleu,
             "avg_token_f1": avg_f1,
+            "avg_entity_jaccard": avg_entity_jaccard,
+            "avg_named_entity_f1": avg_entity_named_f1,
             "total_time": total_time,
             "seed": args.seed,
         })
@@ -223,6 +287,8 @@ def main(args):
         print(f"Avg GPU peak usage (MB): {avg_peak:.4f}")
         print(f"Average BLEU: {avg_bleu:.4f}")
         print(f"Average token F1: {avg_f1:.4f}")
+        print(f"Average Named Entity Jaccard: {avg_entity_jaccard:.4f}")
+        print(f"Average Named Entity F1: {avg_entity_named_f1:.4f}")
         print(f"Total time (s): {total_time:.4f}")
 
         # Log final aggregate metrics to wandb
@@ -233,6 +299,8 @@ def main(args):
             "avg_gpu_peak_mb": avg_peak,
             "avg_bleu": avg_bleu,
             "avg_token_f1": avg_f1,
+            "avg_entity_jaccard": avg_entity_jaccard,
+            "avg_named_entity_f1": avg_entity_named_f1,
             "total_time": total_time,
             "seed": args.seed,
         })
