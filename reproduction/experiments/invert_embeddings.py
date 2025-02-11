@@ -18,10 +18,21 @@ from tqdm import tqdm
 import vec2text
 from vec2text import load_pretrained_corrector
 
+# Download NLTK data if not already present
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download("punkt", quiet=True)
 
-nltk.download("punkt", quiet=True)
+# Load BLEU score evaluator
 sacrebleu = evaluate.load("sacrebleu")
-nlp = spacy.load("en_core_web_trf")
+
+# Download and load spacy model if not already present
+try:
+    nlp = spacy.load("en_core_web_trf")
+except OSError:
+    spacy.cli.download("en_core_web_trf")
+    nlp = spacy.load("en_core_web_trf")
 
 
 def get_embeddings_openai(text_list: List[str], model: str = "text-embedding-ada-002") -> torch.Tensor:
