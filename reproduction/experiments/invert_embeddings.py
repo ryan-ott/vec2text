@@ -9,14 +9,19 @@ import evaluate
 import nltk
 import numpy as np
 import openai
-import spacy
 import torch
 import wandb
 from datasets import load_dataset
 from tqdm import tqdm
+from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 
 import vec2text
 from vec2text import load_pretrained_corrector
+
+# Load the tokenizer and model for BERT-based NER
+tokenizer = AutoTokenizer.from_pretrained("dslim/bert-large-NER")
+model = AutoModelForTokenClassification.from_pretrained("dslim/bert-large-NER")
+ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple")
 
 # Download NLTK data if not already present
 try:
@@ -27,24 +32,18 @@ except LookupError:
 # Load BLEU score evaluator
 sacrebleu = evaluate.load("sacrebleu")
 
-# Download and load spacy model if not already present
-try:
-    nlp = spacy.load("en_core_web_trf")
-except OSError:
-    spacy.cli.download("en_core_web_trf")
-    nlp = spacy.load("en_core_web_trf")
 
-
-def get_embeddings_openai(text_list: List[str], model: str = "text-embedding-ada-002") -> torch.Tensor:
-    """Get embeddings from OpenAI API for a list of texts."""
-    client = openai.OpenAI()
-    response = client.embeddings.create(
-        input=text_list,
-        model=model,
-        encoding_format="float",  # override default base64 encoding...
-    )
-    outputs = [e.embedding for e in response.data]
-    return torch.tensor(outputs)
+def extract_entities(text: str) -> dict:
+    """Extract named entities from a text using the Hugging Face NER pipeline."""
+    entities = ner_pipeline(text)
+    entity_dict = {}
+    for ent in entities:
+        entity_type = ent['entity_group']
+        entity_text = ent['word']
+        if entity_type not in entity_dict:
+            entity_dict[entity_type] = []
+        entity_dict[entity_type].append(entity_text)
+    return entity_dict
 
 
 def token_f1_score(ref_tokens: List[str], hyp_tokens: List[str]) -> float:
@@ -60,17 +59,6 @@ def token_f1_score(ref_tokens: List[str], hyp_tokens: List[str]) -> float:
         return 0.0
     f1 = 2 * (precision * recall) / (precision + recall)
     return f1
-
-
-def extract_entities(text: str) -> dict:
-    """Extract named entities from a text using spaCy."""
-    doc = nlp(text)
-    entities = {}
-    for ent in doc.ents:
-        if ent.label_ not in entities:
-            entities[ent.label_] = []
-        entities[ent.label_].append(ent.text)
-    return entities
 
 
 def jaccard_similarity(set1: set, set2: set) -> float:
@@ -364,7 +352,7 @@ if __name__ == "__main__":
                         help="Random seed for reproducibility")
     parser.add_argument("--run_name", type=str, default="",
                         help="Label for the experiment run")
-    parser.add_argument("--model", type=str, choices=["text-embedding-ada-002"], # "gtr-base" doesn't work yet, need gtr embeddings
+    parser.add_argument("--model", type=str, choices=["text-embedding-ada-002"],  # "gtr-base" doesn't work yet, need gtr embeddings
                         default="text-embedding-ada-002",
                         help="Which model to use in load_pretrained_corrector.")
     parser.add_argument("--push_to_hub",
