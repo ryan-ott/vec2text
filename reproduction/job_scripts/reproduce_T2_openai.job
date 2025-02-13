@@ -5,7 +5,7 @@
 #SBATCH --job-name=InvertEmbeddings
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
-#SBATCH --time=12:00:00
+#SBATCH --time=24:00:00
 #SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/invert_embeddings/%A.out
 
 module purge
@@ -39,21 +39,23 @@ MODEL="text-embedding-ada-002"  # or "gtr-base" later on
 BW=4
 STEPS=5
 SAMPLES=1000
-SEED=42
+SEEDS=(42 25 69)
 
 for DS in "${DATASETS[@]}"; do
-  RUN_NAME="${DS}_${MODEL}_beam${BW}_steps${STEPS}_samples${SAMPLES}_seed${SEED}"
-  echo "Inverting embeddings for dataset: $DS"
-  python reproduction/experiments/invert_embeddings.py \
-    --model "$MODEL" \
-    --dataset "$DS" \
-    --beam_width "$BW" \
-    --num_steps "$STEPS" \
-    --num_samples "$SAMPLES" \
-    --seed "$SEED" \
-    --run_name "$RUN_NAME" \
-    --out_dir "reproduction/outputs/invert_embeddings/$RUN_NAME" \
-    --push_to_hub
+  for SEED in "${SEEDS[@]}"; do
+    RUN_NAME="${DS}_${MODEL}_beam${BW}_steps${STEPS}_samples${SAMPLES}_seed${SEED}"
+    echo "Inverting embeddings for dataset: $DS with seed: $SEED"
+    python reproduction/experiments/invert_embeddings.py \
+      --model "$MODEL" \
+      --dataset "$DS" \
+      --beam_width "$BW" \
+      --num_steps "$STEPS" \
+      --num_samples "$SAMPLES" \
+      --seed "$SEED" \
+      --run_name "$RUN_NAME" \
+      --out_dir "reproduction/outputs/invert_embeddings/$RUN_NAME" \
+      --push_to_hub
+  done
 done
 
 echo "All done!"

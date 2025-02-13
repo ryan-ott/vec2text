@@ -1,0 +1,15 @@
+{
+  "dataset": "climate-fever",
+  "model_used": "text-embedding-ada-002",
+  "run_name": "climate-fever_text-embedding-ada-002_beam4_steps5_samples1000_seed25",
+  "num_samples": 1000,
+  "avg_time_per_sample": 14.893838536262512,
+  "avg_gpu_alloc": 0.008125,
+  "avg_gpu_peak": 996.7217211914062,
+  "avg_bleu": 42.713460563673664,
+  "avg_token_f1": 0.5923670122523226,
+  "avg_entity_jaccard": 0.42861941943849036,
+  "avg_named_entity_f1": 0.4630842722545534,
+  "total_time": 14893.838536262512,
+  "seed": 25
+}
