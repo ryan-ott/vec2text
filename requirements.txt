@@ -14,7 +14,6 @@ rouge_score
 sacrebleu
 seaborn
 sentence_transformers
-spacy
 tenacity
 tokenizers
 tqdm

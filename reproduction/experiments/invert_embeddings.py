@@ -8,7 +8,6 @@ from typing import List
 import evaluate
 import nltk
 import numpy as np
-import openai
 import torch
 import wandb
 from datasets import load_dataset
