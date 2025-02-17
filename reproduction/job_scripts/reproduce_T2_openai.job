@@ -41,8 +41,8 @@ STEPS=5
 SAMPLES=1000
 SEEDS=(42 25 69)
 
-for DS in "${DATASETS[@]}"; do
-  for SEED in "${SEEDS[@]}"; do
+for SEED in "${SEEDS[@]}"; do
+  for DS in "${DATASETS[@]}"; do
     RUN_NAME="${DS}_${MODEL}_beam${BW}_steps${STEPS}_samples${SAMPLES}_seed${SEED}"
     echo "Inverting embeddings for dataset: $DS with seed: $SEED"
     python reproduction/experiments/invert_embeddings.py \
@@ -59,3 +59,6 @@ for DS in "${DATASETS[@]}"; do
 done
 
 echo "All done!"
+
+
+python reproduction/experiments/invert_embeddings.py --model text-embedding-ada-002 --dataset scidocs --beam_width 4 --num_steps 2 --num_samples 2 --seed 42 --run_name jesse_trial --out_dir jesse_trial --push_to_hub

@@ -1,0 +1,15 @@
+{
+  "dataset": "cqadupstack",
+  "model_used": "text-embedding-ada-002",
+  "run_name": "cqadupstack_text-embedding-ada-002_beam4_steps5_samples1000_seed42",
+  "num_samples": 1000,
+  "avg_time_per_sample": 17.87541717720032,
+  "avg_gpu_alloc": 0.008125,
+  "avg_gpu_peak": 1218.6310385742188,
+  "avg_bleu": 17.51233334309361,
+  "avg_token_f1": 0.3885025604063277,
+  "avg_entity_jaccard": 0.1361082671957672,
+  "avg_named_entity_f1": 0.15292170411288059,
+  "total_time": 17875.417177200317,
+  "seed": 42
+}

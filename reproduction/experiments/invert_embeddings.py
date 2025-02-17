@@ -96,6 +96,11 @@ def main(args):
     # -------------------------------------------------------------------------
     # 1. Initialisation
     # -------------------------------------------------------------------------
+    
+    if args.out_dir is None:
+        args.out_dir = os.path.join("reproduction", "outputs", "invert_embeddings", args.run_name)
+    os.makedirs(args.out_dir, exist_ok=True)
+    
     wandb.init(
         project="Vec2Text-Repro",
         name=args.run_name,
@@ -110,8 +115,8 @@ def main(args):
     )
     
     if wandb.run is None:
-        print("WandB initialization failed.")
-        return
+        # Handle error case if wandb fails to initialise
+        raise ValueError("WandB run not initialised.")
 
     # Seed for reproducibility
     random.seed(args.seed)

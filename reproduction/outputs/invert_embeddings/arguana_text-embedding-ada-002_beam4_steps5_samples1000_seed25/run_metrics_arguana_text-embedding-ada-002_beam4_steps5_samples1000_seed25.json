@@ -1,0 +1,15 @@
+{
+  "dataset": "arguana",
+  "model_used": "text-embedding-ada-002",
+  "run_name": "arguana_text-embedding-ada-002_beam4_steps5_samples1000_seed25",
+  "num_samples": 1000,
+  "avg_time_per_sample": 19.07217482662201,
+  "avg_gpu_alloc": 0.008125,
+  "avg_gpu_peak": 1313.3568193359374,
+  "avg_bleu": 14.580275371827659,
+  "avg_token_f1": 0.3700617943482974,
+  "avg_entity_jaccard": 0.2928513583638584,
+  "avg_named_entity_f1": 0.3243070841195841,
+  "total_time": 19072.17482662201,
+  "seed": 25
+}
