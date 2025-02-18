@@ -1,0 +1,15 @@
+{
+  "dataset": "dbpedia-entity",
+  "model_used": "text-embedding-ada-002",
+  "run_name": "dbpedia-entity_text-embedding-ada-002_beam4_steps5_samples1000_seed69",
+  "num_samples": 1000,
+  "avg_time_per_sample": 14.889554304599763,
+  "avg_gpu_alloc": 0.008125,
+  "avg_gpu_peak": 973.0782143554687,
+  "avg_bleu": 50.67516028268789,
+  "avg_token_f1": 0.5525444787597169,
+  "avg_entity_jaccard": 0.49722229050952427,
+  "avg_named_entity_f1": 0.5482145426139167,
+  "total_time": 14889.554304599762,
+  "seed": 69
+}

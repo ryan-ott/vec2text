@@ -5,7 +5,7 @@
 #SBATCH --job-name=InvertEmbeddings
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
-#SBATCH --time=24:00:00
+#SBATCH --time=06:00:00
 #SBATCH --output=/home/scur2868/IR2/vec2text/reproduction/outputs/invert_embeddings/%A.out
 
 module purge
@@ -17,21 +17,21 @@ source /home/scur2868/IR2/v2t-env/bin/activate
 cd /home/scur2868/IR2/vec2text
 
 DATASETS=(
-  "arguana"
-  "climate-fever"
-  "cqadupstack"
+  # "arguana"
+  # "climate-fever"
+  # "cqadupstack"
   "dbpedia-entity"
-  "fever"
-  "fiqa"
-  "hotpotqa"
-  "msmarco"
-  "nfcorpus"
-  "nq"
-  "quora"
-  "scidocs"
-  "scifact"
-  "trec-covid"
-  "webis-touche2020"
+  # "fever"
+  # "fiqa"
+  # "hotpotqa"
+  # "msmarco"
+  # "nfcorpus"
+  # "nq"
+  # "quora"
+  # "scidocs"
+  # "scifact"
+  # "trec-covid"
+  # "webis-touche2020"
 )
 
 # Set parameters
@@ -39,7 +39,8 @@ MODEL="text-embedding-ada-002"  # or "gtr-base" later on
 BW=4
 STEPS=5
 SAMPLES=1000
-SEEDS=(42 25 69)
+# SEEDS=(42 25 69)
+SEEDS=(69)
 
 for SEED in "${SEEDS[@]}"; do
   for DS in "${DATASETS[@]}"; do
@@ -61,4 +62,4 @@ done
 echo "All done!"
 
 
-python reproduction/experiments/invert_embeddings.py --model text-embedding-ada-002 --dataset scidocs --beam_width 4 --num_steps 2 --num_samples 2 --seed 42 --run_name jesse_trial --out_dir jesse_trial --push_to_hub
+# python reproduction/experiments/invert_embeddings.py --model text-embedding-ada-002 --dataset quora --beam_width 4 --num_steps 2 --num_samples 2 --seed 42 --run_name trial --out_dir trial --push_to_hub

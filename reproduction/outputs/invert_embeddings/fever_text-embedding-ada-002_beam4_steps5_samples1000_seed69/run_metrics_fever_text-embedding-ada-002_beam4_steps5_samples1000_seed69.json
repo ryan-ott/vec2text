@@ -1,0 +1,15 @@
+{
+  "dataset": "fever",
+  "model_used": "text-embedding-ada-002",
+  "run_name": "fever_text-embedding-ada-002_beam4_steps5_samples1000_seed69",
+  "num_samples": 1000,
+  "avg_time_per_sample": 15.398902705907823,
+  "avg_gpu_alloc": 0.008125,
+  "avg_gpu_peak": 1002.152998046875,
+  "avg_bleu": 42.33397024791912,
+  "avg_token_f1": 0.5809884498945523,
+  "avg_entity_jaccard": 0.4297116496263168,
+  "avg_named_entity_f1": 0.47310764313730647,
+  "total_time": 15398.902705907822,
+  "seed": 69
+}
