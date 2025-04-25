@@ -16,6 +16,7 @@ __pycache__/
 
 # Virtual environment (partial, see note below)
 venv/*
+.venv/
 
 # Build and distribution directories
 build/
